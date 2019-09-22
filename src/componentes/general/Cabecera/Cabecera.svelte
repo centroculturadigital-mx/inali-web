@@ -49,9 +49,26 @@
 
   <nav>
     <ul>
-      <li> <a href="#">Menu</a> </li>
-      <li> <a href="#">Menu</a> </li>
-      <li> <a href="#">Menu</a> </li>
+        <li>
+            <a href="#">
+                Menu
+            </a>
+        </li>
+        <li>
+            <a href="/glosario">
+                Glosario
+            </a>
+        </li>
+        <li>
+            <a href="/instrucciones">
+                Instrucciones
+            </a>
+        </li>
+        <li>
+            <a href="/acerca">
+                Acerca de
+            </a>
+        </li>
     </ul>
   </nav>
 
