@@ -11,14 +11,10 @@
 
     #Logotipo {
         padding: 0;
-        width: 12rem;        
-    }
-
-    #Logotipo img {
-        width: 100%;
+        width: 6rem;        
         height: 100%;
         object-fit: contain; 
-        object-position: 0 0;
+        object-position: 0 50%;
     }
 
 
@@ -49,21 +45,13 @@
 
 <header>
 
-  <div id="Logotipo">
-    <img src="http://fakeimg.pl/244x80?text=logo" alt="img" />
-  </div>
+  <img id="Logotipo" src="http://fakeimg.pl/244x80?text=logo" alt="img" />
 
   <nav>
     <ul>
-      <li>
-        <a href="#">Menu</a>
-      </li>
-      <li>
-        <a href="#">Menu</a>
-      </li>
-      <li>
-        <a href="#">Menu</a>
-      </li>
+      <li> <a href="#">Menu</a> </li>
+      <li> <a href="#">Menu</a> </li>
+      <li> <a href="#">Menu</a> </li>
     </ul>
   </nav>
 

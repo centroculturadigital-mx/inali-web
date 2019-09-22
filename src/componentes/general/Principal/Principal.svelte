@@ -42,6 +42,7 @@
 
 <div class="Principal">
     <div class="Mapa">
+        <!-- TODO: implementar mapa -->
         <div class="temporal">
             MAPA
         </div>

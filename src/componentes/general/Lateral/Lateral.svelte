@@ -3,7 +3,7 @@
     aside {
         padding: 1rem;
     }
-    
+
     details .Titulo,
     details details {
         padding-left: 2rem;
@@ -39,6 +39,7 @@
                                     <summary>
                                         Nombre de variante
                                     </summary>
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae laudantium dolorem amet dolorum? Minus nobis omnis, quod esse cum, iusto laudantium error adipisci ducimus amet dicta. Molestias iure aperiam maiores.</p>
                                </details> 
                             </li>
                         </ul>
