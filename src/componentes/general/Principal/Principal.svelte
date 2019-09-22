@@ -1,6 +1,16 @@
 <script>
     import Lateral from "../Lateral/Lateral.svelte";
     import Herramientas from "../Herramientas/Herramientas.svelte";
+    import { setContext } from 'svelte';
+
+    let mivariable
+
+    setContext('app', {
+        test: 123,
+        testfunc: (valor) => mivariable = valor
+    
+    })
+
 </script>
 
 <style>
