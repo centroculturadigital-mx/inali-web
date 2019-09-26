@@ -56,17 +56,17 @@
         </li>
         <li>
             <a href="/glosario">
-                Glosario
+                Acerca de
             </a>
         </li>
         <li>
             <a href="/instrucciones">
-                Instrucciones
+                Glosario
             </a>
         </li>
         <li>
             <a href="/acerca">
-                Acerca de
+                Mapa Interactivo
             </a>
         </li>
     </ul>
