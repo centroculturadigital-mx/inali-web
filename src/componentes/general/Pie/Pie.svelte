@@ -1,8 +1,10 @@
 <style>
     footer {
-        background-color: #3D3D3D;
         padding: 2rem;
+        background: #465d72b3;
     }
+
+   
 </style>
 
 <footer>

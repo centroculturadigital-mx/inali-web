@@ -16,7 +16,8 @@
     header {
         display: flex;
         height: 4rem;
-        background: #3D3D3D;
+        background: #465D72;
+        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
 
     }
 
@@ -41,7 +42,7 @@
         align-items: center;
     }
     header > nav {
-      flex-grow: 1;
+        flex-grow: 1;
     }
    
     nav ul {
@@ -66,7 +67,7 @@
     }
 
     .Busqueda {
-        background: #3D3D3D;
+        background: #465D72;
         border: 0;
         margin: 1rem;
     }

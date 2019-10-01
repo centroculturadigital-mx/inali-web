@@ -11,19 +11,22 @@
     
     .BarraOcultar {
         /* border-radius: 10px 10px 0px 0px;  */
-        background: #3D3D3D;
+        background: #465D72;
         border-radius: 0px;
         
+    }
+    .Familias {
+        padding: 0.5em;
+        color: #fff;
     }
 
 </style>
 
 <div class="BarraOcultar">
-    Ocultar filtro
+    <h4 class="Familias">Familias lingüísticas</h4>
 </div>
 <aside>
 
-<h2>Familia linguistica</h2>
 <ul>
     <li>
         <details>
