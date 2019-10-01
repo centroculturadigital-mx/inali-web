@@ -6,25 +6,25 @@
     import MapaCapa from "../Mapa/MapaCapa.svelte";
     import MapaMarcador from "../Mapa/MapaMarcador.svelte";
 
+    let familiasModule
+    let agrupacionesModule
+    let variantesModule
     let famTree = []
-    let familias = []
-    let agrupaciones = []
-    let variantes = []
+
+    $: familias = familiasModule ? familiasModule.default : []
+    $: agrupaciones = agrupacionesModule ? agrupacionesModule.default : []
+    $: variantes = variantesModule ? variantesModule.default : []
+
+    const handleLayerClick = (famId) => {
+        console.log(famId)
+    }
 
     onMount(async () => {
 
-        let familiasModule = await import('../../../data/familias.json')
-        let agrupacionesModule = await import('../../../data/agrupaciones.json')
-        let variantesModule = await import('../../../data/variantes.json')
+        familiasModule = await import('../../../data/familias.json')
+        agrupacionesModule = await import('../../../data/agrupaciones.json')
+        variantesModule = await import('../../../data/variantes.json')
 
-        familias = familiasModule.default
-        agrupaciones = agrupacionesModule.default
-        variantes = variantesModule.default
-
-        const handleLayerClick = (famId) => {
-            console.log(famId)
-        }
-        
         famTree = familias.map(f => {
             let fam = {
                 nombre: f.NOM_FAM,
@@ -92,9 +92,9 @@
     <div class="Mapa">
         <Mapa lat={19} lon={-99} zoom={8}>
 	
-            <!-- {#each familias as fam}       
+            {#each familias as fam}       
                 <MapaCapa polygon={fam.geojson} id={fam.id} on:layerclick={handleLayerClick}/>
-            {/each} -->
+            {/each}
 
             <MapaMarcador lat={19.8981} lon={-99.4169} label="Svelte Barbershop & Essentials"/>
             <!-- <MapaMarker lat={19.7230} lon={-99.4189} label="Svelte Waxing Studio"/>
