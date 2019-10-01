@@ -76,6 +76,11 @@
       color: #fff;
     }
 
+    .Idiomas {
+        border-left: solid gray 1px;
+
+    }
+
 </style>
 
 <header>
@@ -106,7 +111,7 @@
   </nav>
 
   <button class="Busqueda">
-    <i>B</i>
+    <i></i>
   </button>
 
   <div class="Idiomas">
