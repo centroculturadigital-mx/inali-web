@@ -1,0 +1,15 @@
+FROM node:11
+
+ENV HOME=/src/inali-web
+
+WORKDIR $HOME
+
+COPY . .
+
+ENV PORT=5000
+EXPOSE 5000
+
+RUN npm install
+RUN npm run build
+
+CMD ["node", "__sapper__/build/"]       
