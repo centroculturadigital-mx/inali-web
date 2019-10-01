@@ -1,25 +1,36 @@
 <script>
     import Idiomas from "../Idiomas/Idiomas.svelte";
+    import Logo from "./Logo/Logo.svelte";
+
+
+    // import Icon from "fa-svelte";
+    // import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
+    // let Busqueda = faSearch;
+
 </script>
 
 <style>
 
+
     header {
         display: flex;
         height: 4rem;
+        background: #3D3D3D;
+
     }
 
     #Logotipo {
         padding: 0;
-        width: 12rem;        
+        width: 12rem; 
     }
 
-    #Logotipo img {
+    /* #Logotipo img {
         width: 100%;
         height: 100%;
         object-fit: contain; 
         object-position: 0 0;
-    }
+    } */
 
 
     header > * {
@@ -29,7 +40,8 @@
 
     header > nav {
         flex-grow: 1;
-        padding: 0;
+        /* padding: 0; */
+        padding: 3rem;
     }
     nav ul {
         width: 100%;
@@ -38,11 +50,25 @@
         align-items: center;
     }
     nav ul li {
-        padding: 0 2rem;
+        padding: 0 4rem 2rem;
         height: 100%;
         display: flex;
         align-items: center;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 48px;
 
+    }
+
+    .Busqueda {
+        background: #3D3D3D;
+        border: 0;
+        
+    }
+
+    a {
+      text-decoration-style: none;
+      color: #fff;
     }
 
 </style>
@@ -50,28 +76,36 @@
 <header>
 
   <div id="Logotipo">
-    <img src="http://fakeimg.pl/244x80?text=logo" alt="img" />
+    <!-- <img src="http://fakeimg.pl/244x80?text=logo" alt="img" /> -->
+    <Logo/>
   </div>
 
   <nav>
     <ul>
       <li>
-        <a href="#">Menu</a>
+        <a href="#">
+        ACERCA DE
+        </a>
       </li>
       <li>
-        <a href="#">Menu</a>
+        <a href="#">
+        GLOSARIO
+        </a>
       </li>
       <li>
-        <a href="#">Menu</a>
+        <a href="#">
+        MAPA INTERACTIVO
+        </a>
       </li>
     </ul>
   </nav>
 
-  <button>
+  <button class="Busqueda">
     <i>B</i>
   </button>
 
-  
+  <div class="Idiomas">
     <Idiomas/>
+  </div>
 
 </header>
