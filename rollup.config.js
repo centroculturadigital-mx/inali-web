@@ -6,6 +6,7 @@ import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
+import json from 'rollup-plugin-json';
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -33,6 +34,28 @@ export default {
 				dedupe
 			}),
 			commonjs(),
+
+			json({
+				// All JSON files will be parsed by default,
+				// but you can also specifically include/exclude files
+				// include: 'node_modules/**',
+				include: 'src/data/**',
+				exclude: [ 'node_modules/**'],
+	
+				// for tree-shaking, properties will be declared as
+				// variables, using either `var` or `const`
+				preferConst: true, // Default: false
+	
+				// specify indentation for the generated default export —
+				// defaults to '\t'
+				indent: '  ',
+	
+				// ignores indent and generates the smallest code
+				compact: true, // Default: false
+	
+				// generate a named export for every property of the JSON object
+				namedExports: true // Default: true
+			}),
 
 			legacy && babel({
 				extensions: ['.js', '.mjs', '.html', '.svelte'],
