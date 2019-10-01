@@ -1,17 +1,54 @@
 <script>
+    import { onMount } from 'svelte'
     import Lateral from "../Lateral/Lateral.svelte";
     import Herramientas from "../Herramientas/Herramientas.svelte";
     import Mapa from "../Mapa/Mapa.svelte";
     import MapaCapa from "../Mapa/MapaCapa.svelte";
     import MapaMarcador from "../Mapa/MapaMarcador.svelte";
 
-    import familias from '../../../data/familias.json'
-	
-	console.log(familias)
+    let famTree = []
+    let familias = []
+    let agrupaciones = []
+    let variantes = []
 
-	const handleLayerClick = (famId) => {
-		console.log(famId)
-	}
+    onMount(async () => {
+
+        let familiasModule = await import('../../../data/familias.json')
+        let agrupacionesModule = await import('../../../data/agrupaciones.json')
+        let variantesModule = await import('../../../data/variantes.json')
+
+        familias = familiasModule.default
+        agrupaciones = agrupacionesModule.default
+        variantes = variantesModule.default
+
+        const handleLayerClick = (famId) => {
+            console.log(famId)
+        }
+        
+        famTree = familias.map(f => {
+            let fam = {
+                nombre: f.NOM_FAM,
+                id: f.id,
+                tipo: 'familia'
+            }
+            fam.agrupaciones = agrupaciones.filter(a => {
+                return f.agrupaciones.includes(a.id)
+            }).map(a => {
+                let agr = {
+                    nombre: a.NOM_AGRUP,
+                    id: a.id,
+                    famId: f.id,
+                    tipo: 'agrupacion'
+                }
+                return agr
+            })
+            return fam
+        })
+
+        console.log(famTree)
+
+    })
+
 </script>
 
 <style>
@@ -55,9 +92,9 @@
     <div class="Mapa">
         <Mapa lat={19} lon={-99} zoom={8}>
 	
-            {#each familias as fam}       
+            <!-- {#each familias as fam}       
                 <MapaCapa polygon={fam.geojson} id={fam.id} on:layerclick={handleLayerClick}/>
-            {/each}
+            {/each} -->
 
             <MapaMarcador lat={19.8981} lon={-99.4169} label="Svelte Barbershop & Essentials"/>
             <!-- <MapaMarker lat={19.7230} lon={-99.4189} label="Svelte Waxing Studio"/>
