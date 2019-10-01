@@ -1,3 +1,9 @@
+<script>
+    export let arbol = []
+
+    $: console.log('arbol', arbol)
+</script>
+
 <style>
 
     aside {
@@ -28,7 +34,40 @@
 <aside>
 
 <ul>
-    <li>
+    {#each arbol as fam}       
+        <li>
+            <details>
+                <summary>
+                    {fam.nombre}
+                </summary>
+                <ul>
+                
+                {#each fam.agrupaciones as agr}
+                    <li>
+                        <details>
+                            <summary>
+                                {agr.nombre}
+                            </summary>
+                            <ul>
+                                
+                            {#each agr.variantes as vari}
+                                <li>
+                                    {vari.nombre}
+                                </li>
+                            {/each}
+
+                            </ul>    
+                        </details>
+                    </li>
+
+                {/each}
+
+                </ul>
+            </details>
+        </li>
+
+    {/each}
+    <!-- <li>
         <details>
             <summary>
                 Nombre de familia
@@ -62,7 +101,7 @@
                 </li>
             </ul>
         </details>
-    </li>
+    </li> -->
 </ul>
 
 </aside>

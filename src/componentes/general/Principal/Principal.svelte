@@ -9,14 +9,57 @@
     let familiasModule
     let agrupacionesModule
     let variantesModule
-    let famTree = []
 
     $: familias = familiasModule ? familiasModule.default : []
     $: agrupaciones = agrupacionesModule ? agrupacionesModule.default : []
     $: variantes = variantesModule ? variantesModule.default : []
 
+    $: famArbol = calculaArbol(familias, agrupaciones, variantes)
+
     const handleLayerClick = (famId) => {
         console.log(famId)
+    }
+
+    const calculaArbol = (fams, agrs, varis) => {
+        
+        console.log('cambia')
+        if (
+            fams && agrs && varis &&
+            fams.length && agrs.length && varis.length
+        ) {
+            let newArbol = familias.map(f => {
+                let fam = {
+                    nombre: f.NOM_FAM,
+                    id: f.id,
+                    tipo: 'familia'
+                }
+                fam.agrupaciones = agrupaciones.filter(a => {
+                    return f.agrupaciones.includes(a.id)
+                }).map(a => {
+                    let agr = {
+                        nombre: a.NOM_AGRUP,
+                        id: a.id,
+                        famId: f.id,
+                        tipo: 'agrupacion'
+                    }
+                    agr.variantes = variantes.filter(v => {
+                        return a.variantes.includes(v.id)
+                    }).map(v => {
+                        return {
+                            nombre: v.NOM_VAR,
+                            id: v.id,
+                            agrId: a.id,
+                            tipo: 'variante'
+                        }                    
+                    })
+                    return agr
+                })
+                return fam
+            })
+            console.log('newArbol', newArbol)
+            return newArbol
+
+        } else return []
     }
 
     onMount(async () => {
@@ -24,28 +67,6 @@
         familiasModule = await import('../../../data/familias.json')
         agrupacionesModule = await import('../../../data/agrupaciones.json')
         variantesModule = await import('../../../data/variantes.json')
-
-        famTree = familias.map(f => {
-            let fam = {
-                nombre: f.NOM_FAM,
-                id: f.id,
-                tipo: 'familia'
-            }
-            fam.agrupaciones = agrupaciones.filter(a => {
-                return f.agrupaciones.includes(a.id)
-            }).map(a => {
-                let agr = {
-                    nombre: a.NOM_AGRUP,
-                    id: a.id,
-                    famId: f.id,
-                    tipo: 'agrupacion'
-                }
-                return agr
-            })
-            return fam
-        })
-
-        console.log(famTree)
 
     })
 
@@ -106,8 +127,10 @@
     <div class="Herramientas">
         <Herramientas/>
     </div>
-    <div class="Lateral">
-        <Lateral/>
-    </div>
+    {#if famArbol}
+        <div class="Lateral">
+            <Lateral arbol={famArbol}/>
+        </div>
+    {/if}
 </div>
 
