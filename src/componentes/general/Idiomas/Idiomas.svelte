@@ -19,7 +19,6 @@
 
 </style>
 
-<nav>
     <select name="Idioma" id="Idioma">
         <option value="1">
             <a href="#">
@@ -37,4 +36,3 @@
             </a>
         </option>
     </select>
-</nav>

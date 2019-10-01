@@ -8,8 +8,20 @@
     details details {
         padding-left: 2rem;
     }
+    
+    .BarraOcultar {
+        border-radius: 10px 10px 0px 0px; 
+        background: #3D3D3D;
+        
+    }
+
 </style>
+
+<div class="BarraOcultar">
+    Ocultar filtro
+</div>
 <aside>
+
 <h2>Familia linguistica</h2>
 <ul>
     <li>

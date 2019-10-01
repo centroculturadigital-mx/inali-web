@@ -34,23 +34,28 @@
 
 
     header > * {
-        flex-shrink: 1;
-        padding: 1.5rem;
+        /* flex-shrink: 1;
+        padding: 1.5rem; */
+        padding: 0 1rem;
+        display: flex;
+        align-items: center;
     }
-
     header > nav {
-        flex-grow: 1;
-        /* padding: 0; */
-        padding: 3rem;
+      flex-grow: 1;
     }
+   
     nav ul {
         width: 100%;
         height: 100%;
         display: flex;
         align-items: center;
+        justify-content: space-evenly;
+        border-right: solid gray 1px;
+        border-left: solid gray 1px;
     }
     nav ul li {
-        padding: 0 4rem 2rem;
+        padding: 0 1rem;
+        margin: 0;
         height: 100%;
         display: flex;
         align-items: center;
@@ -63,12 +68,17 @@
     .Busqueda {
         background: #3D3D3D;
         border: 0;
-        
+        margin: 1rem;
     }
 
     a {
       text-decoration-style: none;
       color: #fff;
+    }
+
+    .Idiomas {
+        border-left: solid gray 1px;
+
     }
 
 </style>
@@ -101,7 +111,7 @@
   </nav>
 
   <button class="Busqueda">
-    <i>B</i>
+    <i></i>
   </button>
 
   <div class="Idiomas">
