@@ -5,17 +5,18 @@
     }
 
     .Riesgo {
-        
-        background: rgba(61, 61, 61, 0.7);
+        background: #242424b3;
         background-blend-mode: multiply;
         border-radius: 4px;
+        border: 0;
     }
 
      .Voluta {
         
-        background: rgba(61, 61, 61, 0.7);
+        background: #242424b3;
         background-blend-mode: multiply;
         border-radius: 4px;
+        border: 0;
     }
 
 </style>
