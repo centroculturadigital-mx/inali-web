@@ -9,6 +9,10 @@
       margin: 0;
       
     }
+
+    svg {
+      width: 100%
+    }
 </style>
 
 <figure>
