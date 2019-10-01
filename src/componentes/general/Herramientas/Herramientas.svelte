@@ -1,6 +1,6 @@
 <style>
     button {
-        padding: 1.6rem 1rem;
+        padding: 1.2rem .8rem;
         margin-left: 1rem;
     }
 

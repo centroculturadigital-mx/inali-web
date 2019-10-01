@@ -23,17 +23,17 @@
     <select name="Idioma" id="Idioma">
         <option value="1">
             <a href="#">
-                Espanol  ▼  
+                ESPANOL  ▼  
             </a>
         </option>
         <option value="2">
             <a href="#">
-                Maya    
+                MAYA    
             </a>
         </option>
         <option value="3">
             <a href="#">
-                Nahuatl    
+                NAHUATL    
             </a>
         </option>
     </select>
