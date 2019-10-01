@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+
+  inali-web:
+    container_name: inali-web-simple
+    build: 
+      context: ./
+      dockerfile: ./Dockerfile.simple.dev
+    ports:
+      - 5000:5000
+    # volumes:
+    #   - ./:/src/inali-web
