@@ -7,10 +7,19 @@
 <style>
 
     aside {
+        max-height: 30rem;
+        overflow: auto;
         padding: 1rem;
+        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+        background-color: #fff;
+        opacity: 0.8;
     }
     
-    details .Titulo,
+    /* details .Titulo,
+    details details {
+        padding-left: 2rem;
+    } */
+
     details details {
         padding-left: 2rem;
     }

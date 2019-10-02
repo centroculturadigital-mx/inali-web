@@ -99,15 +99,12 @@
         top: 1rem;
         left: 1rem;
         width: 320px;
-        background-color: #fff;
+        background-color: transparent;
         height: calc( 100% - 2rem );
     }
 </style>
 
-
-	
-	
-	
+		
 
 <div class="Principal">
     <div class="Mapa">

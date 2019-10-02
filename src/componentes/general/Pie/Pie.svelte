@@ -2,6 +2,8 @@
     footer {
         padding: 2rem;
         background: #465d72b3;
+        
+
     }
 
    
