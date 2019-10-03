@@ -66,29 +66,36 @@
             return [ famMod.default.find( f => f.agrupaciones.includes(selec.agrId) ) ]
     }
 
-    const calculaAgrupacionesVisibles = ( agrMod, famMod, selec ) => {
+    const calculaAgrupacionesVisibles = ( agrMod, selec ) => {
 
         console.log('calculaAgrupacionesVisibles', selec)
-        // if ( !agrMod ) 
-        //     return [] 
-        // else if (
-        //     selec.famId &&
-        //     !selec.agrId &&
-        //     !selec.varId
-        // ) return agrMod.default
-        // else if ( selec.famId ) 
-        //     return [ agrMod.default.find( a => a.famId === selec.famId ) ]
-        // else if ( selec.agrId ) 
-        //     return [ agrMod.default.find( a => a.variantes.includes(selec.agrId) ) ]
+        if ( !agrMod ) 
+            return [] 
+        else if (
+            ! selec.famId &&
+            ! selec.agrId &&
+            ! selec.varId
+        ) return agrMod.default
+        else if ( selec.famId ) 
+            return agrMod.default.filter(a => a.familiaId)
+        else if ( selec.agrId ) 
+            return [ agrMod.default.find( a => a.id === selec.agrId ) ]
 
     }
 
     const calculaVariantesVisibles = ( varMod, selec ) => {
         
         console.log('calculaVariantesVisibles', selec)
-
-        // return !varMod ? [] 
-        //     : varMod.default.find(v => v.id === selec.varId) 
+        if ( !varMod ||
+            ( 
+                ! selec.agrId &&
+                ! selec.varId 
+            )
+        ) return [] 
+        else if ( selec.agrId ) 
+            return varMod.default.filter(a => a.familiaId)
+        else if ( selec.varId ) 
+            return [ varMod.default.find( a => a.id === selec.varId ) ]
 
     }
 
@@ -107,7 +114,6 @@
     } 
 
     const calculaArbolFiltro = (fams, agrs, varis) => {
-
         
         if (
             fams && agrs && varis &&
