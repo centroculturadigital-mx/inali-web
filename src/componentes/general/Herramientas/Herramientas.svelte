@@ -1,3 +1,6 @@
+<script>
+</script>
+
 <style>
     button {
         padding: 1.2rem .8rem;
@@ -5,7 +8,8 @@
     }
 
     .Riesgo {
-        background: #465d72b3;
+        /* background: #465d72b3; */
+        background: #ff6161b3;
         background-blend-mode: multiply;
         border-radius: 4px;
         border: 0;
