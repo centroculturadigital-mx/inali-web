@@ -1,7 +1,9 @@
 <script>
     export let arbol = []
+    export let seleccion
 
     $: console.log('arbol', arbol)
+    $: console.log('seleccion', seleccion)
 </script>
 
 <style>
@@ -15,11 +17,6 @@
         opacity: 0.8;
     }
     
-    /* details .Titulo,
-    details details {
-        padding-left: 2rem;
-    } */
-
     details details {
         padding-left: 2rem;
     }
@@ -44,6 +41,7 @@
 </div>
 <aside>
 
+<!-- TODO agregar indicador de filtro activo -->
 <ul>
     {#each arbol as fam}       
         <li>
@@ -78,41 +76,6 @@
         </li>
 
     {/each}
-    <!-- <li>
-        <details>
-            <summary>
-                Nombre de familia
-            </summary>
-            <ul>
-
-                <h3 class="Titulo">
-                    Agrupaciones linguisticas
-                </h3>
-            
-                <li>
-                    <details>                        
-                        <summary>
-                            Nombre de agrupacion linguistica
-                        </summary>
-                        <ul>
-                        
-                            <h3 class="Titulo">
-                                Variantes
-                            </h3> 
-
-                            <li>
-                               <details>
-                                    <summary>
-                                        Nombre de variante
-                                    </summary>
-                               </details> 
-                            </li>
-                        </ul>
-                    </details>
-                </li>
-            </ul>
-        </details>
-    </li> -->
 </ul>
 
 </aside>

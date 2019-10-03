@@ -1,32 +1,122 @@
 <script>
+    // libs
     import { onMount } from 'svelte'
-    import Lateral from "../Lateral/Lateral.svelte";
+
+    // componentes
+    import LenguasFiltro from "../LenguasFiltro/LenguasFiltro.svelte";
+    import LenguaDetalle from "../LenguaDetalle/LenguaDetalle.svelte";
+    import LenguaResumen from "../LenguaResumen/LenguaResumen.svelte";
     import Herramientas from "../Herramientas/Herramientas.svelte";
     import Mapa from "../Mapa/Mapa.svelte";
     import MapaCapa from "../Mapa/MapaCapa.svelte";
     import MapaMarcador from "../Mapa/MapaMarcador.svelte";
 
+    // Variables ara importación dinámica (síncrona) dentro de onMount()
     let familiasModule
     let agrupacionesModule
     let variantesModule
 
-    $: familias = familiasModule ? familiasModule.default : []
-    $: agrupaciones = agrupacionesModule ? agrupacionesModule.default : []
-    $: variantes = variantesModule ? variantesModule.default : []
+    // seleccion por id
+    let familiaSeleccionada = null
+    let agrupacionSeleccionada = null
+    let varianteSeleccionada = null
 
-    $: famArbol = calculaArbol(familias, agrupaciones, variantes)
+    // condicionadores de Vistas
+    let muestraResumen = false
+    let muestraDetalle = false
+    let muestraFiltro = true
 
-    const handleLayerClick = (famId) => {
-        console.log(famId)
+    // Lengua 
+    $: lenguaDetalle = calculaLenguaDetalle(seleccion)
+    // $: lenguaResumen = calculaLenguaResumen(seleccion)
+    
+    // 
+    $: famArbol = calculaArbolFiltro(
+        familiasModule,
+        agrupacionesModule,
+        variantesModule,
+        seleccion
+    )
+    
+
+    $: seleccion = {
+        famId: familiaSeleccionada,
+        agrId: agrupacionSeleccionada,
+        varId: varianteSeleccionada
     }
 
-    const calculaArbol = (fams, agrs, varis) => {
+    // <lenguas>Visibles define los elementos que se muestran en el mapa y sus características
+    $: familiasVisibles = calculaFamiliasVisibles(familiasModule, seleccion)
+    $: agrupacionesVisibles = calculaAgrupacionesVisibles(agrupacionesModule, seleccion)
+    $: variantesVisibles = calculaVariantesVisibles(variantesModule, seleccion)
+
+    // TODO multiselect find => filter
+
+    const calculaFamiliasVisibles = ( famMod, selec ) => {
         
-        console.log('cambia')
+        if ( !famMod ) return [] 
+        else if (
+            !selec.famId &&
+            !selec.agrId &&
+            !selec.varId
+        ) return famMod.default
+        else if ( selec.famId ) 
+            return [ famMod.default.find( f => f.id === selec.famId ) ]
+        else if ( selec.agrId ) 
+            return [ famMod.default.find( f => f.agrupaciones.includes(selec.agrId) ) ]
+    }
+
+    const calculaAgrupacionesVisibles = ( agrMod, famMod, selec ) => {
+
+        console.log('calculaAgrupacionesVisibles', selec)
+        // if ( !agrMod ) 
+        //     return [] 
+        // else if (
+        //     selec.famId &&
+        //     !selec.agrId &&
+        //     !selec.varId
+        // ) return agrMod.default
+        // else if ( selec.famId ) 
+        //     return [ agrMod.default.find( a => a.famId === selec.famId ) ]
+        // else if ( selec.agrId ) 
+        //     return [ agrMod.default.find( a => a.variantes.includes(selec.agrId) ) ]
+
+    }
+
+    const calculaVariantesVisibles = ( varMod, selec ) => {
+        
+        console.log('calculaVariantesVisibles', selec)
+
+        // return !varMod ? [] 
+        //     : varMod.default.find(v => v.id === selec.varId) 
+
+    }
+
+
+    const handleLayerClick = (layer) => {
+
+        console.log(layer.detail) // id
+        // familiaSeleccionada = layer.detail
+        // agrupacionSeleccionada = layer.detail
+        // varianteSeleccionada = layer.detail
+    
+    }
+
+    const calculaLenguaDetalle = (selec) => {
+
+    } 
+
+    const calculaArbolFiltro = (fams, agrs, varis) => {
+
+        
         if (
             fams && agrs && varis &&
-            fams.length && agrs.length && varis.length
+            fams.default.length && agrs.default.length && varis.default.length
         ) {
+            let familias = fams.default
+            let agrupaciones = agrs.default
+            let variantes = varis.default
+            console.log('calculaArbolFiltro', familias, agrupaciones, variantes)
             let newArbol = familias.map(f => {
                 let fam = {
                     nombre: f.NOM_FAM,
@@ -94,7 +184,7 @@
         right: 1rem;
     }
 
-    .Lateral {
+    .LenguasFiltro {
         position: absolute;
         top: 1rem;
         left: 1rem;
@@ -105,15 +195,21 @@
     }
 </style>
 
-		
-
 <div class="Principal">
     <div class="Mapa">
         <Mapa lat={19} lon={-99} zoom={8}>
 	
-            {#each familias as fam}       
+            {#each familiasVisibles as fam}       
                 <MapaCapa polygon={fam.geojson} id={fam.id} on:layerclick={handleLayerClick}/>
             {/each}
+            
+            <!-- {#each agrupacionesVisibles as agr}       
+                <MapaCapa polygon={agr.geojson} id={agr.id} on:layerclick={handleLayerClick}/>
+            {/each}
+
+            {#each variantesVisibles as vari}       
+                <MapaCapa polygon={vari.geojson} id={vari.id} on:layerclick={handleLayerClick}/>
+            {/each} -->
 
             <MapaMarcador lat={19.8981} lon={-99.4169} label="Svelte Barbershop & Essentials"/>
             <!-- <MapaMarker lat={19.7230} lon={-99.4189} label="Svelte Waxing Studio"/>
@@ -125,9 +221,21 @@
     <div class="Herramientas">
         <Herramientas/>
     </div>
-    {#if famArbol}
+    
+    {#if muestraFiltro && famArbol}
+        <div class="LenguasFiltro">
+            <LenguasFiltro arbol={famArbol} seleccion={seleccion}/>
+        </div>
+    {/if}
+
+    {#if muestraDetalle && !! lenguaDetalle }
+        <div class="LenguaDetalle">
+            <LenguaDetalle />
+        </div>
+    {/if}
+    {#if muestraResumen && !! lenguaDetalle }
         <div class="Lateral">
-            <Lateral arbol={famArbol}/>
+            <LenguaResumen arbol={famArbol}/>
         </div>
     {/if}
 </div>
