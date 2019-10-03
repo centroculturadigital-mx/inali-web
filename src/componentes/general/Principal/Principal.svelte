@@ -1,6 +1,7 @@
 <script>
     // libs
     import { onMount } from 'svelte'
+    import funcionesColor from '../../../herramientas/colorTransforma'
 
     // componentes
     import LenguasFiltro from "../LenguasFiltro/LenguasFiltro.svelte";
@@ -10,20 +11,6 @@
     import Mapa from "../Mapa/Mapa.svelte";
     import MapaCapa from "../Mapa/MapaCapa.svelte";
     import MapaMarcador from "../Mapa/MapaMarcador.svelte";
-
-    const familiasColores = {
-        algica: 'E6AA30',
-        yutonahua: 'F45C92',
-        cochimiyumana: 'D31A27',
-        seri: '7D8796',
-        otomangue: '5EA279',
-        maya: '6D6DB3',
-        totonacotepehua: '4B84FA',
-        tarasca: '48CBFF',
-        mixezoque: '877477',
-        chontaldeoaxaca: 'F46E7E',
-        huave: '986293',
-    }
 
     // Variables ara importación dinámica (síncrona) dentro de onMount()
     let familiasModule
@@ -40,15 +27,19 @@
     let muestraDetalle = false
     let muestraFiltro = true
 
+    $: familias = familiasModule ? familiasModule.default : []  
+    $: agrupaciones = agrupacionesModule ? agrupacionesModule.default : []  
+    $: variantes = variantesModule ? variantesModule.default : []  
+
     // Lengua 
     $: lenguaDetalle = calculaLenguaDetalle(seleccion)
     // $: lenguaResumen = calculaLenguaResumen(seleccion)
     
     // 
     $: famArbol = calculaArbolFiltro(
-        familiasModule,
-        agrupacionesModule,
-        variantesModule,
+        familias,
+        agrupaciones,
+        variantes,
         seleccion
     )
     
@@ -60,9 +51,9 @@
     }
 
     // <lenguas>Visibles define los elementos que se muestran en el mapa y sus características
-    $: familiasVisibles = calculaFamiliasVisibles(familiasModule, seleccion)
-    $: agrupacionesVisibles = calculaAgrupacionesVisibles(agrupacionesModule, seleccion)
-    $: variantesVisibles = calculaVariantesVisibles(variantesModule, seleccion)
+    $: familiasVisibles = calculaFamiliasVisibles(familias, seleccion)
+    $: agrupacionesVisibles = calculaAgrupacionesVisibles(agrupaciones, seleccion)
+    $: variantesVisibles = calculaVariantesVisibles(variantes, seleccion)
 
     $: console.log('familiasVisibles', familiasVisibles)
     $: console.log('agrupacionesVisibles', agrupacionesVisibles)
@@ -70,14 +61,8 @@
     
     // TODO multiselect find => filter
 
-    const calculaFamiliasVisibles = ( famMod, selec ) => {
-        if ( !famMod && !famMod ) return [] 
-        
-        let fams = famMod.default.map(f => {
-            f.color = familiasColores[f.id]
-            return f
-        })
-
+    const calculaFamiliasVisibles = ( fams, selec ) => {
+        if ( !fams.length ) return [] 
         if (
             !selec.famId &&
             !selec.agrId &&
@@ -93,9 +78,9 @@
         }
     }
 
-    const calculaAgrupacionesVisibles = ( agrMod, selec ) => {
+    const calculaAgrupacionesVisibles = ( agrs, selec ) => {
 
-        if ( !agrMod ||
+        if ( !agrs.length ||
             (
                 ! selec.famId &&
                 ! selec.agrId &&
@@ -103,24 +88,24 @@
             )
         ) return [] 
         else if ( selec.famId ) 
-            return agrMod.default.filter(a => a.familiaId === selec.famId )
+            return agrs.filter(a => a.familiaId === selec.famId )
         else if ( selec.agrId ) 
-            return [ agrMod.default.find( a => a.id === selec.agrId ) ]
+            return [ agrs.find( a => a.id === selec.agrId ) ]
 
     }
 
-    const calculaVariantesVisibles = ( varMod, selec ) => {
+    const calculaVariantesVisibles = ( vars, selec ) => {
         
-        if ( !varMod ||
+        if ( !vars.length ||
             ( 
                 ! selec.agrId &&
                 ! selec.varId 
             )
         ) return [] 
         else if ( selec.agrId ) 
-            return varMod.default.filter(a => a.familiaId  == selec.agrId )
+            return vars.filter(a => a.familiaId  == selec.agrId )
         else if ( selec.varId ) 
-            return [ varMod.default.find( a => a.id === selec.varId ) ]
+            return [ vars.find( a => a.id === selec.varId ) ]
 
     }
 
@@ -144,11 +129,11 @@
         
         if (
             fams && agrs && varis &&
-            fams.default.length && agrs.default.length && varis.default.length
+            fams.length && agrs.length && varis.length
         ) {
-            let familias = fams.default
-            let agrupaciones = agrs.default
-            let variantes = varis.default
+            let familias = fams
+            let agrupaciones = agrs
+            let variantes = varis
             let nuevoArbol = familias.map(f => {
                 let fam = {
                     nombre: f.NOM_FAM,
@@ -242,7 +227,10 @@
                 {/each}
             {/if}
             
-            {#if agrupacionesVisibles && agrupacionesVisibles.length }
+            {#if 
+                agrupacionesVisibles &&
+                agrupacionesVisibles.length 
+            }
                 {#each agrupacionesVisibles as agr}       
                     <MapaCapa
                         polygon={agr.geojson}
@@ -254,7 +242,10 @@
                 {/each}
             {/if}
             
-            {#if variantesVisibles && variantesVisibles.length }
+            {#if 
+                variantesVisibles && 
+                variantesVisibles.length 
+            }
                 {#each variantesVisibles as vari}       
                     <MapaCapa
                         polygon={vari.geojson}
