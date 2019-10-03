@@ -11,6 +11,20 @@
     import MapaCapa from "../Mapa/MapaCapa.svelte";
     import MapaMarcador from "../Mapa/MapaMarcador.svelte";
 
+    const familiasColores = {
+        algica: 'E6AA30',
+        yutonahua: 'F45C92',
+        cochimiyumana: 'D31A27',
+        seri: '7D8796',
+        otomangue: '5EA279',
+        maya: '6D6DB3',
+        totonacotepehua: '4B84FA',
+        tarasca: '48CBFF',
+        mixezoque: '877477',
+        chontaldeoaxaca: 'F46E7E',
+        huave: '986293',
+    }
+
     // Variables ara importación dinámica (síncrona) dentro de onMount()
     let familiasModule
     let agrupacionesModule
@@ -57,20 +71,25 @@
     // TODO multiselect find => filter
 
     const calculaFamiliasVisibles = ( famMod, selec ) => {
+        if ( !famMod && !famMod ) return [] 
         
-        if ( !famMod ) return [] 
-        else if (
+        let fams = famMod.default.map(f => {
+            f.color = familiasColores[f.id]
+            return f
+        })
+
+        if (
             !selec.famId &&
             !selec.agrId &&
             !selec.varId
         ) {
-            return famMod.default
+            return fams
         }
         else if ( selec.famId ) {
-            return [ famMod.default.find( f => f.id === selec.famId ) ]
+            return [ fams.find( f => f.id === selec.famId ) ]
         }
         else if ( selec.agrId ) {
-            return [ famMod.default.find( f => f.agrupaciones.includes(selec.agrId) ) ]
+            return [ fams.find( f => f.agrupaciones.includes(selec.agrId) ) ]
         }
     }
 
@@ -108,7 +127,8 @@
 
     const handleLayerClick = (layer) => {
 
-        // console.log(layer.detail) // {id, tipo}
+        // recibe: layer.detail
+        // > {id, tipo}
 
         familiaSeleccionada = layer.detail.tipo == 'familia' ? layer.detail.id : null
         agrupacionSeleccionada = layer.detail.tipo == 'agrupacion' ? layer.detail.id : null
@@ -217,6 +237,7 @@
                         id={fam.id}
                         on:layerclick={handleLayerClick}
                         tipo="familia"
+                        color={fam.color}
                     />
                 {/each}
             {/if}
@@ -228,6 +249,7 @@
                         id={agr.id}
                         on:layerclick={handleLayerClick}
                         tipo="agrupacion"
+                        color={agr.color}
                     />
                 {/each}
             {/if}
@@ -239,6 +261,7 @@
                         id={vari.id}
                         on:layerclick={handleLayerClick}
                         tipo="variante"
+                        color={vari.color}
                     />
                 {/each}
             {/if}

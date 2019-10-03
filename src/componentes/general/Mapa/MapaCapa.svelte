@@ -24,6 +24,7 @@
   export let polygon
   export let id
   export let tipo
+  export let color
   
   const { getMap } = getContext(key)
 
@@ -44,7 +45,7 @@
           },
           'layout': {},
           'paint': {
-            'fill-color': '#088',
+            'fill-color': `#${color}`,
             'fill-opacity': 0.8
           }
         })
