@@ -138,7 +138,8 @@
                 let fam = {
                     nombre: f.NOM_FAM,
                     id: f.id,
-                    tipo: 'familia'
+                    tipo: 'familia',
+                    color: '#'+f.color
                 }
                 fam.agrupaciones = agrupaciones.filter(a => {
                     return f.agrupaciones.includes(a.id)
@@ -147,7 +148,8 @@
                         nombre: a.NOM_AGRUP,
                         id: a.id,
                         famId: f.id,
-                        tipo: 'agrupacion'
+                        tipo: 'agrupacion',
+                        color: '#'+f.color
                     }
                     agr.variantes = variantes.filter(v => {
                         return a.variantes.includes(v.id)
@@ -156,7 +158,8 @@
                             nombre: v.NOM_VAR,
                             id: v.id,
                             agrId: a.id,
-                            tipo: 'variante'
+                            tipo: 'variante',
+                            color: '#'+a.color
                         }                    
                     })
                     return agr
