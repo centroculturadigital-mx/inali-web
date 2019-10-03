@@ -50,6 +50,10 @@
     $: agrupacionesVisibles = calculaAgrupacionesVisibles(agrupacionesModule, seleccion)
     $: variantesVisibles = calculaVariantesVisibles(variantesModule, seleccion)
 
+    $: console.log('familiasVisibles', familiasVisibles)
+    $: console.log('agrupacionesVisibles', agrupacionesVisibles)
+    $: console.log('variantesVisibles', variantesVisibles)
+    
     // TODO multiselect find => filter
 
     const calculaFamiliasVisibles = ( famMod, selec ) => {
@@ -68,14 +72,13 @@
 
     const calculaAgrupacionesVisibles = ( agrMod, selec ) => {
 
-        console.log('calculaAgrupacionesVisibles', selec)
-        if ( !agrMod ) 
-            return [] 
-        else if (
-            ! selec.famId &&
-            ! selec.agrId &&
-            ! selec.varId
-        ) return agrMod.default
+        if ( !agrMod ||
+            (
+                ! selec.famId &&
+                ! selec.agrId &&
+                ! selec.varId
+            )
+        ) return [] 
         else if ( selec.famId ) 
             return agrMod.default.filter(a => a.familiaId)
         else if ( selec.agrId ) 
@@ -85,7 +88,6 @@
 
     const calculaVariantesVisibles = ( varMod, selec ) => {
         
-        console.log('calculaVariantesVisibles', selec)
         if ( !varMod ||
             ( 
                 ! selec.agrId &&
@@ -122,8 +124,7 @@
             let familias = fams.default
             let agrupaciones = agrs.default
             let variantes = varis.default
-            console.log('calculaArbolFiltro', familias, agrupaciones, variantes)
-            let newArbol = familias.map(f => {
+            let nuevoArbol = familias.map(f => {
                 let fam = {
                     nombre: f.NOM_FAM,
                     id: f.id,
@@ -152,8 +153,8 @@
                 })
                 return fam
             })
-            console.log('newArbol', newArbol)
-            return newArbol
+            console.log('arbolFiltro', nuevoArbol)
+            return nuevoArbol
 
         } else return []
     }
@@ -204,18 +205,38 @@
 <div class="Principal">
     <div class="Mapa">
         <Mapa lat={19} lon={-99} zoom={8}>
-	
-            {#each familiasVisibles as fam}       
-                <MapaCapa polygon={fam.geojson} id={fam.id} on:layerclick={handleLayerClick}/>
-            {/each}
+            {#if familiasVisibles && familiasVisibles.length }
+                {#each familiasVisibles as fam}       
+                    <MapaCapa 
+                        polygon={fam.geojson}
+                        id={fam.id}
+                        on:layerclick={handleLayerClick}
+                        tipo="familia"
+                    />
+                {/each}
+            {/if}
             
-            <!-- {#each agrupacionesVisibles as agr}       
-                <MapaCapa polygon={agr.geojson} id={agr.id} on:layerclick={handleLayerClick}/>
-            {/each}
-
-            {#each variantesVisibles as vari}       
-                <MapaCapa polygon={vari.geojson} id={vari.id} on:layerclick={handleLayerClick}/>
-            {/each} -->
+            {#if agrupacionesVisibles && agrupacionesVisibles.length }
+                {#each agrupacionesVisibles as agr}       
+                    <MapaCapa
+                        polygon={agr.geojson}
+                        id={agr.id}
+                        on:layerclick={handleLayerClick}
+                        tipo="agrupacion"
+                    />
+                {/each}
+            {/if}
+            
+            {#if variantesVisibles && variantesVisibles.length }
+                {#each variantesVisibles as vari}       
+                    <MapaCapa
+                        polygon={vari.geojson}
+                        id={vari.id}
+                        on:layerclick={handleLayerClick}
+                        tipo="variante"
+                    />
+                {/each}
+            {/if}
 
             <MapaMarcador lat={19.8981} lon={-99.4169} label="Svelte Barbershop & Essentials"/>
             <!-- <MapaMarker lat={19.7230} lon={-99.4189} label="Svelte Waxing Studio"/>

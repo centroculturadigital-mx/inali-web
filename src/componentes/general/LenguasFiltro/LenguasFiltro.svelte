@@ -2,7 +2,6 @@
     export let arbol = []
     export let seleccion
 
-    $: console.log('arbol', arbol)
     $: console.log('seleccion', seleccion)
 </script>
 

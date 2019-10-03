@@ -2,7 +2,8 @@
 	import { 
     createEventDispatcher, 
     getContext, 
-    onMount 
+    onMount,
+    onDestroy
   } from 'svelte';
   import key from '../../../mapbox-context-key.js'
   import bbox from '@turf/bbox'
@@ -17,10 +18,11 @@
     
     dispatch('layerclick', id)
 
-	}
-
+  }
+  
   export let polygon
   export let id
+  export let tipo
   
   const { getMap } = getContext(key)
 
@@ -33,7 +35,7 @@
 
       if ( !layer ) {
         layer = map.addLayer({
-          'id': id,
+          'id': `${tipo}-${id}`,
           'type': 'fill',
           'source': {
             'type': 'geojson',
@@ -52,6 +54,10 @@
 
     map.on('click', id, forward)
 
+  })
+
+  onDestroy(() => {
+    console.log(map.removeLayer(`${tipo}-${id}`))
   })
   
 </script>
