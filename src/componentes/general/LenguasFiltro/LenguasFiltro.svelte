@@ -65,7 +65,7 @@
         <li style={`border-color: ${fam.color}`}>
             <details>
                 <summary>
-                    T! {fam.nombre}
+                    {fam.nombre}
                 </summary>
                 <ul>
                 
