@@ -1,7 +1,6 @@
 <script>
     // libs
     import { onMount } from 'svelte'
-    import funcionesColor from '../../../herramientas/colorTransforma'
 
     // componentes
     import LenguasFiltro from "../LenguasFiltro/LenguasFiltro.svelte";
@@ -95,17 +94,22 @@
     }
 
     const calculaVariantesVisibles = ( vars, selec ) => {
-        
         if ( !vars.length ||
             ( 
                 ! selec.agrId &&
                 ! selec.varId 
             )
         ) return [] 
-        else if ( selec.agrId ) 
-            return vars.filter(a => a.familiaId  == selec.agrId )
-        else if ( selec.varId ) 
+        else if ( selec.agrId ) {
+            console.log('variantes de ', selec.agrId);
+            
+            return vars.filter(v => v.agrupacionId  == selec.agrId )
+        }
+        else if ( selec.varId ) {
+            console.log('variante', selec.varId);
+            
             return [ vars.find( a => a.id === selec.varId ) ]
+        }
 
     }
 
@@ -219,12 +223,13 @@
     <div class="Mapa">
         <Mapa lat={23.551238082075017} lon={-107.61401268566283} zoom={4}>
             {#if familiasVisibles && familiasVisibles.length }
-                {#each familiasVisibles as fam}       
+                {#each familiasVisibles as fam (`${fam.tipo}-${fam.id}`)  }       
                     <MapaCapa 
                         polygon={fam.geojson}
                         id={fam.id}
                         on:layerclick={handleLayerClick}
                         tipo="familia"
+                        opacidad={seleccion.varId ? 10 : seleccion.agrId ? 30 : 65 }
                         color={fam.color}
                     />
                 {/each}
@@ -234,12 +239,13 @@
                 agrupacionesVisibles &&
                 agrupacionesVisibles.length 
             }
-                {#each agrupacionesVisibles as agr}       
+                {#each agrupacionesVisibles as agr (`${agr.tipo}-${agr.id}`) }       
                     <MapaCapa
                         polygon={agr.geojson}
                         id={agr.id}
                         on:layerclick={handleLayerClick}
                         tipo="agrupacion"
+                        opacidad={seleccion.varId === agr.id ? 30 : 65}
                         color={agr.color}
                     />
                 {/each}
@@ -249,12 +255,13 @@
                 variantesVisibles && 
                 variantesVisibles.length 
             }
-                {#each variantesVisibles as vari}       
+                {#each variantesVisibles as vari (`${vari.tipo}-${vari.id}`) }       
                     <MapaCapa
                         polygon={vari.geojson}
                         id={vari.id}
                         on:layerclick={handleLayerClick}
                         tipo="variante"
+                        opacidad={65}
                         color={vari.color}
                     />
                 {/each}

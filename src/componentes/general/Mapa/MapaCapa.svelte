@@ -12,10 +12,9 @@
 
 	const capaClick = (event) => {
 
-    map.fitBounds(bbox(polygon),{
-      padding: {top: 25, bottom:25, left: 25, right: 25}
+    map.fitBounds( bbox(polygon), {
+      padding: {top: 25, bottom:25, left: 75, right: 25}
     })
-
     
     dispatch('layerclick', {id, tipo})
 
@@ -25,6 +24,9 @@
   export let id
   export let tipo
   export let color
+  export let opacidad
+
+  $: console.log('opacidad', opacidad)
   
   const { getMap } = getContext(key)
 
@@ -36,6 +38,8 @@
     map.on('styledata', () => {
 
       if ( !layer ) {
+        console.log('construyendo', `${tipo}-${id}`);
+        
         layer = map.addLayer({
           'id': `${tipo}-${id}`,
           'type': 'fill',
@@ -46,20 +50,21 @@
           'layout': {},
           'paint': {
             'fill-color': `#${color}`,
-            'fill-opacity': 0.8
+            'fill-opacity': opacidad / 100
           }
         })
 
       }
 
     })
-
-    map.on('click', `${tipo}-${id}`, capaClick)
-
+    if (opacidad > 40) {
+      map.on('click', `${tipo}-${id}`, capaClick)
+    }
   })
 
   onDestroy(() => {
     // TODO imprimir tipo y id de layer a borrar
+    console.log('destruyendo', `${tipo}-${id}`)
     map.removeLayer(`${tipo}-${id}`)
   })
   
