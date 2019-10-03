@@ -34,9 +34,6 @@
 				// bearing: -60,
 				zoom
 			});
-
-			console.log(map.removeLayer)
-			
 		};
 
 		document.head.appendChild(link);

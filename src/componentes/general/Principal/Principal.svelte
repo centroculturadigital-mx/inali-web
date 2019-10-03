@@ -63,11 +63,15 @@
             !selec.famId &&
             !selec.agrId &&
             !selec.varId
-        ) return famMod.default
-        else if ( selec.famId ) 
+        ) {
+            return famMod.default
+        }
+        else if ( selec.famId ) {
             return [ famMod.default.find( f => f.id === selec.famId ) ]
-        else if ( selec.agrId ) 
+        }
+        else if ( selec.agrId ) {
             return [ famMod.default.find( f => f.agrupaciones.includes(selec.agrId) ) ]
+        }
     }
 
     const calculaAgrupacionesVisibles = ( agrMod, selec ) => {
@@ -80,7 +84,7 @@
             )
         ) return [] 
         else if ( selec.famId ) 
-            return agrMod.default.filter(a => a.familiaId)
+            return agrMod.default.filter(a => a.familiaId === selec.famId )
         else if ( selec.agrId ) 
             return [ agrMod.default.find( a => a.id === selec.agrId ) ]
 
@@ -95,7 +99,7 @@
             )
         ) return [] 
         else if ( selec.agrId ) 
-            return varMod.default.filter(a => a.familiaId)
+            return varMod.default.filter(a => a.familiaId  == selec.agrId )
         else if ( selec.varId ) 
             return [ varMod.default.find( a => a.id === selec.varId ) ]
 
@@ -104,10 +108,11 @@
 
     const handleLayerClick = (layer) => {
 
-        console.log(layer.detail) // id
-        // familiaSeleccionada = layer.detail
-        // agrupacionSeleccionada = layer.detail
-        // varianteSeleccionada = layer.detail
+        // console.log(layer.detail) // {id, tipo}
+
+        familiaSeleccionada = layer.detail.tipo == 'familia' ? layer.detail.id : null
+        agrupacionSeleccionada = layer.detail.tipo == 'agrupacion' ? layer.detail.id : null
+        varianteSeleccionada = layer.detail.tipo == 'variante' ? layer.detail.id : null
     
     }
 
@@ -204,7 +209,7 @@
 
 <div class="Principal">
     <div class="Mapa">
-        <Mapa lat={19} lon={-99} zoom={8}>
+        <Mapa lat={23.551238082075017} lon={-107.61401268566283} zoom={4}>
             {#if familiasVisibles && familiasVisibles.length }
                 {#each familiasVisibles as fam}       
                     <MapaCapa 
@@ -238,11 +243,7 @@
                 {/each}
             {/if}
 
-            <MapaMarcador lat={19.8981} lon={-99.4169} label="Svelte Barbershop & Essentials"/>
-            <!-- <MapaMarker lat={19.7230} lon={-99.4189} label="Svelte Waxing Studio"/>
-            <MapaMarker lat={19.3378} lon={-99.3966} label="Svelte 30 Nutritional Consultants"/>
-            <MapaMarker lat={19.6483} lon={-99.0237} label="Svelte Brands LLC"/>
-            <MapaMarker lat={19.6986} lon={-99.4100} label="Svelte Medical Systems"/> -->
+            <!-- <MapaMarcador lat={19.8981} lon={-99.4169} label="Svelte Barbershop & Essentials"/> -->
         </Mapa>
     </div>
     <div class="Herramientas">

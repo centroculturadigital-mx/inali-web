@@ -10,13 +10,14 @@
 
 	const dispatch = createEventDispatcher();
 
-	const forward = (event) => {
+	const capaClick = (event) => {
 
     map.fitBounds(bbox(polygon),{
       padding: {top: 25, bottom:25, left: 25, right: 25}
     })
+
     
-    dispatch('layerclick', id)
+    dispatch('layerclick', {id, tipo})
 
   }
   
@@ -52,12 +53,13 @@
 
     })
 
-    map.on('click', id, forward)
+    map.on('click', `${tipo}-${id}`, capaClick)
 
   })
 
   onDestroy(() => {
-    console.log(map.removeLayer(`${tipo}-${id}`))
+    // TODO imprimir tipo y id de layer a borrar
+    map.removeLayer(`${tipo}-${id}`)
   })
   
 </script>

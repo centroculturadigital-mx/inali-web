@@ -2,7 +2,8 @@
   
   export let lengua
 
-  console.log(lengua)
+
+  $: console.log('lengua', lengua)
 </script>
 
 <style>
