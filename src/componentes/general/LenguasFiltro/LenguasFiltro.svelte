@@ -54,7 +54,7 @@
 <style>
 
     aside {
-        max-height: 21rem;
+        max-height: 25rem;
         overflow: auto;
         padding: 1rem;
         box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
@@ -70,7 +70,7 @@
         background: #465D72;
         border-radius: 0px;
         position: relative;
-        top: 2%;
+        top: 0.5rem;
         
     }
     .Familias {
