@@ -274,7 +274,7 @@
         width: 320px;
         background-color: transparent;
         /* height: calc( 100% - 2rem ); */
-        max-height: 21rem;
+        max-height: 38rem;
     }
 
 </style>

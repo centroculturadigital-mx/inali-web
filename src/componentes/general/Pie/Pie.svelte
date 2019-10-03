@@ -3,6 +3,10 @@ const logos = ['logo.cultura.svg','logo.inah.svg','logo.fonoteca.svg','logo.ccd.
 </script>
 
 <style>
+ /* footer {
+        background-color: #666;
+        padding: 2rem;
+    } */
   footer {
     display: flex;
     justify-content: center;
@@ -19,6 +23,8 @@ const logos = ['logo.cultura.svg','logo.inah.svg','logo.fonoteca.svg','logo.ccd.
     height: 25px;
     width: auto;
   }
+
+  
 </style>
 
 <footer>
