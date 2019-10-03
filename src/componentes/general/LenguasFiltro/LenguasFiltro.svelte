@@ -44,7 +44,7 @@
     }
 
     ul li {
-        border-left: 10px solid transparent;
+        border-left: 1rem solid transparent;
         padding: 0.5rem 0;
     }
 
@@ -61,24 +61,24 @@
 
 <!-- TODO agregar indicador de filtro activo -->
 <ul>
-    {#each arbol as fam}       
-        <li style={`border-color: ${fam.color}`}>
+    {#each arbol as fam ("fam"+fam.id)}       
+        <li class="familia" style={`border-color: ${fam.color}`}>
             <details>
                 <summary>
                     {fam.nombre}
                 </summary>
                 <ul>
                 
-                {#each fam.agrupaciones as agr}
-                    <li style="border-color: {agr.color}">
+                {#each fam.agrupaciones as agr ("agr"+agr.id)}
+                    <li class="agrupacion" style="border-color: {agr.variantes[0].color}">
                         <details>
                             <summary>
                                 {agr.nombre}
                             </summary>
                             <ul>
                                 
-                            {#each agr.variantes as vari}
-                                <li style="border-color: {vari.color}">
+                            {#each agr.variantes as vari ("var"+vari.id)}
+                                <li class="variante" style="border-color: {vari.color}">
                                     {vari.nombre}
                                 </li>
                             {/each}
