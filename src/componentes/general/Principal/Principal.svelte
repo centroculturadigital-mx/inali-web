@@ -26,6 +26,14 @@
     let muestraDetalle = false
     let muestraFiltro = true
 
+    let mapa
+
+    const mapaInicio = {
+        lat: 23.551238082075017,
+        lon: -107.61401268566283,
+        zoom: 4
+    }
+
     $: familias = familiasModule ? familiasModule.default : []  
     $: agrupaciones = agrupacionesModule ? agrupacionesModule.default : []  
     $: variantes = variantesModule ? variantesModule.default : []  
@@ -101,20 +109,16 @@
             )
         ) return [] 
         else if ( selec.agrId ) {
-            console.log('variantes de ', selec.agrId);
-            
             return vars.filter(v => v.agrupacionId  == selec.agrId )
         }
         else if ( selec.varId ) {
-            console.log('variante', selec.varId);
-            
             return [ vars.find( a => a.id === selec.varId ) ]
         }
 
     }
 
 
-    const handleLayerClick = (layer) => {
+    const manejaClickCaja = (layer) => {
 
         // recibe: layer.detail
         // > {id, tipo}
@@ -122,11 +126,44 @@
         familiaSeleccionada = layer.detail.tipo == 'familia' ? layer.detail.id : null
         agrupacionSeleccionada = layer.detail.tipo == 'agrupacion' ? layer.detail.id : null
         varianteSeleccionada = layer.detail.tipo == 'variante' ? layer.detail.id : null
+
+        muestraResumen = true
     
     }
 
-    const calculaLenguaDetalle = (selec) => {
+    const manejaLimpiaFiltro = () => {
 
+        muestraResumen = false
+
+        familiaSeleccionada = null
+        agrupacionSeleccionada = null
+        varianteSeleccionada = null
+
+        mapa.flyTo({
+            center: [mapaInicio.lon, mapaInicio.lat],
+            zoom: mapaInicio.zoom
+        })        
+
+    }
+
+    const manejaMapaCargado = (e) => {
+        mapa = e.detail
+    }
+
+    const calculaLenguaDetalle = (selec) => {
+        console.log('calculaLenguaDetalle', selec)
+        if (selec.famId) {
+            console.log('Detalle para', selec.famId)
+            return familias.find(f => f.id === selec.famId)
+        } else if (selec.agrId) {
+            console.log('Detalle para', selec.agrId)
+            return agrupaciones.find(a => a.id === selec.agrId)
+        } else if (selec.varId) {
+            console.log('Detalle para', selec.varId)
+            return variantes.find(v => v.id === selec.varId)
+        } else {
+            return null
+        }
     } 
 
     const calculaArbolFiltro = (fams, agrs, varis) => {
@@ -162,6 +199,7 @@
                             nombre: v.NOM_VAR,
                             id: v.id,
                             agrId: a.id,
+                            famId: f.id,
                             tipo: 'variante',
                             color: '#'+a.color
                         }                    
@@ -217,17 +255,32 @@
         /* height: calc( 100% - 2rem ); */
         max-height: 21rem;
     }
+
+    .LenguaResumen {
+        position: absolute;
+        top: 10rem;
+        left: 50%;
+        width: 320px;
+        background-color: transparent;
+        /* height: calc( 100% - 2rem ); */
+        max-height: 15rem;
+    }
 </style>
 
 <div class="Principal">
     <div class="Mapa">
-        <Mapa lat={23.551238082075017} lon={-107.61401268566283} zoom={4}>
+        <Mapa 
+            lat={mapaInicio.lat}
+            lon={mapaInicio.lon}
+            zoom={mapaInicio.zoom}
+            on:cargado={manejaMapaCargado}
+        >
             {#if familiasVisibles && familiasVisibles.length }
                 {#each familiasVisibles as fam (`${fam.tipo}-${fam.id}`)  }       
                     <MapaCapa 
                         polygon={fam.geojson}
                         id={fam.id}
-                        on:layerclick={handleLayerClick}
+                        on:capaclick={manejaClickCaja}
                         tipo="familia"
                         opacidad={seleccion.varId ? 10 : seleccion.agrId ? 30 : 65 }
                         color={fam.color}
@@ -243,7 +296,7 @@
                     <MapaCapa
                         polygon={agr.geojson}
                         id={agr.id}
-                        on:layerclick={handleLayerClick}
+                        on:capaclick={manejaClickCaja}
                         tipo="agrupacion"
                         opacidad={seleccion.varId === agr.id ? 30 : 65}
                         color={agr.color}
@@ -259,7 +312,7 @@
                     <MapaCapa
                         polygon={vari.geojson}
                         id={vari.id}
-                        on:layerclick={handleLayerClick}
+                        on:capaclick={manejaClickCaja}
                         tipo="variante"
                         opacidad={65}
                         color={vari.color}
@@ -276,18 +329,22 @@
     
     {#if muestraFiltro && famArbol}
         <div class="LenguasFiltro">
-            <LenguasFiltro arbol={famArbol} seleccion={seleccion}/>
+            <LenguasFiltro
+                arbol={famArbol}
+                seleccion={seleccion}
+                on:deseleccionar={manejaLimpiaFiltro}
+            />
         </div>
     {/if}
 
     {#if muestraDetalle && !! lenguaDetalle }
         <div class="LenguaDetalle">
-            <LenguaDetalle />
+            <LenguaDetalle lengua={lenguaDetalle} />
         </div>
     {/if}
     {#if muestraResumen && !! lenguaDetalle }
-        <div class="Lateral">
-            <LenguaResumen arbol={famArbol}/>
+        <div class="LenguaResumen">
+            <LenguaResumen lengua={lenguaDetalle}/>
         </div>
     {/if}
 </div>

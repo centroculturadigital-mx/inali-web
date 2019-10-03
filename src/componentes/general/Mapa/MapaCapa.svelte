@@ -16,7 +16,7 @@
       padding: {top: 25, bottom:25, left: 75, right: 25}
     })
     
-    dispatch('layerclick', {id, tipo})
+    dispatch('capaclick', {id, tipo})
 
   }
   
@@ -26,8 +26,6 @@
   export let color
   export let opacidad
 
-  $: console.log('opacidad', opacidad)
-  
   const { getMap } = getContext(key)
 
   const map = getMap()
@@ -38,7 +36,6 @@
     map.on('styledata', () => {
 
       if ( !layer ) {
-        console.log('construyendo', `${tipo}-${id}`);
         
         layer = map.addLayer({
           'id': `${tipo}-${id}`,
@@ -47,7 +44,8 @@
             'type': 'geojson',
             'data': polygon
           },
-          'layout': {},
+          'layout': {
+          },
           'paint': {
             'fill-color': `#${color}`,
             'fill-opacity': opacidad / 100
@@ -64,8 +62,8 @@
 
   onDestroy(() => {
     // TODO imprimir tipo y id de layer a borrar
-    console.log('destruyendo', `${tipo}-${id}`)
     map.removeLayer(`${tipo}-${id}`)
+    map.removeSource(`${tipo}-${id}`)
   })
   
 </script>

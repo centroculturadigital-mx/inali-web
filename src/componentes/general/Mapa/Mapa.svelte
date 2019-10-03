@@ -1,7 +1,15 @@
 <script>
-	import { onMount, setContext } from 'svelte'
+	import { onMount, setContext, createEventDispatcher } from 'svelte'
 	import key from '../../../mapbox-context-key.js'
-		
+	
+	const dispatch = createEventDispatcher();
+
+	const comparteMapa = (mapa) => {
+    console.log('comparteMapa')
+    dispatch('cargado', mapa)
+
+  }
+
 	setContext(key, {
 		getMap: () => map
 	});
@@ -35,6 +43,7 @@
 				zoom
 			});
 			map.on('load', () => {
+				comparteMapa(map)
 				map.addSource('contours', {
 					type: 'vector',
 					url: 'mapbox://mapbox.mapbox-terrain-v2'
