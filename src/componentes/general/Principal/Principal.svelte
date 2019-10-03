@@ -100,7 +100,8 @@
         left: 1rem;
         width: 320px;
         background-color: transparent;
-        height: calc( 100% - 2rem );
+        /* height: calc( 100% - 2rem ); */
+        max-height: 21rem;
     }
 </style>
 
