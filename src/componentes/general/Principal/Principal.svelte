@@ -26,6 +26,7 @@
     let muestraDetalle = false
     let muestraFiltro = true
 
+    // Opciones de Mapa
     let mapa
 
     const mapaInicio = {
@@ -34,6 +35,7 @@
         zoom: 4
     }
 
+    // variables condicionales
     $: familias = familiasModule ? familiasModule.default : []  
     $: agrupaciones = agrupacionesModule ? agrupacionesModule.default : []  
     $: variantes = variantesModule ? variantesModule.default : []  
@@ -168,6 +170,7 @@
 
     const calculaArbolFiltro = (fams, agrs, varis) => {
         
+        // hastq que carguen fam, agr y var
         if (
             fams && agrs && varis &&
             fams.length && agrs.length && varis.length
@@ -175,6 +178,7 @@
             let familias = fams
             let agrupaciones = agrs
             let variantes = varis
+            // recorro familias
             let nuevoArbol = familias.map(f => {
                 let fam = {
                     nombre: f.NOM_FAM,
@@ -182,6 +186,7 @@
                     tipo: 'familia',
                     color: '#'+f.color
                 }
+                // agrego agrupaciones para cada familia
                 fam.agrupaciones = agrupaciones.filter(a => {
                     return f.agrupaciones.includes(a.id)
                 }).map(a => {
@@ -192,6 +197,7 @@
                         tipo: 'agrupacion',
                         color: '#'+f.color
                     }
+                    // agrego variantes para cada agrupacion
                     agr.variantes = variantes.filter(v => {
                         return a.variantes.includes(v.id)
                     }).map(v => {
@@ -215,7 +221,6 @@
     }
 
     onMount(async () => {
-
         familiasModule = await import('../../../data/familias.json')
         agrupacionesModule = await import('../../../data/agrupaciones.json')
         variantesModule = await import('../../../data/variantes.json')

@@ -61,7 +61,6 @@
   })
 
   onDestroy(() => {
-    // TODO imprimir tipo y id de layer a borrar
     map.removeLayer(`${tipo}-${id}`)
     map.removeSource(`${tipo}-${id}`)
   })
