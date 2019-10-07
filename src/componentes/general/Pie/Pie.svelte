@@ -9,7 +9,7 @@ const logos = ['logo.cultura.svg','logo.inah.svg','logo.fonoteca.svg','logo.ccd.
     align-items: center;
     position: fixed;
     width: 100%;
-    height: 52px;
+    height: 75px;
     left: 0;
     bottom: 0;
     background: #465d72;
