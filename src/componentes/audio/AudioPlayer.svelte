@@ -80,8 +80,8 @@
       let long = progressbar.clientWidth;
       let point = audioelement.currentTime / long;
       let res = point * 100;
-      console.log(res);
       progressbar.value = res;
+      console.log(res);
     }
     // progreso audio
     progressBar.addEventListener("click", clickSeek);
