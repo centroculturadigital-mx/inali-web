@@ -1,134 +1,263 @@
+<script context="module">
+  // TODO: parar audios que esten tocando al dar play
+  export function pararTodo() {
+    console.log("//TODO: parar audios que esten tocando al dar play");
+  }
+</script>
+
 <script>
+  import PlaySVG from "./PlaySVG.svelte";
   import { onMount } from "svelte";
-  //
-  export let archivoAudio;
+  export let lenguaAudio;
   export let nombreAudio;
+  export let archivoAudio;
+  export let coleccionAudio;
+  export let creditoAudio;
+  export let derechosAudio;
+
+  let botonPlay; //bind
+  let controlAmp; //bind
+  let barraProgreso; //bind
+  let conexion;
+  let ampNodo;
+  // let AudioContext = window.AudioContext || window.webkitAudioContext;
+  const contexto = new AudioContext();
+  let audioElemento = new Audio();
+
+  conexion = contexto.createMediaElementSource(audioElemento);
+  ampNodo = contexto.createGain();
+  audioElemento.src = archivoAudio;
+  audioElemento.controls = false;
+  audioElemento.autoplay = false;
+  audioElemento.loop = false;
+
+  const play = (
+    elemento,
+    contexto,
+    audioelement,
+    fileURL,
+    gain,
+    progressbar
+  ) => {
+    let avanzaProgreso
+    // clearInterval(avanzaProgreso);
+    conexion.connect(gain).connect(contexto.destination);
+
+    if (contexto.state === "suspended") {
+      contexto.resume();
+    }
+
+    if (elemento.dataset.playing === "false") {
+      audioelement.play();
+      elemento.dataset.playing = "true";
+      // progreso del track
+      avanzaProgreso = setInterval(
+        () => progreso(barraProgreso, audioElemento),
+        500
+      );
+      //
+    } else if (elemento.dataset.playing === "true") {
+      audioelement.pause();
+      elemento.dataset.playing = "false";
+      // progreso del track
+      clearInterval(avanzaProgreso);
+      //
+    }
+  };
+  // DEBUG: barra de progreso
+  function progreso(progressbar, audioelement) {
+    let avance = audioelement.currentTime / progressbar.offsetWidth;
+    progressbar.value = avance * 100;
+    // console.log(avance);
+  }
+  // click progreso
+  const clickSeek = e => {
+    var porcentaje = e.offsetX / barraProgreso.clientWidth;
+
+    audioElemento.currentTime = porcentaje * audioElemento.duration; //aplica tiempo seleccionado
+    console.log(e.offsetX,barraProgreso.width,porcentaje,audioElemento.currentTime);
+    barraProgreso.value = porcentaje;
+  };
+
+  const cargando = () => {
+    console.log("Loading ...");
+  };
 
   onMount(() => {
-
-    let AudioContext = window.AudioContext || window.webkitAudioContext;
-    let audioContext = new AudioContext();
-    let audioElement = new Audio();
-    let track = audioContext.createMediaElementSource(audioElement);
-    let gainNode = audioContext.createGain();
-    let playButton = document.querySelector('.toggle-play');
-    let volumeControl = document.querySelector('#volumen');
-    let progressBar = document.querySelector("progress");
-    audioElement.src = archivoAudio;
-    audioElement.controls = false;
-    audioElement.autoplay = false;
-    audioElement.loop = false;
-    // audioElement.crossOrigin = "anonymous";
-
-    // if (typeof window != "undefined") {
-    //   }
-
-    // control volumen
-    volumeControl.addEventListener(
-      "input",
-      function() {
-        gainNode.gain.value = this.value;
-      },
-      false
-    );
-
+    // loading
+    audioElemento.onprogress = cargando();
+    // toca
+    botonPlay.onclick = () => {
+      play(
+        botonPlay,
+        contexto,
+        audioElemento,
+        archivoAudio,
+        ampNodo,
+        barraProgreso
+      );
+    };
+    // volumen
+    controlAmp.oninput = () => {
+      ampNodo.gain.value = controlAmp.value;
+    };
     // termina play callback
-    audioElement.addEventListener(
-      "ended",
-      e => {
-        playButton.dataset.playing = "false";
-        console.log("Fin play: " + e);
-      },
-      false
-    );
-    
-    function play(elemento,conexion,contexto,audioelement,fileURL,gain,progressbar) {
-      console.log(archivoAudio);
-      
-      // let prog;
-      // // clearInterval(prog)
-      // conexion.connect(gain).connect(contexto.destination);
-      // elemento.addEventListener("click",() => {
-          
-      //     if (contexto.state === "suspended") {
-      //       contexto.resume();
-      //     }
-
-      //     if (elemento.dataset.playing === "false") {
-      //       // agrega el archivo de audioContext
-      //       elemento.setAttribute("src", fileURL);
-      //       audioelement.play();
-      //       elemento.dataset.playing = "true";
-      //       prog = setInterval(() => {
-      //         //sequencia la barra de progreso
-      //         console.log("setInterval ON");
-      //         progress(progressbar, audioelement);
-      //       }, 250);
-      //       // progreso del track
-      //     } else if (elemento.dataset.playing === "true") {
-      //       audioelement.pause();
-      //       document.querySelector(".nombre h2").innerHTML = "... ";
-      //       elemento.dataset.playing = "false";
-      //       clearInterval(prog);
-      //     }
-      //   },
-      //   false
-      // );
-    }
-
-    function progress(progressbar, audioelement) {
-      let long = progressbar.clientWidth;
-      let point = audioelement.currentTime / long;
-      let res = point * 100;
-      progressbar.value = res;
-      console.log(res);
-    }
-    // progreso audio
-    progressBar.addEventListener("click", clickSeek);
-
-    function clickSeek(e) {
-      var porcentaje = e.offsetX / this.offsetWidth
-      console.log(audioElement);
-      
-      // audioElement.currentTime = porcentaje * audioElement.duration//aplica tiempo seleccionado
-      progressBar.value = porcentaje * 100
-    }
-    //
-    play(playButton,track,audioContext,audioElement,archivoAudio,gainNode,progressBar);
-  });
-
-
-  //   //
+    audioElemento.onended = e => {
+      botonPlay.dataset.playing = "false";
+      barraProgreso.value = 0;
+      console.log("Fin del audio");
+    };
+    barraProgreso.onclick = clickSeek;
+    audioElemento.onpause = e => {
+      // if () {
+      // }
+    };
+  }); //onMount
 </script>
 
 <style>
-
+  section {
+    background-color: black;
+    color: white;
+  }
+  .AudioElementos {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  .TogglePlay {
+    width: 20%;
+    background-color: transparent;
+    border: none;
+  }
+  .Progreso {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 65%;
+    height: 5px;
+    background: #fff;
+    outline: none;
+    border: none;
+    opacity: 0.9;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+  }
+  .Progreso::-moz-range-progress {
+    background-color: lime;
+  }
+  .Progreso:hover {
+    opacity: 1;
+  }
+  /* perilla barra progreso*/
+  .Progreso::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50px;
+    background: #fff;
+    cursor: pointer;
+    border: none;
+  }
+  .Progreso::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50px;
+    background: #fff;
+    cursor: pointer;
+    border: none;
+  }
+  .AudioTarjeta {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    height: auto;
+    width: 100%;
+  }
+  .AudioWrapper {
+    max-width: 90%;
+  }
+  .Amplitud {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    width: 15%;
+  }
+  .AmplitudInput {
+    width: 2px;
+    height: 100%;
+  }
+  .AmplitudInput::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50px;
+    background: #fff;
+    cursor: pointer;
+    border: none;
+  }
+  .AmplitudInput::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50px;
+    background: #fff;
+    cursor: pointer;
+    border: none;
+  }
+  .AudioInfo {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+  }
+  p {
+    width: auto;
+    padding: 0 0.5rem;
+    font-size: 0.6rem;
+  }
+  /* * {
+    outline: 1px solid blue;
+  } */
 </style>
 
-<section id="tarjeta-player">
-  <h1>Esto es un audio player</h1>
-  <div class="wrapper">
-    <!--  -->
-    <div class="nombre">
-      <h3>Nombre: {nombreAudio}</h3>
+<!-- <svelte:window on:create={console.log('Creado')} /> -->
+<section class="AudioTarjeta">
+  <div class="AudioWrapper">
+    <div class="AudioElementos">
+      <button
+        bind:this={botonPlay}
+        class="TogglePlay"
+        data-playing="false"
+        role="switch"
+        aria-checked="false">
+        <PlaySVG />
+      </button>
+      <input
+        bind:this={barraProgreso}
+        type="range"
+        class="Progreso"
+        min="0"
+        max="100"
+        value="0"
+        step="0.01" />
+      <div class="Amplitud">
+        <input
+          bind:this={controlAmp}
+          type="range"
+          class="AmplitudInput"
+          min="0"
+          max="1"
+          value="1"
+          step="0.01"
+          orient="vertical" />
+      </div>
     </div>
-    <progress min="0" max="100" value="0" />
-    <br />
-    <input
-      type="range"
-      id="volumen"
-      min="0"
-      max="1"
-      value="1"
-      step="0.01" />
-    <br />
-    <button
-      on:click={e => console.log('SISI play')}
-      class="toggle-play"
-      data-playing="false"
-      role="switch"
-      aria-checked="false">
-      <span>Play/Pause</span>
-    </button>
+    <div class="AudioInfo">
+      <p>Nombre: {nombreAudio}</p>
+      <p>Colección: {coleccionAudio}</p>
+      <p>Credito: {creditoAudio}</p>
+      <p>{derechosAudio}</p>
+    </div>
   </div>
 </section>
