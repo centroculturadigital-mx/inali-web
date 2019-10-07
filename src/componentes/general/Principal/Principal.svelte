@@ -148,6 +148,22 @@
 
     }
 
+    const manejaVerDetalle = () => {
+        
+        muestraResumen = false
+        muestraFiltro = false
+        muestraDetalle = true
+
+    }
+
+    const manejaCierraDetalle = () => {
+        
+        muestraDetalle = false
+        muestraResumen = true
+        muestraFiltro = true
+
+    }
+
     const manejaMapaCargado = (e) => {
         mapa = e.detail
     }
@@ -261,15 +277,6 @@
         max-height: 21rem;
     }
 
-    .LenguaResumen {
-        position: absolute;
-        top: 10rem;
-        left: 50%;
-        width: 320px;
-        background-color: transparent;
-        /* height: calc( 100% - 2rem ); */
-        max-height: 15rem;
-    }
 </style>
 
 <div class="Principal">
@@ -344,12 +351,19 @@
 
     {#if muestraDetalle && !! lenguaDetalle }
         <div class="LenguaDetalle">
-            <LenguaDetalle lengua={lenguaDetalle} />
+            <LenguaDetalle
+                lengua={lenguaDetalle}
+                on:cerrar={manejaCierraDetalle} 
+            />
         </div>
     {/if}
     {#if muestraResumen && !! lenguaDetalle }
         <div class="LenguaResumen">
-            <LenguaResumen lengua={lenguaDetalle}/>
+            <LenguaResumen 
+                lengua={lenguaDetalle} 
+                on:cerrar={manejaLimpiaFiltro} 
+                on:vermas={manejaVerDetalle}
+            />
         </div>
     {/if}
 </div>
