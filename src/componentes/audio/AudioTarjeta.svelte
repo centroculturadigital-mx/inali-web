@@ -80,28 +80,31 @@
     background-color: transparent;
     border: none;
     filter: invert(1);
-    width: 80px;
-    width: 80px;
+    width: 95px;
+    width: 95px;
   }
   article {
     background-color: rgba(0, 0, 0, 0.9);
+    padding: 2rem;
     color: white;
   }
-  /*  */
   .Controles {
     /* display: flex; */
     align-items: center;
     flex-wrap: nowrap;
     width: 75%;
   }
+  .NombreAudio {
+      font-weight: bolder;
+  }
   .Progreso {
     -webkit-appearance: none;
     appearance: none;
     width: 65%;
     height: 0;
-    background: #fff;
+    background: rgba(255,255,255,0.85);
     outline: none;
-    border: 1px solid #fff;
+    border: 1px solid rgba(255,255,255,0.85);
     opacity: 0.9;
     -webkit-transition: 0.2s;
     transition: opacity 0.2s;
@@ -149,7 +152,16 @@
     justify-content: space-between;
     width: 100%;
   }
-  /* Estilos version alt */
+    p {
+    width: auto;
+    margin-top: 0px;
+    font-size: 0.8rem;
+    font-weight: lighter;
+  }
+  .Duracion, .Posicion {
+      font-size: 0.8em;
+  }
+  /* Estilos Volument */
   .Amplitud {
     display: flex;
     justify-content: center;
@@ -183,11 +195,6 @@
     align-items: flex-start;
     flex-wrap: nowrap;
   }
-  p {
-    width: auto;
-    padding: 0 0.5rem;
-    font-size: 0.6rem;
-  }
   /* * {
     outline: 1px solid blue;
   } */
@@ -211,7 +218,7 @@
   <section class="Controles">
 
     <div class="Informacion">
-      <h4>{nombreAudio}</h4>
+      <h4 class="NombreAudio">{nombreAudio}</h4>
       <p>Audio relalizado por {creditoAudio}</p>
       <!--<p>Colección: {coleccionAudio}</p> -->
       <!-- <p>Derechos: {derechosAudio}</p> -->
