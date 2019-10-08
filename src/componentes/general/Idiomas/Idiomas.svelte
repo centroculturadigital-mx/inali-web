@@ -1,6 +1,6 @@
 <style>
     select {
-        background: #465D72;
+        background-color: transparent;
         border: 0; 
         color: #fff;  
         -webkit-appearance: none;
@@ -16,23 +16,39 @@
         font-size: 16px;
         line-height: 48px; */
     }
-
+    .Idioma {
+        display: flex;
+        justify-content: center;
+    }
+    .Idioma i {
+        color: #FFF;
+    }
+    .IdiomaSelect {
+        cursor: pointer;
+    }
 </style>
 
-    <select name="Idioma" id="Idioma">
+    <div class="Idioma">
+    <select name="Idioma" class="IdiomaSelect">
         <option value="1">
-            <a href="#">
-                ESPANOL  ▼  
+            <a href="">
+                ESPAÑOL
+
             </a>
         </option>
         <option value="2">
-            <a href="#">
+            <a href="">
                 MAYA    
             </a>
         </option>
         <option value="3">
-            <a href="#">
+            <a href="">
                 NAHUATL    
             </a>
         </option>
+
+      
     </select>
+      <i class="fa fa-chevron-down" />
+
+    </div>

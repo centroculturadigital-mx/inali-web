@@ -1,122 +1,87 @@
 <script>
-    import Idiomas from "../Idiomas/Idiomas.svelte";
-    import Logo from "./Logo/Logo.svelte";
-
-
-    // import Icon from "fa-svelte";
-    // import { faSearch } from "@fortawesome/free-solid-svg-icons";
-
-    // let Busqueda = faSearch;
-
+  import Navegacion from "../Navegacion/Navegacion.svelte";
+  import Idiomas from "../Idiomas/Idiomas.svelte";
+  import Logo from "./Logo/Logo.svelte";
 </script>
 
 <style>
-
-
-    header {
-        display: flex;
-        height: 4rem;
-        background: #465D72;
-        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
-
-    }
-
-    #Logotipo {
-        padding: 0;
-        width: 12rem; 
-    }
-
-    /* #Logotipo img {
+  header {
+    display: flex;
+    height: 3.3rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  #Logotipo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: solid #fff 1px;
+    min-width: 338px;
+  }
+  /* #Logotipo img {
         width: 100%;
         height: 100%;
         object-fit: contain; 
         object-position: 0 0;
     } */
-
-
-    header > * {
-        /* flex-shrink: 1;
-        padding: 1.5rem; */
-        padding: 0 1rem;
-        display: flex;
-        align-items: center;
-    }
-    header > nav {
-        flex-grow: 1;
-    }
-   
-    nav ul {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        border-right: solid gray 1px;
-        border-left: solid gray 1px;
-    }
-    nav ul li {
-        padding: 0 1rem;
-        margin: 0;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        font-weight: 300;
-        font-size: 16px;
-        line-height: 48px;
-
-    }
-
-    .Busqueda {
-        background: #465D72;
-        border: 0;
-        margin: 1rem;
-    }
-
-    a {
-      text-decoration-style: none;
-      color: #fff;
-    }
-
-    .Idiomas {
-        border-left: solid gray 1px;
-
-    }
-
+  .Interaccion {
+    display: flex;
+    justify-content: center;
+    padding: 0 !important;
+    min-width: 27%;
+  }
+  .Interaccion button {
+    background-color: transparent;
+  }
+  .Interaccion button i {
+    color: #fff;
+  }
+  .Busqueda {
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    width: 25%;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+    border-left: solid #fff 1px;
+    border-right: solid #fff 1px;
+  }
+  .Idiomas {
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  a {
+    text-decoration-style: none;
+    color: #fff;
+  }
 </style>
 
 <header>
 
   <div id="Logotipo">
-    <!-- <img src="http://fakeimg.pl/244x80?text=logo" alt="img" /> -->
-    <Logo/>
+    <Logo />
   </div>
 
-  <nav>
-    <ul>
-      <li>
-        <a href="#">
-        ACERCA DE
-        </a>
-      </li>
-      <li>
-        <a href="#">
-        GLOSARIO
-        </a>
-      </li>
-      <li>
-        <a href="#">
-        MAPA INTERACTIVO
-        </a>
-      </li>
-    </ul>
-  </nav>
+  <Navegacion />
 
-  <button class="Busqueda">
-    <i></i>
-  </button>
+  <div class="Interaccion">
 
-  <div class="Idiomas">
-    <Idiomas/>
+    <button class="Busqueda">
+      <i class="fa fa-search" />
+    </button>
+
+    <div class="Idiomas">
+      <Idiomas />
+    </div>
+
   </div>
 
 </header>

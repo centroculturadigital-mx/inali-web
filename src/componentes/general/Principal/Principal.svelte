@@ -282,13 +282,13 @@
 
     .Herramientas {
         position: absolute;
-        top: 1rem;
+        top: 5rem;
         right: 1rem;
     }
 
     .LenguasFiltro {
         position: absolute;
-        top: 1rem;
+        top: 4.6rem;
         left: 1rem;
         width: 320px;
         background-color: transparent;

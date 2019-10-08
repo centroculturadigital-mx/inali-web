@@ -25,11 +25,11 @@
 
 </style>
 
-<header>
+<section>
     <button class="Riesgo">
         <i>Riesgo</i>
     </button>
     <button class="Voluta">
         <i>Voluta</i>
     </button>
-</header>
+</section>
