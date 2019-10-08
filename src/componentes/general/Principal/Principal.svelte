@@ -1,6 +1,7 @@
 <script>
     // libs
     import { onMount } from 'svelte'
+    import bbox from '@turf/bbox'
 
     // componentes
     import LenguasFiltro from "../LenguasFiltro/LenguasFiltro.svelte";
@@ -120,14 +121,32 @@
     }
 
 
-    const manejaClickCaja = (layer) => {
+    const manejaSeleccion = (seleccion) => {
 
-        // recibe: layer.detail
+        // recibe: seleccion.detail
         // > {id, tipo}
+        let poligono = 
+            seleccion.detail.tipo === 'familia' ?
+                familias.find(f => f.id === seleccion.detail.id).geojson :
+            seleccion.detail.tipo === 'agrupacion' ?
+                agrupaciones.find(a => a.id === seleccion.detail.id).geojson :
+            seleccion.detail.tipo === 'variante' ?
+                variantes.find(v => v.id === seleccion.detail.id).geojson :
+            null
+        
+        console.log('poligono a acomodar', poligono)
 
-        familiaSeleccionada = layer.detail.tipo == 'familia' ? layer.detail.id : null
-        agrupacionSeleccionada = layer.detail.tipo == 'agrupacion' ? layer.detail.id : null
-        varianteSeleccionada = layer.detail.tipo == 'variante' ? layer.detail.id : null
+        if (poligono) {
+
+            mapa.fitBounds( bbox(poligono), {
+                padding: {top: 25, bottom:25, left: 75, right: 25}
+            })
+            
+        }
+
+        familiaSeleccionada = seleccion.detail.tipo == 'familia' ? seleccion.detail.id : null
+        agrupacionSeleccionada = seleccion.detail.tipo == 'agrupacion' ? seleccion.detail.id : null
+        varianteSeleccionada = seleccion.detail.tipo == 'variante' ? seleccion.detail.id : null
 
         muestraResumen = true
     
@@ -292,7 +311,7 @@
                     <MapaCapa 
                         polygon={fam.geojson}
                         id={fam.id}
-                        on:capaclick={manejaClickCaja}
+                        on:capaclick={manejaSeleccion}
                         tipo="familia"
                         opacidad={seleccion.varId ? 10 : seleccion.agrId ? 30 : 65 }
                         color={fam.color}
@@ -308,7 +327,7 @@
                     <MapaCapa
                         polygon={agr.geojson}
                         id={agr.id}
-                        on:capaclick={manejaClickCaja}
+                        on:capaclick={manejaSeleccion}
                         tipo="agrupacion"
                         opacidad={seleccion.varId === agr.id ? 30 : 65}
                         color={agr.color}
@@ -324,7 +343,7 @@
                     <MapaCapa
                         polygon={vari.geojson}
                         id={vari.id}
-                        on:capaclick={manejaClickCaja}
+                        on:capaclick={manejaSeleccion}
                         tipo="variante"
                         opacidad={65}
                         color={vari.color}
@@ -345,6 +364,7 @@
                 arbol={famArbol}
                 seleccion={seleccion}
                 on:deseleccionar={manejaLimpiaFiltro}
+                on:seleccionar={manejaSeleccion}
             />
         </div>
     {/if}

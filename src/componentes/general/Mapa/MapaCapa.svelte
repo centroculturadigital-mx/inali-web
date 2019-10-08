@@ -6,15 +6,10 @@
     onDestroy
   } from 'svelte';
   import key from '../../../mapbox-context-key.js'
-  import bbox from '@turf/bbox'
 
 	const dispatch = createEventDispatcher();
 
 	const capaClick = (event) => {
-
-    map.fitBounds( bbox(polygon), {
-      padding: {top: 25, bottom:25, left: 75, right: 25}
-    })
     
     dispatch('capaclick', {id, tipo})
 

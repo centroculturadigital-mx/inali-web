@@ -12,6 +12,16 @@
         dispatch('deseleccionar')
     }
 
+    const seleccionarFamilia = (famId) => {
+        dispatch('seleccionar', { id: famId, tipo: 'familia' })
+    }
+    const seleccionarAgrupacion = (agrId) => {
+        dispatch('seleccionar', { id: agrId, tipo: 'agrupacion' })
+    }
+    const seleccionarVariante = (varid) => {
+        dispatch('seleccionar', { id: varid, tipo: 'variante' })
+    }
+
     $: console.log('seleccion', seleccion)
 
     $: arbolFiltrado = calculaArbolFiltrado(arbol, seleccion)
@@ -87,6 +97,11 @@
         padding-left: 0;
     }
 
+    details button {
+        border: none;
+        background-color: transparent;
+    }
+
     ul li {
         border-left: 1rem solid transparent;
         padding: 0.5rem 0;
@@ -103,7 +118,6 @@
 </div>
 <aside>
 
-<!-- TODO agregar indicador de filtro activo -->
 {#if seleccion.famId || seleccion.agrId || seleccion.varId}
     <button on:click={deseleccionar}>Mostrar Todas</button>
 {/if}
@@ -112,7 +126,9 @@
         <li class="familia" style={`border-color: ${fam.color}`}>
             <details open={fam.open}>
                 <summary>
-                    {fam.nombre} {seleccion.famId === fam.id ? '*' : ''}
+                    <button on:click={() => seleccionarFamilia(fam.id)}>
+                        {fam.nombre} {seleccion.famId === fam.id ? '*' : ''}
+                    </button>
                 </summary>
                 <ul>
                 
@@ -120,13 +136,18 @@
                     <li class="agrupacion" style="border-color: {agr.variantes[0].color}">
                         <details open={agr.open}>
                             <summary>
-                                {agr.nombre} {seleccion.agrId === agr.id ? '*' : ''}
+                                <button on:click={() => seleccionarAgrupacion(agr.id)}>
+                                    {agr.nombre} {seleccion.agrId === agr.id ? '*' : ''}
+                                </button>
                             </summary>
                             <ul>
                                 
                             {#each agr.variantes as vari ("var"+vari.id)}
                                 <li class="variante" style="border-color: {vari.color}">
-                                    {vari.nombre}  {seleccion.varId === vari.id ? '*' : ''}
+                                    <b>-</b>
+                                    <button on:click={() => seleccionarVariante(vari.id)}>
+                                        {vari.nombre}  {seleccion.varId === vari.id ? '*' : ''}
+                                    </button>
                                 </li>
                             {/each}
 
