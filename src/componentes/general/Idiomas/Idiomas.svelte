@@ -1,54 +1,51 @@
 <style>
-    select {
-        background-color: transparent;
-        border: 0; 
-        color: #fff;  
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        /* background-repeat: no-repeat;
-        background-position-x: 100%;
-        background-position-y: 5px;
-        background: transparent url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") no-repeat 60px center;
-          */
-        /* font-style: normal;
-        font-weight: 300;
-        font-size: 16px;
-        line-height: 48px; */
-    }
-    .Idioma {
-        display: flex;
-        justify-content: center;
-    }
-    .Idioma i {
-        color: #FFF;
-    }
-    .IdiomaSelect {
-        cursor: pointer;
-    }
+  label {
+    position: relative;
+    color: #fff;
+  }
+  label:hover {
+    color: #fbb634 !important;
+  }
+  select {
+    color: #fff;
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    padding: 0 1rem;
+  }
+  select:hover {
+    color: #fbb634;
+  }
+  .Idioma {
+    display: flex;
+    justify-content: center;
+  }
+  .fa {
+    position: absolute;
+    top: 3px;
+    right: 2px;
+    z-index: -1;
+  }
 </style>
 
-    <div class="Idioma">
-    <select name="Idioma" class="IdiomaSelect">
-        <option value="1">
-            <a href="">
-                ESPAÑOL
+<div class="Idioma">
+  <label for="Idioma">
+    <select name="Idioma" class="IdiomaSelect" data-content="">
+      <option value="1">
+        <a href="">ESPAÑOL</a>
+      </option>
+      <option value="2">
+        <a href="">MAYA</a>
+      </option>
+      <option value="3">
+        <a href="">NAHUATL</a>
+      </option>
 
-            </a>
-        </option>
-        <option value="2">
-            <a href="">
-                MAYA    
-            </a>
-        </option>
-        <option value="3">
-            <a href="">
-                NAHUATL    
-            </a>
-        </option>
-
-      
     </select>
-      <i class="fa fa-chevron-down" />
+    <i class="fa fa-chevron-down" />
+  </label>
 
-    </div>
+</div>

@@ -1,5 +1,5 @@
 <script>
-
+export let segment;
 </script>
 
 <style>
@@ -15,8 +15,10 @@
   }
   .Navegacion {
     width: 50%;
+    padding: 0;
   }
   .Navegacion ul {
+    padding: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -39,23 +41,52 @@
   a {
     text-decoration-style: none;
     color: #fff;
+    padding: 0;
   }
   a:hover {
     text-decoration-style: none;
-    color: #FBB634;
+    color: #fbb634;
   }
+  /*  */
+  	ul::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	li {
+		display: block;
+		float: left;
+	}
+	.selected {
+		position: relative;
+		display: inline-block;
+	}
+	.selected::after {
+		position: absolute;
+		content: '';
+		width: calc(100% - 1em);
+		height: 2px;
+		background-color: red;
+		display: block;
+		bottom: -1px;
+	}
+	a {
+		text-decoration: none;
+		padding: 1em 0.5em;
+		display: block;
+	}
 </style>
 
 <nav class="Navegacion">
   <ul>
     <li>
-      <a href="#">ACERCA DE</a>
+      <a class='{segment === "acerca-de" ? "selected" : ""}' href='acerca-de'>ACERCA DE</a>
     </li>
     <li>
-      <a href="#">GLOSARIO</a>
+      <a class='{segment === "glosario" ? "selected" : ""}' href='glosario'>GLOSARIO</a>
     </li>
     <li>
-      <a href="#">MAPA INTERACTIVO</a>
+      <a class='{segment === "mapa-interactivo" ? "selected" : ""}' href='mapa-interactivo'>MAPA INTERACTIVO</a>
     </li>
   </ul>
 </nav>

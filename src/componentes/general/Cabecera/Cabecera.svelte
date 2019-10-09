@@ -23,28 +23,20 @@
     border-right: solid #fff 1px;
     min-width: 338px;
   }
-  /* #Logotipo img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; 
-        object-position: 0 0;
-    } */
-  .Interaccion {
+  .BotonesDerecha {
     display: flex;
     justify-content: center;
     padding: 0 !important;
-    min-width: 27%;
+    min-width: 25%;
   }
-  .Interaccion button {
-    background-color: transparent;
-  }
-  .Interaccion button i {
-    color: #fff;
+  .Busqueda:hover {
+    color: #fbb634 !important;
   }
   .Busqueda {
     background-color: transparent;
     border: 0;
     margin: 0;
+    color: #fff;
     width: 25%;
     align-items: center;
     height: 100%;
@@ -52,15 +44,15 @@
     border-left: solid #fff 1px;
     border-right: solid #fff 1px;
   }
+  .Busqueda i {
+    font-size: 1.15rem;
+    font-weight: lighter;
+  }
   .Idiomas {
     width: 75%;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  a {
-    text-decoration-style: none;
-    color: #fff;
   }
 </style>
 
@@ -72,7 +64,7 @@
 
   <Navegacion />
 
-  <div class="Interaccion">
+  <div class="BotonesDerecha">
 
     <button class="Busqueda">
       <i class="fa fa-search" />
