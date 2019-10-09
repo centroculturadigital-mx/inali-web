@@ -26,7 +26,7 @@ export let segment;
     justify-content: space-evenly;
   }
   .Navegacion ul li {
-    padding: 0 1rem;
+    padding: 0;
     margin: 0;
     height: 100%;
     display: flex;

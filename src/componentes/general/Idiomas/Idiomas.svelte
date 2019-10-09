@@ -35,13 +35,13 @@
   <label for="Idioma">
     <select name="Idioma" class="IdiomaSelect" data-content="">
       <option value="1">
-        <a href="">ESPAÑOL</a>
+        ESPAÑOL
       </option>
       <option value="2">
-        <a href="">MAYA</a>
+        MAYA
       </option>
       <option value="3">
-        <a href="">NAHUATL</a>
+        NAHUATL
       </option>
 
     </select>

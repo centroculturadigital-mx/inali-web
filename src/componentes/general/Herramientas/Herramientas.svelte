@@ -4,9 +4,13 @@
 </script>
 
 <style>
+  section {
+    display: flex;
+    justify-content: space-around;
+    min-width: 130px;
+  }
   button {
     cursor: pointer;
-    margin-left: 0.6rem;
     height: 3.1rem;
     width: 3.1rem;
   }
@@ -18,7 +22,7 @@
     border: 0;
   }
   .Riesgo img {
-      width: 17px;
+    width: 17px;
   }
   .Riesgo:hover,
   .Riego:focus,
@@ -26,26 +30,26 @@
     background: rgba(255, 97, 97, 1);
   }
   .Voluta {
-    background-color: rgba(219,219,219,0.8);
+    background-color: rgba(219, 219, 219, 0.8);
     background-blend-mode: multiply;
     border-radius: 4px;
     border: 0;
   }
   .Voluta img {
-      height: 16px;
+    height: 16px;
   }
   .Voluta:hover,
   .Voluta:focus,
   .Voluta:active {
-    background: rgba(219,219, 219,1);
+    background: #465D72;
   }
 </style>
 
 <section>
   <button class="Riesgo">
-      <img src={IconoRiesgo} alt="Riesgo de extinción de la lengua">
+    <img src={IconoRiesgo} alt="Riesgo de extinción de la lengua" />
   </button>
   <button class="Voluta">
-    <img src={IconoVoluta} alt="Texto animado">
+    <img src={IconoVoluta} alt="Texto animado" />
   </button>
 </section>
