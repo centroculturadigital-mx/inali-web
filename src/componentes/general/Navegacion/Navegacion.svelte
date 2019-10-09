@@ -47,7 +47,7 @@ export let segment;
     text-decoration-style: none;
     color: #fbb634;
   }
-  /*  */
+  /* menu  */
   	ul::after {
 		content: '';
 		display: block;
@@ -60,8 +60,9 @@ export let segment;
 	.selected {
 		position: relative;
 		display: inline-block;
+		color: #fbb634;
 	}
-	.selected::after {
+	/* .selected::after {
 		position: absolute;
 		content: '';
 		width: calc(100% - 1em);
@@ -69,7 +70,7 @@ export let segment;
 		background-color: red;
 		display: block;
 		bottom: -1px;
-	}
+	} */
 	a {
 		text-decoration: none;
 		padding: 1em 0.5em;

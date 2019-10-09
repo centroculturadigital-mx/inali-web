@@ -2,6 +2,11 @@
   import Navegacion from "../Navegacion/Navegacion.svelte";
   import Idiomas from "../Idiomas/Idiomas.svelte";
   import Logo from "./Logo/Logo.svelte";
+
+export let segment;
+
+console.log(segment);
+
 </script>
 
 <style>
@@ -62,7 +67,7 @@
     <Logo />
   </div>
 
-  <Navegacion />
+  <Navegacion {segment} />
 
   <div class="BotonesDerecha">
 

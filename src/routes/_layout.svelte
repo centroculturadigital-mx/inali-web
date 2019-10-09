@@ -1,5 +1,4 @@
 <script>
-	// import Nav from '../components/Nav.svelte';
 	import Cabecera from '../componentes/general/Cabecera/Cabecera.svelte';
 	import Pie from '../componentes/general/Pie/Pie.svelte';
 
@@ -12,7 +11,6 @@
 	}
 
 </style>
-<!-- <Nav {segment}/> -->
 <Cabecera {segment}/>
 
 <main>
