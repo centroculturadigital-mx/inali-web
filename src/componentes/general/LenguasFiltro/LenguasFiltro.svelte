@@ -103,6 +103,13 @@
     border: none;
     background-color: transparent;
   }
+
+  details button.activo,
+  summary button.activo {
+    background-color: rgba(184,211,209,0.2);
+    font-weight: bold;
+  }
+
   ul li {
     border-left: 0.75rem solid transparent;
     padding: 0.5rem 0;
@@ -161,8 +168,8 @@
       <li class="familia" style={`border-color: ${fam.color}`}>
         <details open={fam.open}>
           <summary>
-            <button on:click={() => seleccionarFamilia(fam.id)}>
-              {fam.nombre} {seleccion.famId === fam.id ? '*' : ''}
+            <button class={seleccion.famId === fam.id ? 'activo' : ''} on:click={() => seleccionarFamilia(fam.id)}>
+              {fam.nombre}
             </button>
           </summary>
           <ul>
@@ -173,8 +180,8 @@
                 style="border-color: {agr.variantes[0].color}">
                 <details open={agr.open}>
                   <summary>
-                    <button on:click={() => seleccionarAgrupacion(agr.id)}>
-                      {agr.nombre} {seleccion.agrId === agr.id ? '*' : ''}
+                    <button class={seleccion.agrId === agr.id ? 'activo' : ''} on:click={() => seleccionarAgrupacion(agr.id)}>
+                      {agr.nombre}
                     </button>
                   </summary>
                   <ul>
@@ -182,8 +189,8 @@
                     {#each agr.variantes as vari ('var' + vari.id)}
                       <li class="variante" style="border-color: {vari.color}">
                         <b>-</b>
-                        <button on:click={() => seleccionarVariante(vari.id)}>
-                          {vari.nombre} {seleccion.varId === vari.id ? '*' : ''}
+                        <button class={seleccion.varId === vari.id ? 'activo' : ''} on:click={() => seleccionarVariante(vari.id)}>
+                          {vari.nombre}
                         </button>
                       </li>
                     {/each}
