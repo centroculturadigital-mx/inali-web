@@ -110,7 +110,7 @@
     font-weight: bold;
   }
 
-ul li {
+  ul li {
     border-left: 0.75rem solid transparent;
     padding: 0.5rem 0;
   }
