@@ -3,8 +3,14 @@
   import Idiomas from "../Idiomas/Idiomas.svelte";
   import Logo from "./Logo/Logo.svelte";
 
-export let segment;
+  export let segment;
+  export let abreBusqueda;
+  let buscador = false;
+  const abreInputBusqueda = e => {
+    
+    !buscador ? buscador = true : buscador = false;
 
+  };
 </script>
 
 <style>
@@ -65,11 +71,11 @@ export let segment;
     <Logo />
   </div>
 
-  <Navegacion {segment} />
+  <Navegacion {segment} abreBusqueda={buscador} />
 
   <div class="BotonesDerecha">
 
-    <button class="Busqueda">
+    <button on:click={abreInputBusqueda} class="Busqueda">
       <i class="fa fa-search" />
     </button>
 
