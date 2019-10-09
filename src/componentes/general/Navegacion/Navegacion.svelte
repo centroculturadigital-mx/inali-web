@@ -5,21 +5,26 @@
   export let abreBusqueda;
 
   let buscadorInput;
+  let bool
 
   $: abreBusqueda = abreInputBusqueda();
-  // $: console.log(abreBusqueda, " :se abreeeews");
+  $: console.log(abreBusqueda, " Dolar$:");
 
     const abreInputBusqueda = () => {
-      if (abreBusqueda == true) {
-        console.log(abreBusqueda, " :se abre busqueda");
-        // buscadorInput.style.width = "100%";
-        // buscadorInput.style.opacity = 1;
-      } else {
-        console.log(abreBusqueda, " :se cierra busqueda");
-        // buscadorInput.style.width = "0%";
-        // buscadorInput.style.opacity = 0;
-      }
+      //  bool = abreBusqueda
+       console.log(abreBusqueda);
+       
+      // if (abreBusqueda == true) {
+      //   console.log(abreBusqueda, " :se abre busqueda");
+      //   // buscadorInput.style.width = "100%";
+      //   // buscadorInput.style.opacity = 1;
+      // } else {
+      //   console.log(abreBusqueda, " :se cierra busqueda");
+      //   // buscadorInput.style.width = "0%";
+      //   // buscadorInput.style.opacity = 0;
+      // }
     }
+
   onMount(() => {
     });
 </script>
