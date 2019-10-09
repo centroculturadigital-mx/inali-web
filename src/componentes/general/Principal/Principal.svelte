@@ -1,6 +1,7 @@
 <script>
   // libs
   import { onMount } from "svelte";
+  import { fade } from 'svelte/transition'
   import bbox from "@turf/bbox";
 
   // componentes
@@ -340,18 +341,21 @@
 
   {#if muestraFiltro && famArbol}
     <div class="LenguasFiltro">
-      <!-- TODO: aparece lengua con boton -->
+
       {#if estadoInicialventanaFiltro === 'cerrado'}
-        <div class="FiltroIcono" on:click={abreVentana}>
+        <div class="FiltroIcono" on:click={abreVentana} transition:fade>
           <img src={iconoFiltro} alt="Filtro de lenguas indígenas" />
         </div>
       {:else if estadoInicialventanaFiltro === 'abierto'}
+      <div transition:fade>
         <LenguasFiltro
           arbol={famArbol}
           {seleccion}
           on:deseleccionar={manejaLimpiaFiltro}
           on:seleccionar={manejaSeleccion} 
-          cierraVentanaFiltro={cierraVentana}/>
+          cierraVentanaFiltro={cierraVentana}
+          />
+      </div>
       {/if}
     </div>
   {/if}
