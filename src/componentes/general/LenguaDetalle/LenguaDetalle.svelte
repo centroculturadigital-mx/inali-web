@@ -1,7 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
+  import { fade } from "svelte/transition";
 
-  const IconoRiesgo = "icono.riesgo.svg";
   const dispatch = createEventDispatcher();
 
   export let lengua;
@@ -10,28 +10,34 @@
     dispatch("cerrar");
   };
   $: console.log("lenguaDetalle", lengua);
+  //
+  const RiesgoIcono = `<svg width="25" height="24" viewBox="0 0 25 24" fill="#FF0000" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.2666 0C5.52183 0 0.0666504 5.36575 0.0666504 12C0.0666504 18.6216 5.52183 24 12.2666 24C19.0115 24 24.4667 18.6342 24.4667 12C24.4538 5.36575 18.9986 0 12.2666 0ZM13.7497 20.1818C13.4015 20.5243 12.9115 20.7019 12.2796 20.7019C11.6347 20.7019 11.1318 20.537 10.7836 20.1945C10.4354 19.8647 10.2548 19.3827 10.2548 18.7738C10.2548 18.1395 10.4225 17.6575 10.7707 17.3404C11.1189 17.0106 11.6218 16.8583 12.2796 16.8583C12.9115 16.8583 13.4144 17.0233 13.7626 17.3531C14.1108 17.6829 14.2914 18.1649 14.2914 18.7738C14.2785 19.37 14.0979 19.8393 13.7497 20.1818ZM13.7626 14.9049H10.7965L9.76475 5.80972C9.68737 4.74419 10.8352 3.85624 12.2796 3.85624C13.7239 3.85624 14.8717 4.74419 14.7943 5.80972L13.7626 14.9049Z" fill="white"/>
+</svg>
+`;
 </script>
 
 <style>
   .DetalleContenedor {
     display: flex;
     justify-content: flex-start;
-    background-color: rgba(255, 255, 255, 0.95);
     position: absolute;
     padding-top: 3.25rem;
+    padding-bottom: 2.25rem;
     width: 50%;
     height: 100%;
   }
   .DetallePleca {
-    border-top-right-radius: 15px;
     background-color: #fbb634;
     height: 100%;
-    width: 7%;
+    width: 1rem;
   }
   .DetalleContenidos {
+    background-color: rgba(255, 255, 255, 0.95);
     padding: 1rem 2.25rem;
     height: 100%;
     width: 93%;
+    overflow-y: scroll;
   }
   header {
     height: auto;
@@ -70,15 +76,19 @@
   .DetalleTituloTop {
     font-weight: lighter;
     text-transform: uppercase;
+    letter-spacing: 0.25rem;
   }
   .DetalleTitulo {
     font-weight: Bold;
+    color: #fbb634;
+    font-size: 2.5rem
+    /* letter-spacing: 0.25rem; */
   }
   .DetalleNumeroHablantes {
     padding: 0.75rem;
     display: inline-block;
     background-color: rgba(230, 170, 48, 0.1);
-    height: 11.25rem;
+    height: auto;
     width: auto;
   }
   .DetalleNumeroHablantes p {
@@ -88,14 +98,60 @@
   .DetalleOrigen {
     display: flex;
     justify-content: space-evenly;
+    height: 4.25rem;
+    width: 100%;
   }
   .DetalleOrigenRiesgo {
-    background-color: #FF0000;
-    opacity:0.1;
+    background-color: rgba(255, 0, 0, 0.1);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    /* max-width: 33%; */
   }
-
+  .DetalleOrigenFamilia {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* max-width: 33%; */
+  }
+  .DetalleOrigenVariantes {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* max-width: 33%; */
+    border-left: 1px solid #000;
+  }
+  .DetalleOrigenIcono {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f4d13b;
+  }
+  .DetalleOrigenTexto {
+    color: #3d3d3d;
+    margin: 0;
+    height: auto;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  .DetalleOrigenTexto div {
+    height: auto !important;
+  }
+  .DetalleOrigenTexto p {
+    margin: 0;
+    font-size: 0.75rem;
+    height: auto;
+  }
+  .DetalleOrigenTexto small {
+    margin: 0;
+    font-size: 0.5rem;
+  }
 </style>
 
 <section class="DetalleContenedor">
@@ -112,31 +168,48 @@
           <i class="fa fa-close" />
         </button>
       </p>
-      <h2 class="DetalleTituloTop">Familia</h2>
+      <h3 class="DetalleTituloTop">Familia</h3>
       <h1 class="DetalleTitulo">
         {lengua.NOM_FAM ? lengua.NOM_FAM : lengua.NOM_AGRUP ? lengua.NOM_AGRUP : lengua.NOM_VAR}
       </h1>
       <!-- if familia -->
-      <div class="DetalleNumeroHablantes">
+      <!-- <div class="DetalleNumeroHablantes">
         <p>Numero de hablantes:</p>
         <h4>1,965,672</h4>
-      </div>
+      </div> -->
       <!-- end if familia -->
       <!-- if agrupacion -->
       <div class="DetalleOrigen">
 
         <div class="DetalleOrigenRiesgo">
-
-          <img src={IconoRiesgo} alt="Riesgo de lengua hablada" />
+          <div class="DetalleOrigenIcono">
+            {@html RiesgoIcono}
+          </div>
+          <div class="DetalleOrigenTexto">
+            <div>
+              <p>Bajo riesgo de desparición</p>
+              <small>
+                <b>1,725,620 hablantes</b>
+              </small>
+            </div>
+          </div>
 
         </div>
         <div class="DetalleOrigenFamilia">
-
-          <i class="fa fa-group" />
+          <div class="DetalleOrigenIcono">
+            <i class="fa fa-group" />
+          </div>
+          <div class="DetalleOrigenTexto">
+            <p>Familia Yuto-nahua</p>
+          </div>
         </div>
         <div class="DetalleOrigenVariantes">
-
-          <i class="fa fa-message" />
+          <div class="DetalleOrigenIcono">
+            <i class="fa fa-share-alt-square" />
+          </div>
+          <div class="DetalleOrigenTexto">
+            <p>30 variantes linguísticas</p>
+          </div>
         </div>
 
       </div>
@@ -144,28 +217,14 @@
     </header>
     <div class="DetalleTextoDescripcion">
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-        molestiae et eos dignissimos ab, voluptatem sapiente deserunt
-        consequuntur deleniti nulla fugit eaque incidunt numquam officia,
-        laudantium id impedit aliquam perferendis.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-        molestiae et eos dignissimos ab, voluptatem sapiente deserunt
-        consequuntur deleniti nulla fugit eaque incidunt numquam officia,
-        laudantium id impedit aliquam perferendis.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-        molestiae et eos dignissimos ab, voluptatem sapiente deserunt
-        consequuntur deleniti nulla fugit eaque incidunt numquam officia,
-        laudantium id impedit aliquam perferendis.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-        molestiae et eos dignissimos ab, voluptatem sapiente deserunt
-        consequuntur deleniti nulla fugit eaque incidunt numquam officia,
-        laudantium id impedit aliquam perferendis.
+        La agrupación lingüística náhuatl, pertenece a la familia yuto-nahua, es
+        la agrupación más hablada en México con 1, 586,884 de hablantes
+        registrados hasta 2010. El náhuatl se habla en 15 de las 31 entidades
+        federativas de la República Mexicana: Puebla, Hidalgo, Veracruz, San
+        Luis Potosí, Oaxaca, Colima, Durango, Guerrero, Jalisco, Michoacán,
+        Morelos, Nayarit, Tabasco, Tlaxcala, Estado de México y Distrito
+        Federal. A continuación mostramos las 30 variantes con sus respectivas
+        autodenominaciones.
       </p>
     </div>
   </div>
