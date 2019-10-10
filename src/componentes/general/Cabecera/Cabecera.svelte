@@ -9,6 +9,8 @@
   const abreInputBusqueda = e => {
     
     !buscador ? buscador = true : buscador = false;
+      console.log("Cabecera", e);
+    
 
   };
 </script>
@@ -16,7 +18,7 @@
 <style>
   header {
     display: flex;
-    height: 3.3rem;
+    height: 3.25rem;
     background-color: rgba(0, 0, 0, 0.6);
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
     position: fixed;

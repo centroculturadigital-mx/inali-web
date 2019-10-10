@@ -11,8 +11,8 @@
   }
   button {
     cursor: pointer;
-    height: 3.1rem;
-    width: 3.1rem;
+    height: 3rem;
+    width: 3rem;
   }
 
   .Riesgo {

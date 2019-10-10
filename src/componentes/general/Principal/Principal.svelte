@@ -279,13 +279,13 @@
     left: 0;
     top: 0.5rem;
     background-color: transparent;
-    height: 3.1rem;
-    width: 3.1rem;
+    height: 3rem;
+    width: 3rem;
     cursor: pointer;
   }
   .FiltroIcono img {
-    height: 3.1rem;
-    width: 3.1rem;
+    height: 3rem;
+    width: 3rem;
   }
 </style>
 

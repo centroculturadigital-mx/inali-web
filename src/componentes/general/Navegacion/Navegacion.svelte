@@ -1,32 +1,11 @@
 <script>
   import { onMount } from "svelte";
-  import { slide } from "svelte/transition";
+  import { slide, fade } from "svelte/transition";
   export let segment;
   export let abreBusqueda;
 
   let buscadorInput;
-  let bool
-
-  $: abreBusqueda = abreInputBusqueda();
-  $: console.log(abreBusqueda, " Dolar$:");
-
-    const abreInputBusqueda = () => {
-      //  bool = abreBusqueda
-       console.log(abreBusqueda);
-       
-      // if (abreBusqueda == true) {
-      //   console.log(abreBusqueda, " :se abre busqueda");
-      //   // buscadorInput.style.width = "100%";
-      //   // buscadorInput.style.opacity = 1;
-      // } else {
-      //   console.log(abreBusqueda, " :se cierra busqueda");
-      //   // buscadorInput.style.width = "0%";
-      //   // buscadorInput.style.opacity = 0;
-      // }
-    }
-
-  onMount(() => {
-    });
+  
 </script>
 
 <style>
@@ -48,8 +27,8 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 0; /*cerrado*/
-    opacity: 0; /*invisible*/
+    width: 100%; /*cerrado*/
+    opacity: 1; /*invisible*/
     height: 100%;
     padding: 0;
   }
@@ -68,6 +47,7 @@
     width: 100%;
     height: 100%;
     background-color: #465d72;
+    color: #FFF;
     border: none;
   }
   ::placeholder {
@@ -145,7 +125,8 @@
 </style>
 
 <nav class="Navegacion">
-  <ul>
+  {#if !abreBusqueda}
+  <ul transition:fade="{{ duration: 500 }}">
     <li>
       <a class={segment === 'acerca-de' ? 'selected' : ''} href="acerca-de">
         ACERCA DE
@@ -164,13 +145,15 @@
       </a>
     </li>
   </ul>
-  <div class="InputBusqueda" bind:this={buscadorInput} transition:slide>
+  {:else}
+  <div class="InputBusqueda" bind:this={buscadorInput} transition:fade="{{duration: 500 }}">
     <form action="">
       <label for="Busqueda">
         <input
           type="text"
-          placeholder="Busca una lengua, agrupación o variante" />
+          placeholder="Busca una lengua, agrupación o variante"/>
       </label>
     </form>
   </div>
+  {/if}
 </nav>
