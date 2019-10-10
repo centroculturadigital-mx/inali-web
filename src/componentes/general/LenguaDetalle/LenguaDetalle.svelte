@@ -177,6 +177,7 @@
     padding: 1.25rem;
     display: flex;
     justify-content: space-between;
+    box-shadow: 4px 4px 6px rgba(0,0,0,0.1);
     background-color: #fff;
     margin-bottom: 1rem;
     border-radius: 5px;
@@ -190,6 +191,15 @@
     font-size:1.5rem;
     display: flex;
     align-items: center;
+    color: #B8D3D1;
+  }
+  .DetalleFamiliaAgrupacion {
+    text-align: center;
+    width: 100%;
+  }
+  .DetalleAgrupacionVariantes {
+    text-align: center;
+    width: 100%;
   }
 </style>
 
