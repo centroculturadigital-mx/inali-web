@@ -176,11 +176,20 @@
   .DetalleLista li {
     padding: 1.25rem;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     background-color: #fff;
     margin-bottom: 1rem;
     border-radius: 5px;
     width: 100%;
+  }
+  .DetalleLista li h4 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  .DetalleLista li i {
+    font-size:1.5rem;
+    display: flex;
+    align-items: center;
   }
 </style>
 
@@ -292,24 +301,16 @@
     {#if lengua.NOM_FAM}
       <div class="DetalleTextoDescripcion">
         <p>
-          La agrupación lingüística náhuatl, pertenece a la familia yuto-nahua,
-          es la agrupación más hablada en México con 1, 586,884 de hablantes
-          registrados hasta 2010. El náhuatl se habla en 15 de las 31 entidades
-          federativas de la República Mexicana: Puebla, Hidalgo, Veracruz, San
-          Luis Potosí, Oaxaca, Colima, Durango, Guerrero, Jalisco, Michoacán,
-          Morelos, Nayarit, Tabasco, Tlaxcala, Estado de México y Distrito
-          Federal. A continuación mostramos las 30 variantes con sus respectivas
-          autodenominaciones.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium,
+          incidunt perferendis. Eos quae dolor dolores ad ipsa suscipit natus
+          velit, itaque earum libero id totam soluta deleniti quibusdam ratione
+          atque.
         </p>
         <p>
-          La agrupación lingüística náhuatl, pertenece a la familia yuto-nahua,
-          es la agrupación más hablada en México con 1, 586,884 de hablantes
-          registrados hasta 2010. El náhuatl se habla en 15 de las 31 entidades
-          federativas de la República Mexicana: Puebla, Hidalgo, Veracruz, San
-          Luis Potosí, Oaxaca, Colima, Durango, Guerrero, Jalisco, Michoacán,
-          Morelos, Nayarit, Tabasco, Tlaxcala, Estado de México y Distrito
-          Federal. A continuación mostramos las 30 variantes con sus respectivas
-          autodenominaciones.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+          repellendus ea dolorem error accusamus, corrupti laborum facere.
+          Praesentium rem cupiditate iure vero dolorum quis, facere quo qui ea,
+          reprehenderit magni?
         </p>
       </div>
       <div class="DetalleFamiliaAgrupacion">
@@ -318,15 +319,15 @@
         <ul class="DetalleLista">
           <li>
             <h4>{lengua.NOM_AGRUP}</h4>
-            <i class="fa fa-arrow-alt-circle-right" />
+            <i class="fa fa-arrow-circle-right" />
           </li>
           <li>
             <h4>{lengua.NOM_AGRUP}</h4>
-            <i class="fa fa-arrow-alt-circle-right" />
+            <i class="fa fa-arrow-circle-right" />
           </li>
           <li>
             <h4>{lengua.NOM_AGRUP}</h4>
-            <i class="fa fa-arrow-alt-circle-right" />
+            <i class="fa fa-arrow-circle-right" />
           </li>
         </ul>
 
@@ -335,18 +336,29 @@
     {#if lengua.NOM_AGRUP}
       <div class="DetalleTextoDescripcion">
         <p>
-          La agrupación lingüística náhuatl, pertenece a la familia yuto-nahua,
-          es la agrupación más hablada en México con 1, 586,884 de hablantes
-          registrados hasta 2010. El náhuatl se habla en 15 de las 31 entidades
-          federativas de la República Mexicana: Puebla, Hidalgo, Veracruz, San
-          Luis Potosí, Oaxaca, Colima, Durango, Guerrero, Jalisco, Michoacán,
-          Morelos, Nayarit, Tabasco, Tlaxcala, Estado de México y Distrito
-          Federal. A continuación mostramos las 30 variantes con sus respectivas
-          autodenominaciones.
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque
+          laborum libero, qui molestias itaque optio earum voluptatem,
+          consequatur aut repellendus vel necessitatibus explicabo sint commodi
+          quod veniam voluptas blanditiis eos!
         </p>
       </div>
       <div class="DetalleAgrupacionVariantes">
         <h3>Variantes lingüísticas (20)</h3>
+
+        <ul class="DetalleLista">
+          <li>
+            <h4>{lengua.NOM_AGRUP}</h4>
+            <i class="fa fa-arrow-circle-right" />
+          </li>
+          <li>
+            <h4>{lengua.NOM_AGRUP}</h4>
+            <i class="fa fa-arrow-circle-right" />
+          </li>
+          <li>
+            <h4>{lengua.NOM_AGRUP}</h4>
+            <i class="fa fa-arrow-circle-right" />
+          </li>
+        </ul>
       </div>
     {/if}
     {#if lengua.NOM_VAR}
