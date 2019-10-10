@@ -11,6 +11,8 @@
         max-width: 45rem;
         height: 100vh;
         background-color: #fff;
+
+        overflow-y: auto;
     }
 </style>
 
