@@ -3,7 +3,7 @@
   import { fade } from "svelte/transition";
 
   const dispatch = createEventDispatcher();
-
+  const riesgo = Math.random();
   export let lengua;
 
   const cerrar = event => {
@@ -11,8 +11,8 @@
   };
   $: console.log("lenguaDetalle", lengua);
   //
-  const RiesgoIcono = `<svg width="25" height="24" viewBox="0 0 25 24" fill="#FF0000" xmlns="http://www.w3.org/2000/svg">
-<path d="M12.2666 0C5.52183 0 0.0666504 5.36575 0.0666504 12C0.0666504 18.6216 5.52183 24 12.2666 24C19.0115 24 24.4667 18.6342 24.4667 12C24.4538 5.36575 18.9986 0 12.2666 0ZM13.7497 20.1818C13.4015 20.5243 12.9115 20.7019 12.2796 20.7019C11.6347 20.7019 11.1318 20.537 10.7836 20.1945C10.4354 19.8647 10.2548 19.3827 10.2548 18.7738C10.2548 18.1395 10.4225 17.6575 10.7707 17.3404C11.1189 17.0106 11.6218 16.8583 12.2796 16.8583C12.9115 16.8583 13.4144 17.0233 13.7626 17.3531C14.1108 17.6829 14.2914 18.1649 14.2914 18.7738C14.2785 19.37 14.0979 19.8393 13.7497 20.1818ZM13.7626 14.9049H10.7965L9.76475 5.80972C9.68737 4.74419 10.8352 3.85624 12.2796 3.85624C13.7239 3.85624 14.8717 4.74419 14.7943 5.80972L13.7626 14.9049Z" fill="white"/>
+  const RiesgoIcono = `<svg width="25" height="24" viewBox="0 0 25 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.2666 0C5.52183 0 0.0666504 5.36575 0.0666504 12C0.0666504 18.6216 5.52183 24 12.2666 24C19.0115 24 24.4667 18.6342 24.4667 12C24.4538 5.36575 18.9986 0 12.2666 0ZM13.7497 20.1818C13.4015 20.5243 12.9115 20.7019 12.2796 20.7019C11.6347 20.7019 11.1318 20.537 10.7836 20.1945C10.4354 19.8647 10.2548 19.3827 10.2548 18.7738C10.2548 18.1395 10.4225 17.6575 10.7707 17.3404C11.1189 17.0106 11.6218 16.8583 12.2796 16.8583C12.9115 16.8583 13.4144 17.0233 13.7626 17.3531C14.1108 17.6829 14.2914 18.1649 14.2914 18.7738C14.2785 19.37 14.0979 19.8393 13.7497 20.1818ZM13.7626 14.9049H10.7965L9.76475 5.80972C9.68737 4.74419 10.8352 3.85624 12.2796 3.85624C13.7239 3.85624 14.8717 4.74419 14.7943 5.80972L13.7626 14.9049Z"/>
 </svg>
 `;
 </script>
@@ -24,7 +24,7 @@
     position: absolute;
     padding-top: 3.25rem;
     padding-bottom: 2.25rem;
-    width: 50%;
+    width: 60%;
     height: 100%;
   }
   .DetallePleca {
@@ -81,7 +81,13 @@
   .DetalleTitulo {
     font-weight: Bold;
     color: #fbb634;
-    font-size: 2.5rem
+    font-size: 2.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .DetalleTituloCastellano {
+    font-weight: lighter;
+    color: #fcc745;
+    font-size: 2.5rem;
     /* letter-spacing: 0.25rem; */
   }
   .DetalleNumeroHablantes {
@@ -100,6 +106,7 @@
     justify-content: space-evenly;
     height: 4.25rem;
     width: 100%;
+    margin-bottom: 1rem;
   }
   .DetalleOrigenRiesgo {
     background-color: rgba(255, 0, 0, 0.1);
@@ -131,6 +138,12 @@
     align-items: center;
     color: #f4d13b;
   }
+  .RiesgoAlto {
+    fill: red;
+  }
+  .RiesgoBajo {
+    fill: green;
+  }
   .DetalleOrigenTexto {
     color: #3d3d3d;
     margin: 0;
@@ -150,7 +163,24 @@
   }
   .DetalleOrigenTexto small {
     margin: 0;
-    font-size: 0.5rem;
+    font-size: 0.65rem;
+  }
+  .DatosEstadisticos {
+    height: 22rem;
+    width: 100%;
+    border: 1px solid #000;
+  }
+  .ReferenciasFeograficas {
+    min-height: 10rem;
+  }
+  .DetalleLista li {
+    padding: 1.25rem;
+    display: flex;
+    justify-content: flex-start;
+    background-color: #fff;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    width: 100%;
   }
 </style>
 
@@ -168,65 +198,161 @@
           <i class="fa fa-close" />
         </button>
       </p>
-      <h3 class="DetalleTituloTop">Familia</h3>
+      {#if lengua.NOM_FAM}
+        <h3 class="DetalleTituloTop">{'Familia'}</h3>
+      {:else if lengua.NOM_AGRUP}
+        <h3 class="DetalleTituloTop">{'Agraupación'}</h3>
+      {:else if lengua.NOM_VAR}
+        <h3 class="DetalleTituloTop">{'Variante'}</h3>
+      {/if}
       <h1 class="DetalleTitulo">
         {lengua.NOM_FAM ? lengua.NOM_FAM : lengua.NOM_AGRUP ? lengua.NOM_AGRUP : lengua.NOM_VAR}
       </h1>
-      <!-- if familia -->
-      <!-- <div class="DetalleNumeroHablantes">
-        <p>Numero de hablantes:</p>
-        <h4>1,965,672</h4>
-      </div> -->
-      <!-- end if familia -->
-      <!-- if agrupacion -->
-      <div class="DetalleOrigen">
-
-        <div class="DetalleOrigenRiesgo">
-          <div class="DetalleOrigenIcono">
-            {@html RiesgoIcono}
-          </div>
-          <div class="DetalleOrigenTexto">
-            <div>
-              <p>Bajo riesgo de desparición</p>
-              <small>
-                <b>1,725,620 hablantes</b>
-              </small>
+      {#if lengua.NOM_VAR}
+        <h1 class="DetalleTituloCastellano">
+          {lengua.NOM_FAM ? lengua.NOM_FAM : lengua.NOM_AGRUP ? lengua.NOM_AGRUP : lengua.NOM_VAR}
+        </h1>
+      {/if}
+      {#if lengua.NOM_FAM}
+        <div class="DetalleNumeroHablantes">
+          <p>Numero de hablantes:</p>
+          <h4>1,965,672</h4>
+        </div>
+      {/if}
+      {#if lengua.NOM_AGRUP}
+        <div class="DetalleOrigen">
+          <div class="DetalleOrigenRiesgo">
+            <div
+              class="DetalleOrigenIcono {riesgo <= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+              {@html RiesgoIcono}
+            </div>
+            <div class="DetalleOrigenTexto">
+              <div>
+                <p>Bajo riesgo de desparición</p>
+                <small>
+                  <b>1,725,620 hablantes</b>
+                </small>
+              </div>
             </div>
           </div>
+          <div class="DetalleOrigenFamilia">
+            <div class="DetalleOrigenIcono">
+              <i class="fa fa-group" />
+            </div>
+            <div class="DetalleOrigenTexto">
+              <p>Familia {lengua.NOM_FAM}</p>
+            </div>
+          </div>
+          <div class="DetalleOrigenVariantes">
+            <div class="DetalleOrigenIcono">
+              <i class="fa fa-share-alt-square" />
+            </div>
+            <div class="DetalleOrigenTexto">
+              <p>30 variantes linguísticas</p>
+            </div>
+          </div>
+        </div>
+      {/if}
+      {#if lengua.NOM_VAR}
+        <!-- riesgo variante  -->
+        <div class="DetalleOrigen">
+          <div class="DetalleOrigenRiesgo">
+            <div
+              class="DetalleOrigenIcono {riesgo <= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+              {@html RiesgoIcono}
+            </div>
+            <div class="DetalleOrigenTexto">
+              <div>
+                <p>Alto riesgo de desparición</p>
+                <small>
+                  <b>25,620 hablantes</b>
+                </small>
+              </div>
+            </div>
+          </div>
+          <div class="DetalleOrigenFamilia">
+            <div class="DetalleOrigenIcono">
+              <i class="fa fa-object-ungroup" />
+            </div>
+            <div class="DetalleOrigenTexto">
+              <p>Agrupación {lengua.NOM_AGRUP}</p>
+            </div>
+          </div>
+          <div class="DetalleOrigenVariantes">
+            <div class="DetalleOrigenIcono">
+              <i class="fa fa-group" />
+            </div>
+            <div class="DetalleOrigenTexto">
+              <p>Familia {lengua.NOM_FAM}</p>
+            </div>
+          </div>
+        </div>
+      {/if}
+    </header>
+    {#if lengua.NOM_FAM}
+      <div class="DetalleTextoDescripcion">
+        <p>
+          La agrupación lingüística náhuatl, pertenece a la familia yuto-nahua,
+          es la agrupación más hablada en México con 1, 586,884 de hablantes
+          registrados hasta 2010. El náhuatl se habla en 15 de las 31 entidades
+          federativas de la República Mexicana: Puebla, Hidalgo, Veracruz, San
+          Luis Potosí, Oaxaca, Colima, Durango, Guerrero, Jalisco, Michoacán,
+          Morelos, Nayarit, Tabasco, Tlaxcala, Estado de México y Distrito
+          Federal. A continuación mostramos las 30 variantes con sus respectivas
+          autodenominaciones.
+        </p>
+        <p>
+          La agrupación lingüística náhuatl, pertenece a la familia yuto-nahua,
+          es la agrupación más hablada en México con 1, 586,884 de hablantes
+          registrados hasta 2010. El náhuatl se habla en 15 de las 31 entidades
+          federativas de la República Mexicana: Puebla, Hidalgo, Veracruz, San
+          Luis Potosí, Oaxaca, Colima, Durango, Guerrero, Jalisco, Michoacán,
+          Morelos, Nayarit, Tabasco, Tlaxcala, Estado de México y Distrito
+          Federal. A continuación mostramos las 30 variantes con sus respectivas
+          autodenominaciones.
+        </p>
+      </div>
+      <div class="DetalleFamiliaAgrupacion">
+        <h3>Agrupaciones lingüísticas (11)</h3>
 
-        </div>
-        <div class="DetalleOrigenFamilia">
-          <div class="DetalleOrigenIcono">
-            <i class="fa fa-group" />
-          </div>
-          <div class="DetalleOrigenTexto">
-            <p>Familia Yuto-nahua</p>
-          </div>
-        </div>
-        <div class="DetalleOrigenVariantes">
-          <div class="DetalleOrigenIcono">
-            <i class="fa fa-share-alt-square" />
-          </div>
-          <div class="DetalleOrigenTexto">
-            <p>30 variantes linguísticas</p>
-          </div>
-        </div>
+        <ul class="DetalleLista">
+          <li>
+            <h4>{lengua.NOM_AGRUP}</h4>
+            <i class="fa fa-arrow-alt-circle-right" />
+          </li>
+          <li>
+            <h4>{lengua.NOM_AGRUP}</h4>
+            <i class="fa fa-arrow-alt-circle-right" />
+          </li>
+          <li>
+            <h4>{lengua.NOM_AGRUP}</h4>
+            <i class="fa fa-arrow-alt-circle-right" />
+          </li>
+        </ul>
 
       </div>
-      <!-- end if agrupacion -->
-    </header>
-    <div class="DetalleTextoDescripcion">
-      <p>
-        La agrupación lingüística náhuatl, pertenece a la familia yuto-nahua, es
-        la agrupación más hablada en México con 1, 586,884 de hablantes
-        registrados hasta 2010. El náhuatl se habla en 15 de las 31 entidades
-        federativas de la República Mexicana: Puebla, Hidalgo, Veracruz, San
-        Luis Potosí, Oaxaca, Colima, Durango, Guerrero, Jalisco, Michoacán,
-        Morelos, Nayarit, Tabasco, Tlaxcala, Estado de México y Distrito
-        Federal. A continuación mostramos las 30 variantes con sus respectivas
-        autodenominaciones.
-      </p>
-    </div>
+    {/if}
+    {#if lengua.NOM_AGRUP}
+      <div class="DetalleTextoDescripcion">
+        <p>
+          La agrupación lingüística náhuatl, pertenece a la familia yuto-nahua,
+          es la agrupación más hablada en México con 1, 586,884 de hablantes
+          registrados hasta 2010. El náhuatl se habla en 15 de las 31 entidades
+          federativas de la República Mexicana: Puebla, Hidalgo, Veracruz, San
+          Luis Potosí, Oaxaca, Colima, Durango, Guerrero, Jalisco, Michoacán,
+          Morelos, Nayarit, Tabasco, Tlaxcala, Estado de México y Distrito
+          Federal. A continuación mostramos las 30 variantes con sus respectivas
+          autodenominaciones.
+        </p>
+      </div>
+      <div class="DetalleAgrupacionVariantes">
+        <h3>Variantes lingüísticas (20)</h3>
+      </div>
+    {/if}
+    {#if lengua.NOM_VAR}
+      <h3>Datos estadísticos</h3>
+      <div class="DatosEstadisticos" />
+    {/if}
   </div>
 </section>
 
