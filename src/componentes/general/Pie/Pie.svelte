@@ -9,7 +9,7 @@ const Logotipos = ['logo.descarga.cultura.unam.svg','logo.gobierno.cultura.80ina
     } */
   footer {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     position: fixed;
     width: 100%;
