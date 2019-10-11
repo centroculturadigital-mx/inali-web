@@ -17,6 +17,7 @@ const Logotipos = ['logo.descarga.cultura.unam.svg','logo.gobierno.cultura.80ina
     left: 0;
     bottom: 0;
     background: #465d72;
+    z-index: 2;
   }
   .Logotipos {
     margin: 0 1rem;

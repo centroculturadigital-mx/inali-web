@@ -21,7 +21,7 @@
     position: absolute;
     padding-top: 3.25rem;
     padding-bottom: 2.25rem;
-    width: 60%;
+    width: 50%;
     height: 100%;
   }
   .DetallePleca {
