@@ -91,7 +91,7 @@
   }
   a:hover {
     text-decoration-style: none;
-    color: #fbb634;
+    color: #72A6AA;
   }
   /* menu  */
   ul::after {
@@ -106,7 +106,7 @@
   .selected {
     position: relative;
     display: inline-block;
-    color: #fbb634;
+    color: #72A6AA;
   }
   /* .selected::after {
 		position: absolute;

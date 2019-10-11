@@ -41,7 +41,7 @@
     min-width: 25%;
   }
   .Busqueda:hover {
-    color: #fbb634 !important;
+    color: #72A6AA !important;
   }
   .Busqueda {
     background-color: transparent;

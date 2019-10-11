@@ -1,5 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
+  import { fade } from "svelte/transition";
+
   // your script goes here
   export let lengua;
 
@@ -127,6 +129,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     width: 100%;
     height: 3rem;
     background-color: #465d72;
@@ -145,7 +148,7 @@
 </style>
 
 {#if lengua}
-  <section class="card">
+  <section class="card" transition:fade>
     <header>
       <span class="Cerrar" on:click={cerrar}>
         <a href="/">
@@ -234,7 +237,7 @@
     <footer on:click={verMas}>
       <div class="SaberMas">
         <a href="/">
-          <span>Saber mas</span>
+          <span>Saber más</span>
           <i class="fa fa-arrow-right" />
         </a>
       </div>

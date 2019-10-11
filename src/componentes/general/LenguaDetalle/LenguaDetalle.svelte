@@ -1,6 +1,6 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  import { fade } from "svelte/transition";
+  import { fade, slide } from "svelte/transition";
 
   const dispatch = createEventDispatcher();
   const riesgo = Math.random();
@@ -201,7 +201,7 @@
   }
 </style>
 
-<section class="DetalleContenedor">
+<section class="DetalleContenedor" transition:slide>
 
   <div class="DetallePleca" />
   <div class="DetalleContenidos">
