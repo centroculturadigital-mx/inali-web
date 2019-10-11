@@ -4,7 +4,7 @@
     color: #fff;
   }
   label:hover {
-    color: #fbb634 !important;
+    color: #72A6AA !important;
   }
   select {
     color: #fff;
@@ -17,7 +17,7 @@
     padding: 0 1rem;
   }
   select:hover {
-    color: #fbb634;
+    color: #72A6AA;
   }
   .Idioma {
     display: flex;

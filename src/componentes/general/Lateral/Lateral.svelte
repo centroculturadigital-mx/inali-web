@@ -18,10 +18,12 @@
 
 <aside class="Lateral">
     
+    <div class="">
     <header>
         <a href="/">Regresar!</a>
     </header>
 
     <slot/>
 
+    </div>
 </aside>

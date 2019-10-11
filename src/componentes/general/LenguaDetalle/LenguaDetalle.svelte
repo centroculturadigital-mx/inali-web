@@ -137,9 +137,11 @@
   }
   .RiesgoAlto {
     fill: red;
+    color: red;
   }
   .RiesgoBajo {
     fill: green;
+    color: green;
   }
   .DetalleOrigenTexto {
     color: #3d3d3d;
@@ -174,7 +176,7 @@
     padding: 1.25rem;
     display: flex;
     justify-content: space-between;
-    box-shadow: 4px 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     margin-bottom: 1rem;
     border-radius: 5px;
@@ -186,10 +188,10 @@
     font-size: 1.25rem;
   }
   .DetalleLista li i {
-    font-size:1.5rem;
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
-    color: #B8D3D1;
+    color: #b8d3d1;
   }
   .DetalleFamiliaAgrupacion {
     text-align: center;
@@ -201,11 +203,12 @@
   }
 </style>
 
-<section class="DetalleContenedor" transition:slide>
+<section class="DetalleContenedor" transition:slide={{x:500,duration:750}}>
 
   <div class="DetallePleca" />
   <div class="DetalleContenidos">
     <header>
+      <!-- breadcrumbs -->
       <p class="DetalleContenidosNavegacion">
         <span on:click={cerrar}>mapa ></span>
         <a href="../">
@@ -215,6 +218,8 @@
           <i class="fa fa-close" />
         </button>
       </p>
+      <!-- fin breadcrumbs -->
+      <!-- Texto Raiz -->
       {#if lengua.NOM_FAM}
         <h3 class="DetalleTituloTop">Familia</h3>
       {:else if lengua.NOM_AGRUP}
@@ -222,6 +227,8 @@
       {:else if lengua.NOM_VAR}
         <h3 class="DetalleTituloTop">Variante</h3>
       {/if}
+      <!-- fin Texto Raiz -->
+      <!-- Titulo -->
       <h1 class="DetalleTitulo">
         {lengua.NOM_FAM ? lengua.NOM_FAM : lengua.NOM_AGRUP ? lengua.NOM_AGRUP : lengua.NOM_VAR}
       </h1>
@@ -230,22 +237,26 @@
           {lengua.NOM_FAM ? lengua.NOM_FAM : lengua.NOM_AGRUP ? lengua.NOM_AGRUP : lengua.NOM_VAR}
         </h1>
       {/if}
+      <!-- fin titulo/subtitulo -->
+      <!-- caja informativa familia -->
       {#if lengua.NOM_FAM}
         <div class="DetalleNumeroHablantes">
           <p>Numero de hablantes:</p>
           <h4>1,965,672</h4>
         </div>
       {/if}
+      <!-- fin caja informativa familia  -->
+      <!-- caja informativa agrupacion  -->
       {#if lengua.NOM_AGRUP}
         <div class="DetalleOrigen">
           <div class="DetalleOrigenRiesgo">
             <div
-              class="DetalleOrigenIcono {riesgo <= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+              class="DetalleOrigenIcono {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
               {@html RiesgoIcono}
             </div>
             <div class="DetalleOrigenTexto">
               <div>
-                <p>Bajo riesgo de desparición</p>
+                <p>{riesgo >= 0.5 ? "Alto" : "Bajo" } riesgo de desparición</p>
                 <small>
                   <b>1,725,620 hablantes</b>
                 </small>
@@ -270,17 +281,19 @@
           </div>
         </div>
       {/if}
+      <!-- fin caja informativa agrupacion  -->
+      <!-- caja informativa variante  -->
       {#if lengua.NOM_VAR}
         <!-- riesgo variante  -->
         <div class="DetalleOrigen">
           <div class="DetalleOrigenRiesgo">
             <div
-              class="DetalleOrigenIcono {riesgo <= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+              class="DetalleOrigenIcono {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
               {@html RiesgoIcono}
             </div>
             <div class="DetalleOrigenTexto">
               <div>
-                <p>Alto riesgo de desparición</p>
+                <p> {riesgo >=0.5 ? "Alto" : "Bajo"} riesgo de desaparición </p>
                 <small>
                   <b>25,620 hablantes</b>
                 </small>
@@ -306,6 +319,8 @@
         </div>
       {/if}
     </header>
+    <!-- fin caja informativa variante  -->
+    <!-- descripcion familia  -->
     {#if lengua.NOM_FAM}
       <div class="DetalleTextoDescripcion">
         <p>
@@ -341,6 +356,8 @@
 
       </div>
     {/if}
+    <!-- fin descripcion familia  -->
+    <!-- descripcion  agrupacion  -->
     {#if lengua.NOM_AGRUP}
       <div class="DetalleTextoDescripcion">
         <p>
@@ -369,10 +386,13 @@
         </ul>
       </div>
     {/if}
+    <!-- fin descripcion agrupacion  -->
+    <!-- descripcion variante  -->
     {#if lengua.NOM_VAR}
       <h3>Datos estadísticos</h3>
       <div class="DatosEstadisticos" />
     {/if}
+    <!-- fin descripcion variante  -->
   </div>
 </section>
 

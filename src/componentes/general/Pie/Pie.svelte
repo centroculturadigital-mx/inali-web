@@ -1,5 +1,5 @@
 <script>
-const Logotipos = ['logo-cultura.svg','logo.inah.svg','logo-fonoteca.svg','logo.ccd.svg','logo-inali.svg','logo-imer.svg']
+const Logotipos = ['logo.descarga.cultura.unam.svg','logo.gobierno.cultura.80inah.svg','logo-fonoteca.svg','logo.ccd.svg','logo-inali.svg','logo-imer.svg','logo.cenidim.svg']
 </script>
 
 <style>
@@ -28,7 +28,7 @@ const Logotipos = ['logo-cultura.svg','logo.inah.svg','logo-fonoteca.svg','logo.
 </style>
 
 <footer>
-{#each Logotipos as  logo}
+{#each Logotipos as logo}
   <img class="Logotipos" src="./{logo}" alt="Logo {logo}">
 {/each}
 </footer>

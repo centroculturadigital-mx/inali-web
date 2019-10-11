@@ -85,10 +85,14 @@
   }
 
   .RiesgoDesaparicion {
+    display: flex;
     color: rgb(219, 4, 4);
     font-weight: 600;
     font-size: 0.9rem;
-    margin: 5px 0px 0px 0px;
+    margin: 0.25rem 0 0 0;
+  }
+  .RiesgoDesaparicion span {
+    margin: 0.1rem 0.5rem 0 0;
   }
 
   .FamiliaPertenece {
@@ -96,7 +100,10 @@
     color: rgba(61, 61, 61, 1);
     font-weight: 600;
     font-size: 0.9rem;
-    margin: 5px 0px 0px 0px;
+    margin: 0.25rem 0 0 0;
+  }
+  .FamiliaPertenece span {
+    margin: 0.1rem 0.25rem 0 0;
   }
 
   .InformacionRelevante {
@@ -116,8 +123,8 @@
     right: 1rem;
     top: 0.75rem;
   }
-  .Cerrar:hover {
-    color: red;
+  .Cerrar a:hover {
+    color: rgba(255, 97, 97, 0.8);
   }
 
   .Cerrar a {
@@ -148,7 +155,7 @@
 </style>
 
 {#if lengua}
-  <section class="card" transition:fade>
+  <section class="card" transition:fade={{ duration: 750 }}>
     <header>
       <span class="Cerrar" on:click={cerrar}>
         <a href="/">
@@ -177,15 +184,17 @@
         </p>
       {/if}
     </header>
-    <section class="ResumenInformacion {lengua.NOM_AGRUP ? "ResumenInformacionAgrupacion" : ""}">
+    <section
+      class="ResumenInformacion {lengua.NOM_AGRUP ? 'ResumenInformacionAgrupacion' : ''}">
       <section class="InformacionRelevante">
         <!-- Riesgo Agrupaciones -->
         {#if lengua.NOM_AGRUP}
-          <p class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+          <p
+            class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
             <span>
               {@html RiesgoIcono}
             </span>
-            {#if riesgo >=5}Alto{:else}Bajo{/if} riesgo de desaparición
+            {riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desaparición
           </p>
           <p class="FamiliaPertenece">
             <span>
@@ -202,11 +211,12 @@
         {/if}
         <!-- Riesgo Variantes -->
         {#if lengua.NOM_VAR}
-          <p class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+          <p
+            class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
             <span>
               {@html RiesgoIcono}
             </span>
-            {#if riesgo >=0.5}Alto{:else}Bajo{/if} riesgo de desaparición
+            {riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desaparición
           </p>
           <p class="FamiliaPertenece">
             <span>
