@@ -136,13 +136,11 @@
   }
   .RiesgoAlto {
     fill: red;
+    color: red;
   }
   .RiesgoBajo {
     fill: green;
-  }
-  .RiesgoDesaparicion span svg {
-    height: 0.75rem;
-    width: 0.75rem;
+    color: green;
   }
 </style>
 
@@ -180,11 +178,11 @@
       <section class="InformacionRelevante">
         <!-- Riesgo Agrupaciones -->
         {#if lengua.NOM_AGRUP}
-          <p class="RiesgoDesaparicion">
-            <span class="{riesgo <= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+          <p class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+            <span>
               {@html RiesgoIcono}
             </span>
-            Alto riesgo de desaparición
+            {#if riesgo >=5}Alto{:else}Bajo{/if} riesgo de desaparición
           </p>
           <p class="FamiliaPertenece">
             <span>
@@ -201,12 +199,11 @@
         {/if}
         <!-- Riesgo Variantes -->
         {#if lengua.NOM_VAR}
-          <p class="RiesgoDesaparicion">
-            <span class="{riesgo <= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+          <p class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+            <span>
               {@html RiesgoIcono}
-
             </span>
-            Alto riesgo de desaparición
+            {#if riesgo >=0.5}Alto{:else}Bajo{/if} riesgo de desaparición
           </p>
           <p class="FamiliaPertenece">
             <span>
