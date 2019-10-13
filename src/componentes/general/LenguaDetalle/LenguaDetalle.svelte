@@ -2,9 +2,14 @@
   import { createEventDispatcher } from "svelte";
   import { fade, slide } from "svelte/transition";
 
+const IconoTextiles = "icono.textiles.svg";
+const IconoFotos = "icono.fotos.svg";
+const IconoAudios = "icono.audios.svg";
   const dispatch = createEventDispatcher();
   const riesgo = Math.random();
   export let lengua;
+
+
 
   const cerrar = event => {
     dispatch("cerrar");
@@ -201,9 +206,33 @@
     text-align: center;
     width: 100%;
   }
+  .DetalleBotonesGaleria {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3rem;
+    color: #FFF;
+  }
+  .BotonGaleria {
+    background-color: rgba(70, 93, 114, 0.8);
+    border-radius: 10px;
+    padding: 1.5rem;
+    width: 8rem;
+    cursor: pointer;
+  }
+  .BotonGaleria:hover {
+    background-color: rgba(70, 93, 114, 0.7);
+  }
+  .IconoBotonGaleria {
+    display: flex;
+    justify-content:center;
+    min-height: 2rem;
+  }
+  .TextoBotonGaleria {
+    text-align: center
+  }
 </style>
 
-<section class="DetalleContenedor" transition:slide={{x:500,duration:750}}>
+<section class="DetalleContenedor" transition:slide={{ x: 500, duration: 750 }}>
 
   <div class="DetallePleca" />
   <div class="DetalleContenidos">
@@ -256,7 +285,7 @@
             </div>
             <div class="DetalleOrigenTexto">
               <div>
-                <p>{riesgo >= 0.5 ? "Alto" : "Bajo" } riesgo de desparición</p>
+                <p>{riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desparición</p>
                 <small>
                   <b>1,725,620 hablantes</b>
                 </small>
@@ -293,7 +322,7 @@
             </div>
             <div class="DetalleOrigenTexto">
               <div>
-                <p> {riesgo >=0.5 ? "Alto" : "Bajo"} riesgo de desaparición </p>
+                <p>{riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desaparición</p>
                 <small>
                   <b>25,620 hablantes</b>
                 </small>
@@ -367,6 +396,28 @@
           quod veniam voluptas blanditiis eos!
         </p>
       </div>
+      <!-- Botones a galerias Agrupacion -->
+      <div class="DetalleBotonesGaleria">
+        <div class="BotonGaleria">
+          <div class="IconoBotonGaleria">
+            <img src={IconoAudios} alt="Icono Boton Audios INALI" />
+          </div>
+          <div class="TextoBotonGaleria">AUDIOS</div>
+        </div>
+        <div class="BotonGaleria">
+          <div class="IconoBotonGaleria">
+            <img src={IconoFotos} alt="Icono Boton Fotos INALI" />
+          </div>
+          <div class="TextoBotonGaleria">FOTOS</div>
+        </div>
+        <div class="BotonGaleria">
+          <div class="IconoBotonGaleria">
+            <img src={IconoTextiles} alt="Icono Boton Textiles INALI" />
+          </div>
+          <div class="TextoBotonGaleria">TEXTILES</div>
+        </div>
+      </div>
+
       <div class="DetalleAgrupacionVariantes">
         <h3>Variantes lingüísticas (20)</h3>
 
