@@ -74,6 +74,11 @@
     font-size: 1rem;
   }
 
+  img {
+		width: 90%;
+		/* height: 14rem; */
+    object-fit: cover;
+  }
 
 </style>
 
