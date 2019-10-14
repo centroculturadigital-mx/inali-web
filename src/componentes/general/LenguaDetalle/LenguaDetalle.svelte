@@ -225,7 +225,7 @@ const IconoAudios = "icono.audios.svg";
   .IconoBotonGaleria {
     display: flex;
     justify-content:center;
-    min-height: 2rem;
+    min-height: 3rem;
   }
   .TextoBotonGaleria {
     text-align: center
