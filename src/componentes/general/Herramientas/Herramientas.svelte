@@ -58,7 +58,7 @@
   z-index: 1;
   opacity: 0;
   transition: opacity 0.3s;
-  top: 120%;
+  top: 115%;
   left: 45%;
   margin-left: -60px;
   font-size: .75rem;
@@ -93,7 +93,7 @@
   z-index: 1;
   opacity: 0;
   transition: opacity 0.3s;
-  top: 120%;
+  top: 115%;
   left: 96%;
   margin-left: -60px;
   font-size: .75rem;
