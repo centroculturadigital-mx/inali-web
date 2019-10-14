@@ -4,20 +4,63 @@
 
 </script>
 
+
 <style>
+
+.titulo {
+    padding:1rem;
+    color:rgba(255, 255, 255, 1);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 200;
+    font-size: 1rem;
+  }
+
+
+.Informacion {
+    padding:1rem;
+    font-size: 0.8rem;
+    color:rgba(255, 255, 255, 1);
+    font-weight: 300;
+    display: grid;
+}
+
+.Informacion p {
+    padding:0 0 1rem 0;
+}
+
+
+.Cerrar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0rem 1rem 0 0;
+  }
+  
+ .Cerrar a {
+    color: rgba(255, 255, 255, 1);
+}
 
 </style>
 
 <svelte:head>
-  <title>Acerca de INALI</title>
+  <title>Acerca de</title>
 </svelte:head>
 
+<Lateral backgroundColor="rgba(70,93,114,0.85)">
+<span class="Cerrar">
+      <a href="/">       
+          <i class="fa fa-close"></i>
+      </a>
+</span>
+  <h3 class="titulo">Acerca de </h3>
 
-<Lateral>
-  <h1>¿Que es INALI?</h1>
-
-  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus, voluptatum. Tempora obcaecati eius rem impedit ut modi corporis quisquam, praesentium saepe. A inventore perferendis assumenda nobis, consectetur ex vel accusamus!</p>
-  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus, voluptatum. Tempora obcaecati eius rem impedit ut modi corporis quisquam, praesentium saepe. A inventore perferendis assumenda nobis, consectetur ex vel accusamus!</p>
-  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus, voluptatum. Tempora obcaecati eius rem impedit ut modi corporis quisquam, praesentium saepe. A inventore perferendis assumenda nobis, consectetur ex vel accusamus!</p>
-  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus, voluptatum. Tempora obcaecati eius rem impedit ut modi corporis quisquam, praesentium saepe. A inventore perferendis assumenda nobis, consectetur ex vel accusamus!</p>
+ <section class="Informacion">
+  <p>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  </p> 
+  <p>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  </p>     
+ </section>
 </Lateral>
+

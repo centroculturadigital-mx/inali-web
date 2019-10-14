@@ -1,11 +1,16 @@
+<script>
+        export let backgroundColor = '#fff'
+
+</script>
+
 <style>
     .Lateral {
         
         padding: 0 2rem;
-        padding-top: 6rem;
+        padding-top: 2rem;
 
         position: fixed;
-        top: 0;
+        top: 3.25rem;
         left: 0;
         width: 50%; 
         max-width: 45rem;
@@ -16,11 +21,11 @@
     }
 </style>
 
-<aside class="Lateral">
+<aside class="Lateral" style={ `background-color: ${backgroundColor}`}>
     
     <div class="">
     <header>
-        <a href="/">Regresar!</a>
+        <!-- <a href="/">Regresar!</a> -->
     </header>
 
     <slot/>
