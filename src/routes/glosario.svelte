@@ -37,7 +37,7 @@ dl {
     color: rgba(255, 255, 255, 1);
     font-weight: 300;
     overflow-y: auto;
-
+  }
 .tituloDefiniciones{
     color:rgba(255, 255, 255, 1);
     font-weight: 600;

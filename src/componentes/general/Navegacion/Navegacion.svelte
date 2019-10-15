@@ -139,8 +139,7 @@
     </li>
     <li>
       <a
-        class={segment === 'mapa-interactivo' ? 'selected' : ''}
-        href="mapa-interactivo">
+        href="http://138.68.223.192:4000" target="_blank">
         MAPA INTERACTIVO
       </a>
     </li>
