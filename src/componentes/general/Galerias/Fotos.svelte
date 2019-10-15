@@ -1,26 +1,18 @@
 <script>
-  import Lateral from "../componentes/general/Lateral/Lateral.svelte";
-
+  import ContenedorGaleria from "../Lateral/ContenedorGaleria.svelte";
 </script>
 
 <style>
-
-  /* * {
-    outline: 1px solid blue;
-  } */
-
   .ContenedorFotos {
     display: grid;
     grid-template-columns:  1fr 1fr 1fr;
     overflow: auto;
     height: 100vh;
   }
-
   .Galeria {
     display: flex;
     flex-direction: column;
   }
-
   .Titulo {
     padding: 1rem 1rem .25rem 1rem;
     color:rgba(255, 255, 255, 1);
@@ -29,13 +21,11 @@
     font-weight: 600;
     font-size: 2rem;
   }
-
   .Agrupacion{ 
     color:rgba(255, 255, 255, 1);
     font-weight: 500;
     font-size: 1rem;
   } 
-
   .Regresa {
     display: flex;
     justify-content: flex-end;
@@ -44,23 +34,19 @@
     background-color: transparent;
     border: 0;
   }
-
   .Contenedor-1 ul, .Contenedor-2 ul, .Contenedor-3 ul{
     height: auto;
     display: grid;
     grid-gap: 1rem;
   }
-
   .Sub {
     display: flex;
     flex-direction: row;
   }
-
   .Sub p {
     padding: .25rem .25rem 1rem 1rem;
     margin: 0;
   }
-
   .Fonetica {
     padding: .25rem .25rem 1rem 1rem;
     margin: 0;
@@ -83,14 +69,13 @@
     object-fit: cover;
   }
 
-
 </style>
 
 <svelte:head>
-  <title>Galería</title>
+  <title>Galería INALI</title>
 </svelte:head>
 
-<Lateral class="Lateral" backgroundColor="rgba(70,93,114,1)">
+<ContenedorGaleria class="ContenedorGaleria" backgroundColor="rgba(70,93,114,1)">
   <header class="Galeria">
     <button class="Regresa">
         <i class="fa fa-arrow-left"></i>
@@ -126,4 +111,4 @@
     </section>
   </div>
 
-</Lateral>
+</ContenedorGaleria>

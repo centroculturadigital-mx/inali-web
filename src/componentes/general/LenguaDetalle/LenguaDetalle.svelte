@@ -1,22 +1,47 @@
 <script>
   import { createEventDispatcher } from "svelte";
   import { fade, slide } from "svelte/transition";
+  import Audios from "../Galerias/Audios.svelte";
+  import Fotos from "../Galerias/Fotos.svelte";
+  import Textiles from "../Galerias/Textiles.svelte";
 
-const IconoTextiles = "icono.textiles.svg";
-const IconoFotos = "icono.fotos.svg";
-const IconoAudios = "icono.audios.svg";
+  const IconoTextiles = "icono.textiles.svg";
+  const IconoFotos = "icono.fotos.svg";
+  const IconoAudios = "icono.audios.svg";
   const dispatch = createEventDispatcher();
   const riesgo = Math.random();
+
+  let VentanaGaleria = null;
+  
   export let lengua;
-
-
 
   const cerrar = event => {
     dispatch("cerrar");
   };
   $: console.log("lenguaDetalle", lengua);
-  //
+
   const RiesgoIcono = `<svg width="25" height="24" viewBox="0 0 25 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.2666 0C5.52183 0 0.0666504 5.36575 0.0666504 12C0.0666504 18.6216 5.52183 24 12.2666 24C19.0115 24 24.4667 18.6342 24.4667 12C24.4538 5.36575 18.9986 0 12.2666 0ZM13.7497 20.1818C13.4015 20.5243 12.9115 20.7019 12.2796 20.7019C11.6347 20.7019 11.1318 20.537 10.7836 20.1945C10.4354 19.8647 10.2548 19.3827 10.2548 18.7738C10.2548 18.1395 10.4225 17.6575 10.7707 17.3404C11.1189 17.0106 11.6218 16.8583 12.2796 16.8583C12.9115 16.8583 13.4144 17.0233 13.7626 17.3531C14.1108 17.6829 14.2914 18.1649 14.2914 18.7738C14.2785 19.37 14.0979 19.8393 13.7497 20.1818ZM13.7626 14.9049H10.7965L9.76475 5.80972C9.68737 4.74419 10.8352 3.85624 12.2796 3.85624C13.7239 3.85624 14.8717 4.74419 14.7943 5.80972L13.7626 14.9049Z"/></svg>`;
+
+  const abreGaleria = e => {
+
+    if (e.target.classList.contains("Audio")) {
+      VentanaGaleria = "audios";
+    } else if (e.target.classList.contains("Foto")) {
+      VentanaGaleria = "fotos";
+    } else if (e.target.classList.contains("Textil")) {
+      VentanaGaleria = "textiles";
+    }
+
+};
+
+  //   if (tipo === "audios") {
+  //     VentanaGaleria = tipo;
+  //   } else if (tipo === "fotos") {
+  //     VentanaGaleria = tipo;
+  //   } else if (tipo === "textiles") {
+  //     VentanaGaleria = tipo;
+  //   }
+  // };
 </script>
 
 <style>
@@ -210,7 +235,7 @@ const IconoAudios = "icono.audios.svg";
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 3rem;
-    color: #FFF;
+    color: #fff;
   }
   .BotonGaleria {
     background-color: rgba(70, 93, 114, 0.8);
@@ -224,11 +249,11 @@ const IconoAudios = "icono.audios.svg";
   }
   .IconoBotonGaleria {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     min-height: 3rem;
   }
   .TextoBotonGaleria {
-    text-align: center
+    text-align: center;
   }
 </style>
 
@@ -398,20 +423,20 @@ const IconoAudios = "icono.audios.svg";
       </div>
       <!-- Botones a galerias Agrupacion -->
       <div class="DetalleBotonesGaleria">
-        <div class="BotonGaleria">
-          <div class="IconoBotonGaleria">
+        <div class="BotonGaleria" on:click={abreGaleria}>
+          <div class="IconoBotonGaleria Audio">
             <img src={IconoAudios} alt="Icono Boton Audios INALI" />
           </div>
-          <div class="TextoBotonGaleria">AUDIOS</div>
+          <div class="TextoBotonGaleria ">AUDIOS</div>
         </div>
-        <div class="BotonGaleria">
-          <div class="IconoBotonGaleria">
+        <div class="BotonGaleria Foto" on:click={abreGaleria}>
+          <div class="IconoBotonGaleria ">
             <img src={IconoFotos} alt="Icono Boton Fotos INALI" />
           </div>
           <div class="TextoBotonGaleria">FOTOS</div>
         </div>
-        <div class="BotonGaleria">
-          <div class="IconoBotonGaleria">
+        <div class="BotonGaleria Textil" on:click={abreGaleria}>
+          <div class="IconoBotonGaleria ">
             <img src={IconoTextiles} alt="Icono Boton Textiles INALI" />
           </div>
           <div class="TextoBotonGaleria">TEXTILES</div>
@@ -447,6 +472,10 @@ const IconoAudios = "icono.audios.svg";
   </div>
 </section>
 
-<!-- <button on:click={verMas}>Ver más</button> -->
-
-<!-- content here -->
+{#if VentanaGaleria === 'audios'}
+  <Audios />
+{:else if VentanaGaleria === 'fotos'}
+  <Fotos />
+{:else if VentanaGaleria === 'textiles'}
+  <Textiles />
+{/if}
