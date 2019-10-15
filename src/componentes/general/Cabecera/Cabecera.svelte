@@ -51,8 +51,8 @@
     width: 25%;
     align-items: center;
     height: 100%;
-    cursor: pointer;
-    border-left: solid #fff 1px;
+    /* cursor: pointer; */
+    /* border-left: solid #fff 1px; */
     border-right: solid #fff 1px;
   }
   .Busqueda i {
@@ -77,9 +77,11 @@
 
   <div class="BotonesDerecha">
 
-    <button on:click={abreInputBusqueda} class="Busqueda">
+   <div class="Busqueda">
+   </div>
+    <!-- <button on:click={abreInputBusqueda} class="Busqueda">
       <i class="fa fa-search" />
-    </button>
+    </button> -->
 
     <div class="Idiomas">
       <Idiomas />

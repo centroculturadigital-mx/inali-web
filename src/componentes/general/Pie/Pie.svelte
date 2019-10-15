@@ -1,5 +1,5 @@
 <script>
-const Logotipos = ['logo.descarga.cultura.unam.svg','logo.gobierno.cultura.80inah.svg','logo-fonoteca.svg','logo.ccd.svg','logo-inali.svg','logo-imer.svg','logo.cenidim.svg']
+const Logotipos = ['logo-gobcultura.svg','logo-80inah.svg','logo-fonoteca.svg','logo.cenidim.svg','logo.descarga.cultura.unam.svg','logo.ccd.svg','logo-inali.svg']
 </script>
 
 <style>
