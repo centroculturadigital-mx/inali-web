@@ -34,14 +34,6 @@
 
 };
 
-  //   if (tipo === "audios") {
-  //     VentanaGaleria = tipo;
-  //   } else if (tipo === "fotos") {
-  //     VentanaGaleria = tipo;
-  //   } else if (tipo === "textiles") {
-  //     VentanaGaleria = tipo;
-  //   }
-  // };
 </script>
 
 <style>
@@ -423,8 +415,8 @@
       </div>
       <!-- Botones a galerias Agrupacion -->
       <div class="DetalleBotonesGaleria">
-        <div class="BotonGaleria" on:click={abreGaleria}>
-          <div class="IconoBotonGaleria Audio">
+        <div class="BotonGaleria Audio" on:click={abreGaleria}>
+          <div class="IconoBotonGaleria">
             <img src={IconoAudios} alt="Icono Boton Audios INALI" />
           </div>
           <div class="TextoBotonGaleria ">AUDIOS</div>
@@ -472,6 +464,7 @@
   </div>
 </section>
 
+<!-- Galerias  -->
 {#if VentanaGaleria === 'audios'}
   <Audios />
 {:else if VentanaGaleria === 'fotos'}
@@ -479,3 +472,4 @@
 {:else if VentanaGaleria === 'textiles'}
   <Textiles />
 {/if}
+<!--  -->

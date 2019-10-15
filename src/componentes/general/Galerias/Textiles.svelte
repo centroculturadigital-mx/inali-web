@@ -1,11 +1,12 @@
 <script>
   import ContenedorGaleria from "../Lateral/ContenedorGaleria.svelte";
+  const IconoCierraGaleria = "icono.cierra.galeria.svg";
 </script>
 
 <style>
   .ContenedorFotos {
     display: grid;
-    grid-template-columns:  1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     overflow: auto;
     height: 100vh;
   }
@@ -14,18 +15,18 @@
     flex-direction: column;
   }
   .Titulo {
-    padding: 1rem 1rem .25rem 1rem;
-    color:rgba(255, 255, 255, 1);
+    padding: 1rem 1rem 0.25rem 1rem;
+    color: rgba(255, 255, 255, 1);
     text-transform: uppercase;
     letter-spacing: 4px;
     font-weight: 600;
     font-size: 2rem;
   }
-  .Agrupacion{ 
-    color:rgba(255, 255, 255, 1);
+  .Agrupacion {
+    color: rgba(255, 255, 255, 1);
     font-weight: 500;
     font-size: 1rem;
-  } 
+  }
 
   .Regresa {
     display: flex;
@@ -36,7 +37,13 @@
     border: 0;
   }
 
-  .Contenedor-1 ul, .Contenedor-2 ul, .Contenedor-3 ul{
+  .Regresa img {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+  .Contenedor-1 ul,
+  .Contenedor-2 ul,
+  .Contenedor-3 ul {
     height: auto;
     display: grid;
     grid-gap: 1rem;
@@ -49,42 +56,42 @@
 
   .Sub p {
     /* padding: .5rem; */
-    padding: .25rem .25rem 1rem 1rem;
+    padding: 0.25rem 0.25rem 1rem 1rem;
     margin: 0;
   }
 
   .Fonetica {
-    padding: .25rem .25rem 1rem 1rem;
+    padding: 0.25rem 0.25rem 1rem 1rem;
     margin: 0;
-    color:rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 1);
     font-weight: 500;
     font-size: 1rem;
   }
 
   .Original {
-    padding: .25rem .25rem 1rem 1rem;
+    padding: 0.25rem 0.25rem 1rem 1rem;
     margin: 0;
-    color:rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 1);
     font-weight: 300;
     font-size: 1rem;
   }
 
   img {
-		width: 90%;
-		/* height: 14rem; */
+    width: 90%;
+    /* height: 14rem; */
     object-fit: cover;
   }
-
 </style>
 
 <svelte:head>
   <title>Textiles INALI</title>
 </svelte:head>
 
-<ContenedorGaleria class="ContenedorGaleria" backgroundColor="rgba(70,93,114,1)">
+<ContenedorGaleria>
   <header class="Textiles">
     <button class="Regresa">
-        <i class="fa fa-arrow-left"></i>
+      <!-- <i class="fa fa-arrow-left" /> -->
+      <img src={IconoCierraGaleria} alt="Cierra Galería INALI" />
     </button>
     <h1 class="Titulo">Textiles</h1>
     <div class="Sub">
@@ -96,23 +103,50 @@
   <div class="ContenedorFotos">
     <section class="Contenedor-1">
       <ul>
-        <img class="Imagen" src="http://fakeimg.pl/220x127?text=img" alt="img"/>
-        <img class="Imagen" src="http://fakeimg.pl/220x127?text=img" alt="img"/>
-        <img class="Imagen" src="http://fakeimg.pl/220x127?text=img" alt="img"/>
+        <img
+          class="Imagen"
+          src="http://fakeimg.pl/220x127?text=img"
+          alt="img" />
+        <img
+          class="Imagen"
+          src="http://fakeimg.pl/220x127?text=img"
+          alt="img" />
+        <img
+          class="Imagen"
+          src="http://fakeimg.pl/220x127?text=img"
+          alt="img" />
       </ul>
     </section>
     <section class="Contenedor-2">
       <ul>
-        <img class="Imagen" src="http://fakeimg.pl/220x152?text=img" alt="img"/>
-        <img class="Imagen" src="http://fakeimg.pl/220x152?text=img" alt="img"/>
-        <img class="Imagen" src="http://fakeimg.pl/220x152?text=img" alt="img"/>
+        <img
+          class="Imagen"
+          src="http://fakeimg.pl/220x152?text=img"
+          alt="img" />
+        <img
+          class="Imagen"
+          src="http://fakeimg.pl/220x152?text=img"
+          alt="img" />
+        <img
+          class="Imagen"
+          src="http://fakeimg.pl/220x152?text=img"
+          alt="img" />
       </ul>
     </section>
     <section class="Contenedor-3">
       <ul>
-        <img class="Imagen" src="http://fakeimg.pl/220x127?text=img" alt="img"/>
-        <img class="Imagen" src="http://fakeimg.pl/220x127?text=img" alt="img"/>
-        <img class="Imagen" src="http://fakeimg.pl/220x127?text=img" alt="img"/>
+        <img
+          class="Imagen"
+          src="http://fakeimg.pl/220x127?text=img"
+          alt="img" />
+        <img
+          class="Imagen"
+          src="http://fakeimg.pl/220x127?text=img"
+          alt="img" />
+        <img
+          class="Imagen"
+          src="http://fakeimg.pl/220x127?text=img"
+          alt="img" />
       </ul>
     </section>
   </div>
