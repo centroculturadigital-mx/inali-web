@@ -1,4 +1,5 @@
 <script>
+  import { fade } from "svelte/transition";
   const IconoCierraGaleria = "icono.cierra.galeria.svg";
 </script>
 
@@ -13,12 +14,12 @@
     width: 50%;
   }
   .GaleriaMediaContenedor {
-    padding: 0rem 1rem 2rem;
+    padding: 0rem 0rem 2rem;
     background-color: rgba(70, 93, 114, 0.9);
     height: 100%;
     width: 100%;
   }
-    .Regresa {
+  .Regresa {
     display: flex;
     justify-content: flex-end;
     padding-top: 0.5rem;
@@ -35,9 +36,10 @@
   .Regresa img:hover {
     opacity: 0.85;
   }
+
 </style>
 
-<aside class="GaleriaMedia">
+<aside class="GaleriaMedia" transition:fade>
 
   <div class="GaleriaMediaContenedor">
 
@@ -48,7 +50,8 @@
       </button>
     </div>
 
-    <slot />
+
+      <slot />
 
   </div>
 </aside>

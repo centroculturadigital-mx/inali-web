@@ -4,9 +4,14 @@
 </script>
 
 <style>
- .Audios {
+  p {
+    margin: 0;
+    padding-left: 1rem;
+  }
+  .Audios {
     display: flex;
     flex-direction: column;
+    padding: 0 1rem;
   }
   .Titulo {
     padding: 1rem 1rem 0.25rem 1rem;
@@ -21,7 +26,16 @@
     font-weight: 500;
     font-size: 1rem;
   }
-
+  .Sub {
+    color: #fff;
+    margin-bottom: 3rem;
+  }
+    .Contenido {
+    padding: 1rem;
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+  }
 </style>
 
 <svelte:head>
@@ -33,14 +47,15 @@
 
     <h1 class="Titulo">Audios</h1>
     <div class="Sub">
-      <p class="Agrupacion">Agrupación:</p>
-      <p class="Fonetica">Nawatl</p>
-      <p class="Original">(Nahuátl)</p>
+      <p class="Agrupacion">Agrupación: Nawatl (Nahuátl)</p>
+      <!-- <p class="Fonetica">Nawatl</p> -->
+      <!-- <p class="Original">(Nahuátl)</p> -->
     </div>
   </header>
 
+  <div class="Contenido">
 
-<Audios />
+    <Audios />
 
-
+  </div>
 </ContenedorGaleria>

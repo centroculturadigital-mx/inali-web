@@ -1,6 +1,6 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  import { fade, slide } from "svelte/transition";
+  import { fade } from "svelte/transition";
   import AudiosContenedor from "../Galerias/AudiosContenedor.svelte";
   import Fotos from "../Galerias/Fotos.svelte";
   import Textiles from "../Galerias/Textiles.svelte";
@@ -253,7 +253,7 @@ console.log("CIERRAGALERIA:", CierraGaleria);
   }
 </style>
 
-<section class="DetalleContenedor" transition:slide={{ x: 500, duration: 750 }}>
+<section class="DetalleContenedor" transition:fade={{ x: 500, duration: 750 }}>
 
   <div class="DetallePleca" />
   <div class="DetalleContenidos">

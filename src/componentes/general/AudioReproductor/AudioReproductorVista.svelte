@@ -1,13 +1,13 @@
 <script>
   import { fade } from "svelte/transition";
 
+  export let audio;
   export let tocando;
   export let parar;
   export let tocar;
   export let tiempo;
   export let duracion;
   export let progreso;
-  export let audio;
   export let cargando;
 
   const imagenPausa = "boton.pause.svg";
@@ -15,32 +15,12 @@
 </script>
 
 <style>
-  /* .AudioReproductor {
-        border: 1px solid #000;
-        position: relative;
-        min-height: 6rem;
-    }
-
-    input[type="range"] {
-        width: 100%;
-    }
-
-    .AudioReproductor > .Cargando {
-        width: 100%;
-        height: 6rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    } */
-
   /* Estilos maqueta */
 
   article {
     background-color: transparent;
     color: white;
+    margin-bottom: 3rem;
   }
   .AudioElementos {
     display: flex;
@@ -48,25 +28,44 @@
     flex-wrap: nowrap;
     width: 100%;
   }
-  .TogglePlay {
-    width: 20%;
+  input[type="range"] {
+    width: 100%;
+  }
+  .Boton {
+    display: flex;
+    justify-content: center;
+    width: 25%;
+  }
+  .BotonPlay,
+  .BotonPausa {
     background-color: transparent;
     border: none;
+    filter: invert(1);
+    width: 60px;
+  }
+  .Controles {
+    /* display: flex; */
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 75%;
+  }
+  .NombreAudio {
+    font-weight: bolder;
   }
   .Progreso {
     -webkit-appearance: none;
     appearance: none;
     width: 65%;
-    height: 5px;
-    background: #fff;
+    height: 0;
+    background: rgba(255, 255, 255, 0.85);
     outline: none;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.85);
     opacity: 0.9;
     -webkit-transition: 0.2s;
     transition: opacity 0.2s;
   }
   .Progreso::-moz-range-progress {
-    background-color: lime;
+    background-color: #fbb634;
   }
   .Progreso:hover {
     opacity: 1;
@@ -78,7 +77,7 @@
     width: 12px;
     height: 12px;
     border-radius: 50px;
-    background: #fff;
+    background: #fbb634;
     cursor: pointer;
     border: none;
   }
@@ -86,20 +85,39 @@
     width: 12px;
     height: 12px;
     border-radius: 50px;
-    background: #fff;
+    background: #fbb634;
     cursor: pointer;
     border: none;
   }
-  .AudioTarjeta {
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
-    height: auto;
+
+  .Informacion {
     width: 100%;
   }
-  .AudioWrapper {
-    max-width: 90%;
+  .Informacion p {
+    margin-bottom: 0rem;
   }
+  .Informacion h4 {
+    margin-bottom: 0rem;
+  }
+  .Tiempo {
+    width: 100%;
+  }
+  .TiempoCuenta {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  p {
+    width: auto;
+    margin-top: 0px;
+    font-size: 0.8rem;
+    font-weight: lighter;
+  }
+  .Duracion,
+  .Posicion {
+    font-size: 0.8em;
+  }
+  /* Estilos Volumen */
   .Amplitud {
     display: flex;
     justify-content: center;
@@ -128,15 +146,8 @@
     cursor: pointer;
     border: none;
   }
-  .AudioInfo {
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: nowrap;
-  }
-  p {
-    width: auto;
-    padding: 0 0.5rem;
-    font-size: 0.6rem;
+  /*  */
+  .Sub {
   }
 </style>
 
@@ -159,18 +170,25 @@
           {/if}
         </div>
         <!--  -->
-      </div>
-      <section class="Controles">
+        <div class="Controles">
 
-        <div class="Tiempo">
-          <span class="Posicion">{tiempo}</span>
-          <span class="Duracion">{duracion}</span>
-          <input type="range" class="Progreso" value={progreso} />
+          <div class="Informacion">
+            <h4 class="NombreAudio">{audio.nombre}</h4>
+            <p>Variante linguística: {audio.variante}</p>
+            <p>Registro {audio.creditos}</p>
+            <!-- <p>Colección: {audio.coleccion}</p> -->
+          </div>
+
+          <div class="Tiempo">
+            <input type="range" class="Progreso" value={progreso} />
+            <div class="TiempoCuenta">
+              <span class="Posicion">{tiempo}</span>
+              <span class="Duracion">{duracion}</span>
+            </div>
+          </div>
+
         </div>
-        <section class="Informacion">
-          <span>{audio.nombre}</span>
-        </section>
-      </section>
+      </div>
     {:else}
       <div class="Cargando" transition:fade>Cargando...</div>
     {/if}
