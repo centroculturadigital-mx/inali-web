@@ -339,7 +339,7 @@
     </Mapa>
   </div>
   <div class="Herramientas">
-    <Herramientas />
+    <!-- <Herramientas /> -->
   </div>
 
   {#if muestraFiltro && famArbol}

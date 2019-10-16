@@ -4,6 +4,7 @@
 
   const IconoCierraGaleria = "icono.cierra.galeria.svg";
 
+let fotos = Array(4)
 
 </script>
 
@@ -11,7 +12,7 @@
   .ContenedorFotos {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    overflow: auto;
+    /* overflow: auto; */
     height: 100vh;
     padding: 0 2rem;
   }
@@ -59,7 +60,6 @@
     font-weight: 500;
     font-size: 1rem;
   }
-
   .Original {
     padding: 0.25rem 0.25rem 1rem 1rem;
     margin: 0;
@@ -67,11 +67,11 @@
     font-weight: 300;
     font-size: 1rem;
   }
-
   img {
     width: 90%;
     /* height: 14rem; */
     object-fit: cover;
+    cursor: pointer;
   }
 </style>
 
@@ -94,15 +94,15 @@
       <ul>
         <img
           class="Imagen"
-          src="http://fakeimg.pl/220x127?text=img"
+          src=``
           alt="img" />
         <img
           class="Imagen"
-          src="http://fakeimg.pl/220x127?text=img"
+          src="https://source.unsplash.com/random"
           alt="img" />
         <img
           class="Imagen"
-          src="http://fakeimg.pl/220x127?text=img"
+          src="https://source.unsplash.com/random"
           alt="img" />
       </ul>
     </section>
@@ -110,15 +110,15 @@
       <ul>
         <img
           class="Imagen"
-          src="http://fakeimg.pl/220x152?text=img"
+          src="https://source.unsplash.com/random"
           alt="img" />
         <img
           class="Imagen"
-          src="http://fakeimg.pl/220x152?text=img"
+          src="https://source.unsplash.com/random"
           alt="img" />
         <img
           class="Imagen"
-          src="http://fakeimg.pl/220x152?text=img"
+          src="https://source.unsplash.com/random"
           alt="img" />
       </ul>
     </section>
@@ -126,15 +126,15 @@
       <ul>
         <img
           class="Imagen"
-          src="http://fakeimg.pl/220x127?text=img"
+          src="https://source.unsplash.com/random"
           alt="img" />
         <img
           class="Imagen"
-          src="http://fakeimg.pl/220x127?text=img"
+          src="https://source.unsplash.com/random"
           alt="img" />
         <img
           class="Imagen"
-          src="http://fakeimg.pl/220x127?text=img"
+          src="https://source.unsplash.com/random"
           alt="img" />
       </ul>
     </section>

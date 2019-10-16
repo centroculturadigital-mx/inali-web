@@ -84,7 +84,7 @@
     </button> -->
 
     <div class="Idiomas">
-      <Idiomas />
+      <!-- <Idiomas /> -->
     </div>
 
   </div>

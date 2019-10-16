@@ -1,7 +1,20 @@
 <script>
+  import { onMount } from "svelte";
   import { createEventDispatcher } from "svelte";
   import ContenedorGaleria from "../Lateral/ContenedorGaleria.svelte";
+  // import  FsLightbox  from "../../../../node_modules/lightbox-fs/src/js/fs-lightbox.js";
+
   const IconoCierraGaleria = "icono.cierra.galeria.svg";
+
+  const fotos = Array(4);
+
+// let FsLightbox
+
+// onMount(async () => {
+//   FsLightbox = await import("../../../../node_modules/lightbox-fs/src/js/fs-lightbox.js");
+  
+//   console.log(FsLightbox.default);
+// })
 
 </script>
 
@@ -9,7 +22,7 @@
   .ContenedorFotos {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    overflow: auto;
+    /* overflow: auto; */
     height: 100vh;
     padding: 0 2rem;
   }
@@ -66,6 +79,7 @@
     width: 90%;
     /* height: 14rem; */
     object-fit: cover;
+    cursor: pointer;
   }
 </style>
 
@@ -84,55 +98,59 @@
     </div>
 
   </header>
+
   <div class="ContenedorFotos">
-    <section class="Contenedor-1">
-      <ul>
-        <img
-          class="Imagen"
-          src="http://fakeimg.pl/220x127?text=img"
-          alt="img" />
-        <img
-          class="Imagen"
-          src="http://fakeimg.pl/220x127?text=img"
-          alt="img" />
-        <img
-          class="Imagen"
-          src="http://fakeimg.pl/220x127?text=img"
-          alt="img" />
-      </ul>
-    </section>
-    <section class="Contenedor-2">
-      <ul>
-        <img
-          class="Imagen"
-          src="http://fakeimg.pl/220x152?text=img"
-          alt="img" />
-        <img
-          class="Imagen"
-          src="http://fakeimg.pl/220x152?text=img"
-          alt="img" />
-        <img
-          class="Imagen"
-          src="http://fakeimg.pl/220x152?text=img"
-          alt="img" />
-      </ul>
-    </section>
-    <section class="Contenedor-3">
-      <ul>
-        <img
-          class="Imagen"
-          src="http://fakeimg.pl/220x127?text=img"
-          alt="img" />
-        <img
-          class="Imagen"
-          src="http://fakeimg.pl/220x127?text=img"
-          alt="img" />
-        <img
-          class="Imagen"
-          src="http://fakeimg.pl/220x127?text=img"
-          alt="img" />
-      </ul>
-    </section>
+
+    {#each fotos as foto, i}
+      <section class="Contenedor-1">
+        <ul>
+          <img
+            class="Imagen fs-lightbox"
+            src="https://source.unsplash.com/random"
+            alt="img" />
+          <img
+            class="Imagen fs-lightbox"
+            src="https://source.unsplash.com/random"
+            alt="img" />
+          <img
+            class="Imagen fs-lightbox"
+            src="https://source.unsplash.com/random"
+            alt="img" />
+        </ul>
+      </section>
+      <section class="Contenedor-2">
+        <ul>
+          <img
+            class="Imagen fs-lightbox"
+            src="https://source.unsplash.com/random"
+            alt="img" />
+          <img
+            class="Imagen fs-lightbox"
+            src="https://source.unsplash.com/random"
+            alt="img" />
+          <img
+            class="Imagen fs-lightbox"
+            src="https://source.unsplash.com/random"
+            alt="img" />
+        </ul>
+      </section>
+      <section class="Contenedor-3">
+        <ul>
+          <img
+            class="Imagen fs-lightbox"
+            src="https://source.unsplash.com/random"
+            alt="img" />
+          <img
+            class="Imagen fs-lightbox"
+            src="https://source.unsplash.com/random"
+            alt="img" />
+          <img
+            class="Imagen fs-lightbox"
+            src="https://source.unsplash.com/random"
+            alt="img" />
+        </ul>
+      </section>
+    {/each}
   </div>
 
 </ContenedorGaleria>

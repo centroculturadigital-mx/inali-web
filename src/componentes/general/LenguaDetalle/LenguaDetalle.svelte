@@ -60,7 +60,7 @@
   }
   .DetalleContenidos {
     background-color: rgba(255, 255, 255, 0.95);
-    padding: 1rem 2.25rem;
+    padding: 1rem 1rem;
     height: 100%;
     width: 100%;
     overflow-y: scroll;
@@ -253,6 +253,7 @@
   }
   .TextoBotonGaleria {
     text-align: center;
+    color: #FFF;
   }
 </style>
 
@@ -422,24 +423,24 @@
       </div>
       <!-- Botones a galerias Agrupacion -->
       <div class="DetalleBotonesGaleria">
-        <div class="BotonGaleria Audio" on:click={abreGaleria}>
+        <button class="BotonGaleria Audio" on:click={abreGaleria}>
           <div class="IconoBotonGaleria">
             <img src={IconoAudios} alt="Icono Boton Audios INALI" />
           </div>
           <div class="TextoBotonGaleria ">AUDIOS</div>
-        </div>
-        <div class="BotonGaleria Foto" on:click={abreGaleria}>
+        </button>
+        <button class="BotonGaleria Foto" on:click={abreGaleria}>
           <div class="IconoBotonGaleria ">
             <img src={IconoFotos} alt="Icono Boton Fotos INALI" />
           </div>
           <div class="TextoBotonGaleria">FOTOS</div>
-        </div>
-        <div class="BotonGaleria Textil" on:click={abreGaleria}>
+        </button>
+        <button class="BotonGaleria Textil" on:click={abreGaleria}>
           <div class="IconoBotonGaleria ">
             <img src={IconoTextiles} alt="Icono Boton Textiles INALI" />
           </div>
           <div class="TextoBotonGaleria">TEXTILES</div>
-        </div>
+        </button>
       </div>
 
       <div class="DetalleAgrupacionVariantes">
