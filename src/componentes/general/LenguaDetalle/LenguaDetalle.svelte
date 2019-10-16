@@ -322,7 +322,7 @@
               <i class="fa fa-group" />
             </div>
             <div class="DetalleOrigenTexto">
-              <p>Familia {lengua.NOM_FAM}</p>
+              <p>Familia {lengua.NOM_AGRUP}</p>
             </div>
           </div>
           <div class="DetalleOrigenVariantes">
@@ -395,15 +395,15 @@
 
         <ul class="DetalleLista">
           <li>
-            <h4>{lengua.NOM_AGRUP}</h4>
+            <h4>{lengua.NOM_FAM}</h4>
             <i class="fa fa-arrow-circle-right" />
           </li>
           <li>
-            <h4>{lengua.NOM_AGRUP}</h4>
+            <h4>{lengua.NOM_FAM}</h4>
             <i class="fa fa-arrow-circle-right" />
           </li>
           <li>
-            <h4>{lengua.NOM_AGRUP}</h4>
+            <h4>{lengua.NOM_FAM}</h4>
             <i class="fa fa-arrow-circle-right" />
           </li>
         </ul>

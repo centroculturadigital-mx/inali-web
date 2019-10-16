@@ -4,8 +4,6 @@
 
   const IconoCierraGaleria = "icono.cierra.galeria.svg";
 
-let fotos = Array(4)
-
 </script>
 
 <style>
@@ -94,7 +92,7 @@ let fotos = Array(4)
       <ul>
         <img
           class="Imagen"
-          src=``
+          src="https://source.unsplash.com/random"
           alt="img" />
         <img
           class="Imagen"

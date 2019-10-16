@@ -6,16 +6,43 @@
 
   const IconoCierraGaleria = "icono.cierra.galeria.svg";
 
-  const fotos = Array(4);
+  const fotos = [
+    {
+      url: "https://source.unsplash.com/random"
+    },
+    {
+      url: "https://source.unsplash.com/random"
+    },
+    {
+      url: "https://source.unsplash.com/random"
+    },
+    {
+      url: "https://source.unsplash.com/random"
+    },
+    {
+      url: "https://source.unsplash.com/random"
+    },
+    {
+      url: "https://source.unsplash.com/random"
+    },
+    {
+      url: "https://source.unsplash.com/random"
+    },
+    {
+      url: "https://source.unsplash.com/random"
+    },
+    {
+      url: "https://source.unsplash.com/random"
+    }
+  ];
 
-// let FsLightbox
+  // let FsLightbox
 
-// onMount(async () => {
-//   FsLightbox = await import("../../../../node_modules/lightbox-fs/src/js/fs-lightbox.js");
-  
-//   console.log(FsLightbox.default);
-// })
+  // onMount(async () => {
+  //   FsLightbox = await import("../../../../node_modules/lightbox-fs/src/js/fs-lightbox.js");
 
+  //   console.log(FsLightbox.default);
+  // })
 </script>
 
 <style>
@@ -101,7 +128,7 @@
 
   <div class="ContenedorFotos">
 
-    {#each fotos as foto, i}
+    {#each Array(4) as foto, i}
       <section class="Contenedor-1">
         <ul>
           <img
