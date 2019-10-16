@@ -135,26 +135,18 @@
   <div class="ContenedorFotos">
 
     {#each fotosColumnas as fotoColumna, h}
-      {#each fotosColumnas[h] as foto, i}
         
         <section class={`Contenedor-${h+1}`}>
           <ul>
-            <img
+            {#each fotosColumnas[h] as foto, i}
+              <img
               class="Imagen fs-lightbox"
               src={foto.url}
               alt="img" />
-            <img
-              class="Imagen fs-lightbox"
-              src={foto.url}
-              alt="img" />
-            <img
-              class="Imagen fs-lightbox"
-              src={foto.url}
-              alt="img" />
+            {/each}
           </ul>
         </section>
         
-      {/each}
     {/each}
   </div>
 
