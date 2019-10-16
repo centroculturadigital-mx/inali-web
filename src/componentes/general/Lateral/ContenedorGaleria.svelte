@@ -7,6 +7,7 @@
   .GaleriaMedia {
     position: fixed;
     padding-top: 3.25rem;
+    padding-bottom: 2.25rem;
     top: 0;
     right: 0;
     height: 100vh;
@@ -18,6 +19,7 @@
     background-color: rgba(70, 93, 114, 0.9);
     height: 100%;
     width: 100%;
+    overflow-y: auto;
   }
   .Regresa {
     display: flex;

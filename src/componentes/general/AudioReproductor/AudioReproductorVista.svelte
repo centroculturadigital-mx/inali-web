@@ -42,12 +42,14 @@
     border: none;
     filter: invert(1);
     width: 60px;
+    cursor: pointer;
   }
   .Controles {
     /* display: flex; */
     align-items: center;
     flex-wrap: nowrap;
     width: 75%;
+    padding-right: 2rem;  
   }
   .NombreAudio {
     font-weight: bolder;

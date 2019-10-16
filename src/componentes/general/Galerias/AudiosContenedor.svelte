@@ -32,8 +32,8 @@
   }
     .Contenido {
     padding: 1rem;
-    overflow-y: auto;
-    height: 100%;
+    /* overflow-y: auto; */
+    height: auto;
     width: 100%;
   }
 </style>
