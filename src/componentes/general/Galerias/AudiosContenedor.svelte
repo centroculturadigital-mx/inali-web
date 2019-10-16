@@ -1,6 +1,13 @@
 <script>
+  import { createEventDispatcher } from "svelte";
   import ContenedorGaleria from "../Lateral/ContenedorGaleria.svelte";
   import Audios from "../AudioReproductor/Audios.svelte";
+
+  const dispatch = createEventDispatcher();
+
+  const escuchaGaleria = event => {
+    dispatch("cierraGaleria");
+  };
 </script>
 
 <style>
@@ -30,7 +37,7 @@
     color: #fff;
     margin-bottom: 3rem;
   }
-    .Contenido {
+  .Contenido {
     padding: 1rem;
     /* overflow-y: auto; */
     height: auto;
@@ -42,7 +49,7 @@
   <title>Audios INALI</title>
 </svelte:head>
 
-<ContenedorGaleria>
+<ContenedorGaleria on:cierraGaleria={escuchaGaleria}>
   <header class="Audios">
 
     <h1 class="Titulo">Audios</h1>

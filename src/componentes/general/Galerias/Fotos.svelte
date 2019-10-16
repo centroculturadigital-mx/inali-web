@@ -9,10 +9,12 @@
     grid-template-columns: 1fr 1fr 1fr;
     overflow: auto;
     height: 100vh;
+    padding: 0 2rem;
   }
   .Galeria {
     display: flex;
     flex-direction: column;
+    padding: 0 1rem;
   }
   .Titulo {
     padding: 1rem 1rem 0.25rem 1rem;

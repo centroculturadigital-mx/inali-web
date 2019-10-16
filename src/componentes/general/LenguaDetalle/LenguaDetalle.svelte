@@ -19,6 +19,11 @@
     dispatch("cerrar");
   };
 
+const escuchaGaleria = event => {
+    
+    VentanaGaleria = event.detail.cierra
+    
+}
   
   $: console.log("lenguaDetalle", lengua);
 
@@ -33,9 +38,6 @@
     } else if (e.target.classList.contains("Textil")) {
       VentanaGaleria = "textiles";
     }
-
-console.log("CIERRAGALERIA:", CierraGaleria);
-
 };
 
 </script>
@@ -470,7 +472,7 @@ console.log("CIERRAGALERIA:", CierraGaleria);
 
 <!-- Galerias  -->
 {#if VentanaGaleria === 'audios'}
-  <AudiosContenedor />
+  <AudiosContenedor on:cierraGaleria={escuchaGaleria}/>
 {:else if VentanaGaleria === 'fotos'}
   <Fotos />
 {:else if VentanaGaleria === 'textiles'}
