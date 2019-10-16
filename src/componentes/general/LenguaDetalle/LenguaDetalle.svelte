@@ -1,7 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
   import { fade, slide } from "svelte/transition";
-  import Audios from "../Galerias/Audios.svelte";
+  import AudiosContenedor from "../Galerias/AudiosContenedor.svelte";
   import Fotos from "../Galerias/Fotos.svelte";
   import Textiles from "../Galerias/Textiles.svelte";
 
@@ -470,7 +470,7 @@ console.log("CIERRAGALERIA:", CierraGaleria);
 
 <!-- Galerias  -->
 {#if VentanaGaleria === 'audios'}
-  <Audios />
+  <AudiosContenedor />
 {:else if VentanaGaleria === 'fotos'}
   <Fotos />
 {:else if VentanaGaleria === 'textiles'}

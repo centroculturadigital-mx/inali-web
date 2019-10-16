@@ -1,6 +1,6 @@
 <script>
   import ContenedorGaleria from "../Lateral/ContenedorGaleria.svelte";
-
+  import Audios from "../AudioReproductor/Audios.svelte";
 </script>
 
 <style>
@@ -38,5 +38,9 @@
       <p class="Original">(Nahuátl)</p>
     </div>
   </header>
+
+
+<Audios />
+
 
 </ContenedorGaleria>
