@@ -6,10 +6,40 @@
 
   const IconoCierraGaleria = "icono.cierra.galeria.svg";
 
-  const fotos = [
-    {
-      url: "https://source.unsplash.com/random"
-    }
+  const fotosColumnas = [
+    [
+      {
+        url: `https://unsplash.it/${parseInt(200+(Math.random()*100))}/${parseInt(200+(Math.random()*100))}`
+      },
+      {
+        url: `https://unsplash.it/${parseInt(200+(Math.random()*100))}/${parseInt(200+(Math.random()*100))}`
+      },
+      {
+        url: `https://unsplash.it/${parseInt(200+(Math.random()*100))}/${parseInt(200+(Math.random()*100))}`
+      },
+    ],
+    [
+      {
+        url: `https://unsplash.it/${parseInt(200+(Math.random()*100))}/${parseInt(200+(Math.random()*100))}`
+      },
+      {
+        url: `https://unsplash.it/${parseInt(200+(Math.random()*100))}/${parseInt(200+(Math.random()*100))}`
+      },
+      {
+        url: `https://unsplash.it/${parseInt(200+(Math.random()*100))}/${parseInt(200+(Math.random()*100))}`
+      },
+    ],
+    [
+      {
+        url: `https://unsplash.it/${parseInt(200+(Math.random()*100))}/${parseInt(200+(Math.random()*100))}`
+      },
+      {
+        url: `https://unsplash.it/${parseInt(200+(Math.random()*100))}/${parseInt(200+(Math.random()*100))}`
+      },
+      {
+        url: `https://unsplash.it/${parseInt(200+(Math.random()*100))}/${parseInt(200+(Math.random()*100))}`
+      },
+    ],
   ];
 
   // let FsLightbox
@@ -104,55 +134,27 @@
 
   <div class="ContenedorFotos">
 
-    {#each fotos as foto, i}
-      <section class="Contenedor-1">
-        <ul>
-          <img
-            class="Imagen fs-lightbox"
-            src={foto.url}
-            alt="img" />
-          <img
-            class="Imagen fs-lightbox"
-            src={foto.url}
-            alt="img" />
-          <img
-            class="Imagen fs-lightbox"
-            src={foto.url}
-            alt="img" />
-        </ul>
-      </section>
-      <section class="Contenedor-2">
-        <ul>
-          <img
-            class="Imagen fs-lightbox"
-            src={foto.url}
-            alt="img" />
-          <img
-            class="Imagen fs-lightbox"
-            src={foto.url}
-            alt="img" />
-          <img
-            class="Imagen fs-lightbox"
-            src={foto.url}
-            alt="img" />
-        </ul>
-      </section>
-      <section class="Contenedor-3">
-        <ul>
-          <img
-            class="Imagen fs-lightbox"
-            src={foto.url}
-            alt="img" />
-          <img
-            class="Imagen fs-lightbox"
-            src={foto.url}
-            alt="img" />
-          <img
-            class="Imagen fs-lightbox"
-            src={foto.url}
-            alt="img" />
-        </ul>
-      </section>
+    {#each fotosColumnas as fotoColumna, h}
+      {#each fotosColumnas[h] as foto, i}
+        
+        <section class={`Contenedor-${h+1}`}>
+          <ul>
+            <img
+              class="Imagen fs-lightbox"
+              src={foto.url}
+              alt="img" />
+            <img
+              class="Imagen fs-lightbox"
+              src={foto.url}
+              alt="img" />
+            <img
+              class="Imagen fs-lightbox"
+              src={foto.url}
+              alt="img" />
+          </ul>
+        </section>
+        
+      {/each}
     {/each}
   </div>
 
