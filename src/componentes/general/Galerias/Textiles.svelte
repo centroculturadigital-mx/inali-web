@@ -27,20 +27,6 @@
     font-weight: 500;
     font-size: 1rem;
   }
-
-  .Regresa {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0rem 1rem 0 0;
-    color: rgb(255, 255, 255);
-    background-color: transparent;
-    border: 0;
-  }
-
-  .Regresa img {
-    height: 3.5rem;
-    width: 3.5rem;
-  }
   .Contenedor-1 ul,
   .Contenedor-2 ul,
   .Contenedor-3 ul {
@@ -89,10 +75,7 @@
 
 <ContenedorGaleria>
   <header class="Textiles">
-    <button class="Regresa">
-      <!-- <i class="fa fa-arrow-left" /> -->
-      <img src={IconoCierraGaleria} alt="Cierra Galería INALI" />
-    </button>
+
     <h1 class="Titulo">Textiles</h1>
     <div class="Sub">
       <p class="Agrupacion">Agrupación:</p>

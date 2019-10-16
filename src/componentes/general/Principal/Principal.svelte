@@ -287,6 +287,9 @@
     height: 3rem;
     width: 3rem;
   }
+  .FiltroIcono img:hover {
+    opacity: 0.85;
+  }
 </style>
 
 <div class="Principal">
