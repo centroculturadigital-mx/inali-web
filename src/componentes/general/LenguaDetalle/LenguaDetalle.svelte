@@ -21,11 +21,7 @@
 
   const cerrarGaleria = event => {
     
-    console.log(ventanaGaleria);
-
     ventanaGaleria = event.detail.cierra;
-
-    console.log(ventanaGaleria);
   };
 
   $: console.log("lenguaDetalle", lengua);
@@ -41,6 +37,11 @@
       ventanaGaleria = "textiles";
     }
   };
+
+
+  const contenidoFake = {
+    descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam repellendus ea dolorem error accusamus, corrupti laborum facere. Praesentium rem cupiditate iure vero dolorum quis, facere quo qui ea, reprehenderit magni?"
+  }
 </script>
 
 <style>
@@ -255,6 +256,9 @@
     text-align: center;
     color: #FFF;
   }
+ .DetalleTextoDescripcion {
+   padding: 0 1rem;
+ } 
 </style>
 
 <section class="DetalleContenedor" transition:fade={{ x: 500, duration: 750 }}>
@@ -378,16 +382,10 @@
     {#if lengua.NOM_FAM}
       <div class="DetalleTextoDescripcion">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium,
-          incidunt perferendis. Eos quae dolor dolores ad ipsa suscipit natus
-          velit, itaque earum libero id totam soluta deleniti quibusdam ratione
-          atque.
+          {contenidoFake.descripcion}
         </p>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-          repellendus ea dolorem error accusamus, corrupti laborum facere.
-          Praesentium rem cupiditate iure vero dolorum quis, facere quo qui ea,
-          reprehenderit magni?
+          {contenidoFake.descripcion}
         </p>
       </div>
       <div class="DetalleFamiliaAgrupacion">
@@ -415,10 +413,7 @@
     {#if lengua.NOM_AGRUP}
       <div class="DetalleTextoDescripcion">
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque
-          laborum libero, qui molestias itaque optio earum voluptatem,
-          consequatur aut repellendus vel necessitatibus explicabo sint commodi
-          quod veniam voluptas blanditiis eos!
+          {contenidoFake.descripcion}
         </p>
       </div>
       <!-- Botones a galerias Agrupacion -->
@@ -465,8 +460,8 @@
     <!-- fin descripcion agrupacion  -->
     <!-- descripcion variante  -->
     {#if lengua.NOM_VAR}
-      <h3>Datos estadísticos</h3>
-      <div class="DatosEstadisticos" />
+      <!-- <h3>Datos estadísticos</h3>
+      <div class="DatosEstadisticos" /> -->
     {/if}
     <!-- fin descripcion variante  -->
   </div>

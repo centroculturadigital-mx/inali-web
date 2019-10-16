@@ -9,30 +9,6 @@
   const fotos = [
     {
       url: "https://source.unsplash.com/random"
-    },
-    {
-      url: "https://source.unsplash.com/random"
-    },
-    {
-      url: "https://source.unsplash.com/random"
-    },
-    {
-      url: "https://source.unsplash.com/random"
-    },
-    {
-      url: "https://source.unsplash.com/random"
-    },
-    {
-      url: "https://source.unsplash.com/random"
-    },
-    {
-      url: "https://source.unsplash.com/random"
-    },
-    {
-      url: "https://source.unsplash.com/random"
-    },
-    {
-      url: "https://source.unsplash.com/random"
     }
   ];
 
@@ -128,20 +104,20 @@
 
   <div class="ContenedorFotos">
 
-    {#each Array(4) as foto, i}
+    {#each fotos as foto, i}
       <section class="Contenedor-1">
         <ul>
           <img
             class="Imagen fs-lightbox"
-            src="https://source.unsplash.com/random"
+            src={foto.url}
             alt="img" />
           <img
             class="Imagen fs-lightbox"
-            src="https://source.unsplash.com/random"
+            src={foto.url}
             alt="img" />
           <img
             class="Imagen fs-lightbox"
-            src="https://source.unsplash.com/random"
+            src={foto.url}
             alt="img" />
         </ul>
       </section>
@@ -149,15 +125,15 @@
         <ul>
           <img
             class="Imagen fs-lightbox"
-            src="https://source.unsplash.com/random"
+            src={foto.url}
             alt="img" />
           <img
             class="Imagen fs-lightbox"
-            src="https://source.unsplash.com/random"
+            src={foto.url}
             alt="img" />
           <img
             class="Imagen fs-lightbox"
-            src="https://source.unsplash.com/random"
+            src={foto.url}
             alt="img" />
         </ul>
       </section>
@@ -165,15 +141,15 @@
         <ul>
           <img
             class="Imagen fs-lightbox"
-            src="https://source.unsplash.com/random"
+            src={foto.url}
             alt="img" />
           <img
             class="Imagen fs-lightbox"
-            src="https://source.unsplash.com/random"
+            src={foto.url}
             alt="img" />
           <img
             class="Imagen fs-lightbox"
-            src="https://source.unsplash.com/random"
+            src={foto.url}
             alt="img" />
         </ul>
       </section>

@@ -4,6 +4,10 @@
 
   const IconoCierraGaleria = "icono.cierra.galeria.svg";
 
+
+  const fotos =  {
+      url: "https://source.unsplash.com/random"
+    }
 </script>
 
 <style>
@@ -92,15 +96,15 @@
       <ul>
         <img
           class="Imagen"
-          src="https://source.unsplash.com/random"
+          src={fotos.url}
           alt="img" />
         <img
           class="Imagen"
-          src="https://source.unsplash.com/random"
+          src={fotos.url}
           alt="img" />
         <img
           class="Imagen"
-          src="https://source.unsplash.com/random"
+          src={fotos.url}
           alt="img" />
       </ul>
     </section>
@@ -108,15 +112,15 @@
       <ul>
         <img
           class="Imagen"
-          src="https://source.unsplash.com/random"
+          src={fotos.url}
           alt="img" />
         <img
           class="Imagen"
-          src="https://source.unsplash.com/random"
+          src={fotos.url}
           alt="img" />
         <img
           class="Imagen"
-          src="https://source.unsplash.com/random"
+          src={fotos.url}
           alt="img" />
       </ul>
     </section>
@@ -124,15 +128,15 @@
       <ul>
         <img
           class="Imagen"
-          src="https://source.unsplash.com/random"
+          src={fotos.url}
           alt="img" />
         <img
           class="Imagen"
-          src="https://source.unsplash.com/random"
+          src={fotos.url}
           alt="img" />
         <img
           class="Imagen"
-          src="https://source.unsplash.com/random"
+          src={fotos.url}
           alt="img" />
       </ul>
     </section>

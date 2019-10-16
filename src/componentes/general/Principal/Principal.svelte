@@ -338,9 +338,9 @@
       <!-- <MapaMarcador lat={19.8981} lon={-99.4169} label="Svelte Barbershop & Essentials"/> -->
     </Mapa>
   </div>
-  <div class="Herramientas">
-    <!-- <Herramientas /> -->
-  </div>
+  <!-- <div class="Herramientas">
+    <Herramientas />
+  </div> -->
 
   {#if muestraFiltro && famArbol}
     <div class="LenguasFiltro">
