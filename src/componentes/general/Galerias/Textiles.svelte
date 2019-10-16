@@ -1,6 +1,10 @@
 <script>
+  import { createEventDispatcher } from "svelte";
   import ContenedorGaleria from "../Lateral/ContenedorGaleria.svelte";
+
   const IconoCierraGaleria = "icono.cierra.galeria.svg";
+
+
 </script>
 
 <style>
@@ -75,7 +79,7 @@
   <title>Textiles INALI</title>
 </svelte:head>
 
-<ContenedorGaleria>
+<ContenedorGaleria on:cerrarGaleria>
   <header class="Textiles">
 
     <h1 class="Titulo">Textiles</h1>

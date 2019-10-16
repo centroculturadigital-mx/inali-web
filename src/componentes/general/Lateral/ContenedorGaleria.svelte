@@ -5,7 +5,7 @@
 
   let dispatch = createEventDispatcher();
 
-  const cierraGaleria = event => {
+  const cerrarGaleria = event => {
     dispatch("cerrarGaleria", {cierra: null});
   };
 </script>
@@ -52,7 +52,7 @@
   <div class="GaleriaMediaContenedor">
 
     <div>
-      <button class="Regresa" on:click={cierraGaleria}>
+      <button class="Regresa" on:click={cerrarGaleria}>
         <img src={IconoCierraGaleria} alt="Cierra Galería INALI" />
 
       </button>
