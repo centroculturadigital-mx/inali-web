@@ -285,6 +285,7 @@
     top: 0.5rem;
     background-color: transparent;
     /* width: 3rem; */
+    /* height: 3rem; */
     cursor: pointer;
 
     height: 1.75rem;
@@ -384,14 +385,14 @@
     <div class="LenguasFiltro">
 
       {#if estadoInicialventanaFiltro === 'cerrado'}
-        <div class="FiltroIcono" on:click={abreVentana} transition:fade>
+        <div class="FiltroIcono" on:click={abreVentana} >
           <span class="tooltiptext">
             Filtro de familias
           </span>
           <img src={iconoFiltro} alt="Filtro de lenguas indígenas" />
         </div>
       {:else if estadoInicialventanaFiltro === 'abierto'}
-      <div transition:fade>
+      <div >
         <LenguasFiltro
           arbol={famArbol}
           {seleccion}
