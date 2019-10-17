@@ -10,16 +10,12 @@
   // temporal:
   import imagenes from "../../../data/imagenesFake";
 
-  // let FsLightbox
-
-  
 </script>
 
 <style>
   .ContenedorFotos {
-    
     height: 100vh;
-    padding: 0 2rem;
+    padding: 0 1rem;
   }
   .Galeria {
     display: flex;
@@ -82,8 +78,8 @@
     <h1 class="Titulo">Fotos</h1>
     <div class="Sub">
       <p class="Agrupacion">Agrupación:</p>
-      <p class="Fonetica">Nawatl</p>
-      <p class="Original">(Nahuátl)</p>
+      <p class="Fonetica">{imagenes[0].agrupacionFonetica}</p>
+      <p class="Original">{imagenes[0].agrupacionOriginal}</p>
     </div>
 
   </header>

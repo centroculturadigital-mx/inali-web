@@ -14,7 +14,7 @@
   import MapaMarcador from "../Mapa/MapaMarcador.svelte";
 
   export let cierraVentanaFiltro;
-  let estadoInicialventanaFiltro = "cerrado";
+  let estadoInicialventanaFiltro = "abierto";
   const iconoFiltro = "icono.inicial.filtro.svg";
   const abreVentana = () => {
     estadoInicialventanaFiltro = "abierto";

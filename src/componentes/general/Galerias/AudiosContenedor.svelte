@@ -30,7 +30,7 @@
   }
   .Sub {
     color: #fff;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
   }
   .Contenido {
     padding: 1rem;
