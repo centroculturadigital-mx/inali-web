@@ -69,8 +69,7 @@
     height: 100%;
     display: flex;
     align-items: center;
-    /* justify-content: space-evenly; */
-    justify-content: flex-end;
+    justify-content: space-evenly;
     text-transform: uppercase;
 
   }
@@ -128,6 +127,12 @@
   }
 
 /* Hover line */
+  .ListaNavegacion * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+  }
 
   .ListaNavegacion li {
     display: inline-block;
@@ -136,7 +141,7 @@
     padding: 0;
   }
   .ListaNavegacion a {
-    padding: 0 1rem;
+    padding: 0 0.7rem;
     position: relative;
     text-decoration: none;
     display: inline-block;
@@ -149,11 +154,10 @@
     opacity: 0;
     left: 15%;
     right: 15%;
-    top: 33%;
+    top: 0;
     bottom: 0;
     border-left: 1px solid #72A6AA;
     border-right: 1px solid #72A6AA;
-    height: 32%;
   }
   
   .ListaNavegacion a:hover:before {
