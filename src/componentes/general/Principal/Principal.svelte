@@ -274,14 +274,34 @@
     max-height: 38rem;
     width: 320px;
   }
+
   .FiltroIcono {
+    width: 3rem;
+  }
+
+  .FiltroIcono .tooltiptext {
     position: absolute;
     left: 0;
     top: 0.5rem;
     background-color: transparent;
-    height: 3rem;
-    width: 3rem;
+    /* width: 3rem; */
     cursor: pointer;
+
+    height: 1.75rem;
+    visibility: hidden;
+    width: 100px;
+    background-color: #465D72;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+    top: 104%;
+    left: 19%;
+    margin-left: -60px;
+    font-size: .75rem;
   }
   .FiltroIcono img {
     height: 3rem;
@@ -290,6 +310,24 @@
   .FiltroIcono img:hover {
     opacity: 0.85;
   }
+
+  .FiltroIcono .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -29px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #465D72 transparent;
+    
+  }
+  
+  .FiltroIcono:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
 </style>
 
 <div class="Principal">
@@ -347,6 +385,9 @@
 
       {#if estadoInicialventanaFiltro === 'cerrado'}
         <div class="FiltroIcono" on:click={abreVentana} transition:fade>
+          <span class="tooltiptext">
+            Filtro de familias
+          </span>
           <img src={iconoFiltro} alt="Filtro de lenguas indígenas" />
         </div>
       {:else if estadoInicialventanaFiltro === 'abierto'}

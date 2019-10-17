@@ -123,13 +123,17 @@
 
 <section>
 <div class="tooltipRiesgo"> 
-  <span class="tooltiptext">Riesgo</span>
+  <span class="tooltiptext">
+    Riesgo
+  </span>
   <button class="Riesgo" >
     <img src={IconoRiesgo} alt="Riesgo de extinción de la lengua" />
   </button>
 </div>
 <div class="tooltipVoluta">
-  <span class="tooltiptext">Aforismos</span>
+  <span class="tooltiptext">
+    Aforismos
+  </span>
   <button class="Voluta">
     <img src={IconoVoluta} alt="Texto animado" />
   </button>
