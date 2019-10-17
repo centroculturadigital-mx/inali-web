@@ -70,6 +70,8 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    text-transform: uppercase;
+
   }
   .Navegacion ul li {
     padding: 0;
@@ -122,25 +124,70 @@
     padding: 1em 0.5em;
     display: block;
   }
+
+/* Hover line */
+  .ListaNavegacion * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+  }
+
+  .ListaNavegacion li {
+    display: inline-block;
+    list-style: outside none none;
+    margin: 0.4rem 0.8rem;
+    padding: 0;
+  }
+  .ListaNavegacion a {
+    padding: 0 0.7rem;
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .ListaNavegacion a:before {
+    position: absolute;
+    content: '';
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+    opacity: 0;
+    left: 15%;
+    right: 15%;
+    top: 0;
+    bottom: 0;
+    border-left: 1px solid #72A6AA;
+    border-right: 1px solid #72A6AA;
+  }
+  
+  .ListaNavegacion a:hover:before {
+    opacity: 1;
+    left: 0;
+    right: 0;
+  }
+
+
+
+
+
 </style>
 
 <nav class="Navegacion">
   {#if !abreBusqueda}
-  <ul transition:fade="{{ duration: 500 }}">
+  <ul class="ListaNavegacion"transition:fade="{{ duration: 500 }}">
     <li>
       <a class={segment === 'acerca-de' ? 'selected' : ''} href="acerca-de">
-        ACERCA DE
+        acerca de
       </a>
     </li>
     <li>
       <a class={segment === 'glosario' ? 'selected' : ''} href="glosario">
-        GLOSARIO
+        glosario
       </a>
     </li>
     <li>
       <a
         href="http://138.68.223.192:4000" target="_blank">
-        MAPA INTERACTIVO
+        mapa interactivo
       </a>
     </li>
   </ul>
