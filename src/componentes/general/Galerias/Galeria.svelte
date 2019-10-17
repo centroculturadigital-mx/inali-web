@@ -34,13 +34,15 @@
   }
   .Contenido {
     color: #fff;
+    background-color: rgba(0,0,0,0.5);
     position: absolute;
-    bottom: 0.5rem;
+    bottom: 0rem;
     padding: 0.5rem 0;
     left: 0;
     text-align: center;
-    font-size: 075rem;
+    font-size: 0.5rem;
     width: 100%;
+    height: auto;
   }
 </style>
 
@@ -49,12 +51,12 @@
     {#each imagenes as imagen, i (i)}
       <article>
 
-        <!-- <img class="Imagen " src={imagen.small} alt="Fotos INALI" /> -->
+        <img class="Imagen" src={imagen.small} alt="Fotos INALI" />
 
-        <div class="Contenido">Cierto Contenido</div>
+        <div class="Contenido">{imagen.title}</div>
 
       </article>
     {/each}
   </ul>
 </section>
-<!-- <LightBox content={imagenes} go={go} /> -->
+<LightBox content={imagenes} go={go} />

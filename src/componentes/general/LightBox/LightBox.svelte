@@ -18,9 +18,6 @@
     onMount(()=>{
         shouldOpen = true
         
-         
-        
-        
         document.addEventListener('keydown', event => {
 
             switch(event.keyCode) {
@@ -55,9 +52,9 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-
         opacity: 1;
         transition: opacity 1s;
+        z-index: 0;
     }
 
     .LightBox header {
@@ -106,7 +103,7 @@
         justify-content: center;
         align-items: center;
         background-color: rgba(0,0,0,0.7);
-        
+        z-index: 0;
     }
 
     .LightBox--hidden {
