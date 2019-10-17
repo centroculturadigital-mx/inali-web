@@ -89,6 +89,9 @@
   summary::marker {
     color: #b8d3d1;
   }
+  summary::-webkit-details-marker {
+    color: #b8d3d1;
+  }
   summary button {
     color: #465d72;
     cursor: pointer;
