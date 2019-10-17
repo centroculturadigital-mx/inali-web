@@ -16,11 +16,19 @@
 
 <section class="Galeria">
     <ul>
-    {#each imagenes as imagen, i (i)}
-        <img
-        class="Imagen fs-lightbox"
-        src={imagen.url}
-        alt="img" />
-    {/each}
+        {#each imagenes as imagen, i (i)}
+            <article>
+                
+                <img
+                class="Imagen   "
+                src={imagen.url}
+                alt="img" />
+
+                <div class="Contenido">
+                    Cierto Contenido
+                </div>
+                
+            </article>
+        {/each}
     </ul>
 </section>

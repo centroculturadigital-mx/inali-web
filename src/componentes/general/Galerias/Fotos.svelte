@@ -4,23 +4,15 @@
   import { onMount } from "svelte";
   import { createEventDispatcher } from "svelte";
   import ContenedorGaleria from "../Lateral/ContenedorGaleria.svelte";
-  // import  FsLightbox  from "../../../../node_modules/lightbox-fs/src/js/fs-lightbox.js";
 
   const IconoCierraGaleria = "icono.cierra.galeria.svg";
 
   // temporal:
   import imagenes from "../../../data/imagenesFake";
 
-  console.log(imagenes);
-  
-
   // let FsLightbox
 
-  // onMount(async () => {
-  //   FsLightbox = await import("../../../../node_modules/lightbox-fs/src/js/fs-lightbox.js");
-
-  //   console.log(FsLightbox.default);
-  // })
+  
 </script>
 
 <style>
