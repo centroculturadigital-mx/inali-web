@@ -14,10 +14,6 @@
 
 <style>
   .ContenedorFotos {
-<<<<<<< HEAD
-      
-=======
->>>>>>> cb1c124b17daac113020271b7fbdaf1a1afd16e6
     height: 100vh;
     padding: 0 1rem;
   }
