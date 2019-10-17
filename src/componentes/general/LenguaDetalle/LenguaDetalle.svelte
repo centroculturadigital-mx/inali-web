@@ -206,12 +206,15 @@
     padding: 1.25rem;
     display: flex;
     justify-content: space-between;
-    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     margin-bottom: 1rem;
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
+  }
+  .DetalleLista li:hover { 
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
   }
   .DetalleLista li h4 {
     margin: 0;
@@ -225,7 +228,10 @@
   }
   .DetalleFamiliaAgrupacion {
     text-align: center;
-    width: 100%;
+    width: 100%; 
+  }
+  .DetalleFamiliaAgrupacion h3 {
+    margin: 2rem;
   }
   .DetalleAgrupacionVariantes {
     text-align: center;
@@ -240,6 +246,7 @@
   .BotonGaleria {
     background-color: rgba(70, 93, 114, 0.8);
     border-radius: 10px;
+    border: none;
     padding: 1.5rem;
     width: 8rem;
     cursor: pointer;

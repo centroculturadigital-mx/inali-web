@@ -1,34 +1,68 @@
 <script>
+  import LightBox from "../LightBox/LightBox.svelte";
 
-    export let imagenes
+  export let imagenes;
 
+  let go;
 
+  const openLightBox = i => {
+    go = null;
+    setTimeout(() => (go = i));
+  };
 </script>
 
-
 <style>
-    .Galeria ul {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-    }
+  .Galeria ul {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 1rem;
+    grid-column-gap: 1rem;
+  }
+  article {
+    /* max-width: 10rem; */
+    cursor: pointer;
+    position: relative;
+    display: grid;  
+    justify-items: center;
+    align-items: center;
+  }
+  img {
+    max-width: 10rem;
+    object-fit: cover;
+    border-radius: 3px;
+  }
+  .Contenido {
+    color: #fff;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    bottom: 0rem;
+    padding: 0.5rem 0;
+    left: 0;
+    text-align: center;
+    font-size: 0.5rem;
+    width: 100%;
+    height: auto;
+  }
 </style>
 
 <section class="Galeria">
-    <ul>
-        {#each imagenes as imagen, i (i)}
-            <article>
-                
-                <img
-                class="Imagen   "
-                src={imagen.url}
-                alt="img" />
+  <ul>
+    {#each imagenes as imagen, i ("imagen_"+i)}
+      <article>
 
-                <div class="Contenido">
-                    Cierto Contenido
-                </div>
-                
-            </article>
-        {/each}
-    </ul>
+        <img 
+        on:click={()=>openLightBox(i)}
+        class="Imagen" 
+        src={imagen.small} 
+        alt="Fotos INALI"
+        />
+
+        <div class="Contenido">{imagen.title}</div>
+
+      </article>
+    {/each}
+  </ul>
 </section>
+<LightBox content={imagenes} go={go} />

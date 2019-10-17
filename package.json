@@ -12,6 +12,7 @@
     "test": "run-p --race dev cy:run"
   },
   "dependencies": {
+    "@centroculturadigital-mx/svelte-carousel": "^0.5.1",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@turf/bbox": "^6.0.1",
     "compression": "^1.7.1",

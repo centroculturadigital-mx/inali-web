@@ -1,22 +1,19 @@
 <script>
+  import Galeria from "./Galeria.svelte";
+  import { onMount } from "svelte";
   import { createEventDispatcher } from "svelte";
   import ContenedorGaleria from "../Lateral/ContenedorGaleria.svelte";
 
   const IconoCierraGaleria = "icono.cierra.galeria.svg";
 
-
-  const fotos =  {
-      url: "https://source.unsplash.com/random"
-    }
+  // temporal:
+  import imagenes from "../../../data/imagenesFake";
 </script>
 
 <style>
   .ContenedorFotos {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    /* overflow: auto; */
     height: 100vh;
-    padding: 0 2rem;
+    padding: 0 1rem;
   }
   .Textiles {
     display: flex;
@@ -87,59 +84,17 @@
     <h1 class="Titulo">Textiles</h1>
     <div class="Sub">
       <p class="Agrupacion">Agrupación:</p>
-      <p class="Fonetica">Nawatl</p>
-      <p class="Original">(Nahuátl)</p>
+      <p class="Fonetica">{imagenes[0].agrupacionFonetica}</p>
+      <p class="Original">{imagenes[0].agrupacionOriginal}</p>
     </div>
   </header>
-  <div class="ContenedorFotos">
-    <section class="Contenedor-1">
-      <ul>
-        <img
-          class="Imagen"
-          src={fotos.url}
-          alt="img" />
-        <img
-          class="Imagen"
-          src={fotos.url}
-          alt="img" />
-        <img
-          class="Imagen"
-          src={fotos.url}
-          alt="img" />
-      </ul>
-    </section>
-    <section class="Contenedor-2">
-      <ul>
-        <img
-          class="Imagen"
-          src={fotos.url}
-          alt="img" />
-        <img
-          class="Imagen"
-          src={fotos.url}
-          alt="img" />
-        <img
-          class="Imagen"
-          src={fotos.url}
-          alt="img" />
-      </ul>
-    </section>
-    <section class="Contenedor-3">
-      <ul>
-        <img
-          class="Imagen"
-          src={fotos.url}
-          alt="img" />
-        <img
-          class="Imagen"
-          src={fotos.url}
-          alt="img" />
-        <img
-          class="Imagen"
-          src={fotos.url}
-          alt="img" />
-      </ul>
-    </section>
-  </div>
+ 
+   {#if !! imagenes }
+    <div class="ContenedorFotos">
+
+      <Galeria {imagenes}/>
+
+    </div>
+  {/if}
 
 </ContenedorGaleria>
