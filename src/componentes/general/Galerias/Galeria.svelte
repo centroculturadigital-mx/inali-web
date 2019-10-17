@@ -26,6 +26,7 @@
     position: relative;
     display: grid;  
     justify-items: center;
+    align-items: center;
   }
   img {
     max-width: 10rem;
@@ -48,10 +49,15 @@
 
 <section class="Galeria">
   <ul>
-    {#each imagenes as imagen, i (i)}
+    {#each imagenes as imagen, i ("imagen_"+i)}
       <article>
 
-        <img class="Imagen" src={imagen.small} alt="Fotos INALI" />
+        <img 
+        on:click={()=>openLightBox(i)}
+        class="Imagen" 
+        src={imagen.small} 
+        alt="Fotos INALI"
+        />
 
         <div class="Contenido">{imagen.title}</div>
 

@@ -228,7 +228,10 @@
   }
   .DetalleFamiliaAgrupacion {
     text-align: center;
-    width: 100%;
+    width: 100%; 
+  }
+  .DetalleFamiliaAgrupacion h3 {
+    margin: 2rem;
   }
   .DetalleAgrupacionVariantes {
     text-align: center;

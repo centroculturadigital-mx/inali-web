@@ -1,4 +1,5 @@
 <script>
+  import { slide } from 'svelte/transition';
   import { createEventDispatcher } from "svelte";
 
   export let arbol = [];
@@ -156,7 +157,7 @@
   </span>
 </div>
 
-<aside>
+<aside transition:slide>
 
   {#if seleccion.famId || seleccion.agrId || seleccion.varId}
     <div id="MostrarTodas">

@@ -54,7 +54,7 @@
         height: 100vh;
         opacity: 1;
         transition: opacity 1s;
-        z-index: 0;
+        z-index: 1000;
     }
 
     .LightBox header {
@@ -109,6 +109,7 @@
     .LightBox--hidden {
         opacity: 0;
         z-index: -1;
+        display: none;
     }
 
 </style>
