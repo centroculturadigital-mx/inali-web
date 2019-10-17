@@ -1,4 +1,6 @@
 <script>
+  import Galeria from "./Galeria.svelte";
+
   import { onMount } from "svelte";
   import { createEventDispatcher } from "svelte";
   import ContenedorGaleria from "../Lateral/ContenedorGaleria.svelte";
@@ -6,41 +8,11 @@
 
   const IconoCierraGaleria = "icono.cierra.galeria.svg";
 
-  const fotosColumnas = [
-    [
-      {
-        url: `https://unsplash.it/${parseInt(200+(Math.random()*100))}/${parseInt(200+(Math.random()*100))}`
-      },
-      {
-        url: `https://unsplash.it/${parseInt(200+(Math.random()*100))}/${parseInt(200+(Math.random()*100))}`
-      },
-      {
-        url: `https://unsplash.it/${parseInt(200+(Math.random()*100))}/${parseInt(200+(Math.random()*100))}`
-      },
-    ],
-    [
-      {
-        url: `https://unsplash.it/${parseInt(200+(Math.random()*100))}/${parseInt(200+(Math.random()*100))}`
-      },
-      {
-        url: `https://unsplash.it/${parseInt(200+(Math.random()*100))}/${parseInt(200+(Math.random()*100))}`
-      },
-      {
-        url: `https://unsplash.it/${parseInt(200+(Math.random()*100))}/${parseInt(200+(Math.random()*100))}`
-      },
-    ],
-    [
-      {
-        url: `https://unsplash.it/${parseInt(200+(Math.random()*100))}/${parseInt(200+(Math.random()*100))}`
-      },
-      {
-        url: `https://unsplash.it/${parseInt(200+(Math.random()*100))}/${parseInt(200+(Math.random()*100))}`
-      },
-      {
-        url: `https://unsplash.it/${parseInt(200+(Math.random()*100))}/${parseInt(200+(Math.random()*100))}`
-      },
-    ],
-  ];
+  // temporal:
+  import imagenes from "../../../data/imagenesFake";
+
+  console.log(imagenes);
+  
 
   // let FsLightbox
 
@@ -53,9 +25,7 @@
 
 <style>
   .ContenedorFotos {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    /* overflow: auto; */
+    
     height: 100vh;
     padding: 0 2rem;
   }
@@ -77,13 +47,7 @@
     font-weight: 500;
     font-size: 1rem;
   }
-  .Contenedor-1 ul,
-  .Contenedor-2 ul,
-  .Contenedor-3 ul {
-    height: auto;
-    display: grid;
-    grid-gap: 1rem;
-  }
+  
   .Sub {
     display: flex;
     flex-direction: row;
@@ -132,22 +96,12 @@
 
   </header>
 
-  <div class="ContenedorFotos">
+  {#if !! imagenes }
+    <div class="ContenedorFotos">
 
-    {#each fotosColumnas as fotoColumna, h}
-        
-        <section class={`Contenedor-${h+1}`}>
-          <ul>
-            {#each fotosColumnas[h] as foto, i}
-              <img
-              class="Imagen fs-lightbox"
-              src={foto.url}
-              alt="img" />
-            {/each}
-          </ul>
-        </section>
-        
-    {/each}
-  </div>
+      <Galeria {imagenes}/>
+
+    </div>
+  {/if}
 
 </ContenedorGaleria>
