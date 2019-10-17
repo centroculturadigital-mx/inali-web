@@ -285,15 +285,15 @@
     top: 0.5rem;
     background-color: transparent;
     /* width: 3rem; */
-    /* height: 3rem; */
     cursor: pointer;
 
+    height: 1.75rem;
     visibility: hidden;
-    width: auto;
+    width: 100px;
     background-color: #465D72;
     color: #fff;
     text-align: center;
-    padding: .25rem .5rem;
+    padding: 5px 0;
     border-radius: 6px;
     z-index: 1;
     opacity: 0;
@@ -384,7 +384,7 @@
     <div class="LenguasFiltro">
 
       {#if estadoInicialventanaFiltro === 'cerrado'}
-        <div class="FiltroIcono" on:click={abreVentana} >
+        <div class="FiltroIcono" on:click={abreVentana} transition:fade>
           <span class="tooltiptext">
             Filtro de familias
           </span>
