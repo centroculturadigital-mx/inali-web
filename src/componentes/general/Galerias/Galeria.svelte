@@ -49,7 +49,7 @@
     {#each imagenes as imagen, i (i)}
       <article>
 
-        <img class="Imagen " src={imagen.small} alt="Fotos INALI" />
+        <!-- <img class="Imagen " src={imagen.small} alt="Fotos INALI" /> -->
 
         <div class="Contenido">Cierto Contenido</div>
 
