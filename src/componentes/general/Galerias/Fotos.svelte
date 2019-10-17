@@ -17,7 +17,7 @@
 
 <style>
   .ContenedorFotos {
-    
+      
     height: 100vh;
     padding: 0 2rem;
   }

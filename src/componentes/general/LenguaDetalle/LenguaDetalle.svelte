@@ -247,6 +247,10 @@
   .BotonGaleria:hover {
     background-color: rgba(70, 93, 114, 0.7);
   }
+
+  .BotonGaleria > * {
+    pointer-events: none;
+  }
   .IconoBotonGaleria {
     display: flex;
     justify-content: center;
