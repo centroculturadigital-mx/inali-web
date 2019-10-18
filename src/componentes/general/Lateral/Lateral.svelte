@@ -5,10 +5,7 @@
 
 <style>
     .Lateral {
-
         padding: 0 2rem;
-        padding-top: 2rem;
-
         position: fixed;
         top: 3.25rem;
         left: 0;
@@ -16,19 +13,12 @@
         max-width: 45rem;
         height: 100vh;
         background-color: #fff;
-
         overflow-y: auto;
     }
 </style>
 
 <aside class="Lateral" style={ `background-color: ${backgroundColor}`}>
 
-    <div class="">
-    <header>
-        <!-- <a href="/">Regresar!</a> -->
-    </header>
-
     <slot />
 
-  </div>
 </aside>

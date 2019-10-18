@@ -5,7 +5,6 @@
   import ContenedorGaleria from "../Lateral/ContenedorGaleria.svelte";
 
   const IconoCierraGaleria = "icono.cierra.galeria.svg";
-
   // temporal:
   import imagenes from "../../../data/imagenesFake";
 </script>

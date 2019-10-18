@@ -19,8 +19,7 @@
     dispatch("cerrar");
   };
 
-  const cerrarGaleria = event => {
-    
+  const cerrarGaleria = event => { 
     ventanaGaleria = event.detail.cierra;
   };
 
