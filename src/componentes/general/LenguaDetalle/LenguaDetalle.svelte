@@ -61,10 +61,13 @@
   }
   .DetalleContenidos {
     background-color: rgba(255, 255, 255, 0.95);
-    padding: 1rem 1rem;
+    padding: 1.5rem;
     height: 100%;
     width: 100%;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   header {
     height: auto;
@@ -232,13 +235,14 @@
   }
   .DetalleAgrupacionVariantes {
     text-align: center;
-    width: 100%;
+    width: 85%;
   }
   .DetalleBotonesGaleria {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 3rem;
     color: #fff;
+    width: 100%;
   }
   .BotonGaleria {
     background-color: rgba(70, 93, 114, 0.8);

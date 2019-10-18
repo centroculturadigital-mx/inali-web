@@ -19,7 +19,7 @@
   }
   .Navegacion {
     position: relative;
-    padding: 0;
+    padding: 0 2rem;
     width: 50%;
   }
   .InputBusqueda {
@@ -135,7 +135,7 @@
     padding: 0;
   }
   .ListaNavegacion a {
-    padding: 0 0.7rem;
+    padding: 0 1rem;
     position: relative;
     text-decoration: none;
     display: inline-block;
