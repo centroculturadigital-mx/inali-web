@@ -165,6 +165,7 @@
           <i class="fa fa-close" />
         </a>
       </span>
+      <!-- titulo caja resumen -->
       {#if lengua.NOM_FAM}
         <p class="NombreFamilia">Familia</p>
         <h2 class="TituloTarjetaResumen">{lengua.NOM_FAM}</h2>
@@ -175,22 +176,28 @@
         <p class="NombreFamilia">Variante</p>
         <h2 class="TituloTarjetaResumen">{lengua.NOM_VAR}</h2>
       {/if}
+      <!--  -->
+      <!-- titulo 2 variante  -->
       {#if lengua.NOM_VAR}
         <h2 class="SubTitulo">{lengua.NOM_VAR}</h2>
       {/if}
+      <!--  -->
+      <!-- familia numero agrupaciones -->
       {#if lengua.NOM_FAM}
         <p class="NumeroAgrupaciones">
           <span>
             {@html IconoAgrupacion}
           </span>
-          Agrupaciones linguísticas
+         {lengua.agrupaciones.length} Agrupaciones linguísticas
         </p>
       {/if}
+      <!--  -->
     </header>
-    <section
-      class="ResumenInformacion {lengua.NOM_AGRUP ? 'ResumenInformacionAgrupacion' : ''}">
+
+    <section class="ResumenInformacion {lengua.NOM_AGRUP ? 'ResumenInformacionAgrupacion' : ''}">
       <section class="InformacionRelevante">
-        <!-- Riesgo Agrupaciones -->
+        
+        <!-- caja Riesgo Agrupaciones -->
         {#if lengua.NOM_AGRUP}
           <p
             class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
@@ -203,16 +210,22 @@
             <span>
               {@html IconoFamilia}
             </span>
-            Familia {lengua.NOM_FAM}
+            Familia {lengua.familiaId}
           </p>
           <p class="FamiliaPertenece">
             <span>
               {@html IconoVariantes}
             </span>
-            30 variantes linguísticas
+            {#if variantes.length > 1}
+            <!-- plural -->
+            {variantes.length} variantes linguísticas 
+            {:else}
+            <!-- singular -->
+            {variantes.length} variante linguística
+            {/if}
           </p>
         {/if}
-        <!-- Riesgo Variantes -->
+        <!--  caja Riesgo Variantes -->
         {#if lengua.NOM_VAR}
           <p
             class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
@@ -224,28 +237,22 @@
           <p class="FamiliaPertenece">
             <span>
               {@html IconoFamilia}
-
             </span>
-            Familia Yuto-nahua
+            Agrupación: {lengua.agrupacionId}
           </p>
           <p class="FamiliaPertenece">
             <span>
               {@html IconoVariantes}
 
             </span>
-            30 variantes linguísticas
+            Familia {lengua.familiaId}
           </p>
         {/if}
 
       </section>
-
       <p class="Informacion">
-        La familia lingüística yuto-nahua recibe este nombre a partir de que el
-        yute (Ute) es, por un lado, uno de los idiomas que se hablan en el
-        extremo norte del área ocupada por esta familia –el estado de Idaho, en
-        los Estados Unidos de América–, y de que el náhuatl es, por otro lado,
-        el idioma que se habla en el extremo sur de la misma área.
-      </p>
+        {lengua.informacion}
+        </p>
     </section>
     <footer on:click={verMas}>
       <div class="SaberMas">
