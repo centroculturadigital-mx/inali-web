@@ -72,6 +72,7 @@
   header {
     height: auto;
     width: 100%;
+    padding-left: 1rem;
   }
   .DetalleContenidosNavegacion {
     font-weight: lighter;
@@ -231,7 +232,7 @@
   }
   .DetalleFamiliaAgrupacion {
     text-align: center;
-    width: 100%; 
+    width: 85%; 
   }
   .DetalleFamiliaAgrupacion h3 {
     margin: 2rem;
