@@ -10,6 +10,20 @@
   // temporal:
   import imagenes from "../../../data/imagenesFake";
 
+
+  import { getContext } from 'svelte';
+  
+
+  const lightboxContexto = getContext('lightbox')
+
+  onMount(()=>{  
+
+    lightboxContexto.imagenesStore.set(imagenes)
+    
+  })
+
+
+
 </script>
 
 <style>

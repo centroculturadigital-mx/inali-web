@@ -48,7 +48,7 @@
     height: 100vh;
     opacity: 1;
     transition: opacity 1s;
-    z-index: 1000;
+    z-index: 1;
   }
 
   .LightBox header {
@@ -113,8 +113,13 @@
   .LightBox--hidden {
     opacity: 0;
     z-index: -1;
-    display: none;
   }
+
+  :global(.carousel) {
+    z-index: 100;
+    border: 1px solid red;
+  }
+
 </style>
 
 <div class={classList}>

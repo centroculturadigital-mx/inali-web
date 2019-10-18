@@ -1,5 +1,6 @@
 <script>
-  import LightBox from "../LightBox/LightBox.svelte";
+
+//   import LightBox from "../LightBox/LightBox.svelte";
 
   export let imagenes;
 
@@ -53,11 +54,16 @@
       <article>
 
         <img 
-        on:click={()=>openLightBox(i)}
         class="Imagen" 
         src={imagen.small} 
         alt="Fotos INALI"
         />
+        <!-- <img 
+        on:click={()=>openLightBox(i)}
+        class="Imagen" 
+        src={imagen.small} 
+        alt="Fotos INALI"
+        /> -->
 
         <div class="Contenido">{imagen.title}</div>
 
@@ -65,4 +71,3 @@
     {/each}
   </ul>
 </section>
-<LightBox content={imagenes} go={go} />
