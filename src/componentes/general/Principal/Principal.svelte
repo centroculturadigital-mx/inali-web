@@ -288,13 +288,12 @@
     /* height: 3rem; */
     cursor: pointer;
 
-    height: 1.75rem;
     visibility: hidden;
-    width: 100px;
+    width: auto;
     background-color: #465D72;
     color: #fff;
     text-align: center;
-    padding: 5px 0;
+    padding: .25rem .5rem;
     border-radius: 6px;
     z-index: 1;
     opacity: 0;
