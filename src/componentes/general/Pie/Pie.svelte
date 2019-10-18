@@ -9,7 +9,7 @@ const Logotipos = ['logoGobierno.svg','logoCultura.svg','logoInah.svg','logoImer
     } */
   footer {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     position: fixed;
     width: 100%;
