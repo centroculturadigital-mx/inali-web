@@ -1,5 +1,5 @@
 <script>
-const Logotipos = ['logo-gobcultura.svg','logo-80inah.svg','logo-fonoteca.svg','logo.cenidim.svg','logo.descarga.cultura.unam.svg','logo.ccd.svg','logo-inali.svg']
+const Logotipos = ['logoGobierno.svg','logoCultura.svg','logoInah.svg','logoImer.svg','logoInali.png','logoCcd.svg','logoFonoteca.svg', 'logoCenidim.png','logoCulturaUnam.png','logoCid.svg']
 </script>
 
 <style>
@@ -9,7 +9,7 @@ const Logotipos = ['logo-gobcultura.svg','logo-80inah.svg','logo-fonoteca.svg','
     } */
   footer {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     position: fixed;
     width: 100%;
