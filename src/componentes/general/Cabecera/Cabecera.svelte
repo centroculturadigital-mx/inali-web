@@ -31,7 +31,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-right: solid #fff 1px;
+    /* border-right: solid #fff 1px; */
     min-width: 338px;
   }
   .BotonesDerecha {
@@ -72,21 +72,25 @@
   <div id="Logotipo">
     <Logo />
   </div>
-
-  <Navegacion {segment} abreBusqueda={buscador} />
+  <!-- Posicion 1 Menu Nav -->
+  <!-- <Navegacion {segment} abreBusqueda={buscador} /> -->
 
   <div class="BotonesDerecha">
 
-   <div class="Busqueda">
-   </div>
+   <!-- <div class="Busqueda">
+   </div> -->
     <!-- <button on:click={abreInputBusqueda} class="Busqueda">
       <i class="fa fa-search" />
     </button> -->
 
-    <div class="Idiomas">
-      <!-- <Idiomas /> -->
-    </div>
+    <!-- <div class="Idiomas">
+      <Idiomas />
+    </div> -->
 
   </div>
+
+  <!-- Posicion Temporal Menu Nav -->
+  <Navegacion {segment} abreBusqueda={buscador} />
+
 
 </header>
