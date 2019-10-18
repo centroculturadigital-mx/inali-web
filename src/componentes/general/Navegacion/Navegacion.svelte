@@ -86,7 +86,7 @@
   }
   .Navegacion ul li a {
     font-size: 0.9rem;
-    padding: 0;
+    padding: 1rem;
   }
   a {
     text-decoration-style: none;
@@ -149,11 +149,11 @@
     opacity: 0;
     left: 15%;
     right: 15%;
-    top: 33%;
+    top: 40%;
     bottom: 0;
     border-left: 1px solid #72A6AA;
     border-right: 1px solid #72A6AA;
-    height: 32%;
+    height: 20%;
   }
   
   .ListaNavegacion a:hover:before {
