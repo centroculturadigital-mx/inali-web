@@ -4,12 +4,12 @@ export default [
         small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
         tipo: "imagen",
         metadatos: {
-            nombre: "Ex ut et",
+            id: "...",
+            url: "...",
+            nombreArchivo: "...",
             creditos: "...",
-            coleccion: "...",
-            agrupacionFonetica: "Nawatl",
-            agrupacionOriginal: "(Nahuátl)",
-            titulo: "Titulo de la imagen",
+            propiedad: "...",
+            
         }
     },
     
