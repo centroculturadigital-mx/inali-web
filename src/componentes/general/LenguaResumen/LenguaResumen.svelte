@@ -18,6 +18,8 @@
   let asignaColorSubtitulo;
 
   onMount(() => {
+    console.log("VVAAAARRRR:::", asignaColorSubtitulo);
+
     asignaColor.style.color = "#" + lengua.color;
     asignaColorSubtitulo.style.color = "#" + lengua.color;
   });
@@ -173,37 +175,30 @@
           <i class="fa fa-close" />
         </a>
       </span>
+
       <!-- titulo caja resumen -->
-      {#if lengua}
-
-        <p class="NombreFamilia">
-
-          {#if !! lengua.NOM_FAM}
-            Familia
-          {:else if !! lengua.NOM_AGRUP}
-            Agrupación
-          {:else if !! lengua.NOM_VAR}
-            Variante
-          {/if}
-
-        </p>
-
-        <h2 class="TituloTarjetaResumen" bind:this={asignaColor}>
-          {#if !! lengua.NOM_FAM}
-            {lengua.NOM_FAM}
-          {:else if !! lengua.NOM_AGRUP}
-            {lengua.NOM_AGRUP}
-          {:else if !! lengua.NOM_VAR}
-            {lengua.NOM_VAR}
-          {/if}
-        </h2>
-
-      {/if}
+      <p class="NombreFamilia">
+        {#if !!lengua.NOM_FAM}
+          Familia
+        {:else if !!lengua.NOM_AGRUP}
+          Agrupación
+        {:else if !!lengua.NOM_VAR}Variante{/if}
+      </p>
+      <h2 class="TituloTarjetaResumen" bind:this={asignaColor}>
+        {#if !!lengua.NOM_FAM}
+          {lengua.NOM_FAM}
+        {:else if !!lengua.NOM_AGRUP}
+          {lengua.NOM_AGRUP}
+        {:else if !!lengua.NOM_VAR}{lengua.NOM_VAR}{/if}
+      </h2>
       <!--  -->
       <!-- titulo 2 variante  -->
-      {#if !! lengua.NOM_VAR}
-        <h2 class="SubTitulo" bind:this={asignaColorSubtitulo}>{lengua.NOM_VAR}</h2>
-      {/if}
+      <h2 class="SubTitulo" bind:this={asignaColorSubtitulo}>
+
+        {#if lengua.NOM_VAR}
+        {lengua.NOM_VAR}{/if}
+
+      </h2>
       <!--  -->
       <!-- familia numero agrupaciones -->
       {#if lengua.NOM_FAM}

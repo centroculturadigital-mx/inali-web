@@ -43,11 +43,15 @@
   };
 
   let asignaColor;
+  let asignaColorSubtitulo;
   let asignaColorPleca;
 
   onMount(() => {
-    asignaColor.style.color = "#" + lengua.color;
-    asignaColorPleca.style.backgroundColor = "#" + lengua.color;
+    
+    asignaColor.style.color = "#"+lengua.color;
+    asignaColorSubtitulo.style.color = "#"+lengua.color;
+    asignaColorPleca.style.backgroundColor = "#"+lengua.color;
+  
   });
 </script>
 
@@ -114,13 +118,13 @@
   }
   .DetalleTitulo {
     font-weight: Bold;
-    color: #fbb634;
+    /* color: #fbb634; */
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
   }
   .DetalleTituloCastellano {
     font-weight: lighter;
-    color: #fcc745;
+    /* color: #fcc745; */
     font-size: 2.5rem;
     /* letter-spacing: 0.25rem; */
   }
@@ -296,23 +300,32 @@
       </p>
       <!-- fin breadcrumbs -->
       <!-- titulo Raiz -->
-      {#if !! lengua.NOM_FAM}
-        <h3 class="DetalleTituloTop">Familia</h3>
-      {:else if !! lengua.NOM_AGRUP}
-        <h3 class="DetalleTituloTop">Agrupación</h3>
-      {:else if !! lengua.NOM_VAR}
-        <h3 class="DetalleTituloTop">Variante</h3>
-      {/if}
+      <h3 class="DetalleTituloTop">
+        {#if !!lengua.NOM_FAM}
+          Familia
+        {:else if !!lengua.NOM_AGRUP}
+          Agrupación
+        {:else if !!lengua.NOM_VAR}
+          Variante
+        {/if}
+      </h3>
       <!-- fin titulo Raiz -->
       <!-- Titulo -->
       <h1 class="DetalleTitulo" bind:this={asignaColor}>
-        {lengua.NOM_FAM ? lengua.NOM_FAM : lengua.NOM_AGRUP ? lengua.NOM_AGRUP : lengua.NOM_VAR}
-      </h1>
-      {#if lengua.NOM_VAR}
-        <h1 class="DetalleTituloCastellano" bind:this={asignaColor}>
+        {#if !!lengua.NOM_FAM}
+          {lengua.NOM_FAM}
+        {:else if !!lengua.NOM_AGRUP}
+          {lengua.NOM_AGRUP}
+        {:else if !!lengua.NOM_VAR}
           {lengua.NOM_VAR}
-        </h1>
-      {/if}
+        {/if}
+      </h1>
+      <h1 class="DetalleTituloCastellano" bind:this={asignaColorSubtitulo}>
+        {#if !!lengua.NOM_VAR}
+          {lengua.NOM_VAR}
+          <!-- placeholder en o que llega el dato real nombre castellanizado -->
+        {/if}
+      </h1>
       <!-- fin titulo/subtitulo -->
       <!-- caja informativa familia -->
       {#if lengua.NOM_FAM}
@@ -462,15 +475,15 @@
       </div>
 
       <div class="DetalleAgrupacionVariantes">
-        {#if !! lengua.variantes}
+        {#if !!lengua.variantes}
           <h3>Variantes lingüísticas ({lengua.variantes.length})</h3>
         {/if}
 
-        {#if !! lengua.variantes}
+        {#if !!lengua.variantes}
           <ul class="DetalleLista">
-            {#each lengua.variantes as variante, i}
+            {#each lengua.variantes as variante}
               <li>
-                <h4>{variante[i]}</h4>
+                <h4>{variante}</h4>
                 <i class="fa fa-arrow-circle-right" />
               </li>
             {/each}
