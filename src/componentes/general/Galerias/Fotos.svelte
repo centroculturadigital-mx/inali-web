@@ -16,9 +16,12 @@
 
   const lightboxContexto = getContext('lightbox')
 
+  let lightboxAbrir
   onMount(()=>{  
 
     lightboxContexto.imagenesStore.set(imagenes)
+    
+    lightboxAbrir = lightboxContexto.abrir;
     
   })
 
@@ -101,7 +104,7 @@
   {#if !! imagenes }
     <div class="ContenedorFotos">
 
-      <Galeria {imagenes}/>
+      <Galeria {...{imagenes, lightboxAbrir}}/>
 
     </div>
   {/if}

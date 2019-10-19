@@ -15,19 +15,34 @@
 	import { onMount, setContext } from 'svelte';
 	
 	const imagenesStore = writable([]);
-	const abrir = (i)=>{console.log("abrir imagen", i);
-	}
+	
+	let siguientesImagenes;
+	let goToLightbox
+
+	
+	const abrir = i => {
+		goToLightbox = null;
+		console.log("abrirg/;;;;;",i);
+		
+		setTimeout(() => (goToLightbox = i));
+	};
 
 
 
 	setContext('lightbox',{ imagenesStore, abrir })
 
-	imagenesStore.subscribe(val=>console.log("imagenesStore",val))
+	imagenesStore.subscribe(imagenes=>{
+		siguientesImagenes=imagenes
+		console.log("siguientesImagenes",siguientesImagenes);
+		
+	})
 	// onMount(()=>{
 	// })
 
-
-	$: console.log("imagenesLightbox", imagenesStore);
+	$: imagenesLightbox = siguientesImagenes;
+	$: goLightbox = goToLightbox;
+	$: console.log(goToLightbox);
+	$: console.log(goLightbox);
 		
 
 
@@ -49,4 +64,7 @@
 
 <Pie/>
 
-<!-- <LightBox content={imagenes} go={go} /> -->
+
+{#if !! imagenesLightbox }
+<LightBox content={imagenesLightbox} go={goLightbox} />
+{/if}

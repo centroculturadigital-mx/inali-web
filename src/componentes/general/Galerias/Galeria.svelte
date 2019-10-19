@@ -3,16 +3,13 @@
 //   import LightBox from "../LightBox/LightBox.svelte";
 
   export let imagenes;
+  export let lightboxAbrir;
 
   import TextilesMetadatos from "./TextilesMetadatos.svelte";
   import metadatosTextilesFake from "../../../data/metadatosTextilesFake.js";
 
   let go;
 
-  const openLightBox = i => {
-    go = null;
-    setTimeout(() => (go = i));
-  };
 </script>
 
 <style>
@@ -57,7 +54,7 @@
       <article>
 
         <img
-          on:click={() => openLightBox(i)}
+          on:click={() => lightboxAbrir(i)}
           class="Imagen"
           src={imagen.small}
           alt="Fotos INALI" />

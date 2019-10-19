@@ -1,5 +1,6 @@
 <script>
-  import Carousel from "@centroculturadigital-mx/svelte-carousel";
+  import Carousel from "../../../../node_modules/@centroculturadigital-mx/svelte-carousel/src/Carousel.svelte";
+  
   import { onMount } from "svelte";
 
   export let content;
@@ -128,6 +129,8 @@
   </header>
 
   <div class="Lightbox__Overlay" on:click={close} />
+  
+  {#if contents.length > 0 }
   <Carousel perPage={{ perParge: 1 }} {go}>
 
     {#each contents as content, i ('content_' + i)}
@@ -137,5 +140,6 @@
     {/each}
 
   </Carousel>
+  {/if}
 
 </div>
