@@ -5,6 +5,9 @@
   export let lightboxAbrir;
 
   let go;
+
+  $: console.log(imagenes);
+  
 </script>
 
 <style>
@@ -56,7 +59,7 @@
 
           <div class="Contenido">
             <div class="Creditos">
-              Créditos: {imagen.creditos}
+              {imagen.creditos}
             </div>
             <!-- {#if imagen.tipo == "imagen"}
 

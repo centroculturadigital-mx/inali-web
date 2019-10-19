@@ -92,7 +92,7 @@
       }  
       
       console.log("nueva lengua", lenguaVista);
-      
+
     }
 
     if( !! lengua.NOM_AGRUP ) {
@@ -108,6 +108,9 @@
 
         variantes: lenguaVariantes
       }  
+
+
+      lengua = lenguaVista
       
     }
 

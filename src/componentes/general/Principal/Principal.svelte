@@ -238,9 +238,9 @@
   };
 
   onMount(async () => {
-    familiasModule = await import("../../../data/familias.json");
-    agrupacionesModule = await import("../../../data/agrupaciones.json");
-    variantesModule = await import("../../../data/variantes.json");
+    familiasModule = await import("../../../data/api/familias.json");
+    agrupacionesModule = await import("../../../data/api/agrupaciones.json");
+    variantesModule = await import("../../../data/api/variantes.json");
   });
 </script>
 
@@ -380,7 +380,7 @@
     <Herramientas />
   </div> -->
 
-  {#if muestraFiltro && famArbol}
+  {#if muestraFiltro && !! familias && famArbol}
     <div class="LenguasFiltro">
 
       {#if estadoInicialventanaFiltro === 'cerrado'}

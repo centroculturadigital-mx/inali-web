@@ -3,6 +3,8 @@
   import ContenedorGaleria from "../Lateral/ContenedorGaleria.svelte";
   import Audios from "../AudioReproductor/Audios.svelte";
 
+  export let audios;
+
 </script>
 
 <style>
@@ -44,20 +46,22 @@
   <title>Audios INALI</title>
 </svelte:head>
 
-<ContenedorGaleria on:cerrarGaleria>
+<ContenedorGaleria on:click>
   <header class="Audios">
 
     <h1 class="Titulo">Audios</h1>
-    <div class="Sub">
-      <p class="Agrupacion">Agrupación: Nawatl (Nahuátl)</p>
-      <!-- <p class="Fonetica">Nawatl</p> -->
-      <!-- <p class="Original">(Nahuátl)</p> -->
-    </div>
+    <!--
+      <div class="Sub">
+        <p class="Agrupacion">Agrupación: Nawatl (Nahuátl)</p>
+        <p class="Fonetica">Nawatl</p>
+        <p class="Original">(Nahuátl)</p>
+      </div>
+    -->
   </header>
 
   <div class="Contenido">
 
-    <Audios />
+    <Audios {audios} />
 
   </div>
 </ContenedorGaleria>

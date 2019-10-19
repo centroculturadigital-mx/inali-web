@@ -60,11 +60,12 @@
 </style>
 
 <dl class="metaDatos">
-
+    {#if typeof metadatos == "object"}
     {#each Object.keys(metadatos) as clave,i (i) }
 
         <dt>{ leyendas[tipo][clave] }</dt>
         <dd>{ metadatos[clave] }</dd>
 
     {/each}
+    {/if}
 </dl>

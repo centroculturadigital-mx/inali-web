@@ -20,7 +20,7 @@
 
 
 
-  $: console.log("lenguaDetalle", lengua);
+  // $: console.log("lenguaDetalle", lengua);
 
 
   let ventanaGaleria = null;
@@ -40,7 +40,8 @@
   };
 
   const cerrarGaleria = event => {
-    ventanaGaleria = event.detail.cierra;
+    ventanaGaleria = null;
+    // ventanaGaleria = event.detail.cierra;
   };
 
   const contenidoFake = {
@@ -362,12 +363,16 @@
       </div>
       <!-- Botones a galerias Agrupacion -->
       <div class="DetalleBotonesGaleria">
-        <!-- <button class="BotonGaleria Audio" on:click={()=>abreGaleria("audios")}>
+        <!-- 
+        -->
+        {#if !! Array.isArray(lengua.audios) && lengua.audios.length > 0}
+        <button class="BotonGaleria Audio" on:click={()=>abreGaleria("audios")}>
           <div class="IconoBotonGaleria">
             <img src={IconoAudios} alt="Icono Boton Audios INALI" />
           </div>
           <div class="TextoBotonGaleria ">AUDIOS</div>
-        </button> -->
+        </button> 
+        {/if}
         {#if !! Array.isArray(lengua.fotografias) && lengua.fotografias.length > 0}
         <button class="BotonGaleria Foto" on:click={()=>abreGaleria("fotos")}>
           <div class="IconoBotonGaleria ">
@@ -407,10 +412,10 @@
 
 <!-- Galerias  -->
 {#if ventanaGaleria === 'audios'}
-  <AudiosContenedor on:cerrarGaleria={cerrarGaleria} />
+  <AudiosContenedor imagenes={lengua.audios} on:cerrarGaleria={cerrarGaleria} />
 {:else if ventanaGaleria === 'fotos'}
   <Fotos imagenes={lengua.fotografias} on:cerrarGaleria={cerrarGaleria} />
 {:else if ventanaGaleria === 'textiles'}
-  <Textiles on:cerrarGaleria={cerrarGaleria} />
+  <Textiles imagenes={lengua.fotografias} on:cerrarGaleria={cerrarGaleria} />
 {/if}
 <!--  -->

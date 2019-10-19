@@ -90,7 +90,7 @@
   <title>Galería INALI</title>
 </svelte:head>
 
-<ContenedorGaleria on:cerrarGaleria>
+<ContenedorGaleria on:click>
   <header class="Fotos">
 
     <h1 class="Titulo">Fotos</h1>

@@ -4,6 +4,11 @@
   // const dispatch = createEventDispatcher();
 
 
+  import AudiosContenedor from "../Galerias/AudiosContenedor.svelte";
+  import Fotos from "../Galerias/Fotos.svelte";
+  import Textiles from "../Galerias/Textiles.svelte";
+
+
   export let lengua;
   export let abrirLengua;
 
@@ -21,26 +26,48 @@
 
 
 
-  const cerrarGaleria = event => {
-    ventanaGaleria = event.detail.cierra;
+  let ventanaGaleria = null;
+
+
+  const abreGaleria = (tipo) => {
+    
+    ventanaGaleria = tipo;
+
+    // if (e.target.classList.contains("Audio")) {
+    //   ventanaGaleria = "audios";
+    // } else if (e.target.classList.contains("Foto")) {
+    //   ventanaGaleria = "fotos";
+    // } else if (e.target.classList.contains("Textil")) {
+    //   ventanaGaleria = "textiles";
+    // }
   };
+
+  const cerrarGaleria = event => {
+    ventanaGaleria = null;
+    // ventanaGaleria = event.detail.cierra;
+  };
+
+
+  // const cerrarGaleria = event => {
+  //   ventanaGaleria = event.detail.cierra;
+  // };
 
   $: console.log("lenguaDetalle", lengua);
 
-  const abreGaleria = e => {
-    if (e.target.classList.contains("Audio")) {
-      ventanaGaleria = "audios";
-    } else if (e.target.classList.contains("Foto")) {
-      ventanaGaleria = "fotos";
-    } else if (e.target.classList.contains("Textil")) {
-      ventanaGaleria = "textiles";
-    }
-  };
 
   const contenidoFake = {
     descripcion:
       "También llamada algonquina o algonquina-ritwan. \n\nEl nombre de la familia lingüística álgica proviene de la contracción del nombre de una de las dos subfamilias que la integran, la algonquina (alg-), y la adhesión a ésta de una partícula (-ic) que señala pertenencia a algo. Cabe mencionar que, dentro de esta familia, las lenguas algonquinas han tenido, en términos de cobertura geográfica, diversidad interna y número de hablantes, mucha relevancia. \n\nLas lenguas de esta familia se hablan en gran parte de Canadá y en el extremo norte de los Estados Unidos de América, teniendo una concentración muy significativa en la región de los Grandes Lagos. El Kickapoo, que pertenece a la subfamilia algonquina, es el único idioma de esta familia que se habla en México. La llegada de los kickapoo a territorio nacional se dio en el siglo XIX cuando, después de una invasión de los anglosajones a su territorio, le pidieron al gobierno mexicano un espacio para vivir y éste, a cambio, les solicitó que defendieran a los pobladores mexicanos de los ataques de los comanches, muy frecuentes en aquel tiempo. Desde ese momento, los kickapoo son considerados un grupo binacional. En los Estados Unidos de América a los kickapoo de México ."
   };
+
+
+
+
+  const IconoTextiles = "icono.textiles.svg";
+  const IconoFotos = "icono.fotos.svg";
+  const IconoAudios = "icono.audios.svg";
+
+  
 
   
   
@@ -324,6 +351,35 @@
 </header>
 
 
+<div class="DetalleBotonesGaleria">
+  <!-- 
+  -->
+  {#if !! Array.isArray(lengua.audios) && lengua.audios.length > 0}
+  <button class="BotonGaleria Audio" on:click={()=>abreGaleria("audios")}>
+    <div class="IconoBotonGaleria">
+      <img src={IconoAudios} alt="Icono Boton Audios INALI" />
+    </div>
+    <div class="TextoBotonGaleria ">AUDIOS</div>
+  </button> 
+  {/if}
+  {#if !! Array.isArray(lengua.fotografias) && lengua.fotografias.length > 0}
+  <button class="BotonGaleria Foto" on:click={()=>abreGaleria("fotos")}>
+    <div class="IconoBotonGaleria ">
+      <img src={IconoFotos} alt="Icono Boton Fotos INALI" />
+    </div>
+    <div class="TextoBotonGaleria">FOTOS</div>
+  </button>
+  {/if}
+  <!-- <button class="BotonGaleria Textil" on:click={()=>abreGaleria("textiles")}>
+    <div class="IconoBotonGaleria ">
+      <img src={IconoTextiles} alt="Icono Boton Textiles INALI" />
+    </div>
+    <div class="TextoBotonGaleria">TEXTILES</div>
+  </button> -->
+</div>
+
+
+
 <div class="DetalleTextoDescripcion">
   <p>
     {#if !!lengua.informacion}
@@ -377,3 +433,14 @@
   {/if}
 
 </div>
+
+
+
+<!-- Galerias  -->
+{#if ventanaGaleria === 'audios'}
+  <AudiosContenedor audios={lengua.audios} on:click={cerrarGaleria} />
+{:else if ventanaGaleria === 'fotos'}
+  <Fotos imagenes={lengua.fotografias} on:click={cerrarGaleria} />
+{:else if ventanaGaleria === 'textiles'}
+  <Textiles imagenes={lengua.fotografias} on:click={cerrarGaleria} />
+{/if}

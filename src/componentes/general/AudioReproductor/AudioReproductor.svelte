@@ -89,7 +89,7 @@
 </script>
 
 <audio bind:this={audioHTML}>
-    <source src={audio.archivo}/>
+    <source src={audio.url}/>
 </audio>
 
 

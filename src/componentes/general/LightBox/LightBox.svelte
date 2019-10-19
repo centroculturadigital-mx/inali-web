@@ -122,6 +122,12 @@
     z-index: 100;
     border: 1px solid red;
   }
+
+  :global(img),
+  :global(.carousel img) {
+    max-width: 40rem;
+    max-height: 60rem;
+  }
 </style>
 
 <div class={classList}>
@@ -142,8 +148,9 @@
           <!-- <FotosMetadatos metadatos={content.metadatos}/> -->
         {/if}
         {#if content.tipo == 'textil' || !content.tipo}
-          <img src={content.full} alt={content.metadatos.nombreDelProducto} />
-          <Metadatos metadatos={content.metadatos} tipo={content.tipo}/>
+          <img src={content.url} />
+          <!-- <img src={content.url} alt={content.metadatos.nombreDelProducto} /> -->
+          <!-- <Metadatos metadatos={content.metadatos} tipo={content.tipo}/> -->
         {/if}
       {/each}
 

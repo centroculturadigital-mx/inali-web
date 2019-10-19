@@ -3,11 +3,11 @@
   import { fade } from "svelte/transition";
   const IconoCierraGaleria = "icono.cierra.galeria.svg";
 
-  let dispatch = createEventDispatcher();
+  // let dispatch = createEventDispatcher();
 
-  const cerrarGaleria = event => {
-    dispatch("cerrarGaleria", {cierra: null});
-  };
+  // const cerrarGaleria = event => {
+  //   dispatch("cerrarGaleria", {cierra: null});
+  // };
 </script>
 
 <style>
@@ -53,7 +53,7 @@
   <div class="GaleriaMediaContenedor">
 
     <div>
-      <button class="Regresa" on:click={cerrarGaleria}>
+      <button class="Regresa" on:click>
         <img src={IconoCierraGaleria} alt="Cierra Galería INALI" />
 
       </button>

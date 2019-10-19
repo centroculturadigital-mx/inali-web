@@ -91,7 +91,7 @@
   <title>Textiles INALI</title>
 </svelte:head>
 
-<ContenedorGaleria on:cerrarGaleria>
+<ContenedorGaleria on:click>
   <header class="Textiles">
 
     <h1 class="Titulo">Textiles</h1>

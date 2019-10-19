@@ -179,9 +179,11 @@
           <ul>
 
             {#each fam.agrupaciones as agr ('agr' + agr.id)}
+              
               <li
                 class="agrupacion"
-                style="border-color: {agr.variantes[0].color}">
+                style="border-color: {agr.color}">
+                <!-- style="border-color: {agr.variantes[0].color}"> -->
                 <details open={agr.open}>
                   <summary>
                     <button class={seleccion.agrId === agr.id ? 'activo' : ''} on:click={() => seleccionarAgrupacion(agr.id)}>
