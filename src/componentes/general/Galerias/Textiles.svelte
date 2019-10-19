@@ -96,9 +96,9 @@
 
     <h1 class="Titulo">Textiles</h1>
     <div class="Sub">
-      <p class="Agrupacion">Origen:</p>
-      <p class="Fonetica">{imagenes[0].metadatos.estado}</p>
-      <p class="Original">{imagenes[0].metadatos.Localidad}</p>
+      <p class="Agrupacion">Agrupación:</p>
+      <p class="Fonetica">{imagenes[0].metadatos.grupoEtnico}</p>
+      <p class="Original">{imagenes[0].metadatos.localidad}</p>
     </div>
   </header>
  

@@ -46,6 +46,7 @@
 <section class="Galeria">
   <ul>
     {#each imagenes as imagen, i ('imagen_' + i)}
+    {console.log(imagen)}
       <article>
 
         <img
@@ -57,7 +58,7 @@
         {#if imagen.tipo == "imagen"}
           <div class="Contenido">{imagen.metadatos.titulo}</div>
         {:else if imagen.tipo == "textil"}
-          <div class="Contenido">{imagen.metadatos.nombreDeProducto}</div>
+          <div class="Contenido">{imagen.metadatos.nombreDelProducto}</div>
         {/if}
       </article>
     {/each}

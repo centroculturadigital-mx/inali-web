@@ -17,8 +17,6 @@
 
   onMount(() => {
 
-    // console.log("XXX:::", imagenes);
-
     lightboxContexto.imagenesStore.set(imagenes);
 
     lightboxAbrir = lightboxContexto.abrir;
