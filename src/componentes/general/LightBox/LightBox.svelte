@@ -1,7 +1,9 @@
 <script>
-  import Carousel from "../../../../node_modules/@centroculturadigital-mx/svelte-carousel/src/Carousel.svelte";
-  
   import { onMount } from "svelte";
+  import Carousel from "../../../../node_modules/@centroculturadigital-mx/svelte-carousel/src/Carousel.svelte";
+
+  import TextilesMetadatos from "../Galerias/TextilesMetadatos.svelte";
+  import FotosMetadatos from "../Galerias/TextilesMetadatos.svelte";
 
   export let content;
   export let go;
@@ -72,7 +74,7 @@
     font-weight: bolder;
   }
   .LightBox header button:hover {
-      color: tomato;
+    color: tomato;
   }
 
   .LightBox :global(.carousel)
@@ -120,7 +122,6 @@
     z-index: 100;
     border: 1px solid red;
   }
-
 </style>
 
 <div class={classList}>
@@ -129,17 +130,22 @@
   </header>
 
   <div class="Lightbox__Overlay" on:click={close} />
-  
-  {#if contents.length > 0 }
-  <Carousel perPage={{ perParge: 1 }} {go}>
 
-    {#each contents as content, i ('content_' + i)}
-      {#if content.type == 'image' || !content.type}
-        <img src={content.full} alt={content.nombre} />
-      {/if}
-    {/each}
+  {#if contents.length > 0}
+    <Carousel perPage={{ perParge: 1 }} {go}>
 
-  </Carousel>
+      {#each contents as content, i ('content_' + i)}
+        {#if content.tipo == 'imagen' || !content.tipo}
+          <img src={content.full} alt={content.metadatos.nombre} />
+          <!-- <FotosMetadatos metadatos={content.metadatos}/> -->
+        {/if}
+        {#if content.tipo == 'textil' || !content.tipo}
+          <img src={content.full} alt={content.metadatos.nombreDelProducto} />
+          <TextilesMetadatos metadatos={content.metadatos}/>
+        {/if}
+      {/each}
+
+    </Carousel>
   {/if}
 
 </div>

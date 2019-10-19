@@ -2,91 +2,430 @@ export default [
     {
         full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
         small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
-        nombre: "Cillum id in",
-        creditos: "...",
-        coleccion: "...",
-        agrupacionFonetica: "Nawatl",
-        agrupacionOriginal: "(Nahuátl)",
-        title: "Titulo de la imagen"
+        tipo: "textil",
+        metadatos: {
+            grupoEtnico: "Amuzgo",
+            nombreDelProducto: "Huipil",
+            inventario: "71871(70)6.37a2-241",
+            estado: "Oaxaca",
+            municipio: "San Pedro Amuzgo",
+            localidad: "Alto de ventana",
+            autoria: "Desconocida",
+            creditosColeccion: "ACE MNA",
+            materialesYComposicion: "Algodón verde y algodón natural",
+            tintura: "Ninguna",
+            tecnica: "Tafetan y trama suplementaria discontinua",
+            textoDeDescripcion: "Hecho en telar de cintura con tecnica de tafetan, cuello redondo y cocido con hilo blanco, lleva motivos geometricos en sentido de la urdimbre y trama en hilo color blanco, las laterales unidas en randa con hilo del mismo color. Esta bastillado en la parte inferior.",
+            informacionSobreRiesgoDeDesaparicion: "Deshuso"
+        }
     },
     {
-        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-2`,
-        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-2`,
-        nombre: "Cillum laboris",
-        creditos: "...",
-        coleccion: "...",
-        agrupacionFonetica: "Nawatl",
-        agrupacionOriginal: "(Nahuátl)",
-        title: "Titulo de la imagen"
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "textil",
+        metadatos: {
+            grupoEtnico: "Amuzgo",
+            nombreDelProducto: "Huipil",
+            inventario: "71871(70)6.37a2-241",
+            estado: "Oaxaca",
+            municipio: "San Pedro Amuzgo",
+            localidad: "Alto de ventana",
+            autoria: "Desconocida",
+            creditosColeccion: "ACE MNA",
+            materialesYComposicion: "Algodón verde y algodón natural",
+            tintura: "Ninguna",
+            tecnica: "Tafetan y trama suplementaria discontinua",
+            textoDeDescripcion: "Hecho en telar de cintura con tecnica de tafetan, cuello redondo y cocido con hilo blanco, lleva motivos geometricos en sentido de la urdimbre y trama en hilo color blanco, las laterales unidas en randa con hilo del mismo color. Esta bastillado en la parte inferior.",
+            informacionSobreRiesgoDeDesaparicion: "Deshuso"
+        }
     },
     {
-        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-3`,
-        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-3`,
-        nombre: "Ex ut et",
-        creditos: "...",
-        coleccion: "...",
-        agrupacionFonetica: "Nawatl",
-        agrupacionOriginal: "(Nahuátl)",
-        title: "Titulo de la imagen"
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "textil",
+        metadatos: {
+            grupoEtnico: "Amuzgo",
+            nombreDelProducto: "Huipil",
+            inventario: "71871(70)6.37a2-241",
+            estado: "Oaxaca",
+            municipio: "San Pedro Amuzgo",
+            localidad: "Alto de ventana",
+            autoria: "Desconocida",
+            creditosColeccion: "ACE MNA",
+            materialesYComposicion: "Algodón verde y algodón natural",
+            tintura: "Ninguna",
+            tecnica: "Tafetan y trama suplementaria discontinua",
+            textoDeDescripcion: "Hecho en telar de cintura con tecnica de tafetan, cuello redondo y cocido con hilo blanco, lleva motivos geometricos en sentido de la urdimbre y trama en hilo color blanco, las laterales unidas en randa con hilo del mismo color. Esta bastillado en la parte inferior.",
+            informacionSobreRiesgoDeDesaparicion: "Deshuso"
+        }
     },
     {
-        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-4`,
-        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-4`,
-        nombre: "Consequat exercitation",
-        creditos: "...",
-        coleccion: "...",
-        agrupacionFonetica: "Nawatl",
-        agrupacionOriginal: "(Nahuátl)",
-        title: "Titulo de la imagen"
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "textil",
+        metadatos: {
+            grupoEtnico: "Amuzgo",
+            nombreDelProducto: "Huipil",
+            inventario: "71871(70)6.37a2-241",
+            estado: "Oaxaca",
+            municipio: "San Pedro Amuzgo",
+            localidad: "Alto de ventana",
+            autoria: "Desconocida",
+            creditosColeccion: "ACE MNA",
+            materialesYComposicion: "Algodón verde y algodón natural",
+            tintura: "Ninguna",
+            tecnica: "Tafetan y trama suplementaria discontinua",
+            textoDeDescripcion: "Hecho en telar de cintura con tecnica de tafetan, cuello redondo y cocido con hilo blanco, lleva motivos geometricos en sentido de la urdimbre y trama en hilo color blanco, las laterales unidas en randa con hilo del mismo color. Esta bastillado en la parte inferior.",
+            informacionSobreRiesgoDeDesaparicion: "Deshuso"
+        }
     },
     {
-        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-5`,
-        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-5`,
-        nombre: "Nulla mollit voluptate.",
-        creditos: "...",
-        coleccion: "...",
-        agrupacionFonetica: "Nawatl",
-        agrupacionOriginal: "(Nahuátl)",
-        title: "Titulo de la imagen"
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "textil",
+        metadatos: {
+            grupoEtnico: "Amuzgo",
+            nombreDelProducto: "Huipil",
+            inventario: "71871(70)6.37a2-241",
+            estado: "Oaxaca",
+            municipio: "San Pedro Amuzgo",
+            localidad: "Alto de ventana",
+            autoria: "Desconocida",
+            creditosColeccion: "ACE MNA",
+            materialesYComposicion: "Algodón verde y algodón natural",
+            tintura: "Ninguna",
+            tecnica: "Tafetan y trama suplementaria discontinua",
+            textoDeDescripcion: "Hecho en telar de cintura con tecnica de tafetan, cuello redondo y cocido con hilo blanco, lleva motivos geometricos en sentido de la urdimbre y trama en hilo color blanco, las laterales unidas en randa con hilo del mismo color. Esta bastillado en la parte inferior.",
+            informacionSobreRiesgoDeDesaparicion: "Deshuso"
+        }
     },
     {
-        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-6`,
-        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-6`,
-        nombre: "Anim deserunt Lorem",
-        creditos: "...",
-        coleccion: "...",
-        agrupacionFonetica: "Nawatl",
-        agrupacionOriginal: "(Nahuátl)",
-        title: "Titulo de la imagen"
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "textil",
+        metadatos: {
+            grupoEtnico: "Amuzgo",
+            nombreDelProducto: "Huipil",
+            inventario: "71871(70)6.37a2-241",
+            estado: "Oaxaca",
+            municipio: "San Pedro Amuzgo",
+            localidad: "Alto de ventana",
+            autoria: "Desconocida",
+            creditosColeccion: "ACE MNA",
+            materialesYComposicion: "Algodón verde y algodón natural",
+            tintura: "Ninguna",
+            tecnica: "Tafetan y trama suplementaria discontinua",
+            textoDeDescripcion: "Hecho en telar de cintura con tecnica de tafetan, cuello redondo y cocido con hilo blanco, lleva motivos geometricos en sentido de la urdimbre y trama en hilo color blanco, las laterales unidas en randa con hilo del mismo color. Esta bastillado en la parte inferior.",
+            informacionSobreRiesgoDeDesaparicion: "Deshuso"
+        }
     },
     {
-        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-7`,
-        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-7`,
-        nombre: "Esse exercitation",
-        creditos: "...",
-        coleccion: "...",
-        agrupacionFonetica: "Nawatl",
-        agrupacionOriginal: "(Nahuátl)",
-        title: "Titulo de la imagen"
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "textil",
+        metadatos: {
+            grupoEtnico: "Amuzgo",
+            nombreDelProducto: "Huipil",
+            inventario: "71871(70)6.37a2-241",
+            estado: "Oaxaca",
+            municipio: "San Pedro Amuzgo",
+            localidad: "Alto de ventana",
+            autoria: "Desconocida",
+            creditosColeccion: "ACE MNA",
+            materialesYComposicion: "Algodón verde y algodón natural",
+            tintura: "Ninguna",
+            tecnica: "Tafetan y trama suplementaria discontinua",
+            textoDeDescripcion: "Hecho en telar de cintura con tecnica de tafetan, cuello redondo y cocido con hilo blanco, lleva motivos geometricos en sentido de la urdimbre y trama en hilo color blanco, las laterales unidas en randa con hilo del mismo color. Esta bastillado en la parte inferior.",
+            informacionSobreRiesgoDeDesaparicion: "Deshuso"
+        }
     },
     {
-        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-8`,
-        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-8`,
-        nombre: "Duis enim",
-        creditos: "...",
-        coleccion: "...",
-        agrupacionFonetica: "Nawatl",
-        agrupacionOriginal: "(Nahuátl)",
-        title: "Titulo de la imagen"
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "textil",
+        metadatos: {
+            grupoEtnico: "Amuzgo",
+            nombreDelProducto: "Huipil",
+            inventario: "71871(70)6.37a2-241",
+            estado: "Oaxaca",
+            municipio: "San Pedro Amuzgo",
+            localidad: "Alto de ventana",
+            autoria: "Desconocida",
+            creditosColeccion: "ACE MNA",
+            materialesYComposicion: "Algodón verde y algodón natural",
+            tintura: "Ninguna",
+            tecnica: "Tafetan y trama suplementaria discontinua",
+            textoDeDescripcion: "Hecho en telar de cintura con tecnica de tafetan, cuello redondo y cocido con hilo blanco, lleva motivos geometricos en sentido de la urdimbre y trama en hilo color blanco, las laterales unidas en randa con hilo del mismo color. Esta bastillado en la parte inferior.",
+            informacionSobreRiesgoDeDesaparicion: "Deshuso"
+        }
     },
     {
-        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-9`,
-        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-9`,
-        nombre: "Qui voluptate",
-        creditos: "...",
-        coleccion: "...",
-        agrupacionFonetica: "Nawatl",
-        agrupacionOriginal: "(Nahuátl)",
-        title: "Titulo de la imagen"
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "textil",
+        metadatos: {
+            grupoEtnico: "Amuzgo",
+            nombreDelProducto: "Huipil",
+            inventario: "71871(70)6.37a2-241",
+            estado: "Oaxaca",
+            municipio: "San Pedro Amuzgo",
+            localidad: "Alto de ventana",
+            autoria: "Desconocida",
+            creditosColeccion: "ACE MNA",
+            materialesYComposicion: "Algodón verde y algodón natural",
+            tintura: "Ninguna",
+            tecnica: "Tafetan y trama suplementaria discontinua",
+            textoDeDescripcion: "Hecho en telar de cintura con tecnica de tafetan, cuello redondo y cocido con hilo blanco, lleva motivos geometricos en sentido de la urdimbre y trama en hilo color blanco, las laterales unidas en randa con hilo del mismo color. Esta bastillado en la parte inferior.",
+            informacionSobreRiesgoDeDesaparicion: "Deshuso"
+        }
     },
+    {
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "textil",
+        metadatos: {
+            grupoEtnico: "Amuzgo",
+            nombreDelProducto: "Huipil",
+            inventario: "71871(70)6.37a2-241",
+            estado: "Oaxaca",
+            municipio: "San Pedro Amuzgo",
+            localidad: "Alto de ventana",
+            autoria: "Desconocida",
+            creditosColeccion: "ACE MNA",
+            materialesYComposicion: "Algodón verde y algodón natural",
+            tintura: "Ninguna",
+            tecnica: "Tafetan y trama suplementaria discontinua",
+            textoDeDescripcion: "Hecho en telar de cintura con tecnica de tafetan, cuello redondo y cocido con hilo blanco, lleva motivos geometricos en sentido de la urdimbre y trama en hilo color blanco, las laterales unidas en randa con hilo del mismo color. Esta bastillado en la parte inferior.",
+            informacionSobreRiesgoDeDesaparicion: "Deshuso"
+        }
+    },
+    {
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "textil",
+        metadatos: {
+            grupoEtnico: "Amuzgo",
+            nombreDelProducto: "Huipil",
+            inventario: "71871(70)6.37a2-241",
+            estado: "Oaxaca",
+            municipio: "San Pedro Amuzgo",
+            localidad: "Alto de ventana",
+            autoria: "Desconocida",
+            creditosColeccion: "ACE MNA",
+            materialesYComposicion: "Algodón verde y algodón natural",
+            tintura: "Ninguna",
+            tecnica: "Tafetan y trama suplementaria discontinua",
+            textoDeDescripcion: "Hecho en telar de cintura con tecnica de tafetan, cuello redondo y cocido con hilo blanco, lleva motivos geometricos en sentido de la urdimbre y trama en hilo color blanco, las laterales unidas en randa con hilo del mismo color. Esta bastillado en la parte inferior.",
+            informacionSobreRiesgoDeDesaparicion: "Deshuso"
+        }
+    },
+    {
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "textil",
+        metadatos: {
+            grupoEtnico: "Amuzgo",
+            nombreDelProducto: "Huipil",
+            inventario: "71871(70)6.37a2-241",
+            estado: "Oaxaca",
+            municipio: "San Pedro Amuzgo",
+            localidad: "Alto de ventana",
+            autoria: "Desconocida",
+            creditosColeccion: "ACE MNA",
+            materialesYComposicion: "Algodón verde y algodón natural",
+            tintura: "Ninguna",
+            tecnica: "Tafetan y trama suplementaria discontinua",
+            textoDeDescripcion: "Hecho en telar de cintura con tecnica de tafetan, cuello redondo y cocido con hilo blanco, lleva motivos geometricos en sentido de la urdimbre y trama en hilo color blanco, las laterales unidas en randa con hilo del mismo color. Esta bastillado en la parte inferior.",
+            informacionSobreRiesgoDeDesaparicion: "Deshuso"
+        }
+    },
+    {
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "textil",
+        metadatos: {
+            grupoEtnico: "Amuzgo",
+            nombreDelProducto: "Huipil",
+            inventario: "71871(70)6.37a2-241",
+            estado: "Oaxaca",
+            municipio: "San Pedro Amuzgo",
+            localidad: "Alto de ventana",
+            autoria: "Desconocida",
+            creditosColeccion: "ACE MNA",
+            materialesYComposicion: "Algodón verde y algodón natural",
+            tintura: "Ninguna",
+            tecnica: "Tafetan y trama suplementaria discontinua",
+            textoDeDescripcion: "Hecho en telar de cintura con tecnica de tafetan, cuello redondo y cocido con hilo blanco, lleva motivos geometricos en sentido de la urdimbre y trama en hilo color blanco, las laterales unidas en randa con hilo del mismo color. Esta bastillado en la parte inferior.",
+            informacionSobreRiesgoDeDesaparicion: "Deshuso"
+        }
+    },
+    {
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "imagen",
+        metadatos: {
+            nombre: "Ex ut et",
+            creditos: "...",
+            coleccion: "...",
+            agrupacionFonetica: "Nawatl",
+            agrupacionOriginal: "(Nahuátl)",
+            titulo: "Titulo de la imagen",
+        }
+    },
+    {
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "imagen",
+        metadatos: {
+            nombre: "Ex ut et",
+            creditos: "...",
+            coleccion: "...",
+            agrupacionFonetica: "Nawatl",
+            agrupacionOriginal: "(Nahuátl)",
+            titulo: "Titulo de la imagen",
+        }
+    },
+    {
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "imagen",
+        metadatos: {
+            nombre: "Ex ut et",
+            creditos: "...",
+            coleccion: "...",
+            agrupacionFonetica: "Nawatl",
+            agrupacionOriginal: "(Nahuátl)",
+            titulo: "Titulo de la imagen",
+        }
+    },
+    {
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "imagen",
+        metadatos: {
+            nombre: "Ex ut et",
+            creditos: "...",
+            coleccion: "...",
+            agrupacionFonetica: "Nawatl",
+            agrupacionOriginal: "(Nahuátl)",
+            titulo: "Titulo de la imagen",
+        }
+    },
+    {
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "imagen",
+        metadatos: {
+            nombre: "Ex ut et",
+            creditos: "...",
+            coleccion: "...",
+            agrupacionFonetica: "Nawatl",
+            agrupacionOriginal: "(Nahuátl)",
+            titulo: "Titulo de la imagen",
+        }
+    },
+    {
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "imagen",
+        metadatos: {
+            nombre: "Ex ut et",
+            creditos: "...",
+            coleccion: "...",
+            agrupacionFonetica: "Nawatl",
+            agrupacionOriginal: "(Nahuátl)",
+            titulo: "Titulo de la imagen",
+        }
+    },
+    {
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "imagen",
+        metadatos: {
+            nombre: "Ex ut et",
+            creditos: "...",
+            coleccion: "...",
+            agrupacionFonetica: "Nawatl",
+            agrupacionOriginal: "(Nahuátl)",
+            titulo: "Titulo de la imagen",
+        }
+    },
+    {
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "imagen",
+        metadatos: {
+            nombre: "Ex ut et",
+            creditos: "...",
+            coleccion: "...",
+            agrupacionFonetica: "Nawatl",
+            agrupacionOriginal: "(Nahuátl)",
+            titulo: "Titulo de la imagen",
+        }
+    },
+    {
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "imagen",
+        metadatos: {
+            nombre: "Ex ut et",
+            creditos: "...",
+            coleccion: "...",
+            agrupacionFonetica: "Nawatl",
+            agrupacionOriginal: "(Nahuátl)",
+            titulo: "Titulo de la imagen",
+        }
+    },
+    {
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "imagen",
+        metadatos: {
+            nombre: "Ex ut et",
+            creditos: "...",
+            coleccion: "...",
+            agrupacionFonetica: "Nawatl",
+            agrupacionOriginal: "(Nahuátl)",
+            titulo: "Titulo de la imagen",
+        }
+    },
+    {
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "imagen",
+        metadatos: {
+            nombre: "Ex ut et",
+            creditos: "...",
+            coleccion: "...",
+            agrupacionFonetica: "Nawatl",
+            agrupacionOriginal: "(Nahuátl)",
+            titulo: "Titulo de la imagen",
+        }
+    },
+    {
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "imagen",
+        metadatos: {
+            nombre: "Ex ut et",
+            creditos: "...",
+            coleccion: "...",
+            agrupacionFonetica: "Nawatl",
+            agrupacionOriginal: "(Nahuátl)",
+            titulo: "Titulo de la imagen",
+        }
+    },
+    {
+        full: `https://fakeimg.pl/${parseInt(200+(Math.random()*100))}x${parseInt(200+(Math.random()*100))}?text=Imagen-1`,
+        small: `https://fakeimg.pl/${parseInt(300+(Math.random()*200))}x${parseInt(300+(Math.random()*200))}?text=Imagen-1`,
+        tipo: "imagen",
+        metadatos: {
+            nombre: "Ex ut et",
+            creditos: "...",
+            coleccion: "...",
+            agrupacionFonetica: "Nawatl",
+            agrupacionOriginal: "(Nahuátl)",
+            titulo: "Titulo de la imagen",
+        }
+    }
 ];

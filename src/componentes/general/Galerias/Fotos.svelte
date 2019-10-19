@@ -9,20 +9,20 @@
   // temporal:
   import imagenes from "../../../data/imagenesFake";
 
-  import { getContext } from 'svelte';
-  
-  const lightboxContexto = getContext('lightbox')
+  import { getContext } from "svelte";
 
-  let lightboxAbrir
-  
-  onMount(()=>{  
+  const lightboxContexto = getContext("lightbox");
 
-    lightboxContexto.imagenesStore.set(imagenes)
-    
+  let lightboxAbrir;
+
+  onMount(() => {
+
+    // console.log("XXX:::", imagenes);
+
+    lightboxContexto.imagenesStore.set(imagenes);
+
     lightboxAbrir = lightboxContexto.abrir;
-    
-  })
-
+  });
 </script>
 
 <style>
@@ -48,7 +48,7 @@
     font-weight: 500;
     font-size: 1rem;
   }
-  
+
   .Sub {
     display: flex;
     flex-direction: row;
@@ -91,16 +91,16 @@
     <h1 class="Titulo">Fotos</h1>
     <div class="Sub">
       <p class="Agrupacion">Agrupación:</p>
-      <p class="Fonetica">{imagenes[0].agrupacionFonetica}</p>
-      <p class="Original">{imagenes[0].agrupacionOriginal}</p>
+      <p class="Fonetica">{imagenes[20].metadatos.agrupacionFonetica}</p>
+      <p class="Original">{imagenes[20].metadatos.agrupacionOriginal}</p>
     </div>
 
   </header>
 
-  {#if !! imagenes }
+  {#if !!imagenes}
     <div class="ContenedorFotos">
 
-      <Galeria {...{imagenes, lightboxAbrir}}/>
+      <Galeria {...{ imagenes, lightboxAbrir }} />
 
     </div>
   {/if}

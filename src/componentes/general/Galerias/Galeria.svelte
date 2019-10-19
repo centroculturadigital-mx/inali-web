@@ -1,15 +1,11 @@
 <script>
-
-//   import LightBox from "../LightBox/LightBox.svelte";
+  //   import LightBox from "../LightBox/LightBox.svelte";
 
   export let imagenes;
   export let lightboxAbrir;
 
-  import TextilesMetadatos from "./TextilesMetadatos.svelte";
-  import metadatosTextilesFake from "../../../data/metadatosTextilesFake.js";
 
   let go;
-
 </script>
 
 <style>
@@ -53,14 +49,21 @@
     {#each imagenes as imagen, i ('imagen_' + i)}
       <article>
 
-        <img
-          on:click={() => lightboxAbrir(i)}
-          class="Imagen"
-          src={imagen.small}
-          alt="Fotos INALI" />
-
-        <div class="Contenido">{imagen.title}</div>
-
+        {#if imagen.tipo == 'imagen'}
+          <img
+            on:click={() => lightboxAbrir(i)}
+            class="Imagen"
+            src={imagen.small}
+            alt="Fotos INALI" />
+          <div class="Contenido">{imagen.metadatos.titulo}</div>
+        {:else if imagen.tipo == 'textil'}
+          <img
+            on:click={() => lightboxAbrir(i)}
+            class="Imagen"
+            src={imagen.small}
+            alt="Fotos INALI" />
+          <div class="Contenido">{imagen.metadatos.nombreDeProducto}</div>
+        {/if}
       </article>
     {/each}
   </ul>
