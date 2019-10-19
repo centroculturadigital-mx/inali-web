@@ -78,9 +78,10 @@ export let audios;
 
 </script>
 
+{#if Array.isArray(audios) }
+    {#each audios as audio ('audio_'+Math.random()) }
+        
+        <AudioReproductor audio={audio}/>
 
-{#each audios as audio ('audio_'+Math.random()) }
-    
-    <AudioReproductor audio={audio}/>
-
-{/each}
+    {/each}
+{/if}

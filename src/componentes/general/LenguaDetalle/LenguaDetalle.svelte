@@ -408,10 +408,10 @@
 
 <!-- Galerias  -->
 {#if ventanaGaleria === 'audios'}
-  <AudiosContenedor on:cerrarGaleria={cerrarGaleria} />
+  <AudiosContenedor on:click={cerrarGaleria} />
 {:else if ventanaGaleria === 'fotos'}
-  <Fotos on:cerrarGaleria={cerrarGaleria} />
+  <Fotos on:click={cerrarGaleria} />
 {:else if ventanaGaleria === 'textiles'}
-  <Textiles on:cerrarGaleria={cerrarGaleria} />
+  <Textiles on:click={cerrarGaleria} />
 {/if}
 <!--  -->

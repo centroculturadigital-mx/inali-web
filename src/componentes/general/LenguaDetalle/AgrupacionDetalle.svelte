@@ -412,10 +412,10 @@
 
 <!-- Galerias  -->
 {#if ventanaGaleria === 'audios'}
-  <AudiosContenedor imagenes={lengua.audios} on:cerrarGaleria={cerrarGaleria} />
+  <AudiosContenedor audios={lengua.audios} on:click={cerrarGaleria} />
 {:else if ventanaGaleria === 'fotos'}
-  <Fotos imagenes={lengua.fotografias} on:cerrarGaleria={cerrarGaleria} />
+  <Fotos imagenes={lengua.fotografias} on:click={cerrarGaleria} />
 {:else if ventanaGaleria === 'textiles'}
-  <Textiles imagenes={lengua.fotografias} on:cerrarGaleria={cerrarGaleria} />
+  <Textiles imagenes={lengua.fotografias} on:click={cerrarGaleria} />
 {/if}
 <!--  -->
