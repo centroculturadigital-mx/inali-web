@@ -4,7 +4,6 @@
   export let imagenes;
   export let lightboxAbrir;
 
-
   let go;
 </script>
 
@@ -49,19 +48,15 @@
     {#each imagenes as imagen, i ('imagen_' + i)}
       <article>
 
-        {#if imagen.tipo == 'imagen'}
-          <img
-            on:click={() => lightboxAbrir(i)}
-            class="Imagen"
-            src={imagen.small}
-            alt="Fotos INALI" />
+        <img
+          on:click={() => lightboxAbrir(i)}
+          class="Imagen"
+          src={imagen.small}
+          alt="Fotos INALI" />
+
+        {#if imagen.tipo == "imagen"}
           <div class="Contenido">{imagen.metadatos.titulo}</div>
-        {:else if imagen.tipo == 'textil'}
-          <img
-            on:click={() => lightboxAbrir(i)}
-            class="Imagen"
-            src={imagen.small}
-            alt="Fotos INALI" />
+        {:else if imagen.tipo == "textil"}
           <div class="Contenido">{imagen.metadatos.nombreDeProducto}</div>
         {/if}
       </article>

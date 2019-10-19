@@ -91,8 +91,8 @@
     <h1 class="Titulo">Fotos</h1>
     <div class="Sub">
       <p class="Agrupacion">Agrupación:</p>
-      <p class="Fonetica">{imagenes[20].metadatos.agrupacionFonetica}</p>
-      <p class="Original">{imagenes[20].metadatos.agrupacionOriginal}</p>
+      <p class="Fonetica">{imagenes[0].metadatos.agrupacionFonetica}</p>
+      <p class="Original">{imagenes[0].metadatos.agrupacionOriginal}</p>
     </div>
 
   </header>
