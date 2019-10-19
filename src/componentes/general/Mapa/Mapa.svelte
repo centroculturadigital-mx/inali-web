@@ -30,14 +30,14 @@
 		link.rel = 'stylesheet';
 		link.href = 'https://unpkg.com/mapbox-gl/dist/mapbox-gl.css';
 
-		mapbox.accessToken = 'pk.eyJ1IjoicmFsZXhyZHoiLCJhIjoiY2lmdHB2aGo2MTZ4MnQ1bHkzeDJyaDMzNyJ9.UHhEm9gA1_uwAztXjb7iTQ';
+		mapbox.accessToken = 'pk.eyJ1IjoicmFsZXhjY2QiLCJhIjoiY2sxdmZtd21jMDBncTNjbHJucGN2bGhpcyJ9.FyLG9Pv-GRnHuZtot1BzGw';
 
 
 		link.onload = () => {
 			map = new mapbox.Map({
 				container,
-				// style: 'mapbox://styles/mapbox/satellite-v9',
-				style: 'mapbox://styles/ralexrdz/ck1pj29ju2srs1co3474hj9cm',
+				style: 'mapbox://styles/mapbox/satellite-v9',
+				// style: 'mapbox://styles/ralexrdz/ck1pj29ju2srs1co3474hj9cm',
 				center: [lon, lat],
 				// pitch: 60, 
 				// bearing: -60,

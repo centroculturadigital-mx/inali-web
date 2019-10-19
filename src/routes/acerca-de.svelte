@@ -88,8 +88,13 @@ let blocks = [
     color: rgba(255, 255, 255, 1);
     font-weight: 100;
     display: grid;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     }
+
+    .Informacion img{
+  width: 80px;
+    }
+ 
 
 
   .Cerrar {

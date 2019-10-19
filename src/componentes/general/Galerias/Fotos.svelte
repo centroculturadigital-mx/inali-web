@@ -10,6 +10,23 @@
   // temporal:
   import imagenes from "../../../data/imagenesFake";
 
+
+  import { getContext } from 'svelte';
+  
+
+  const lightboxContexto = getContext('lightbox')
+
+  let lightboxAbrir
+  onMount(()=>{  
+
+    lightboxContexto.imagenesStore.set(imagenes)
+    
+    lightboxAbrir = lightboxContexto.abrir;
+    
+  })
+
+
+
 </script>
 
 <style>
@@ -87,7 +104,7 @@
   {#if !! imagenes }
     <div class="ContenedorFotos">
 
-      <Galeria {imagenes}/>
+      <Galeria {...{imagenes, lightboxAbrir}}/>
 
     </div>
   {/if}

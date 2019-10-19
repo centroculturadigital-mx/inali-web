@@ -20,6 +20,7 @@
     height: 100vh;
     background-color: transparent;
     width: 50%;
+    z-index: 0;
   }
   .GaleriaMediaContenedor {
     padding: 0rem 0rem 2rem;
