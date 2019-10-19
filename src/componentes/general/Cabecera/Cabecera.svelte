@@ -69,10 +69,8 @@
 
 <header>
 
-  <div id="Logotipo">
-    <a href="/">
-      <Logo />
-    </a>
+  <div id="Logotipo" on:click={()=>location.reload()}>
+    <Logo />
   </div>
   <!-- Posicion 1 Menu Nav -->
   <!-- <Navegacion {segment} abreBusqueda={buscador} /> -->

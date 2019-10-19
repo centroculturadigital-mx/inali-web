@@ -51,11 +51,15 @@
         <img
           on:click={() => lightboxAbrir(i)}
           class="Imagen"
-          src={imagen.small}
+          src={imagen.url}
           alt="Fotos INALI" />
 
           <div class="Contenido">
-            {#if imagen.tipo == "imagen"}
+            <div class="Creditos">
+              Créditos: {imagen.creditos}
+            </div>
+            <!-- {#if imagen.tipo == "imagen"}
+
               <span>
                 {imagen.metadatos.titulo}
               </span>
@@ -63,7 +67,7 @@
               <span>
                 {imagen.metadatos.nombreDelProducto}
               </span>
-            {/if}
+            {/if} -->
           </div>
       </article>
     {/each}

@@ -7,7 +7,10 @@
   const IconoCierraGaleria = "icono.cierra.galeria.svg";
 
   // temporal:
-  import imagenes from "../../../data/imagenesFake";
+
+  export let imagenes;
+
+  // import imagenes from "../../../data/imagenesFake";
 
   import { getContext } from "svelte";
 
@@ -21,6 +24,10 @@
 
     lightboxAbrir = lightboxContexto.abrir;
   });
+
+
+  $: console.log("imagenes", imagenes);
+  
 </script>
 
 <style>
@@ -87,11 +94,11 @@
   <header class="Fotos">
 
     <h1 class="Titulo">Fotos</h1>
-    <div class="Sub">
+    <!-- <div class="Sub">
       <p class="Agrupacion">Agrupación:</p>
       <p class="Fonetica">{imagenes[0].metadatos.agrupacionFonetica}</p>
       <p class="Original">{imagenes[0].metadatos.agrupacionOriginal}</p>
-    </div>
+    </div> -->
 
   </header>
 

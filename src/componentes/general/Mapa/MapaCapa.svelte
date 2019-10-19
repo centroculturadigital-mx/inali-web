@@ -56,8 +56,17 @@
   })
 
   onDestroy(() => {
-    map.removeLayer(`${tipo}-${id}`)
-    map.removeSource(`${tipo}-${id}`)
+
+    try {
+
+      map.removeLayer(`${tipo}-${id}`)
+      map.removeSource(`${tipo}-${id}`)
+
+    } catch(err) {
+      
+      console.error("MapaCapa error onDestroy", err);
+      
+    }
   })
   
 </script>

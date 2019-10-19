@@ -136,7 +136,9 @@
 
       {#each contents as content, i ('content_' + i)}
         {#if content.tipo == 'imagen' || !content.tipo}
-          <img src={content.full} alt={content.metadatos.nombre} />
+          <img src={content.url}/>
+          <!-- <img src={content.url} alt={content.metadatos.nombre} /> -->
+          <!-- <img src={content.full} alt={content.metadatos.nombre} /> -->
           <!-- <FotosMetadatos metadatos={content.metadatos}/> -->
         {/if}
         {#if content.tipo == 'textil' || !content.tipo}

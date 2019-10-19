@@ -2,6 +2,10 @@
 
   import { onMount, createEventDispatcher } from "svelte";
 
+  import AudiosContenedor from "../Galerias/AudiosContenedor.svelte";
+  import Fotos from "../Galerias/Fotos.svelte";
+  import Textiles from "../Galerias/Textiles.svelte";
+
 //   const dispatch = createEventDispatcher();
 
 
@@ -16,20 +20,27 @@
 
 
 
-  const cerrarGaleria = event => {
-    ventanaGaleria = event.detail.cierra;
-  };
-
   $: console.log("lenguaDetalle", lengua);
 
-  const abreGaleria = e => {
-    if (e.target.classList.contains("Audio")) {
-      ventanaGaleria = "audios";
-    } else if (e.target.classList.contains("Foto")) {
-      ventanaGaleria = "fotos";
-    } else if (e.target.classList.contains("Textil")) {
-      ventanaGaleria = "textiles";
-    }
+
+  let ventanaGaleria = null;
+
+
+  const abreGaleria = (tipo) => {
+    
+    ventanaGaleria = tipo;
+
+    // if (e.target.classList.contains("Audio")) {
+    //   ventanaGaleria = "audios";
+    // } else if (e.target.classList.contains("Foto")) {
+    //   ventanaGaleria = "fotos";
+    // } else if (e.target.classList.contains("Textil")) {
+    //   ventanaGaleria = "textiles";
+    // }
+  };
+
+  const cerrarGaleria = event => {
+    ventanaGaleria = event.detail.cierra;
   };
 
   const contenidoFake = {
@@ -351,19 +362,21 @@
       </div>
       <!-- Botones a galerias Agrupacion -->
       <div class="DetalleBotonesGaleria">
-        <!-- <button class="BotonGaleria Audio" on:click={abreGaleria}>
+        <!-- <button class="BotonGaleria Audio" on:click={()=>abreGaleria("audios")}>
           <div class="IconoBotonGaleria">
             <img src={IconoAudios} alt="Icono Boton Audios INALI" />
           </div>
           <div class="TextoBotonGaleria ">AUDIOS</div>
-        </button>
-        <button class="BotonGaleria Foto" on:click={abreGaleria}>
+        </button> -->
+        {#if !! Array.isArray(lengua.fotografias) && lengua.fotografias.length > 0}
+        <button class="BotonGaleria Foto" on:click={()=>abreGaleria("fotos")}>
           <div class="IconoBotonGaleria ">
             <img src={IconoFotos} alt="Icono Boton Fotos INALI" />
           </div>
           <div class="TextoBotonGaleria">FOTOS</div>
         </button>
-        <button class="BotonGaleria Textil" on:click={abreGaleria}>
+        {/if}
+        <!-- <button class="BotonGaleria Textil" on:click={()=>abreGaleria("textiles")}>
           <div class="IconoBotonGaleria ">
             <img src={IconoTextiles} alt="Icono Boton Textiles INALI" />
           </div>
@@ -389,3 +402,15 @@
         {/if}
 
       </div>
+
+
+
+<!-- Galerias  -->
+{#if ventanaGaleria === 'audios'}
+  <AudiosContenedor on:cerrarGaleria={cerrarGaleria} />
+{:else if ventanaGaleria === 'fotos'}
+  <Fotos imagenes={lengua.fotografias} on:cerrarGaleria={cerrarGaleria} />
+{:else if ventanaGaleria === 'textiles'}
+  <Textiles on:cerrarGaleria={cerrarGaleria} />
+{/if}
+<!--  -->

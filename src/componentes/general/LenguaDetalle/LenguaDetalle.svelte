@@ -84,10 +84,14 @@
 
       let lenguaAgrupaciones = lengua.agrupaciones.map(id=>agrupaciones.find(ag=>ag.id===id))
 
+      
+
       lenguaVista = {
         ...lenguaVista,
         agrupaciones: lenguaAgrupaciones
       }  
+      
+      console.log("nueva lengua", lenguaVista);
       
     }
 
