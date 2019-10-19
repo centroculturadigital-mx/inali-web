@@ -1,6 +1,43 @@
 <script>
-  
+    import { onMount, createEventDispatcher } from "svelte";
+
+  // const dispatch = createEventDispatcher();
+
+
   export let lengua;
+  export let abrirLengua;
+
+  const cerrar = event => {
+    // dispatch("cerrar");
+  };
+
+
+  // <!--funcion: conseguirDatoDeAncestro() -->
+
+
+
+  const cerrarGaleria = event => {
+    ventanaGaleria = event.detail.cierra;
+  };
+
+  $: console.log("lenguaDetalle", lengua);
+
+  const abreGaleria = e => {
+    if (e.target.classList.contains("Audio")) {
+      ventanaGaleria = "audios";
+    } else if (e.target.classList.contains("Foto")) {
+      ventanaGaleria = "fotos";
+    } else if (e.target.classList.contains("Textil")) {
+      ventanaGaleria = "textiles";
+    }
+  };
+
+  const contenidoFake = {
+    descripcion:
+      "También llamada algonquina o algonquina-ritwan. \n\nEl nombre de la familia lingüística álgica proviene de la contracción del nombre de una de las dos subfamilias que la integran, la algonquina (alg-), y la adhesión a ésta de una partícula (-ic) que señala pertenencia a algo. Cabe mencionar que, dentro de esta familia, las lenguas algonquinas han tenido, en términos de cobertura geográfica, diversidad interna y número de hablantes, mucha relevancia. \n\nLas lenguas de esta familia se hablan en gran parte de Canadá y en el extremo norte de los Estados Unidos de América, teniendo una concentración muy significativa en la región de los Grandes Lagos. El Kickapoo, que pertenece a la subfamilia algonquina, es el único idioma de esta familia que se habla en México. La llegada de los kickapoo a territorio nacional se dio en el siglo XIX cuando, después de una invasión de los anglosajones a su territorio, le pidieron al gobierno mexicano un espacio para vivir y éste, a cambio, les solicitó que defendieran a los pobladores mexicanos de los ataques de los comanches, muy frecuentes en aquel tiempo. Desde ese momento, los kickapoo son considerados un grupo binacional. En los Estados Unidos de América a los kickapoo de México ."
+  };
+
+  
   
 </script>
 
@@ -82,7 +119,7 @@
     font-size: 2.5rem;
     /* letter-spacing: 0.25rem; */
   }
-  
+
   .Nombre {
     font-weight: Bold;
     /* color: #fbb634; */
@@ -254,11 +291,11 @@
 <header>
 
   <nav class="DetalleContenidosNavegacion">
-    <span on:click={cerrar}>mapa ></span>
+    <span on:click>mapa ></span>
     <a href="../">
       {lengua.nombre}
     </a>
-    <button id="DetalleCerrar" on:click={cerrar}>
+    <button id="DetalleCerrar" on:click>
       <i class="fa fa-close" />
     </button>
   </nav>
@@ -297,9 +334,9 @@
 
   {#if !!lengua.agrupaciones}
     <ul class="DetalleLista">
-      {#each lengua.agrupaciones as agrupacion}
-        <li>
-          <h4>{agrupacion}</h4>
+      {#each lengua.agrupaciones as agrupacion ("agrupacion_"+agrupacion.id)}
+        <li on:click={abrirLengua(agrupacion)}>
+          <h4>{agrupacion.NOM_AGRUP}</h4>
           <i class="fa fa-arrow-circle-right" />
         </li>
       {/each}

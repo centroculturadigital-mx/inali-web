@@ -56,14 +56,37 @@
 
   const riesgo = Math.random();
 
+  const numeroHablantes = 0
 
-  const lenguaVista = {
-    ...lengua,
-    nombre,
-    color,
-    riesgo
+  let lenguaVista
+  
+  let agrupaciones;
 
-  }
+
+  const abrirLengua = nuevaLengua => lengua = nuevaLengua;
+
+  onMount(async ()=>{
+
+    agrupaciones = await import(" ../../../data/api/agrupaciones.json")
+
+    agrupaciones=agrupaciones.default
+    
+
+    agrupaciones = lengua.agrupaciones.map(id=>agrupaciones.find(ag=>ag.id===id))
+
+    console.log(agrupaciones);
+    
+
+
+    lenguaVista = {
+      ...lengua,
+      nombre,
+      color,
+      riesgo,
+      numeroHablantes,
+      agrupaciones
+    }  
+  })
 
   
 </script>
@@ -299,9 +322,19 @@
   <div class="DetallePleca" style={`background-color: #${color}`} />
   <div class="DetalleContenidos">
 
+
+
+    {#if !! lenguaVista }
+      {#if !! lengua.NOM_FAM }
+        <FamiliaDetalle lengua={lenguaVista} on:click={cerrar} abrirLengua={abrirLengua}/>
+      {/if}
+      {#if !! lengua.NOM_AGRUP }
+        <AgrupacionDetalle lengua={lenguaVista}/>
+      {/if}
+    {/if}
+
 <!-- 
-      <FamiliaDetalle lengua={lenguaVista}/>
-      <AgrupacionDetalle lengua={lenguaVista}/>
+      
       <VarianteDetalle lengua={lenguaVista}/>
 -->
 
