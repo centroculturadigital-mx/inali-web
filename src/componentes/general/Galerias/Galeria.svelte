@@ -46,7 +46,6 @@
 <section class="Galeria">
   <ul>
     {#each imagenes as imagen, i ('imagen_' + i)}
-    {console.log(imagen)}
       <article>
 
         <img
