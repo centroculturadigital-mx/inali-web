@@ -6,7 +6,7 @@
 
   const IconoCierraGaleria = "icono.cierra.galeria.svg";
   // temporal:
-  import imagenes from "../../../data/imagenesFake";
+  import imagenes from "../../../data/metadatosTextilesFake";
 
   import { getContext } from 'svelte';
   
@@ -97,8 +97,8 @@
     <h1 class="Titulo">Textiles</h1>
     <div class="Sub">
       <p class="Agrupacion">Agrupación:</p>
-      <p class="Fonetica">{imagenes[0].agrupacionFonetica}</p>
-      <p class="Original">{imagenes[0].agrupacionOriginal}</p>
+      <p class="Fonetica">{imagenes[0].metadatos.grupoEtnico}</p>
+      <p class="Original">{imagenes[0].metadatos.localidad}</p>
     </div>
   </header>
  

@@ -1,15 +1,10 @@
 <script>
-
-//   import LightBox from "../LightBox/LightBox.svelte";
+  //   import LightBox from "../LightBox/LightBox.svelte";
 
   export let imagenes;
   export let lightboxAbrir;
 
-  import TextilesMetadatos from "./TextilesMetadatos.svelte";
-  import metadatosTextilesFake from "../../../data/metadatosTextilesFake.js";
-
   let go;
-
 </script>
 
 <style>
@@ -59,8 +54,17 @@
           src={imagen.small}
           alt="Fotos INALI" />
 
-        <div class="Contenido">{imagen.title}</div>
-
+          <div class="Contenido">
+            {#if imagen.tipo == "imagen"}
+              <span>
+                {imagen.metadatos.titulo}
+              </span>
+            {:else if imagen.tipo == "textil"}
+              <span>
+                {imagen.metadatos.nombreDelProducto}
+              </span>
+            {/if}
+          </div>
       </article>
     {/each}
   </ul>

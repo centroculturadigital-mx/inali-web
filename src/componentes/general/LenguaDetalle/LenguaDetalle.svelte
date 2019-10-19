@@ -42,20 +42,13 @@ const verHijoDetalle = () => {
 
   const contenidoFake = {
     descripcion:
-      "También llamada algonquina o algonquina-ritwan. \n\nEl nombre de la familia lingüística álgica proviene de la contracción del nombre de una de las dos subfamilias que la integran, la algonquina (alg-), y la adhesión a ésta de una partícula (-ic) que señala pertenencia a algo. Cabe mencionar que, dentro de esta familia, las lenguas algonquinas han tenido, en términos de cobertura geográfica, diversidad interna y número de hablantes, mucha relevancia. \n\nLas lenguas de esta familia se hablan en gran parte de Canadá y en el extremo norte de los Estados Unidos de América, teniendo una concentración muy significativa en la región de los Grandes Lagos. El Kickapoo, que pertenece a la subfamilia algonquina, es el único idioma de esta familia que se habla en México. La llegada de los kickapoo a territorio nacional se dio en el siglo XIX cuando, después de una invasión de los anglosajones a su territorio, le pidieron al gobierno mexicano un espacio para vivir y éste, a cambio, les solicitó que defendieran a los pobladores mexicanos de los ataques de los comanches, muy frecuentes en aquel tiempo. Desde ese momento, los kickapoo son considerados un grupo binacional. En los Estados Unidos de América a los kickapoo de México se les conoce como “la banda de Texas”.\n\nEsquema arbóreo de la familia álgica:\n\n - Álgica\n --- Ritwan\n ----- Wiyot †\n ----- Yurok (Weitspekan)\n --- Algonquino\n ----- Blackfoot\n ----- Cheyenne\n ----- Grupo Arapaho\n ------- Arapaho\n ------- Atsina\n ------- Besawunena\n ------- Nawathinehena\n ------- Menominee (Menomini)\n ------- Ojibwa-Potawatomi(-Ottawa); Algonquino, Salteaux\n ------- Fox\n --------- Fox\n --------- Sauk\n --------- Kickapoo\n --------- Mascouten †\n ------- Shawnee\n --------- Miami-Illinois"
+      "También llamada algonquina o algonquina-ritwan. \n\nEl nombre de la familia lingüística álgica proviene de la contracción del nombre de una de las dos subfamilias que la integran, la algonquina (alg-), y la adhesión a ésta de una partícula (-ic) que señala pertenencia a algo. Cabe mencionar que, dentro de esta familia, las lenguas algonquinas han tenido, en términos de cobertura geográfica, diversidad interna y número de hablantes, mucha relevancia. \n\nLas lenguas de esta familia se hablan en gran parte de Canadá y en el extremo norte de los Estados Unidos de América, teniendo una concentración muy significativa en la región de los Grandes Lagos. El Kickapoo, que pertenece a la subfamilia algonquina, es el único idioma de esta familia que se habla en México. La llegada de los kickapoo a territorio nacional se dio en el siglo XIX cuando, después de una invasión de los anglosajones a su territorio, le pidieron al gobierno mexicano un espacio para vivir y éste, a cambio, les solicitó que defendieran a los pobladores mexicanos de los ataques de los comanches, muy frecuentes en aquel tiempo. Desde ese momento, los kickapoo son considerados un grupo binacional. En los Estados Unidos de América a los kickapoo de México ."
   };
 
-  let asignaColor;
-  let asignaColorSubtitulo;
-  let asignaColorPleca;
-
-  onMount(() => {
-    
-    asignaColor.style.color = "#"+lengua.color;
-    asignaColorSubtitulo.style.color = "#"+lengua.color;
-    asignaColorPleca.style.backgroundColor = "#"+lengua.color;
   
-  });
+  $: color = !! lengua ? lengua.color : #aaa;
+
+  
 </script>
 
 <style>
@@ -293,11 +286,11 @@ const verHijoDetalle = () => {
 
 <section class="DetalleContenedor" transition:fade={{ x: 500, duration: 750 }}>
 
-  <div class="DetallePleca" bind:this={asignaColorPleca} />
+  <div class="DetallePleca" style={`background-color: #${color}`} />
   <div class="DetalleContenidos">
     <header>
       <!-- breadcrumbs -->
-      <p class="DetalleContenidosNavegacion">
+      <nav class="DetalleContenidosNavegacion">
         <span on:click={cerrar}>mapa ></span>
         <a href="../">
           {lengua.NOM_FAM ? lengua.NOM_FAM : lengua.NOM_AGRUP ? lengua.NOM_AGRUP : lengua.NOM_VAR}
@@ -305,7 +298,7 @@ const verHijoDetalle = () => {
         <button id="DetalleCerrar" on:click={cerrar}>
           <i class="fa fa-close" />
         </button>
-      </p>
+      </nav>
       <!-- fin breadcrumbs -->
       <!-- titulo Raiz -->
       <h3 class="DetalleTituloTop">
@@ -319,7 +312,7 @@ const verHijoDetalle = () => {
       </h3>
       <!-- fin titulo Raiz -->
       <!-- Titulo -->
-      <h1 class="DetalleTitulo" bind:this={asignaColor}>
+      <h1 class="DetalleTitulo" style={`color: #${color}`} />
         {#if !!lengua.NOM_FAM}
           {lengua.NOM_FAM}
         {:else if !!lengua.NOM_AGRUP}
@@ -328,12 +321,12 @@ const verHijoDetalle = () => {
           {lengua.NOM_VAR}
         {/if}
       </h1>
-      <h1 class="DetalleTituloCastellano" bind:this={asignaColorSubtitulo}>
-        {#if !!lengua.NOM_VAR}
-          {lengua.NOM_VAR}
-          <!-- placeholder en o que llega el dato real nombre castellanizado -->
+        {#if !!lengua.nombreCastellanizado}
+        <h1 class="DetalleTituloCastellano" style={`color: #${color}`} />
+            {lengua.nombreCastellanizado}
+            <!-- placeholder en o que llega el dato real nombre castellanizado -->
+        </h1>
         {/if}
-      </h1>
       <!-- fin titulo/subtitulo -->
       <!-- caja informativa familia -->
       {#if lengua.NOM_FAM}
