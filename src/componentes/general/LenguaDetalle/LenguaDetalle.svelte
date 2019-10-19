@@ -45,7 +45,6 @@
   let asignaColorPleca;
 
   onMount(() => {
-    
     asignaColor.style.color = '#' + lengua.color;
     asignaColorPleca.style.backgroundColor = '#' + lengua.color;
   })
@@ -407,9 +406,9 @@
         <h3>Agrupaciones lingüísticas ({lengua.agrupaciones.length})</h3>
 
         <ul class="DetalleLista">
-        {#each lengua.agrupaciones as agrupacion, i}
+        {#each lengua.agrupaciones as agrupacion}
           <li>
-            <h4>{agrupacion[i]}</h4>
+            <h4>{agrupacion}</h4>
             <i class="fa fa-arrow-circle-right" />
           </li>
         {/each}
