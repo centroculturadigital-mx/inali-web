@@ -54,11 +54,17 @@
           src={imagen.small}
           alt="Fotos INALI" />
 
-        {#if imagen.tipo == "imagen"}
-          <div class="Contenido">{imagen.metadatos.titulo}</div>
-        {:else if imagen.tipo == "textil"}
-          <div class="Contenido">{imagen.metadatos.nombreDelProducto}</div>
-        {/if}
+          <div class="Contenido">
+            {#if imagen.tipo == "imagen"}
+              <span>
+                {imagen.metadatos.titulo}
+              </span>
+            {:else if imagen.tipo == "textil"}
+              <span>
+                {imagen.metadatos.nombreDelProducto}
+              </span>
+            {/if}
+          </div>
       </article>
     {/each}
   </ul>

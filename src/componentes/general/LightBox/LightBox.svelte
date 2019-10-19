@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import Carousel from "../../../../node_modules/@centroculturadigital-mx/svelte-carousel/src/Carousel.svelte";
 
-  import TextilesMetadatos from "../Galerias/TextilesMetadatos.svelte";
+  import Metadatos from "../Metadatos/Metadatos.svelte";
   import FotosMetadatos from "../Galerias/TextilesMetadatos.svelte";
 
   export let content;
@@ -141,7 +141,7 @@
         {/if}
         {#if content.tipo == 'textil' || !content.tipo}
           <img src={content.full} alt={content.metadatos.nombreDelProducto} />
-          <TextilesMetadatos metadatos={content.metadatos}/>
+          <Metadatos metadatos={content.metadatos} tipo={content.tipo}/>
         {/if}
       {/each}
 
