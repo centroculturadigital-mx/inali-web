@@ -15,7 +15,11 @@ export let blocks
 	dt {
 		padding-bottom: 1rem;
 	}
-
+    
+	img{
+    width: 8rem;
+    }
+    
 </style>
 
 
