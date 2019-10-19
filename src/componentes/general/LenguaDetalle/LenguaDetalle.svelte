@@ -19,7 +19,7 @@
     dispatch("cerrar");
   };
 
-  const cerrarGaleria = event => { 
+  const cerrarGaleria = event => {
     ventanaGaleria = event.detail.cierra;
   };
 
@@ -38,16 +38,21 @@
   };
 
   const contenidoFake = {
-    descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam repellendus ea dolorem error accusamus, corrupti laborum facere. Praesentium rem cupiditate iure vero dolorum quis, facere quo qui ea, reprehenderit magni?"
-  }
+    descripcion:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam repellendus ea dolorem error accusamus, corrupti laborum facere. Praesentium rem cupiditate iure vero dolorum quis, facere quo qui ea, reprehenderit magni?"
+  };
 
   let asignaColor;
+  let asignaColorSubtitulo;
   let asignaColorPleca;
 
   onMount(() => {
-    asignaColor.style.color = '#' + lengua.color;
-    asignaColorPleca.style.backgroundColor = '#' + lengua.color;
-  })
+    
+    asignaColor.style.color = "#"+lengua.color;
+    asignaColorSubtitulo.style.color = "#"+lengua.color;
+    asignaColorPleca.style.backgroundColor = "#"+lengua.color;
+  
+  });
 </script>
 
 <style>
@@ -113,13 +118,13 @@
   }
   .DetalleTitulo {
     font-weight: Bold;
-    color: #fbb634;
+    /* color: #fbb634; */
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
   }
   .DetalleTituloCastellano {
     font-weight: lighter;
-    color: #fcc745;
+    /* color: #fcc745; */
     font-size: 2.5rem;
     /* letter-spacing: 0.25rem; */
   }
@@ -219,7 +224,7 @@
     cursor: pointer;
     width: 100%;
   }
-  .DetalleLista li:hover { 
+  .DetalleLista li:hover {
     box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
   }
   .DetalleLista li h4 {
@@ -234,7 +239,7 @@
   }
   .DetalleFamiliaAgrupacion {
     text-align: center;
-    width: 100%; 
+    width: 100%;
   }
   .DetalleFamiliaAgrupacion h3 {
     margin: 2rem;
@@ -271,11 +276,11 @@
   }
   .TextoBotonGaleria {
     text-align: center;
-    color: #FFF;
+    color: #fff;
   }
- .DetalleTextoDescripcion {
-   padding: 0 1rem;
- } 
+  .DetalleTextoDescripcion {
+    padding: 0 1rem;
+  }
 </style>
 
 <section class="DetalleContenedor" transition:fade={{ x: 500, duration: 750 }}>
@@ -294,24 +299,33 @@
         </button>
       </p>
       <!-- fin breadcrumbs -->
-      <!-- Texto Raiz -->
-      {#if lengua.NOM_FAM}
-        <h3 class="DetalleTituloTop">Familia</h3>
-      {:else if lengua.NOM_AGRUP}
-        <h3 class="DetalleTituloTop">Agrupación</h3>
-      {:else if lengua.NOM_VAR}
-        <h3 class="DetalleTituloTop">Variante</h3>
-      {/if}
-      <!-- fin Texto Raiz -->
+      <!-- titulo Raiz -->
+      <h3 class="DetalleTituloTop">
+        {#if !!lengua.NOM_FAM}
+          Familia
+        {:else if !!lengua.NOM_AGRUP}
+          Agrupación
+        {:else if !!lengua.NOM_VAR}
+          Variante
+        {/if}
+      </h3>
+      <!-- fin titulo Raiz -->
       <!-- Titulo -->
       <h1 class="DetalleTitulo" bind:this={asignaColor}>
-        {lengua.NOM_FAM ? lengua.NOM_FAM : lengua.NOM_AGRUP ? lengua.NOM_AGRUP : lengua.NOM_VAR}
-      </h1>
-      {#if lengua.NOM_VAR}
-        <h1 class="DetalleTituloCastellano" bind:this={asignaColor}>
+        {#if !!lengua.NOM_FAM}
+          {lengua.NOM_FAM}
+        {:else if !!lengua.NOM_AGRUP}
+          {lengua.NOM_AGRUP}
+        {:else if !!lengua.NOM_VAR}
           {lengua.NOM_VAR}
-        </h1>
-      {/if}
+        {/if}
+      </h1>
+      <h1 class="DetalleTituloCastellano" bind:this={asignaColorSubtitulo}>
+        {#if !!lengua.NOM_VAR}
+          {lengua.NOM_VAR}
+          <!-- placeholder en o que llega el dato real nombre castellanizado -->
+        {/if}
+      </h1>
       <!-- fin titulo/subtitulo -->
       <!-- caja informativa familia -->
       {#if lengua.NOM_FAM}
@@ -343,7 +357,9 @@
               <i class="fa fa-group" />
             </div>
             <div class="DetalleOrigenTexto">
-              <p>Familia {lengua.familiaId}</p>
+              {#if !!lengua.familiaId}
+                <p>Familia {lengua.familiaId}</p>
+              {/if}
             </div>
           </div>
           <div class="DetalleOrigenVariantes">
@@ -351,7 +367,9 @@
               <i class="fa fa-share-alt-square" />
             </div>
             <div class="DetalleOrigenTexto">
-              <p>{lengua.variantes.length} variantes linguísticas</p>
+              {#if !!lengua.variantes}
+                <p>{lengua.variantes.length} variantes linguísticas</p>
+              {/if}
             </div>
           </div>
         </div>
@@ -380,7 +398,9 @@
               <i class="fa fa-object-ungroup" />
             </div>
             <div class="DetalleOrigenTexto">
-              <p>Agrupación {lengua.agrupacionId}</p>
+              {#if !!lengua.agrupacionId}
+                <p>Agrupación {lengua.agrupacionId}</p>
+              {/if}
             </div>
           </div>
           <div class="DetalleOrigenVariantes">
@@ -388,7 +408,9 @@
               <i class="fa fa-group" />
             </div>
             <div class="DetalleOrigenTexto">
-              <p>Familia {lengua.familiaId}</p>
+              {#if !!lengua.familiaId}
+                <p>Familia {lengua.familiaId}</p>
+              {/if}
             </div>
           </div>
         </div>
@@ -399,20 +421,28 @@
     {#if lengua.NOM_FAM}
       <div class="DetalleTextoDescripcion">
         <p>
-          {lengua.informacion}
+          {#if !!lengua.informacion}
+            {lengua.informacion}
+          {:else}
+            <!--funcion: conseguirDatoDeAncestro() -->
+          {/if}
         </p>
       </div>
       <div class="DetalleFamiliaAgrupacion">
-        <h3>Agrupaciones lingüísticas ({lengua.agrupaciones.length})</h3>
+        {#if !!lengua.agrupaciones}
+          <h3>Agrupaciones lingüísticas ({lengua.agrupaciones.length})</h3>
+        {/if}
 
-        <ul class="DetalleLista">
-        {#each lengua.agrupaciones as agrupacion}
-          <li>
-            <h4>{agrupacion}</h4>
-            <i class="fa fa-arrow-circle-right" />
-          </li>
-        {/each}
-        </ul>
+        {#if !!lengua.agrupaciones}
+          <ul class="DetalleLista">
+            {#each lengua.agrupaciones as agrupacion}
+              <li>
+                <h4>{agrupacion}</h4>
+                <i class="fa fa-arrow-circle-right" />
+              </li>
+            {/each}
+          </ul>
+        {/if}
 
       </div>
     {/if}
@@ -420,9 +450,7 @@
     <!-- descripcion  agrupacion  -->
     {#if lengua.NOM_AGRUP}
       <div class="DetalleTextoDescripcion">
-        <p>
-          {contenidoFake.descripcion}
-        </p>
+        <p>{contenidoFake.descripcion}</p>
       </div>
       <!-- Botones a galerias Agrupacion -->
       <div class="DetalleBotonesGaleria">
@@ -447,16 +475,21 @@
       </div>
 
       <div class="DetalleAgrupacionVariantes">
-        <h3>Variantes lingüísticas ({lengua.variantes.length})</h3>
+        {#if !!lengua.variantes}
+          <h3>Variantes lingüísticas ({lengua.variantes.length})</h3>
+        {/if}
 
-        <ul class="DetalleLista">
-        {#each lengua.variantes as variante, i}
-          <li>
-            <h4>{variante[i]}</h4>
-            <i class="fa fa-arrow-circle-right" />
-          </li>
-        {/each}
-        </ul>
+        {#if !!lengua.variantes}
+          <ul class="DetalleLista">
+            {#each lengua.variantes as variante}
+              <li>
+                <h4>{variante}</h4>
+                <i class="fa fa-arrow-circle-right" />
+              </li>
+            {/each}
+          </ul>
+        {/if}
+
       </div>
     {/if}
     <!-- fin descripcion agrupacion  -->
@@ -473,8 +506,8 @@
 {#if ventanaGaleria === 'audios'}
   <AudiosContenedor on:cerrarGaleria={cerrarGaleria} />
 {:else if ventanaGaleria === 'fotos'}
-  <Fotos on:cerrarGaleria={cerrarGaleria}/>
+  <Fotos on:cerrarGaleria={cerrarGaleria} />
 {:else if ventanaGaleria === 'textiles'}
-  <Textiles on:cerrarGaleria={cerrarGaleria}/>
+  <Textiles on:cerrarGaleria={cerrarGaleria} />
 {/if}
 <!--  -->
