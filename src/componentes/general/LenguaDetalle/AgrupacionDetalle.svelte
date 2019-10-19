@@ -305,12 +305,12 @@
     <div class="DetalleOrigen">
         <div class="DetalleOrigenRiesgo">
         <div
-            class="DetalleOrigenIcono {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+            class="DetalleOrigenIcono {lengua.riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
             {@html RiesgoIcono}
         </div>
         <div class="DetalleOrigenTexto">
             <div>
-            <p>{riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desparición</p>
+            <p>{lengua.riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desparición</p>
             <!-- <small>
                 <b>1,725,620 hablantes</b>
             </small> -->

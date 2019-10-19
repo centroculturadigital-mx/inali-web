@@ -335,7 +335,7 @@
   {#if !!lengua.agrupaciones}
     <ul class="DetalleLista">
       {#each lengua.agrupaciones as agrupacion ("agrupacion_"+agrupacion.id)}
-        <li on:click={abrirLengua(agrupacion)}>
+        <li on:click={()=>abrirLengua(agrupacion)}>
           <h4>{agrupacion.NOM_AGRUP}</h4>
           <i class="fa fa-arrow-circle-right" />
         </li>

@@ -63,7 +63,42 @@
   let agrupaciones;
 
 
-  const abrirLengua = nuevaLengua => lengua = nuevaLengua;
+  const abrirLengua = nuevaLengua => {
+    lengua = nuevaLengua;
+
+    nombre = !!lengua.NOM_FAM ? lengua.NOM_FAM : !!lengua.NOM_AGRUP ? lengua.NOM_AGRUP: !!lengua.NOM_VAR ? lengua.NOM_VAR : "";
+    
+    lenguaVista = {
+      ...lengua,
+      nombre,
+      color,
+      riesgo,
+      numeroHablantes,
+    }  
+
+    if( !! lengua.NOM_FAM ) {
+
+      let lenguaAgrupaciones = lengua.agrupaciones.map(id=>agrupaciones.find(ag=>ag.id===id))
+
+      lenguaVista = {
+        ...lenguaVista,
+        agrupaciones: lenguaAgrupaciones
+      }  
+      
+    }
+
+    if( !! lengua.NOM_AGRUP ) {
+
+      let lenguaVariantes = lengua.variantes.map(id=>variantes.find(ag=>ag.id===id))
+
+      lenguaVista = {
+        ...lenguaVista,
+        variantes: lenguaVariantes
+      }  
+      
+    }
+
+  }
 
   onMount(async ()=>{
 
@@ -72,20 +107,8 @@
     agrupaciones=agrupaciones.default
     
 
-    agrupaciones = lengua.agrupaciones.map(id=>agrupaciones.find(ag=>ag.id===id))
+    abrirLengua(lengua)
 
-    console.log(agrupaciones);
-    
-
-
-    lenguaVista = {
-      ...lengua,
-      nombre,
-      color,
-      riesgo,
-      numeroHablantes,
-      agrupaciones
-    }  
   })
 
   
