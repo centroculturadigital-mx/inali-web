@@ -46,36 +46,32 @@
 
 <article class="metaDatos-izquierda">
   <div>
-    <span class="label">Grupo Etnico:</span>
-    <span class="dato">{metadatos.grupoEtnico}</span>
+    <span class="label">Título:</span>
+    <span class="dato">{metadatos.titulo}</span>
   </div>
   <div>
     <span class="label">Nombre:</span>
-    <span class="dato">{metadatos.nombreDelProducto}</span>
+    <span class="dato">{metadatos.nombre}</span>
+  </div>
+  <div>
+    <span class="label">Nombre:</span>
+    <span class="dato">{metadatos.creditos}</span>
   </div>
   <div>
     <span class="label">Inventario:</span>
-    <span class="dato">{metadatos.inventario}</span>
+    <span class="dato">{metadatos.coleccion}</span>
   </div>
   <div>
     <span class="label">Estado:</span>
     <span class="dato">{metadatos.estado}</span>
   </div>
   <div>
-    <span class="label">Municipio:</span>
-    <span class="dato">{metadatos.municipio}</span>
+    <span class="label">Agrupacion fonética:</span>
+    <span class="dato">{metadatos.agrupacionFonetica}</span>
   </div>
   <div>
-    <span class="label">localidad:</span>
-    <span class="dato">{metadatos.localidad}</span>
-  </div>
-  <div>
-    <span class="label">Autoría:</span>
-    <span class="dato">{metadatos.autoria}</span>
-  </div>
-  <div>
-    <span class="label">Credito/colección:</span>
-    <span class="dato">{metadatos.creditosColeccion}</span>
+    <span class="label">Agrupación original:</span>
+    <span class="dato">{metadatos.agrupacionOriginal}</span>
   </div>
 </article>
 
