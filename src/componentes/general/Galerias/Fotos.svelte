@@ -1,6 +1,5 @@
 <script>
   import Galeria from "./Galeria.svelte";
-
   import { onMount } from "svelte";
   import { createEventDispatcher } from "svelte";
   import ContenedorGaleria from "../Lateral/ContenedorGaleria.svelte";
@@ -10,13 +9,12 @@
   // temporal:
   import imagenes from "../../../data/imagenesFake";
 
-
   import { getContext } from 'svelte';
   
-
   const lightboxContexto = getContext('lightbox')
 
   let lightboxAbrir
+  
   onMount(()=>{  
 
     lightboxContexto.imagenesStore.set(imagenes)
@@ -25,8 +23,6 @@
     
   })
 
-
-
 </script>
 
 <style>
@@ -34,7 +30,7 @@
     height: 100vh;
     padding: 0 1rem;
   }
-  .Galeria {
+  .Fotos {
     display: flex;
     flex-direction: column;
     padding: 0 1rem;
@@ -90,7 +86,7 @@
 </svelte:head>
 
 <ContenedorGaleria on:cerrarGaleria>
-  <header class="Galeria">
+  <header class="Fotos">
 
     <h1 class="Titulo">Fotos</h1>
     <div class="Sub">
