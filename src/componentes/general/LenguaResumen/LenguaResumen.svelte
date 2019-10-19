@@ -14,17 +14,8 @@
     dispatch("vermas");
   };
 
-  let asignaColor;
-  let asignaColorSubtitulo;
+  $: color = !! lengua ? lengua.color : #aaa;
 
-  onMount(() => {
-    console.log("VVAAAARRRR:::", asignaColorSubtitulo);
-
-    asignaColor.style.color = "#" + lengua.color;
-    asignaColorSubtitulo.style.color = "#" + lengua.color;
-  });
-
-  $: console.log("LENGUA::: ", lengua);
 
   const RiesgoIcono = `<svg width="16" height="15" viewBox="0 0 25 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.2666 0C5.52183 0 0.0666504 5.36575 0.0666504 12C0.0666504 18.6216 5.52183 24 12.2666 24C19.0115 24 24.4667 18.6342 24.4667 12C24.4538 5.36575 18.9986 0 12.2666 0ZM13.7497 20.1818C13.4015 20.5243 12.9115 20.7019 12.2796 20.7019C11.6347 20.7019 11.1318 20.537 10.7836 20.1945C10.4354 19.8647 10.2548 19.3827 10.2548 18.7738C10.2548 18.1395 10.4225 17.6575 10.7707 17.3404C11.1189 17.0106 11.6218 16.8583 12.2796 16.8583C12.9115 16.8583 13.4144 17.0233 13.7626 17.3531C14.1108 17.6829 14.2914 18.1649 14.2914 18.7738C14.2785 19.37 14.0979 19.8393 13.7497 20.1818ZM13.7626 14.9049H10.7965L9.76475 5.80972C9.68737 4.74419 10.8352 3.85624 12.2796 3.85624C13.7239 3.85624 14.8717 4.74419 14.7943 5.80972L13.7626 14.9049Z"/></svg>`;
   const IconoVariantes = `<svg width="16" height="15" viewBox="0 0 10 9" xmlns="http://www.w3.org/2000/svg"><path d="M0 1.2C0 0.537258 0.537258 0 1.2 0H8.7C9.36274 0 9.9 0.537258 9.9 1.2V6.51429C9.9 7.17703 9.36274 7.71429 8.7 7.71429H2.11973C2.08233 7.71429 2.04567 7.72478 2.01393 7.74456L0 9V1.2Z" /><circle cx="2" cy="4" r="1" /><circle cx="5" cy="4" r="1" /><circle cx="8" cy="4" r="1" /></svg>`;
@@ -184,7 +175,7 @@
           Agrupación
         {:else if !!lengua.NOM_VAR}Variante{/if}
       </p>
-      <h2 class="TituloTarjetaResumen" bind:this={asignaColor}>
+      <h2 class="TituloTarjetaResumen" style={`color: #${color}`}>
         {#if !!lengua.NOM_FAM}
           {lengua.NOM_FAM}
         {:else if !!lengua.NOM_AGRUP}
@@ -193,7 +184,7 @@
       </h2>
       <!--  -->
       <!-- titulo 2 variante  -->
-      <h2 class="SubTitulo" bind:this={asignaColorSubtitulo}>
+      <h2 class="SubTitulo" style={`color: #${color}`}>
 
         {#if lengua.NOM_VAR}
         {lengua.NOM_VAR}{/if}
