@@ -1,75 +1,12 @@
 <script>
-  import { onMount, createEventDispatcher } from "svelte";
-  import { fade } from "svelte/transition";
-  import AudiosContenedor from "../Galerias/AudiosContenedor.svelte";
-  import Fotos from "../Galerias/Fotos.svelte";
-  import Textiles from "../Galerias/Textiles.svelte";
-
-  const dispatch = createEventDispatcher();
   
-  import FamiliaDetalle from "./FamiliaDetalle.svelte"
-  import AgrupacionDetalle from "./AgrupacionDetalle.svelte"
-  import VarianteDetalle from "./VarianteDetalle.svelte"
-
-
-  let ventanaGaleria = null;
-
   export let lengua;
-
-  const cerrar = event => {
-    dispatch("cerrar");
-  };
-
-
-  // <!--funcion: conseguirDatoDeAncestro() -->
-
-
-
-  const cerrarGaleria = event => {
-    ventanaGaleria = event.detail.cierra;
-  };
-
-  $: console.log("lenguaDetalle", lengua);
-
-  const abreGaleria = e => {
-    if (e.target.classList.contains("Audio")) {
-      ventanaGaleria = "audios";
-    } else if (e.target.classList.contains("Foto")) {
-      ventanaGaleria = "fotos";
-    } else if (e.target.classList.contains("Textil")) {
-      ventanaGaleria = "textiles";
-    }
-  };
-
-  const contenidoFake = {
-    descripcion:
-      "También llamada algonquina o algonquina-ritwan. \n\nEl nombre de la familia lingüística álgica proviene de la contracción del nombre de una de las dos subfamilias que la integran, la algonquina (alg-), y la adhesión a ésta de una partícula (-ic) que señala pertenencia a algo. Cabe mencionar que, dentro de esta familia, las lenguas algonquinas han tenido, en términos de cobertura geográfica, diversidad interna y número de hablantes, mucha relevancia. \n\nLas lenguas de esta familia se hablan en gran parte de Canadá y en el extremo norte de los Estados Unidos de América, teniendo una concentración muy significativa en la región de los Grandes Lagos. El Kickapoo, que pertenece a la subfamilia algonquina, es el único idioma de esta familia que se habla en México. La llegada de los kickapoo a territorio nacional se dio en el siglo XIX cuando, después de una invasión de los anglosajones a su territorio, le pidieron al gobierno mexicano un espacio para vivir y éste, a cambio, les solicitó que defendieran a los pobladores mexicanos de los ataques de los comanches, muy frecuentes en aquel tiempo. Desde ese momento, los kickapoo son considerados un grupo binacional. En los Estados Unidos de América a los kickapoo de México ."
-  };
-
-  
-  $: color = !! lengua ? lengua.color : "aaa";
-
-
-
-  let nombre = !!lengua.NOM_FAM ? lengua.NOM_FAM : !!lengua.NOM_AGRUP ? lengua.NOM_AGRUP: !!lengua.NOM_VAR ? lengua.NOM_VAR : "";
-
-
-  const riesgo = Math.random();
-
-
-  const lenguaVista = {
-    ...lengua,
-    nombre,
-    color,
-    riesgo
-
-  }
-
   
 </script>
 
 <style>
-  .DetalleContenedor {
+
+.DetalleContenedor {
     display: flex;
     justify-content: flex-start;
     position: absolute;
@@ -133,11 +70,31 @@
     text-transform: uppercase;
     letter-spacing: 0.25rem;
   }
+  .DetalleTitulo {
+    font-weight: Bold;
+    /* color: #fbb634; */
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .DetalleTituloCastellano {
+    font-weight: lighter;
+    /* color: #fcc745; */
+    font-size: 2.5rem;
+    /* letter-spacing: 0.25rem; */
+  }
   
-  
-
-
-
+  .Nombre {
+    font-weight: Bold;
+    /* color: #fbb634; */
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .NombreCastellano {
+    font-weight: lighter;
+    /* color: #fcc745; */
+    font-size: 2.5rem;
+    /* letter-spacing: 0.25rem; */
+  }
   .DetalleNumeroHablantes {
     padding: 0.75rem;
     display: inline-block;
@@ -294,27 +251,59 @@
   }
 </style>
 
-<section class="DetalleContenedor" transition:fade={{ x: 500, duration: 750 }}>
+<header>
 
-  <div class="DetallePleca" style={`background-color: #${color}`} />
-  <div class="DetalleContenidos">
+  <nav class="DetalleContenidosNavegacion">
+    <span on:click={cerrar}>mapa ></span>
+    <a href="../">
+      {lengua.nombre}
+    </a>
+    <button id="DetalleCerrar" on:click={cerrar}>
+      <i class="fa fa-close" />
+    </button>
+  </nav>
 
-<!-- 
-      <FamiliaDetalle lengua={lenguaVista}/>
-      <AgrupacionDetalle lengua={lenguaVista}/>
-      <VarianteDetalle lengua={lenguaVista}/>
--->
+    
+  <!-- titulo Raiz -->
+  <h3 class="DetalleTituloTop">
+      Familia
+  </h3>
+  
+  
+  <h1 class="Nombre" style={`color: #${lengua.color}`}>
+      { lengua.nombre }
+  </h1>
+  <!-- 
+  <div class="DetalleNumeroHablantes">
+    <p>Numero de hablantes:</p>
+    <h4>1,965,672</h4>
+  </div> -->
+
+</header>
 
 
-  </div>
-</section>
+<div class="DetalleTextoDescripcion">
+  <p>
+    {#if !!lengua.informacion}
+      {lengua.informacion}
+    {:else}
+    {/if}
+  </p>
+</div>
+<div class="DetalleFamiliaAgrupacion">
+  {#if !!lengua.agrupaciones}
+    <h3>Agrupaciones lingüísticas ({lengua.agrupaciones.length})</h3>
+  {/if}
 
-<!-- Galerias  -->
-{#if ventanaGaleria === 'audios'}
-  <AudiosContenedor on:cerrarGaleria={cerrarGaleria} />
-{:else if ventanaGaleria === 'fotos'}
-  <Fotos on:cerrarGaleria={cerrarGaleria} />
-{:else if ventanaGaleria === 'textiles'}
-  <Textiles on:cerrarGaleria={cerrarGaleria} />
-{/if}
-<!--  -->
+  {#if !!lengua.agrupaciones}
+    <ul class="DetalleLista">
+      {#each lengua.agrupaciones as agrupacion}
+        <li>
+          <h4>{agrupacion}</h4>
+          <i class="fa fa-arrow-circle-right" />
+        </li>
+      {/each}
+    </ul>
+  {/if}
+
+</div>

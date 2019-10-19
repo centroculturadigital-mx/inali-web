@@ -1,75 +1,14 @@
 <script>
-  import { onMount, createEventDispatcher } from "svelte";
-  import { fade } from "svelte/transition";
-  import AudiosContenedor from "../Galerias/AudiosContenedor.svelte";
-  import Fotos from "../Galerias/Fotos.svelte";
-  import Textiles from "../Galerias/Textiles.svelte";
-
-  const dispatch = createEventDispatcher();
   
-  import FamiliaDetalle from "./FamiliaDetalle.svelte"
-  import AgrupacionDetalle from "./AgrupacionDetalle.svelte"
-  import VarianteDetalle from "./VarianteDetalle.svelte"
 
-
-  let ventanaGaleria = null;
+  const RiesgoIcono = `<svg width="25" height="24" viewBox="0 0 25 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.2666 0C5.52183 0 0.0666504 5.36575 0.0666504 12C0.0666504 18.6216 5.52183 24 12.2666 24C19.0115 24 24.4667 18.6342 24.4667 12C24.4538 5.36575 18.9986 0 12.2666 0ZM13.7497 20.1818C13.4015 20.5243 12.9115 20.7019 12.2796 20.7019C11.6347 20.7019 11.1318 20.537 10.7836 20.1945C10.4354 19.8647 10.2548 19.3827 10.2548 18.7738C10.2548 18.1395 10.4225 17.6575 10.7707 17.3404C11.1189 17.0106 11.6218 16.8583 12.2796 16.8583C12.9115 16.8583 13.4144 17.0233 13.7626 17.3531C14.1108 17.6829 14.2914 18.1649 14.2914 18.7738C14.2785 19.37 14.0979 19.8393 13.7497 20.1818ZM13.7626 14.9049H10.7965L9.76475 5.80972C9.68737 4.74419 10.8352 3.85624 12.2796 3.85624C13.7239 3.85624 14.8717 4.74419 14.7943 5.80972L13.7626 14.9049Z"/></svg>`;
 
   export let lengua;
-
-  const cerrar = event => {
-    dispatch("cerrar");
-  };
-
-
-  // <!--funcion: conseguirDatoDeAncestro() -->
-
-
-
-  const cerrarGaleria = event => {
-    ventanaGaleria = event.detail.cierra;
-  };
-
-  $: console.log("lenguaDetalle", lengua);
-
-  const abreGaleria = e => {
-    if (e.target.classList.contains("Audio")) {
-      ventanaGaleria = "audios";
-    } else if (e.target.classList.contains("Foto")) {
-      ventanaGaleria = "fotos";
-    } else if (e.target.classList.contains("Textil")) {
-      ventanaGaleria = "textiles";
-    }
-  };
-
-  const contenidoFake = {
-    descripcion:
-      "También llamada algonquina o algonquina-ritwan. \n\nEl nombre de la familia lingüística álgica proviene de la contracción del nombre de una de las dos subfamilias que la integran, la algonquina (alg-), y la adhesión a ésta de una partícula (-ic) que señala pertenencia a algo. Cabe mencionar que, dentro de esta familia, las lenguas algonquinas han tenido, en términos de cobertura geográfica, diversidad interna y número de hablantes, mucha relevancia. \n\nLas lenguas de esta familia se hablan en gran parte de Canadá y en el extremo norte de los Estados Unidos de América, teniendo una concentración muy significativa en la región de los Grandes Lagos. El Kickapoo, que pertenece a la subfamilia algonquina, es el único idioma de esta familia que se habla en México. La llegada de los kickapoo a territorio nacional se dio en el siglo XIX cuando, después de una invasión de los anglosajones a su territorio, le pidieron al gobierno mexicano un espacio para vivir y éste, a cambio, les solicitó que defendieran a los pobladores mexicanos de los ataques de los comanches, muy frecuentes en aquel tiempo. Desde ese momento, los kickapoo son considerados un grupo binacional. En los Estados Unidos de América a los kickapoo de México ."
-  };
-
-  
-  $: color = !! lengua ? lengua.color : "aaa";
-
-
-
-  let nombre = !!lengua.NOM_FAM ? lengua.NOM_FAM : !!lengua.NOM_AGRUP ? lengua.NOM_AGRUP: !!lengua.NOM_VAR ? lengua.NOM_VAR : "";
-
-
-  const riesgo = Math.random();
-
-
-  const lenguaVista = {
-    ...lengua,
-    nombre,
-    color,
-    riesgo
-
-  }
-
   
 </script>
 
 <style>
-  .DetalleContenedor {
+.DetalleContenedor {
     display: flex;
     justify-content: flex-start;
     position: absolute;
@@ -133,11 +72,30 @@
     text-transform: uppercase;
     letter-spacing: 0.25rem;
   }
-  
-  
-
-
-
+  .DetalleTitulo {
+    font-weight: Bold;
+    /* color: #fbb634; */
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .DetalleTituloCastellano {
+    font-weight: lighter;
+    /* color: #fcc745; */
+    font-size: 2.5rem;
+    /* letter-spacing: 0.25rem; */
+  }
+  .Nombre {
+    font-weight: Bold;
+    /* color: #fbb634; */
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .NombreCastellano {
+    font-weight: lighter;
+    /* color: #fcc745; */
+    font-size: 2.5rem;
+    /* letter-spacing: 0.25rem; */
+  }
   .DetalleNumeroHablantes {
     padding: 0.75rem;
     display: inline-block;
@@ -294,27 +252,78 @@
   }
 </style>
 
-<section class="DetalleContenedor" transition:fade={{ x: 500, duration: 750 }}>
-
-  <div class="DetallePleca" style={`background-color: #${color}`} />
-  <div class="DetalleContenidos">
-
-<!-- 
-      <FamiliaDetalle lengua={lenguaVista}/>
-      <AgrupacionDetalle lengua={lenguaVista}/>
-      <VarianteDetalle lengua={lenguaVista}/>
--->
+<header>
 
 
-  </div>
-</section>
+    <nav class="DetalleContenidosNavegacion">
+        <span on:click={cerrar}>mapa ></span>
+        <a href="../">
+        {lengua.nombre}
+        </a>
+        <button id="DetalleCerrar" on:click={cerrar}>
+        <i class="fa fa-close" />
+        </button>
+    </nav>
 
-<!-- Galerias  -->
-{#if ventanaGaleria === 'audios'}
-  <AudiosContenedor on:cerrarGaleria={cerrarGaleria} />
-{:else if ventanaGaleria === 'fotos'}
-  <Fotos on:cerrarGaleria={cerrarGaleria} />
-{:else if ventanaGaleria === 'textiles'}
-  <Textiles on:cerrarGaleria={cerrarGaleria} />
-{/if}
-<!--  -->
+
+    <!-- titulo Raiz -->
+    <h3 class="DetalleTituloTop">
+        Variante
+    </h3>
+    
+
+    <!-- Titulo -->
+    <h1 class="Nombre" style={`color: #${lengua.color}`}>
+        { lengua.nombre }
+    </h1>
+
+
+
+    <h1 class="NombreCastellano" style={`color: #${color}`}>
+        {lengua.nombreCastellanizado}
+        <!-- placeholder en o que llega el dato real nombre castellanizado -->
+    </h1>
+
+
+    <!-- riesgo variante  -->
+    <div class="DetalleOrigen">
+        <div class="DetalleOrigenRiesgo">
+        <div
+            class="DetalleOrigenIcono {lengua.riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+            {@html RiesgoIcono}
+        </div>
+        <div class="DetalleOrigenTexto">
+            <div>
+            <p>{lengua.riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desaparición</p>
+            <!-- <small>
+                <b>25,620 hablantes</b>
+            </small> -->
+            </div>
+        </div>
+        </div>
+        <div class="DetalleOrigenFamilia">
+        <div class="DetalleOrigenIcono">
+            <i class="fa fa-object-ungroup" />
+        </div>
+        <div class="DetalleOrigenTexto">
+            {#if !!lengua.agrupacionId}
+            <p>Agrupación {lengua.agrupacionId}</p>
+            {/if}
+        </div>
+        </div>
+        <div class="DetalleOrigenVariantes">
+        <div class="DetalleOrigenIcono">
+            <i class="fa fa-group" />
+        </div>
+        <div class="DetalleOrigenTexto">
+            {#if !!lengua.familiaId}
+            <p>Familia {lengua.familiaId}</p>
+            {/if}
+        </div>
+        </div>
+    </div>
+    
+
+
+</header>
+
