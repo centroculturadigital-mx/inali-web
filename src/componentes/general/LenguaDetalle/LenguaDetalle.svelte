@@ -12,6 +12,11 @@
   import VarianteDetalle from "./VarianteDetalle.svelte"
 
 
+  let familias;
+  let agrupaciones;
+  let variantes;
+
+
   let ventanaGaleria = null;
 
   export let lengua;
@@ -60,7 +65,6 @@
 
   let lenguaVista
   
-  let agrupaciones;
 
 
   const abrirLengua = nuevaLengua => {
@@ -90,11 +94,35 @@
     if( !! lengua.NOM_AGRUP ) {
 
       let lenguaVariantes = lengua.variantes.map(id=>variantes.find(ag=>ag.id===id))
-
+      let lenguaFamilia = familias.find(f=>f.ID_FAM===lengua.ID_FAM)
+      let informacion = !! lengua.informacion ? lengua.informacion : 
+      !! lenguaFamilia.informacion ? lenguaFamilia.informacion : "";
+        
       lenguaVista = {
         ...lenguaVista,
+        informacion,
+
         variantes: lenguaVariantes
       }  
+      
+    }
+
+    if( !! lengua.NOM_VAR ) {
+
+      let lenguaAgrupacion = agrupaciones.find(a=>a.ID_AGRU===lengua.ID_AGRU)
+      let lenguaFamilia = familias.find(f=>f.ID_FAM===lenguaAgrupacion.ID_FAM)
+
+      let informacion = !! lengua.informacion ? lengua.informacion : 
+      !! lenguaAgrupacion.informacion ? lenguaAgrupacion.informacion : 
+      !! lenguaFamilia.informacion ? lenguaFamilia.informacion : "";
+      lenguaVista = {
+        ...lenguaVista,
+        informacion,
+        agrupacion: lenguaAgrupacion,
+        familia: lenguaFamilia,
+      }  
+      
+      console.log("lenguaVista",lenguaVista);
       
     }
 
@@ -102,9 +130,13 @@
 
   onMount(async ()=>{
 
+    familias = await import(" ../../../data/api/familias.json")
     agrupaciones = await import(" ../../../data/api/agrupaciones.json")
+    variantes = await import(" ../../../data/api/variantes.json")
 
+    familias=familias.default
     agrupaciones=agrupaciones.default
+    variantes=variantes.default
     
 
     abrirLengua(lengua)
@@ -352,13 +384,15 @@
         <FamiliaDetalle lengua={lenguaVista} on:click={cerrar} abrirLengua={abrirLengua}/>
       {/if}
       {#if !! lengua.NOM_AGRUP }
-        <AgrupacionDetalle lengua={lenguaVista}/>
+        <AgrupacionDetalle lengua={lenguaVista} on:click={cerrar} abrirLengua={abrirLengua}/>
+      {/if}
+      {#if !! lengua.NOM_VAR }
+        <VarianteDetalle lengua={lenguaVista} on:click={cerrar}/>
       {/if}
     {/if}
 
 <!-- 
       
-      <VarianteDetalle lengua={lenguaVista}/>
 -->
 
 

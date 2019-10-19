@@ -70,7 +70,9 @@
 <header>
 
   <div id="Logotipo">
-    <Logo />
+    <a href="/">
+      <Logo />
+    </a>
   </div>
   <!-- Posicion 1 Menu Nav -->
   <!-- <Navegacion {segment} abreBusqueda={buscador} /> -->

@@ -292,11 +292,11 @@
 
 
     <nav class="DetalleContenidosNavegacion">
-        <span on:click={cerrar}>mapa ></span>
+        <span on:click>mapa ></span>
         <a href="../">
         {lengua.nombre}
         </a>
-        <button id="DetalleCerrar" on:click={cerrar}>
+        <button id="DetalleCerrar" on:click>
         <i class="fa fa-close" />
         </button>
     </nav>
@@ -314,11 +314,11 @@
     </h1>
 
 
-
+    <!-- 
     <h1 class="NombreCastellano" style={`color: #${lengua.color}`}>
         {lengua.nombreCastellanizado}
-        <!-- placeholder en o que llega el dato real nombre castellanizado -->
     </h1>
+    -->
 
 
     <!-- riesgo variante  -->

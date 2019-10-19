@@ -282,11 +282,11 @@
 
 
   <nav class="DetalleContenidosNavegacion">
-    <span on:click={cerrar}>mapa ></span>
+    <span on:click>mapa ></span>
     <a href="../">
       {lengua.nombre}
     </a>
-    <button id="DetalleCerrar" on:click={cerrar}>
+    <button id="DetalleCerrar" on:click>
       <i class="fa fa-close" />
     </button>
   </nav>
@@ -343,11 +343,15 @@
 
 
 <div class="DetalleTextoDescripcion">
-        <p>{contenidoFake.descripcion}</p>
+        <p>
+        <!-- {contenidoFake.descripcion} -->
+          { lengua.informacion }
+        </p>
+
       </div>
       <!-- Botones a galerias Agrupacion -->
       <div class="DetalleBotonesGaleria">
-        <button class="BotonGaleria Audio" on:click={abreGaleria}>
+        <!-- <button class="BotonGaleria Audio" on:click={abreGaleria}>
           <div class="IconoBotonGaleria">
             <img src={IconoAudios} alt="Icono Boton Audios INALI" />
           </div>
@@ -364,7 +368,7 @@
             <img src={IconoTextiles} alt="Icono Boton Textiles INALI" />
           </div>
           <div class="TextoBotonGaleria">TEXTILES</div>
-        </button>
+        </button> -->
       </div>
 
       <div class="DetalleAgrupacionVariantes">
@@ -377,7 +381,7 @@
             {#each lengua.variantes as variante}
               <li>
               <!-- <li on:click={verHijoDetalle}> -->
-                <h4>{variante}</h4>
+                <h4>{variante.NOM_VAR}</h4>
                 <i class="fa fa-arrow-circle-right" />
               </li>
             {/each}
