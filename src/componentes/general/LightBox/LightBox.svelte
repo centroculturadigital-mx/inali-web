@@ -1,5 +1,6 @@
 <script>
-  import Carousel from "@centroculturadigital-mx/svelte-carousel";
+  import Carousel from "../../../../node_modules/@centroculturadigital-mx/svelte-carousel/src/Carousel.svelte";
+  
   import { onMount } from "svelte";
 
   export let content;
@@ -48,7 +49,7 @@
     height: 100vh;
     opacity: 1;
     transition: opacity 1s;
-    z-index: 1000;
+    z-index: 1;
   }
 
   .LightBox header {
@@ -113,8 +114,13 @@
   .LightBox--hidden {
     opacity: 0;
     z-index: -1;
-    display: none;
   }
+
+  :global(.carousel) {
+    z-index: 100;
+    border: 1px solid red;
+  }
+
 </style>
 
 <div class={classList}>
@@ -123,6 +129,8 @@
   </header>
 
   <div class="Lightbox__Overlay" on:click={close} />
+  
+  {#if contents.length > 0 }
   <Carousel perPage={{ perParge: 1 }} {go}>
 
     {#each contents as content, i ('content_' + i)}
@@ -132,5 +140,6 @@
     {/each}
 
   </Carousel>
+  {/if}
 
 </div>
