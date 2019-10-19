@@ -1,6 +1,7 @@
 <script>
   import Lateral from "../componentes/general/Lateral/Lateral.svelte";
   import ContentBlocks from "../componentes/general/ContentBlocks/ContentBlocks.svelte";
+  let Mapbox= "logoMapBox.svg"
 
 let blocks = [
     
@@ -61,8 +62,8 @@ let blocks = [
     {
         "type": "img",
         "data": {
-            "src": "http://fakeimg.pl/300x200",
-            "alt": "img placeholder",
+            "src": `${Mapbox}`,
+            "alt": "Mapbox",
         }
     }    
 ]
@@ -87,11 +88,17 @@ let blocks = [
     color: rgba(255, 255, 255, 1);
     font-weight: 100;
     display: grid;
+    bottom: 4rem;
     }
 
   .Informacion p{
     padding: 0 0 1rem 0;
     font-weight: 100;
+  }
+
+  
+  .Informacion img{
+    max-width: 4rem;
   }
 
   .Cerrar {
