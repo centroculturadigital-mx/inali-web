@@ -88,18 +88,9 @@ let blocks = [
     color: rgba(255, 255, 255, 1);
     font-weight: 100;
     display: grid;
-    bottom: 4rem;
+    margin-bottom: 4rem;
     }
 
-  .Informacion p{
-    padding: 0 0 1rem 0;
-    font-weight: 100;
-  }
-
-  
-  .Informacion img{
-    max-width: 4rem;
-  }
 
   .Cerrar {
     display: flex;
