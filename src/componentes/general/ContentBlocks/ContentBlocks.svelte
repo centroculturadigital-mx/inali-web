@@ -12,6 +12,10 @@ export let blocks
 		grid-template-columns: 1fr 1fr;
 	}
 
+	dt {
+		padding-bottom: 1rem;
+	}
+
 </style>
 
 
