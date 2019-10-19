@@ -83,6 +83,7 @@
   }
   .Navegacion ul li a {
     font-size: 0.9rem;
+    padding: 0;
   }
   a {
     text-decoration-style: none;

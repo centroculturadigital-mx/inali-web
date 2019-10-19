@@ -1,5 +1,5 @@
 <script>
-  import { createEventDispatcher } from "svelte";
+  import { onMount, createEventDispatcher } from "svelte";
   import { fade } from "svelte/transition";
   import AudiosContenedor from "../Galerias/AudiosContenedor.svelte";
   import Fotos from "../Galerias/Fotos.svelte";
@@ -19,8 +19,7 @@
     dispatch("cerrar");
   };
 
-  const cerrarGaleria = event => {
-    
+  const cerrarGaleria = event => { 
     ventanaGaleria = event.detail.cierra;
   };
 
@@ -38,10 +37,17 @@
     }
   };
 
-
   const contenidoFake = {
     descripcion: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam repellendus ea dolorem error accusamus, corrupti laborum facere. Praesentium rem cupiditate iure vero dolorum quis, facere quo qui ea, reprehenderit magni?"
   }
+
+  let asignaColor;
+  let asignaColorPleca;
+
+  onMount(() => {
+    asignaColor.style.color = '#' + lengua.color;
+    asignaColorPleca.style.backgroundColor = '#' + lengua.color;
+  })
 </script>
 
 <style>
@@ -274,7 +280,7 @@
 
 <section class="DetalleContenedor" transition:fade={{ x: 500, duration: 750 }}>
 
-  <div class="DetallePleca" />
+  <div class="DetallePleca" bind:this={asignaColorPleca} />
   <div class="DetalleContenidos">
     <header>
       <!-- breadcrumbs -->
@@ -298,12 +304,12 @@
       {/if}
       <!-- fin Texto Raiz -->
       <!-- Titulo -->
-      <h1 class="DetalleTitulo">
+      <h1 class="DetalleTitulo" bind:this={asignaColor}>
         {lengua.NOM_FAM ? lengua.NOM_FAM : lengua.NOM_AGRUP ? lengua.NOM_AGRUP : lengua.NOM_VAR}
       </h1>
       {#if lengua.NOM_VAR}
-        <h1 class="DetalleTituloCastellano">
-          {lengua.NOM_FAM ? lengua.NOM_FAM : lengua.NOM_AGRUP ? lengua.NOM_AGRUP : lengua.NOM_VAR}
+        <h1 class="DetalleTituloCastellano" bind:this={asignaColor}>
+          {lengua.NOM_VAR}
         </h1>
       {/if}
       <!-- fin titulo/subtitulo -->
@@ -337,7 +343,7 @@
               <i class="fa fa-group" />
             </div>
             <div class="DetalleOrigenTexto">
-              <p>Familia {lengua.NOM_AGRUP}</p>
+              <p>Familia {lengua.familiaId}</p>
             </div>
           </div>
           <div class="DetalleOrigenVariantes">
@@ -345,7 +351,7 @@
               <i class="fa fa-share-alt-square" />
             </div>
             <div class="DetalleOrigenTexto">
-              <p>30 variantes linguísticas</p>
+              <p>{lengua.variantes.length} variantes linguísticas</p>
             </div>
           </div>
         </div>
@@ -374,7 +380,7 @@
               <i class="fa fa-object-ungroup" />
             </div>
             <div class="DetalleOrigenTexto">
-              <p>Agrupación {lengua.NOM_AGRUP}</p>
+              <p>Agrupación {lengua.agrupacionId}</p>
             </div>
           </div>
           <div class="DetalleOrigenVariantes">
@@ -382,7 +388,7 @@
               <i class="fa fa-group" />
             </div>
             <div class="DetalleOrigenTexto">
-              <p>Familia {lengua.NOM_FAM}</p>
+              <p>Familia {lengua.familiaId}</p>
             </div>
           </div>
         </div>
@@ -393,28 +399,19 @@
     {#if lengua.NOM_FAM}
       <div class="DetalleTextoDescripcion">
         <p>
-          {contenidoFake.descripcion}
-        </p>
-        <p>
-          {contenidoFake.descripcion}
+          {lengua.informacion}
         </p>
       </div>
       <div class="DetalleFamiliaAgrupacion">
-        <h3>Agrupaciones lingüísticas (11)</h3>
+        <h3>Agrupaciones lingüísticas ({lengua.agrupaciones.length})</h3>
 
         <ul class="DetalleLista">
+        {#each lengua.agrupaciones as agrupacion}
           <li>
-            <h4>{lengua.NOM_FAM}</h4>
+            <h4>{agrupacion}</h4>
             <i class="fa fa-arrow-circle-right" />
           </li>
-          <li>
-            <h4>{lengua.NOM_FAM}</h4>
-            <i class="fa fa-arrow-circle-right" />
-          </li>
-          <li>
-            <h4>{lengua.NOM_FAM}</h4>
-            <i class="fa fa-arrow-circle-right" />
-          </li>
+        {/each}
         </ul>
 
       </div>
@@ -450,21 +447,15 @@
       </div>
 
       <div class="DetalleAgrupacionVariantes">
-        <h3>Variantes lingüísticas (20)</h3>
+        <h3>Variantes lingüísticas ({lengua.variantes.length})</h3>
 
         <ul class="DetalleLista">
+        {#each lengua.variantes as variante, i}
           <li>
-            <h4>{lengua.NOM_AGRUP}</h4>
+            <h4>{variante[i]}</h4>
             <i class="fa fa-arrow-circle-right" />
           </li>
-          <li>
-            <h4>{lengua.NOM_AGRUP}</h4>
-            <i class="fa fa-arrow-circle-right" />
-          </li>
-          <li>
-            <h4>{lengua.NOM_AGRUP}</h4>
-            <i class="fa fa-arrow-circle-right" />
-          </li>
+        {/each}
         </ul>
       </div>
     {/if}

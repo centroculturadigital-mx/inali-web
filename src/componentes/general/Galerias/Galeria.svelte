@@ -4,6 +4,9 @@
 
   export let imagenes;
 
+  import TextilesMetadatos from "./TextilesMetadatos.svelte";
+  import metadatosTextilesFake from "../../../data/metadatosTextilesFake.js";
+
   let go;
 
   const openLightBox = i => {
@@ -25,7 +28,7 @@
     /* max-width: 10rem; */
     cursor: pointer;
     position: relative;
-    display: grid;  
+    display: grid;
     justify-items: center;
     align-items: center;
   }
@@ -36,7 +39,7 @@
   }
   .Contenido {
     color: #fff;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     bottom: 0rem;
     padding: 0.5rem 0;
@@ -50,20 +53,14 @@
 
 <section class="Galeria">
   <ul>
-    {#each imagenes as imagen, i ("imagen_"+i)}
+    {#each imagenes as imagen, i ('imagen_' + i)}
       <article>
 
-        <img 
-        class="Imagen" 
-        src={imagen.small} 
-        alt="Fotos INALI"
-        />
-        <!-- <img 
-        on:click={()=>openLightBox(i)}
-        class="Imagen" 
-        src={imagen.small} 
-        alt="Fotos INALI"
-        /> -->
+        <img
+          on:click={() => openLightBox(i)}
+          class="Imagen"
+          src={imagen.small}
+          alt="Fotos INALI" />
 
         <div class="Contenido">{imagen.title}</div>
 

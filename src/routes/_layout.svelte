@@ -15,7 +15,8 @@
 	import { onMount, setContext } from 'svelte';
 	
 	const imagenesStore = writable([]);
-	const abrir = ()=>{}
+	const abrir = (i)=>{console.log("abrir imagen", i);
+	}
 
 
 
