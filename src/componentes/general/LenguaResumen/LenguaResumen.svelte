@@ -1,5 +1,5 @@
 <script>
-  import { createEventDispatcher } from "svelte";
+  import { onMount, createEventDispatcher } from "svelte";
   import { fade } from "svelte/transition";
 
   // your script goes here
@@ -13,6 +13,14 @@
   const verMas = event => {
     dispatch("vermas");
   };
+
+  let asignaColor;
+
+  onMount(() => {
+    console.log("ASIGNACOLOR", asignaColor);
+    console.log("ASIGNACOLOR", '#' + lengua.color);
+    asignaColor.style.color = '#' + lengua.color
+  });
 
   $: console.log(lengua);
 
@@ -168,13 +176,19 @@
       <!-- titulo caja resumen -->
       {#if lengua.NOM_FAM}
         <p class="NombreFamilia">Familia</p>
-        <h2 class="TituloTarjetaResumen">{lengua.NOM_FAM}</h2>
+        <h2 class="TituloTarjetaResumen" bind:this={asignaColor}>
+          {lengua.NOM_FAM}
+        </h2>
       {:else if lengua.NOM_AGRUP}
         <p class="NombreFamilia">Agrupación</p>
-        <h2 class="TituloTarjetaResumen">{lengua.NOM_AGRUP}</h2>
+        <h2 class="TituloTarjetaResumen" bind:this={asignaColor}>
+          {lengua.NOM_AGRUP}
+        </h2>
       {:else if lengua.NOM_VAR}
         <p class="NombreFamilia">Variante</p>
-        <h2 class="TituloTarjetaResumen">{lengua.NOM_VAR}</h2>
+        <h2 class="TituloTarjetaResumen" bind:this={asignaColor}>
+          {lengua.NOM_VAR}
+        </h2>
       {/if}
       <!--  -->
       <!-- titulo 2 variante  -->
@@ -188,15 +202,16 @@
           <span>
             {@html IconoAgrupacion}
           </span>
-         {lengua.agrupaciones.length} Agrupaciones linguísticas
+          {lengua.agrupaciones.length} Agrupaciones linguísticas
         </p>
       {/if}
       <!--  -->
     </header>
 
-    <section class="ResumenInformacion {lengua.NOM_AGRUP ? 'ResumenInformacionAgrupacion' : ''}">
+    <section
+      class="ResumenInformacion {lengua.NOM_AGRUP ? 'ResumenInformacionAgrupacion' : ''}">
       <section class="InformacionRelevante">
-        
+
         <!-- caja Riesgo Agrupaciones -->
         {#if lengua.NOM_AGRUP}
           <p
@@ -216,12 +231,12 @@
             <span>
               {@html IconoVariantes}
             </span>
-            {#if variantes.length > 1}
-            <!-- plural -->
-            {variantes.length} variantes linguísticas 
+            {#if lengua.variantes.length > 1}
+              <!-- plural -->
+              {lengua.variantes.length} variantes linguísticas
             {:else}
-            <!-- singular -->
-            {variantes.length} variante linguística
+              <!-- singular -->
+              {lengua.variantes.length} variante linguística
             {/if}
           </p>
         {/if}
@@ -250,9 +265,7 @@
         {/if}
 
       </section>
-      <p class="Informacion">
-        {lengua.informacion}
-        </p>
+      <p class="Informacion">{lengua.informacion}</p>
     </section>
     <footer on:click={verMas}>
       <div class="SaberMas">
