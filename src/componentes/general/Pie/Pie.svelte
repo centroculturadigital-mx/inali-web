@@ -1,5 +1,5 @@
 <script>
-const Logotipos = ['logoGobierno.svg','logoCultura.svg','logoInah.svg','logoImer.svg','logoInali.png','logoCcd.svg','logoFonoteca.svg', 'logoCenidim.png','logoCulturaUnam.png','logoCid.svg','logoPacmyc.svg']
+const Logotipos = ['logoGobierno.svg','logoCultura.svg','logoInah.svg','logoImer.svg','logoInali.png','logoCcd.svg','logoFonoteca.svg', 'logoInpi.svg','logoCenidim.png','logoCulturaUnam.png','logoCid.svg','logoPacmyc.svg']
 </script>
 
 <style>
@@ -28,16 +28,28 @@ const Logotipos = ['logoGobierno.svg','logoCultura.svg','logoInah.svg','logoImer
 @media  (max-width: 575.98px) {
 
   footer {
-    display: flex;
+    display: grid;
+    grid-template-columns:1fr 2fr 2fr 2fr;
     justify-content: center;
     align-items: center;
     position: fixed;
     width: 100%;
-    height: 2.25rem;
-    left: 0;
-    bottom: 0;
-    background:red;
+    height: auto;
+    background: #465d72;
     z-index: 2;
+  }
+
+   .Logotipos {
+    margin: 0 1rem;
+    height: 25px;
+    width: auto;
+    text-align: center;
+  }
+  .Logotipos img{
+    height: 25px;
+    text-align: center;
+
+
   }
 }
 
