@@ -25,6 +25,53 @@ const Logotipos = ['gobierno.cultura.inah.svg','logo.imer.svg','logo.inali.svg',
     width: auto;
   }
 
+@media  (max-width: 575.98px) {
+
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 2.25rem;
+    left: 0;
+    bottom: 0;
+    background:red;
+    z-index: 2;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px)  {
+
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 2.25rem;
+    left: 0;
+    bottom: 0;
+    background-color:blue;
+    z-index: 2;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 2.25rem;
+    left: 0;
+    bottom: 0;
+    background-color: #000;
+    z-index: 2;
+  }
+}
   
 </style>
 
