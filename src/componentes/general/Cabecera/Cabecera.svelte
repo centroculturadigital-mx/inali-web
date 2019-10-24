@@ -11,7 +11,6 @@
     !buscador ? buscador = true : buscador = false;
       console.log("Cabecera", e);
     
-
   };
 </script>
 
@@ -65,6 +64,18 @@
     align-items: center;
     justify-content: center;
   }
+
+@media  (max-width: 575.98px) {
+#Logotipo {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    /* border-right: solid #fff 1px; */
+    max-width: 7rem;
+    padding-left: 0.5rem;
+  }
+}
+
 </style>
 
 <header>

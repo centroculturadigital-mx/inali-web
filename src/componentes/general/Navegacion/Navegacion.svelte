@@ -162,15 +162,11 @@
     right: 0;
   }
 
-
-
-
-
 </style>
 
 <nav class="Navegacion">
   {#if !abreBusqueda}
-  <ul class="ListaNavegacion"transition:fade="{{ duration: 500 }}">
+  <!-- <ul class="ListaNavegacion"transition:fade="{{ duration: 500 }}">
     <li>
       <a class={segment === 'acerca-de' ? 'selected' : ''} href="acerca-de">
         acerca de
@@ -187,7 +183,8 @@
         mapa interactivo
       </a>
     </li> -->
-  </ul>
+  </ul>  -->
+ 
   {:else}
   <div class="InputBusqueda" bind:this={buscadorInput} transition:fade="{{duration: 500 }}">
     <form action="">
