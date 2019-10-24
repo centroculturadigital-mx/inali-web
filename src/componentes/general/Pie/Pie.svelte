@@ -83,8 +83,14 @@ const Logotipos = ['logoGobierno.svg','logoCultura.svg','logoInah.svg','logoImer
     height: 2.25rem;
     left: 0;
     bottom: 0;
-    background-color: #000;
+    background: #465d72;
     z-index: 2;
+  }
+   .Logotipos {
+    margin: 0 0.75rem;
+    height: auto;
+    width: 50px;
+    justify-self: center;
   }
 }
   
