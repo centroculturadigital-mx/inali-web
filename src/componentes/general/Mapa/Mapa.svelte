@@ -36,8 +36,8 @@
 		link.onload = () => {
 			map = new mapbox.Map({
 				container,
-				style: 'mapbox://styles/mapbox/satellite-v9',
-				// style: 'mapbox://styles/ralexrdz/ck1pj29ju2srs1co3474hj9cm',
+				// style: 'mapbox://styles/mapbox/satellite-v9',
+				style: 'mapbox://styles/ralexccd/ck23slcnofvdv1cnl288i1nui',
 				center: [lon, lat],
 				// pitch: 60, 
 				// bearing: -60,
