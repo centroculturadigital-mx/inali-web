@@ -167,6 +167,11 @@
   }
 
 @media  (max-width: 575.98px) {
+  aside {
+    /* max-height: 35rem; */
+
+    overflow: auto;
+  }
   
   .BarraOcultar {
     height: 3rem;
@@ -178,8 +183,19 @@
   .CierraBarra{
     padding-right: 1rem;
   }
+  /* ul li {
+    padding: 0.93rem 0;
+  } */
 }
 @media (min-width: 576px) and (max-width: 768px)  {
+ aside {
+    max-height: 25rem;
+    overflow: auto;
+    padding: 0;
+    margin-top: 7px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.9);
+  }
  .BarraOcultar {
     display: flex;
     background: #465d72;
@@ -194,7 +210,14 @@
 
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-
+  aside {
+    max-height: 25rem;
+    overflow: auto;
+    padding: 0;
+    margin-top: 7px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.9);
+  }
   .BarraOcultar {
     display: flex;
     background: #465d72;

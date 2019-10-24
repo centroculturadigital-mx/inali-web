@@ -339,6 +339,10 @@
     position: absolute;
     left: 60%;
   }
+  .FiltroIcono:hover .tooltiptext {
+    visibility: hidden;
+    opacity: 1;
+  }
 }
 @media (min-width: 576px) and (max-width: 768px)  {
   .LenguasFiltro {
