@@ -183,7 +183,7 @@
         href="http://138.68.223.192:4000" target="_blank">
         mapa interactivo
       </a>
-    </li> -->
+    </li> 
   </ul>  -->
  
   {:else}
