@@ -34,6 +34,7 @@ const Logotipos = ['logoGobierno.svg','logoCultura.svg','logoInah.svg','logoImer
     position: fixed;
     width: 100%;
     height: auto;
+    bottom: 0;
     background: #465d72;
     z-index: 2;
   }
@@ -59,9 +60,16 @@ const Logotipos = ['logoGobierno.svg','logoCultura.svg','logoInah.svg','logoImer
     height: 2.25rem;
     left: 0;
     bottom: 0;
-    background-color:blue;
+    background: #465d72;
     z-index: 2;
   }
+   .Logotipos {
+    margin: 0 0.5rem;
+    height: auto;
+    width: 40px;
+    justify-self: center;
+  }
+
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
