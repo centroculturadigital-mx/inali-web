@@ -274,7 +274,7 @@
     max-height: 38rem;
     width: 320px;
   }
-
+  
   .FiltroIcono {
     width: 3rem;
   }
@@ -327,6 +327,78 @@
     visibility: visible;
     opacity: 1;
   }
+
+  @media  (max-width: 575.98px) {
+  .LenguasFiltro {
+    position: absolute;
+    top: 2.75rem;
+    left: 0;
+    background-color: transparent;
+    /* height: calc( 100% - 2rem ); */
+    max-height: 38rem;
+    width: 100vw;
+  }
+  .FiltroIcono {
+    position: absolute;
+    left: .75rem;
+    top: 1rem;
+  }
+  .tooltiptext {
+    position: absolute;
+    
+    top: 104%;
+    left: 1%;
+    margin-left: 0;
+    font-size: .7rem;
+  }
+  .FiltroIcono .tooltiptext::after {
+    position: absolute;
+    left: 60%;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px)  {
+  .LenguasFiltro {
+    position: absolute;
+    top: 3.5rem;
+    left: 1rem;
+    background-color: transparent;
+    max-height: 38rem;
+    width: 320px;
+  }
+  .FiltroIcono .tooltiptext {
+    position: absolute;
+    background-color: transparent;
+    cursor: pointer;
+    visibility: hidden;
+    width: auto;
+    background-color: #465D72;
+    color: #fff;
+    text-align: center;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+    top: 104%;
+    left: 1%;
+    margin-left: 0;
+    font-size: .7rem;
+  }
+  .FiltroIcono .tooltiptext::after {
+    position: absolute;
+    left: 60%;
+  }
+
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .LenguasFiltro {
+    position: absolute;
+    top: 3.5rem;
+    left: 1rem;
+    background-color: transparent;
+    max-height: 38rem;
+    width: 320px;
+  }
+}
+
 
 </style>
 

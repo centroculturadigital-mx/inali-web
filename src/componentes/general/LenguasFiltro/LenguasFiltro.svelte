@@ -151,6 +151,48 @@
    border: 1px solid #000;
     color: #000;
   }
+
+@media  (max-width: 575.98px) {
+  
+  .BarraOcultar {
+    height: 3rem;
+    align-items: center;
+  }
+  .FiltroTitulo {
+    padding-left: 1.5rem;
+  }
+  .CierraBarra{
+    padding-right: 1rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px)  {
+ .BarraOcultar {
+    display: flex;
+    background: #465d72;
+    border-radius: 0px;
+    position: relative;
+    top: 0.5rem;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+
+}
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+  .BarraOcultar {
+    display: flex;
+    background: #465d72;
+    border-radius: 0px;
+    position: relative;
+    top: 0.5rem;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  
+}
+
 </style>
 
 <div class="BarraOcultar">
