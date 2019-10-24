@@ -29,9 +29,8 @@ const Logotipos = ['logoGobierno.svg','logoCultura.svg','logoInah.svg','logoImer
 
   footer {
     display: grid;
-    grid-template-columns:1fr 2fr 2fr 2fr;
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
     position: fixed;
     width: 100%;
     height: auto;
@@ -40,17 +39,13 @@ const Logotipos = ['logoGobierno.svg','logoCultura.svg','logoInah.svg','logoImer
   }
 
    .Logotipos {
-    margin: 0 2rem;
-    height: 25px;
-    width: auto;
-    text-align: center;
+    margin:0;
+    height: auto;
+    width: 40px;
+    justify-self: center;
   }
-  .Logotipos img{
-    height: 25px;
-    text-align: center;
+  
 
-
-  }
 }
 
 @media (min-width: 576px) and (max-width: 768px)  {
