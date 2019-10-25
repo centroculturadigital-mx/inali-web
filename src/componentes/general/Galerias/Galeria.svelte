@@ -47,6 +47,30 @@
   .Creditos {
     font-size: 0.7em;
   }
+
+@media  (max-width: 575.98px) {
+  .Galeria ul {
+    grid-template-columns: 1fr;
+  }
+  img {
+    max-width: 12rem;
+    object-fit: cover;
+    border-radius: 3px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px)  {
+  .Galeria ul {
+    grid-template-columns: 1fr 1fr 1fr;
+    
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .Galeria ul {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 </style>
 
 <section class="Galeria">
