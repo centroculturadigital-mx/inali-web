@@ -384,7 +384,7 @@
   <p>
     {#if !!lengua.informacion}
       {lengua.informacion}
-    {:else}
+     <!--{:else}-->
     {/if}
   </p>
 </div>
