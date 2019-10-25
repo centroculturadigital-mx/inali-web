@@ -343,18 +343,7 @@
     left: .75rem;
     top: 1rem;
   }
-  .tooltiptext {
-    position: absolute;
-    
-    top: 104%;
-    left: 1%;
-    margin-left: 0;
-    font-size: .7rem;
-  }
-  .FiltroIcono .tooltiptext::after {
-    position: absolute;
-    left: 60%;
-  }
+  
   .FiltroIcono:hover .tooltiptext {
     visibility: hidden;
     opacity: 1;
