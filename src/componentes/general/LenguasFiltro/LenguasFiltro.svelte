@@ -153,7 +153,7 @@
   }
 
 @media  (max-width: 575.98px) {
-  aside {
+  aside { 
     /* max-height: 35rem; */
 
     overflow: auto;
