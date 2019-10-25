@@ -293,6 +293,14 @@
   }
   
   @media  (max-width: 575.98px) {
+  
+    .DetalleOrigen {
+    display: flex;
+   
+    height: 4.25rem;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
 
   .DetalleOrigenRiesgo {
     background-color: rgba(255, 0, 0, 0.1);
