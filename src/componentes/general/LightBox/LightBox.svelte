@@ -128,6 +128,30 @@
     max-width: 40rem;
     max-height: 60rem;
   }
+@media  (max-width: 575.98px) {
+  :global(img),
+  :global(.carousel img) {
+    max-width: 22rem;
+    max-height: 60rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px)  {
+  :global(img),
+  :global(.carousel img) {
+    max-width: 35rem;
+    max-height: 60rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  :global(img),
+  :global(.carousel img) {
+    max-width: 35rem;
+    max-height: 60rem;
+  } 
+}
+
 </style>
 
 <div class={classList}>
