@@ -295,8 +295,8 @@
   @media  (max-width: 575.98px) {
   
     .DetalleOrigen {
-    display: flex;
-   
+    /*display: flex;*/
+    justify-content: space-evenly;
     height: 4.25rem;
     width: 100%;
     margin-bottom: 1rem;
