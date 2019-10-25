@@ -129,10 +129,6 @@
     letter-spacing: 0.25rem;
   }
   
-  
-
-
-
   .DetalleNumeroHablantes {
     padding: 0.75rem;
     display: inline-block;
@@ -288,6 +284,37 @@
     padding: 0 1rem;
   }
   
+  @media  (max-width: 575.98px) {
+
+  .DetalleOrigenRiesgo {
+    background-color: rgba(255, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* max-width: 33%; */
+  }
+
+  .DetalleOrigenFamilia {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* max-width: 33%; */
+  }
+
+  .DetalleOrigenVariantes {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* max-width: 33%; */
+    /*border-left: 1px solid #000;*/
+    width: 100%;
+  }
+ }
+
 </style>
 
 <header>
