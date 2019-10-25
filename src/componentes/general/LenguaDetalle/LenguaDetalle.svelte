@@ -408,6 +408,45 @@
     height: 100%;
     }
   }
+
+   @media  (max-width: 575.98px) {
+  
+    .DetalleOrigen {
+    /*display: flex;*/
+    justify-content: space-evenly;
+    height: 4.25rem;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .DetalleOrigenRiesgo {
+    background-color: rgba(255, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* max-width: 33%; */
+  }
+
+  .DetalleOrigenFamilia {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* max-width: 33%; */
+  }
+
+  .DetalleOrigenVariantes {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* max-width: 33%; */
+    /*border-left: 1px solid #000;*/
+    width: 100%;
+  }
+ }
   
 </style>
 

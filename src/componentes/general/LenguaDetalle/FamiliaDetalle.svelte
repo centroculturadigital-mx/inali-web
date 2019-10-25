@@ -417,8 +417,11 @@
 </div>
 
 <div class="DetalleTextoDescripcion">
-  <p class="descripcion">
-    {#if !!lengua.informacion}{lengua.informacion}{:else}{/if}
+  <p>
+    {#if !!lengua.informacion}
+      {lengua.informacion}
+     <!--{:else}-->
+    {/if}
   </p>
 </div>
 
