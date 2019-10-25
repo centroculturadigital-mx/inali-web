@@ -382,6 +382,33 @@
       width: 100%;
     }
   }
+
+  @media  (max-width: 575.98px) {
+
+ .DetalleContenedor {
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+    padding-top: 3.25rem;
+    padding-bottom: 2.25rem;
+    width: 100%;
+    height: 100%;
+    }
+  }
+
+    @media (min-width: 576px) and (max-width: 768px) {
+
+ .DetalleContenedor {
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+    padding-top: 3.25rem;
+    padding-bottom: 2.25rem;
+    width: 100%;
+    height: 100%;
+    }
+  }
+  
 </style>
 
 <section class="DetalleContenedor" transition:fade={{ x: 500, duration: 750 }}>
