@@ -52,6 +52,49 @@
       width: 100%;
     }
   }
+@media  (max-width: 575.98px) {
+  .GaleriaMedia {
+    right: 0;
+    width: 100%;
+  }
+  .GaleriaMediaContenedor {
+    width: 100vw;
+    background-color: #465d72;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px)  {
+  .GaleriaMedia {
+    right: 0;
+    width: 100%;
+  }
+  .GaleriaMediaContenedor {
+    width: 100vw;
+    background-color: #465d72;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .GaleriaMedia {
+    position: fixed;
+    padding-top: 3.25rem;
+    padding-bottom: 2.25rem;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    background-color: transparent;
+    width: 50%;
+    z-index: 0;
+  }
+  .GaleriaMediaContenedor {
+    padding: 0rem 0rem 2rem;
+    background-color: rgba(70, 93, 114, 0.9);
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+  }
+}
+
 </style>
 
 <aside class="GaleriaMedia" transition:fade>

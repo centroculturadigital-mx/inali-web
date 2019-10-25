@@ -420,7 +420,6 @@
   <p>
     {#if !!lengua.informacion}
       {lengua.informacion}
-     <!--{:else}-->
     {/if}
   </p>
 </div>
