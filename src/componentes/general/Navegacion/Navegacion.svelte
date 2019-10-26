@@ -167,7 +167,7 @@
 
 <nav class="Navegacion">
   {#if !abreBusqueda}
-  <!-- <ul class="ListaNavegacion"transition:fade="{{ duration: 500 }}">
+   <ul class="ListaNavegacion"transition:fade="{{ duration: 500 }}">
     <li>
       <a class={segment === 'acerca-de' ? 'selected' : ''} href="acerca-de">
         acerca de
@@ -178,13 +178,13 @@
         glosario
       </a>
     </li>
-     <li>
+   <!--  <li>
       <a
         href="http://138.68.223.192:4000" target="_blank">
         mapa interactivo
       </a>
-    </li> 
-  </ul>  -->
+    </li> -->
+  </ul>  
   
  
   {:else}
