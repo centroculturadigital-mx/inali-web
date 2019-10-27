@@ -63,7 +63,6 @@ let glosario = [
     color: rgba(255, 255, 255, 1);
     font-weight: 600;
     font-size: 1rem;
-    padding: 1rem 0 0 0;
   }
   .tituloConcepto {
     padding: 1rem;
@@ -83,7 +82,6 @@ let glosario = [
     color: rgba(255, 255, 255, 1);
     font-weight: 600;
     font-size: 1rem;
-    padding: 1rem 0 0 0;
   }
 
   .tituloConcepto {

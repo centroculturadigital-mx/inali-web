@@ -163,6 +163,20 @@
     right: 0;
   }
 
+@media (min-width: 576px) and (max-width: 768px)  {
+  * {
+    display: flex;
+    align-items: center;
+  }
+  .Navegacion ul li a {
+    font-size: 0.9rem;
+    padding: 2rem 0rem;
+  }
+  .Navegacion ul {
+    justify-content: space-between;
+  }
+}
+
 </style>
 
 <nav class="Navegacion">

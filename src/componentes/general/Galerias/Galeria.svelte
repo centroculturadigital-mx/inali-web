@@ -48,7 +48,14 @@
     font-size: 0.7em;
   }
 
-@media  (max-width: 575.98px) {
+@media  (max-width: 320px) {
+  .Galeria ul {
+    grid-template-columns: 1fr;
+  }
+  
+}
+
+@media  (max-width: 575.98px) and (min-width: 375px) {
   .Galeria ul {
     grid-template-columns: 1fr 1fr;
   }
