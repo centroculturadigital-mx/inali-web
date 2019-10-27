@@ -400,49 +400,7 @@
     }
   }
 
-   @media  (max-width: 575.98px) {
-  
-    .DetalleOrigen {
-    /*display: flex;*/
-    justify-content: space-evenly;
-    height: 4.25rem;
-    width: 100%;
-    margin-bottom: 1rem;
-    flex-direction: column;
-  }
-
-  .DetalleOrigenRiesgo {
-    background-color: rgba(255, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    /* max-width: 33%; */
-    height: inherit;
-  }
-
-  .DetalleOrigenFamilia {
-    background: rgba(251, 182, 52, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    /* max-width: 33%; */
-    height: inherit;
-  }
-
-  .DetalleOrigenVariantes {
-    background: rgba(251, 182, 52, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* max-width: 33%; */
-    border-left: none;
-    width: 100%;
-    height: inherit;
-  }
- }
-  
+   
 </style>
 
 <section class="DetalleContenedor" transition:fade={{ x: 500, duration: 750 }}>
