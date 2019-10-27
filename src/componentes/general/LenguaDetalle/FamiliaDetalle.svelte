@@ -319,6 +319,13 @@
     padding: 0 1rem;
   }
 
+@media  (max-width: 320px) {
+ .BotonGaleria{
+   width: 7rem;
+ }
+  
+}
+
   
  
 </style>
