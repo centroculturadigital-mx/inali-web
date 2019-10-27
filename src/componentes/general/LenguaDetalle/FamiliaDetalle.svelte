@@ -323,7 +323,24 @@
  .BotonGaleria{
    width: 7rem;
  }
+ .DetalleLista li h4 {
+    font-size: 1rem;
+  }
+  .DetalleLista li {
+    padding: 1rem;
+    align-items: center;
+  }
   
+}
+
+@media  (max-width: 575.98px) and (min-width: 375px) {
+  .DetalleLista li h4 {
+    font-size: 1rem;
+  }
+  .DetalleLista li {
+    padding: 1rem;
+    align-items: center;
+  }
 }
 
   
