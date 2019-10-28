@@ -25,7 +25,7 @@
 </script>
 
 <style>
-  .card {
+  /* .card {
     position: absolute;
     top: 10rem;
     left: 40%;
@@ -36,40 +36,8 @@
     display: flex;
     flex-direction: column;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
-  }
-  .Informacion {
-    margin: 0;
-  }
-  .ResumenInformacion {
-    font-size: 1rem;
-    max-height: 12.5rem;
-    padding: 0rem 1.5rem 2rem 1.5rem;
-    overflow-y: auto;
-  }
-  .ResumenInformacionAgrupacion {
-    font-size: 1rem;
-    max-height: 14.5rem;
-  }
-
-  .NombreFamilia {
-    padding: 0rem 0rem 0rem 1.5rem;
-    color: rgba(61, 61, 61, 1);
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    font-weight: 200;
-    /* font-size: 1rem; */
-    margin-bottom: 0.25rem;
-    margin-top: 0.75rem;
-  }
-
-  .TituloTarjetaResumen {
-    padding: 0rem 0rem 0rem 1.5rem;
-    font-weight: 600;
-    font-weight: bold;
-    color: #e6aa30;
-    margin-bottom: 0.25rem;
-  }
-
+  } */
+  
   .SaberMas {
     color: rgba(255, 255, 255, 1);
   }
@@ -79,61 +47,6 @@
     color: rgba(255, 255, 255, 1);
   }
 
-  .NumeroAgrupaciones {
-    padding: 0rem 0rem 0rem 1.5rem;
-    color: rgba(61, 61, 61, 1);
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin: 0.5rem 0 0.5rem 0px;
-  }
-
-  .RiesgoDesaparicion {
-    display: flex;
-    color: rgb(219, 4, 4);
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin: 0.25rem 0 0 0;
-  }
-  .RiesgoDesaparicion span {
-    margin: 0.1rem 0.5rem 0 0;
-  }
-
-  .FamiliaPertenece {
-    /* padding: 0rem 0rem 0rem 2rem; */
-    color: rgba(61, 61, 61, 1);
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin: 0.25rem 0 0 0;
-  }
-  .FamiliaPertenece span {
-    margin: 0.1rem 0.25rem 0 0;
-  }
-
-  .InformacionRelevante {
-    margin-bottom: 0.5rem;
-  }
-
-  .SubTitulo {
-    padding: 0rem 0rem 0rem 1.5rem;
-    font-weight: 400;
-    color: #e6aa30;
-    margin-bottom: 0.25rem;
-  }
-
-  .Cerrar {
-    display: flex;
-    justify-content: flex-end;
-    position: absolute;
-    right: 1rem;
-    top: 0.75rem;
-  }
-  .Cerrar a:hover {
-    color: rgba(255, 97, 97, 0.8);
-  }
-
-  .Cerrar a {
-    color: rgba(135, 135, 135, 1);
-  }
 
   footer {
     display: flex;
@@ -148,165 +61,24 @@
     position: absolute;
     bottom: 0;
   }
-  .RiesgoAlto {
-    fill: red;
-    color: red;
-  }
-  .RiesgoBajo {
-    fill: green;
-    color: green;
-  }
-
-/* @media  (max-width: 575.98px) {
-} */
-
-@media (min-width: 576px) and (max-width: 768px)  {
-.card {
-    top: 12rem;
-    left: 45%;
-    width: 16rem;
-    height: 20rem;
-  }
-}
+  
 
 @media  (max-width: 575.98px) {
-  .card {
-    visibility: hidden;
-    display: none;
-  }
-  /* footer {
+  footer {
     background-color:#465d72;
     border-radius: 0 2rem 0 0;
     position: absolute;
-    bottom: 3rem;
-  } */
-}
-
-/* @media (min-width: 576px) and (max-width: 768px)  {
-.card {
-    visibility: hidden;
-    display: none;
+    bottom: 2rem;
+    height: 4rem;
   }
-} */
-
+}
 
 
 
 </style>
 
 {#if lengua}
-  <section class="card" transition:fade={{ duration: 750 }}>
-    <header>
-      <span class="Cerrar" on:click={cerrar}>
-        <a href="/">
-          <i class="fa fa-close" />
-        </a>
-      </span>
-
-      <!-- titulo caja resumen -->
-      <p class="NombreFamilia">
-        {#if !!lengua.NOM_FAM}
-          Familia
-        {:else if !!lengua.NOM_AGRUP}
-          Agrupación
-        {:else if !!lengua.NOM_VAR}Variante{/if}
-      </p>
-      <h2 class="TituloTarjetaResumen" style={`color: #${color}`}>
-        {#if !!lengua.NOM_FAM}
-          {lengua.NOM_FAM}
-        {:else if !!lengua.NOM_AGRUP}
-          {lengua.NOM_AGRUP}
-        {:else if !!lengua.NOM_VAR}{lengua.NOM_VAR}{/if}
-      </h2>
-      <!--  -->
-      <!-- titulo 2 variante  -->
-      <h2 class="SubTitulo" style={`color: #${color}`}>
-
-        {#if lengua.NOM_VAR}
-        {lengua.NOM_VAR}{/if}
-
-      </h2>
-      <!--  -->
-      <!-- familia numero agrupaciones -->
-      {#if lengua.NOM_FAM}
-        <p class="NumeroAgrupaciones">
-          <span>
-            {@html IconoAgrupacion}
-          </span>
-          {#if !!lengua.agrupaciones.length}
-            {lengua.agrupaciones.length} Agrupaciones linguísticas
-          {/if}
-        </p>
-      {/if}
-      <!--  -->
-    </header>
-
-    <section
-      class="ResumenInformacion {lengua.NOM_AGRUP ? 'ResumenInformacionAgrupacion' : ''}">
-      <section class="InformacionRelevante">
-
-        <!-- caja Riesgo Agrupaciones -->
-        {#if lengua.NOM_AGRUP}
-          <p
-            class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
-            <span>
-              {@html RiesgoIcono}
-            </span>
-            {riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desaparición
-          </p>
-          <p class="FamiliaPertenece">
-            <span>
-              {@html IconoFamilia}
-            </span>
-            {#if !!lengua.familiaId}Familia {lengua.familiaId}{/if}
-          </p>
-          <p class="FamiliaPertenece">
-            <span>
-              {@html IconoVariantes}
-            </span>
-            {#if lengua.variantes.length > 1}
-              <!-- plural -->
-              {lengua.variantes.length} variantes linguísticas
-            {:else}
-              <!-- singular -->
-              {lengua.variantes.length} variante linguística
-            {/if}
-          </p>
-        {/if}
-        <!--  caja Riesgo Variantes -->
-        {#if lengua.NOM_VAR}
-          <p
-            class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
-            <span>
-              {@html RiesgoIcono}
-            </span>
-            {riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desaparición
-          </p>
-          <p class="FamiliaPertenece">
-            <span>
-              {@html IconoFamilia}
-            </span>
-            {#if !!lengua.agrupacionId}Agrupación: {lengua.agrupacionId}{/if}
-          </p>
-          <p class="FamiliaPertenece">
-            <span>
-              {@html IconoVariantes}
-            </span>
-            {#if !!lengua.familiaId}Familia {lengua.familiaId}{/if}
-          </p>
-        {/if}
-
-      </section>
-      <p class="Informacion">
-
-        {#if !!lengua.informacion}
-          {lengua.informacion}
-        {:else}
-          <!--funcion: conseguirDatoDeAncestro() -->
-        {/if}
-      </p>
-    </section>
-    <footer on:click={verMas}>
+    <footer on:click={verMas} transition:fade={{ duration: 750 }} >
       <div class="SaberMas">
         <a href="/">
           <span>Saber más</span>
@@ -314,11 +86,5 @@
         </a>
       </div>
     </footer>
-  </section>
 {/if}
 
-<!-- {
-          lengua.NOM_FAM ? lengua.NOM_FAM :
-          lengua.NOM_AGRUP ? lengua.NOM_AGRUP : 
-          lengua.NOM_VAR 
-        } -->
