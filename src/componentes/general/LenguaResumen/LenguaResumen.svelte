@@ -238,6 +238,42 @@
   .HeaderMinimizado {
     border-radius: 0.5rem;
   }
+
+/* @media  (max-width: 575.98px) {
+} */
+
+@media (min-width: 576px) and (max-width: 768px)  {
+.card {
+    top: 12rem;
+    left: 45%;
+    width: 16rem;
+    height: 20rem;
+  }
+}
+
+@media  (max-width: 575.98px) {
+  .card {
+    visibility: hidden;
+    display: none;
+  }
+  /* footer {
+    background-color:#465d72;
+    border-radius: 0 2rem 0 0;
+    position: absolute;
+    bottom: 3rem;
+  } */
+}
+
+/* @media (min-width: 576px) and (max-width: 768px)  {
+.card {
+    visibility: hidden;
+    display: none;
+  }
+} */
+
+
+
+
 </style>
 
 {#if lengua}
