@@ -8,7 +8,6 @@
   import LenguasFiltro from "../LenguasFiltro/LenguasFiltro.svelte";
   import LenguaDetalle from "../LenguaDetalle/LenguaDetalle.svelte";
   import LenguaResumen from "../LenguaResumen/LenguaResumen.svelte";
-  import LenguaResumenPestana from "../LenguaResumen/LenguaResumenPestana.svelte";
   import Herramientas from "../Herramientas/Herramientas.svelte";
   import Mapa from "../Mapa/Mapa.svelte";
   import MapaCapa from "../Mapa/MapaCapa.svelte";
@@ -328,6 +327,10 @@
     left: .75rem;
     top: 1rem;
   }
+  .LenguaResumen {
+    position: absolute;
+    top: 15.5rem;
+  }
   
   .FiltroIcono:hover .tooltiptext {
     visibility: hidden;
@@ -464,10 +467,6 @@
   {#if muestraResumen && !!lenguaDetalle}
     <div class="LenguaResumen">
       <LenguaResumen
-        lengua={lenguaDetalle}
-        on:cerrar={manejaLimpiaFiltro}
-        on:vermas={manejaVerDetalle} />
-        <LenguaResumenPestana
         lengua={lenguaDetalle}
         on:cerrar={manejaLimpiaFiltro}
         on:vermas={manejaVerDetalle} />

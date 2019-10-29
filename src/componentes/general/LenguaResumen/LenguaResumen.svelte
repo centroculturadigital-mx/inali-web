@@ -239,8 +239,21 @@
     border-radius: 0.5rem;
   }
 
-/* @media  (max-width: 575.98px) {
-} */
+@media  (max-width: 575.98px) {
+  .card {
+    visibility: hidden;
+  }
+
+  footer {
+    visibility: visible;
+    background-color:#465d72;
+    border-radius: 0 2rem 0 0;
+    border-bottom: 1px solid #ffffff;
+    width: 100vw;
+    height: 3.5rem;
+    display: flex;
+  }
+}
 
 @media (min-width: 576px) and (max-width: 768px)  {
 .card {
@@ -250,29 +263,6 @@
     height: 20rem;
   }
 }
-
-@media  (max-width: 575.98px) {
-  .card {
-    visibility: hidden;
-    display: none;
-  }
-  /* footer {
-    background-color:#465d72;
-    border-radius: 0 2rem 0 0;
-    position: absolute;
-    bottom: 3rem;
-  } */
-}
-
-/* @media (min-width: 576px) and (max-width: 768px)  {
-.card {
-    visibility: hidden;
-    display: none;
-  }
-} */
-
-
-
 
 </style>
 
