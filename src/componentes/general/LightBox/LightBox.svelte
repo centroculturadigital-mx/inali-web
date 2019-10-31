@@ -128,13 +128,24 @@
     max-width: 40rem;
     max-height: 60rem;
   }
-@media  (max-width: 575.98px) {
+
+@media  (max-width: 320px) {
+  :global(img),
+  :global(.carousel img) {
+    max-width: 18rem;
+    max-height: 60rem;
+  }
+  
+}
+
+@media  (max-width: 575.98px) and (min-width: 375px) {
   :global(img),
   :global(.carousel img) {
     max-width: 22rem;
     max-height: 60rem;
   }
 }
+
 
 @media (min-width: 576px) and (max-width: 768px)  {
   :global(img),

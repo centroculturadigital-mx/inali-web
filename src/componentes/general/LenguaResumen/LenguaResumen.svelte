@@ -156,6 +156,34 @@
     fill: green;
     color: green;
   }
+
+@media  (max-width: 575.98px) {
+  .card {
+    visibility: hidden;
+  }
+
+  footer {
+    visibility: visible;
+    background-color:#465d72;
+    border-radius: 0 2rem 0 0;
+    border-bottom: 1px solid #ffffff;
+    width: 100vw;
+    height: 3.5rem;
+    display: flex;
+    position: fixed;
+    bottom: 2.5rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px)  {
+.card {
+    top: 12rem;
+    left: 45%;
+    width: 16rem;
+    height: 20rem;
+  }
+}
+
 </style>
 
 {#if lengua}
