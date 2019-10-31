@@ -112,6 +112,8 @@ let blocks = [
   .Cerrar a:hover {
     color: tomato;
   }
+
+
 </style>
 
 <svelte:head>
