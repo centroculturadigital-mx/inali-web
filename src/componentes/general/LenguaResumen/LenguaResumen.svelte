@@ -80,7 +80,7 @@
     padding: 0rem 0rem 0rem 1.5rem;
     font-weight: 600;
     font-weight: bold;
-    color: #e6aa30;
+    /* color: #e6aa30; */
     margin-bottom: 0.25rem;
   }
 
@@ -130,7 +130,7 @@
   .SubTitulo {
     padding: 0rem 0rem 0rem 1.5rem;
     font-weight: 400;
-    color: #e6aa30;
+    /* color: #e6aa30; */
     margin-bottom: 0.25rem;
   }
 
@@ -150,6 +150,7 @@
   }
 
   footer {
+    transition: 0.5s;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -157,10 +158,13 @@
     cursor: pointer;
     width: 100%;
     height: 3rem;
-    background-color: #465d72;
+    /* background-color: #465d72; */
     border-radius: 0 0 2rem 0;
     position: absolute;
     bottom: 0;
+  }
+  footer:hover {
+    opacity: 0.85;
   }
   .RiesgoAlto {
     fill: red;
@@ -189,7 +193,7 @@
           Agrupación
         {:else if !!lengua.NOM_VAR}Variante{/if}
       </p>
-      <h2 class="TituloTarjetaResumen" style={`color: #${color}`}>
+      <h2 class="TituloTarjetaResumen" >
         {#if !!lengua.NOM_FAM}
           {lengua.NOM_FAM}
         {:else if !!lengua.NOM_AGRUP}
@@ -198,7 +202,7 @@
       </h2>
       <!--  -->
       <!-- titulo 2 variante  -->
-      <h2 class="SubTitulo" style={`color: #${color}`}>
+      <h2 class="SubTitulo">
 
         {#if lengua.NOM_VAR}
         {lengua.NOM_VAR}{/if}
@@ -286,7 +290,7 @@
         {/if}
       </p>
     </section>
-    <footer on:click={verMas}>
+    <footer on:click={verMas} style={`background-color: #${color}`}>
       <div class="SaberMas">
         <a href="/">
           <span>Saber más</span>
