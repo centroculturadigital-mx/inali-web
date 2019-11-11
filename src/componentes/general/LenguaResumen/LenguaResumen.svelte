@@ -279,7 +279,7 @@
 
         {#if !!lengua.informacion}
 
-          {extractoTexto(lengua.informacion,4,' ... ')}
+          {extractoTexto(lengua.informacion,28,' ... ')}
        
         {:else}
           <!--funcion: conseguirDatoDeAncestro() -->
