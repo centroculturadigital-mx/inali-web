@@ -147,7 +147,7 @@
     top: 0.75rem;
   }
   .Cerrar a:hover {
-    color: rgba(255, 97, 97, 0.8);
+    color: black;
   }
 
   .Cerrar a {
@@ -298,8 +298,9 @@
     <footer on:click={verMas} style={`background-color: #${color}`}>
       <div class="SaberMas">
         <a href="/">
+          <!-- <i class="fa fa-arrow-left" /> -->
           <span>Saber más</span>
-          <i class="fa fa-arrow-right" />
+          <!-- <i class="fa fa-arrow-right" /> -->
         </a>
       </div>
     </footer>

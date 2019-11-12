@@ -1,7 +1,7 @@
 <script>
   // libs
   import { onMount } from "svelte";
-  import { fade } from 'svelte/transition'
+  import { fade } from "svelte/transition";
   import bbox from "@turf/bbox";
 
   // componentes
@@ -277,31 +277,28 @@
 
   .FiltroIcono {
     width: 3rem;
+    position: absolute;
+    cursor: pointer;
+    top: 0.5rem;
   }
 
   .FiltroIcono .tooltiptext {
     position: absolute;
-    left: 0;
-    top: 0.5rem;
-    background-color: transparent;
-    /* width: 3rem; */
-    /* height: 3rem; */
     cursor: pointer;
-
     visibility: hidden;
-    width: auto;
-    background-color: #465D72;
+    width: 7rem;
+    background-color: #465d72;
     color: #fff;
     text-align: center;
-    padding: .25rem .5rem;
+    padding: 0.25rem 0.5rem;
     border-radius: 6px;
     z-index: 1;
     opacity: 0;
     transition: opacity 0.3s;
     top: 104%;
-    left: 19%;
-    margin-left: -60px;
-    font-size: .75rem;
+    left: 40%;
+    margin-left: 0;
+    font-size: 0.75rem;
   }
   .FiltroIcono img {
     height: 3rem;
@@ -315,19 +312,17 @@
     content: "";
     position: absolute;
     bottom: 100%;
-    left: 50%;
+    left: 34%;
     margin-left: -29px;
     border-width: 5px;
     border-style: solid;
-    border-color: transparent transparent #465D72 transparent;
-    
+    border-color: transparent transparent #465d72 transparent;
   }
-  
+
   .FiltroIcono:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
   }
-
 </style>
 
 <div class="Principal">
@@ -380,26 +375,26 @@
     <Herramientas />
   </div> -->
 
-  {#if muestraFiltro && !! familias && famArbol}
+  {#if muestraFiltro && !!familias && famArbol}
     <div class="LenguasFiltro">
 
       {#if estadoInicialventanaFiltro === 'cerrado'}
-        <div class="FiltroIcono" on:click={abreVentana} >
-          <span class="tooltiptext">
-            Filtro de familias
-          </span>
+        <div
+          class="FiltroIcono"
+          on:click={abreVentana}
+          transition:fade={{ duration: 500 }}>
+          <span class="tooltiptext">Filtro de familias</span>
           <img src={iconoFiltro} alt="Filtro de lenguas indígenas" />
         </div>
       {:else if estadoInicialventanaFiltro === 'abierto'}
-      <div >
-        <LenguasFiltro
-          arbol={famArbol}
-          {seleccion}
-          on:deseleccionar={manejaLimpiaFiltro}
-          on:seleccionar={manejaSeleccion} 
-          cierraVentanaFiltro={cierraVentana}
-          />
-      </div>
+        <div>
+          <LenguasFiltro
+            arbol={famArbol}
+            {seleccion}
+            on:deseleccionar={manejaLimpiaFiltro}
+            on:seleccionar={manejaSeleccion}
+            cierraVentanaFiltro={cierraVentana} />
+        </div>
       {/if}
     </div>
   {/if}

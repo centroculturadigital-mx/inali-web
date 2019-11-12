@@ -151,6 +151,14 @@
    border: 1px solid #000;
     color: #000;
   }
+  .variante button {
+    cursor: pointer;
+    color: #465d72;
+    text-transform: capitalize;
+  }
+  .variante b {
+    color: #b8d3d1;
+  }
 </style>
 
 <div class="BarraOcultar">

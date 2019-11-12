@@ -28,11 +28,16 @@
     z-index: 1000;
   }
   #Logotipo {
+    transition: 0.5s;
     display: flex;
     align-items: center;
     justify-content: center;
     /* border-right: solid #fff 1px; */
     min-width: 338px;
+    cursor: pointer;
+  }
+  #Logotipo:hover {
+    opacity: 0.85;
   }
   .BotonesDerecha {
     display: flex;
