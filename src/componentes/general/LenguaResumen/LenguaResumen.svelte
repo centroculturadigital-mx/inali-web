@@ -53,16 +53,18 @@
   }
   .Informacion {
     margin: 0;
+    padding-bottom: 1rem;
   }
   .ResumenInformacion {
     font-size: 1rem;
-    max-height: 12.5rem;
-    padding: 0rem 1.5rem 2rem 1.5rem;
+    height: 13rem;
+    padding: 0rem 1rem 1rem 1.5rem;
     overflow-y: auto;
   }
   .ResumenInformacionAgrupacion {
     font-size: 1rem;
-    max-height: 14.5rem;
+    height: 15rem;
+    overflow-y: auto;
   }
 
   .NombreFamilia {
@@ -72,8 +74,9 @@
     letter-spacing: 4px;
     font-weight: 200;
     /* font-size: 1rem; */
-    margin-bottom: 0.25rem;
+    margin-bottom: 0rem;
     margin-top: 0.75rem;
+    font-size: 0.75rem;
   }
 
   .TituloTarjetaResumen {
@@ -81,7 +84,8 @@
     font-weight: 600;
     font-weight: bold;
     /* color: #e6aa30; */
-    margin-bottom: 0.25rem;
+    margin-bottom: 0rem;
+    text-transform: capitalize;
   }
 
   .SaberMas {
@@ -132,6 +136,7 @@
     font-weight: 400;
     /* color: #e6aa30; */
     margin-bottom: 0.25rem;
+    color: #3D3D3D;
   }
 
   .Cerrar {
