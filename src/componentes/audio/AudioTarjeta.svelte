@@ -11,6 +11,7 @@
   export let coleccionAudio;
   export let creditoAudio;
   export let derechosAudio;
+  export let propiedadAudio;
 
   let audioHtml1;
   let tocando;
@@ -218,8 +219,8 @@
   <section class="Controles">
 
     <div class="Informacion">
-      <h4 class="NombreAudio">{nombreAudio}</h4>
-      <p>Audio relalizado por {creditoAudio}</p>
+      <h4 class="NombreAudio">{creditoAudio}</h4>
+      <p>Audio relalizado por {propiedadAudio}</p>
       <!--<p>Colección: {coleccionAudio}</p> -->
       <!-- <p>Derechos: {derechosAudio}</p> -->
     </div>

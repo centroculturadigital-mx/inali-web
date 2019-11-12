@@ -23,5 +23,6 @@
     derechosAudio={audio.derechos}
     coleccionAudio={audio.coleccion}
     creditoAudio={audio.creditos}
+    propiedadAudio={audio.propiedad}
     lenguaAudio={audio.lengua} />
 {/each}
