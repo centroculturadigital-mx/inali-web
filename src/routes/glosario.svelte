@@ -111,10 +111,9 @@ let glosario = [
   .Cerrar {
     display: flex;
     justify-content: flex-end;
-    padding: 0rem 1rem 0 0;
     position: absolute;
     right: 2rem;
-    top: 2rem;
+    top: 1.25rem;
   }
 
   .Cerrar a {

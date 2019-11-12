@@ -217,7 +217,7 @@
       <!-- familia numero agrupaciones -->
       {#if lengua.NOM_FAM}
         <p class="NumeroAgrupaciones">
-          <span>
+          <span style={`fill:#${color}`}>
             {@html IconoAgrupacion}
           </span>
           {#if !!lengua.agrupaciones.length}
@@ -242,13 +242,13 @@
             {riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desaparición
           </p>
           <p class="FamiliaPertenece">
-            <span>
+            <span style={`fill:#${color}`}>
               {@html IconoFamilia}
             </span>
             {#if !!lengua.familiaId}Familia {lengua.familiaId}{/if}
           </p>
           <p class="FamiliaPertenece">
-            <span>
+            <span style={`fill:#${color}`}>
               {@html IconoVariantes}
             </span>
             {#if lengua.variantes.length > 1}
@@ -270,13 +270,13 @@
             {riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desaparición
           </p>
           <p class="FamiliaPertenece">
-            <span>
+            <span style={`fill:#${color}`}>
               {@html IconoFamilia}
             </span>
             {#if !!lengua.agrupacionId}Agrupación: {lengua.agrupacionId}{/if}
           </p>
           <p class="FamiliaPertenece">
-            <span>
+            <span style={`fill:#${color}`}>
               {@html IconoVariantes}
             </span>
             {#if !!lengua.familiaId}Familia {lengua.familiaId}{/if}

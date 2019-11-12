@@ -74,7 +74,7 @@
 
 <header>
 
-  <div id="Logotipo" on:click={()=>location.reload()}>
+  <div id="Logotipo" on:click={()=>location.assign('/')}>
     <Logo />
   </div>
   <!-- Posicion 1 Menu Nav -->
