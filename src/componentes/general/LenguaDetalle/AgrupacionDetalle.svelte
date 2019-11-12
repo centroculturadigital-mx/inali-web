@@ -416,6 +416,6 @@
 {:else if ventanaGaleria === 'fotos'}
   <Fotos imagenes={lengua.fotografias} on:click={cerrarGaleria} />
 {:else if ventanaGaleria === 'textiles'}
-  <Textiles imagenes={lengua.fotografias} on:click={cerrarGaleria} />
+  <Textiles imagenes={lengua.textiles} on:click={cerrarGaleria} />
 {/if}
 <!--  -->

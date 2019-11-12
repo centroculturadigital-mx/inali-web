@@ -370,12 +370,14 @@
     <div class="TextoBotonGaleria">FOTOS</div>
   </button>
   {/if}
-  <!-- <button class="BotonGaleria Textil" on:click={()=>abreGaleria("textiles")}>
+  {#if !! Array.isArray(lengua.textiles) && lengua.textiles.length > 0}
+  <button class="BotonGaleria Textil" on:click={()=>abreGaleria("textiles")}>
     <div class="IconoBotonGaleria ">
       <img src={IconoTextiles} alt="Icono Boton Textiles INALI" />
     </div>
     <div class="TextoBotonGaleria">TEXTILES</div>
-  </button> -->
+  </button>
+  {/if}
 </div>
 
 
@@ -442,5 +444,5 @@
 {:else if ventanaGaleria === 'fotos'}
   <Fotos imagenes={lengua.fotografias} on:click={cerrarGaleria} />
 {:else if ventanaGaleria === 'textiles'}
-  <Textiles imagenes={lengua.fotografias} on:click={cerrarGaleria} />
+  <Textiles imagenes={lengua.textiles} on:click={cerrarGaleria} />
 {/if}
