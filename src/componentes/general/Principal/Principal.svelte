@@ -127,7 +127,8 @@
 
     if (poligono) {
       mapa.fitBounds(bbox(poligono), {
-        padding: { top: 25, bottom: 25, left: 75, right: 25 }
+        padding: { top: 25, bottom: 25, left: 75, right: 25 },
+        speed: 0.6,
       });
     }
 
@@ -138,7 +139,9 @@
     varianteSeleccionada =
       seleccion.detail.tipo == "variante" ? seleccion.detail.id : null;
 
-    muestraResumen = true;
+    setTimeout(() => {
+      muestraResumen = true;
+    }, 2000)
   };
 
   const manejaLimpiaFiltro = () => {
@@ -150,7 +153,8 @@
 
     mapa.flyTo({
       center: [mapaInicio.lon, mapaInicio.lat],
-      zoom: mapaInicio.zoom
+      zoom: mapaInicio.zoom,
+      speed: 0.6,
     });
   };
 
