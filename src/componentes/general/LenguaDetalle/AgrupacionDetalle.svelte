@@ -287,6 +287,9 @@
   .DetalleTextoDescripcion {
     padding: 0 1rem;
   }
+  .descripcion {
+    white-space: pre-line;
+  }
   
 </style>
 
@@ -355,7 +358,7 @@
 
 
 <div class="DetalleTextoDescripcion">
-        <p>
+        <p class="descripcion">
         <!-- {contenidoFake.descripcion} -->
           { lengua.informacion }
         </p>

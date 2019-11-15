@@ -175,14 +175,14 @@
         <div class="Controles">
 
           <div class="Informacion">
-            {#if audio.creditos}
-              <h4 class="NombreAudio">{audio.creditos}</h4>
+            {#if audio.titulo}
+              <h4 class="NombreAudio">{audio.titulo}</h4>
             {/if}
             {#if audio.variante}
               <p>Variante linguística: {audio.variante}</p>
             {/if}
-            {#if audio.propiedad}
-              <p>Registro {audio.propiedad}</p>
+            {#if audio.creditos}
+              <p>{audio.creditos}</p>
             {/if}
             <!-- <p>Colección: {audio.coleccion}</p> -->
           </div>

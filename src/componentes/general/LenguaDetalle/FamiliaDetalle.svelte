@@ -318,6 +318,10 @@
   .DetalleTextoDescripcion {
     padding: 0 1rem;
   }
+
+  .descripcion {
+    white-space: pre-line;
+  }
 </style>
 
 <header>
@@ -383,7 +387,7 @@
 
 
 <div class="DetalleTextoDescripcion">
-  <p>
+  <p class="descripcion">
     {#if !!lengua.informacion}
       {lengua.informacion}
     {:else}
