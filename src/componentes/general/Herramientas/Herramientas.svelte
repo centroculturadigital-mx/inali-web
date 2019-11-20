@@ -6,13 +6,18 @@
 <style>
   section {
     display: flex;
-    justify-content: space-around;
-    min-width: 130px;
+    justify-content: space-evenly;
+    /* min-width: 130px; */
+    width: 21rem;
   }
   button {
     cursor: pointer;
-    height: 3rem;
-    width: 3rem;
+    height: 2.5rem;
+    width: 9rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
   }
 
   .Riesgo {
@@ -22,15 +27,16 @@
     border: 0;
   }
   .Riesgo img {
-    width: 17px;
+    width: 18px;
   }
   .Riesgo:hover,
   .Riesgo:focus,
   .Riesgo:active {
-    background: rgba(255, 97, 97, 1);
+    background: rgb(234, 76, 76);
+    box-shadow: 2px 4px 7px rgba(0, 0, 0, 0.15);
   }
   .Voluta {
-    background-color: rgba(219, 219, 219, 0.8);
+    background-color: rgb(70, 93, 114, 0.8);
     background-blend-mode: multiply;
     border-radius: 4px;
     border: 0;
@@ -41,102 +47,30 @@
   .Voluta:hover,
   .Voluta:focus,
   .Voluta:active {
-    background: #465D72;
+    background: rgb(70, 93, 114);
+    box-shadow: 2px 4px 7px rgba(0, 0, 0, 0.15);
   }
 
-
-/* TOOLTIPS */
-.tooltipRiesgo .tooltiptext {
-  visibility: hidden;
-  position: absolute;
-  width: 65px;
-  background-color: rgba(255, 97, 97, 1);
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.3s;
-  top: 115%;
-  left: 45%;
-  margin-left: -60px;
-  font-size: .75rem;
-}
-
-.tooltipRiesgo .tooltiptext::after {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent rgba(255, 97, 97, 1) transparent;
-  
-}
-
-.tooltipRiesgo:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
-
-.tooltipVoluta .tooltiptext {
-  visibility: hidden;
-  position: absolute;
-  width: 65px;
-  background-color: #465D72;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.3s;
-  top: 115%;
-  left: 96%;
-  margin-left: -60px;
-  font-size: .75rem;
-}
-
-.tooltipVoluta .tooltiptext::after {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent #465D72 transparent;
-  
-}
-
-.tooltipVoluta:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
-
-
+  span {
+    color: #fff;
+    font-size: 1rem;
+    font-family: Fira Sans;
+  }
 
   
 </style>
 
 <section>
-<div class="tooltipRiesgo"> 
-  <span class="tooltiptext">
-    Riesgo
-  </span>
   <button class="Riesgo" >
     <img src={IconoRiesgo} alt="Riesgo de extinción de la lengua" />
+    <span>
+      Modo riesgo
+    </span>
   </button>
-</div>
-<div class="tooltipVoluta">
-  <span class="tooltiptext">
-    Aforismos
-  </span>
   <button class="Voluta">
     <img src={IconoVoluta} alt="Texto animado" />
+    <span>
+      Aforismos  
+    </span>
   </button>
-</div>
-
 </section>
