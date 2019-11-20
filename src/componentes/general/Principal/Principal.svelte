@@ -15,7 +15,9 @@
 
   export let cierraVentanaFiltro;
   let estadoInicialventanaFiltro = "abierto";
-  const iconoFiltro = "icono.inicial.filtro.svg";
+  // const iconoFiltro = "icono.inicial.filtro.svg";
+  let IconoFiltros = "icono-filtros.svg";
+
   const abreVentana = () => {
     estadoInicialventanaFiltro = "abierto";
   };
@@ -279,53 +281,37 @@
   }
 
   .FiltroIcono {
-    width: 3rem;
+    width: 9rem;
     position: absolute;
     cursor: pointer;
     top: 0.5rem;
+    background-color: rgb(70, 93, 114, 0.8);
+    background-blend-mode: multiply;
+    border-radius: 4px;
+    border: 0;
   }
-
-  .FiltroIcono .tooltiptext {
-    position: absolute;
+  button {
     cursor: pointer;
-    visibility: hidden;
-    width: 7rem;
-    background-color: #465d72;
-    color: #fff;
-    text-align: center;
-    padding: 0.25rem 0.5rem;
-    border-radius: 6px;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.3s;
-    top: 104%;
-    left: 40%;
-    margin-left: 0;
-    font-size: 0.75rem;
+    height: 2.5rem;
+    width: 9rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
   }
   .FiltroIcono img {
-    height: 3rem;
-    width: 3rem;
+    width: 1.5rem;
   }
-  .FiltroIcono img:hover {
-    opacity: 0.85;
+  .FiltroIcono:hover {
+    background: rgb(70, 93, 114);
+    box-shadow: 2px 4px 7px rgba(0, 0, 0, 0.15);
   }
-
-  .FiltroIcono .tooltiptext::after {
-    content: "";
-    position: absolute;
-    bottom: 100%;
-    left: 34%;
-    margin-left: -29px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent transparent #465d72 transparent;
+  span {
+    color: #fff;
+    font-size: 1rem;
+    font-family: Fira Sans;
   }
 
-  .FiltroIcono:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-  }
 </style>
 
 <div class="Principal">
@@ -382,13 +368,15 @@
     <div class="LenguasFiltro">
 
       {#if estadoInicialventanaFiltro === 'cerrado'}
-        <div
+        <button
           class="FiltroIcono"
           on:click={abreVentana}
           transition:fade={{ duration: 500 }}>
-          <span class="tooltiptext">Filtro de familias</span>
-          <img src={iconoFiltro} alt="Filtro de lenguas indígenas" />
-        </div>
+          <img src={IconoFiltros} alt="Filtro de lenguas indígenas" />
+          <span>
+            Filtros
+          </span>
+        </button>
       {:else if estadoInicialventanaFiltro === 'abierto'}
         <div>
           <LenguasFiltro
