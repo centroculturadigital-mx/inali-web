@@ -55,22 +55,11 @@
   $: console.log("lenguaDetalle", lengua);
 
 
-  const contenidoFake = {
-    descripcion:
-      "También llamada algonquina o algonquina-ritwan. \n\nEl nombre de la familia lingüística álgica proviene de la contracción del nombre de una de las dos subfamilias que la integran, la algonquina (alg-), y la adhesión a ésta de una partícula (-ic) que señala pertenencia a algo. Cabe mencionar que, dentro de esta familia, las lenguas algonquinas han tenido, en términos de cobertura geográfica, diversidad interna y número de hablantes, mucha relevancia. \n\nLas lenguas de esta familia se hablan en gran parte de Canadá y en el extremo norte de los Estados Unidos de América, teniendo una concentración muy significativa en la región de los Grandes Lagos. El Kickapoo, que pertenece a la subfamilia algonquina, es el único idioma de esta familia que se habla en México. La llegada de los kickapoo a territorio nacional se dio en el siglo XIX cuando, después de una invasión de los anglosajones a su territorio, le pidieron al gobierno mexicano un espacio para vivir y éste, a cambio, les solicitó que defendieran a los pobladores mexicanos de los ataques de los comanches, muy frecuentes en aquel tiempo. Desde ese momento, los kickapoo son considerados un grupo binacional. En los Estados Unidos de América a los kickapoo de México ."
-  };
-
-
-
-
   const IconoTextiles = "icono.textiles.svg";
   const IconoFotos = "icono.fotos.svg";
   const IconoAudios = "icono.audios.svg";
 
-  
 
-  
-  
 </script>
 
 <style>
@@ -427,7 +416,7 @@
     <div class="TextoBotonGaleria ">AUDIOS</div>
   </button> -->
 
-  {#if Array.isArray(lengua.fotografias) && lengua.fotografias.length > 0 }
+  <!-- {#if Array.isArray(lengua.fotografias) && lengua.fotografias.length > 0 }
 
   <button class="BotonGaleria Foto" on:click={abreGaleria}>
     <div class="IconoBotonGaleria ">
@@ -436,7 +425,8 @@
     <div class="TextoBotonGaleria">FOTOS</div>
   </button>
 
-  {/if}
+  {/if} -->
+
   <!-- <button class="BotonGaleria Textil" on:click={abreGaleria}>
     <div class="IconoBotonGaleria ">
       <img src={IconoTextiles} alt="Icono Boton Textiles INALI" />

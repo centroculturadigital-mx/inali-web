@@ -2,13 +2,18 @@
   import { onMount, createEventDispatcher } from "svelte";
   import { fade } from "svelte/transition";
 
-  // your script goes here
+  import AudiosContenedor from "../Galerias/AudiosContenedor.svelte";
+  import Fotos from "../Galerias/Fotos.svelte";
+  import Textiles from "../Galerias/Textiles.svelte";
+
   export let lengua;
+  
   let iconoCierra = "icono.cierra.circulo.svg";
   let iconoMinimiza = "minimiza.circulo.svg";
   let iconoAudios = "boton.play.solid.svg";
   let iconoTextiles = "boton.textiles.solid.svg";
   let iconoFotos = "boton.fotos.solid.svg";
+  
   const dispatch = createEventDispatcher();
 
   const cerrar = event => {
@@ -36,7 +41,20 @@
     return content;
   };
 
-  console.log("DEBUGGG:::", lengua.riesgo, riesgo);
+
+let ventanaGaleria = null;
+
+  const abreGaleria = (tipo) => {
+    ventanaGaleria = tipo;
+  };
+
+  const cerrarGaleria = event => {
+    ventanaGaleria = null;
+  };
+
+
+  // console.log("DEBUGGG:::", lengua.riesgo, riesgo);
+
 </script>
 
 <style>
@@ -294,57 +312,48 @@
       {/if}
     </header>
     <section>
-        <!--  -->
-        <!-- titulo 2 variante  -->
-        <!-- <h2 class="SubTitulo">
-
-          {#if lengua.NOM_VAR}{lengua.NOM_VAR}{/if}
-
-        </h2> -->
-        <!--  -->
-        <!-- familia numero agrupaciones -->
-        {#if lengua.NOM_FAM}
-          <p class="NumeroAgrupaciones">
-            <span style={`fill:#${color}`}>
-              {@html IconoAgrupacion}
-            </span>
-            {#if !!lengua.agrupaciones.length}
-              {lengua.agrupaciones.length} Agrupaciones linguísticas
-            {/if}
+      {#if lengua.NOM_FAM}
+        <p class="NumeroAgrupaciones">
+          <span style={`fill:#${color}`}>
+            {@html IconoAgrupacion}
+          </span>
+          {#if !!lengua.agrupaciones.length}
+            {lengua.agrupaciones.length} Agrupaciones linguísticas
+          {/if}
+        </p>
+      {/if}
+      <!--  caja Riesgo Variantes -->
+      {#if lengua.NOM_VAR}
+        {#if !! lengua.otrosNombres}
+          <p>
+            {lengua.otrosNombres}
           </p>
         {/if}
-        <!--  caja Riesgo Variantes -->
-        {#if lengua.NOM_VAR}
-          {#if !! lengua.otrosNombres}
-            <p>
-              {lengua.otrosNombres}
-            </p>
-          {/if}
-          {#if !! lengua.transcripcionFonetica}
-            <p>
-              {lengua.transcripcionFonetica}
-            </p>
-          {/if}
-          <p
-            class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
-            <span>
-              {@html RiesgoIcono}
-            </span>
-            {riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desaparición
-          </p>
-          <p class="FamiliaPertenece">
-            <span style={`fill:#${color}`}>
-              {@html IconoFamilia}
-            </span>
-            {#if !!lengua.agrupacionId}Agrupación: {lengua.agrupacionId}{/if}
-          </p>
-          <p class="FamiliaPertenece">
-            <span style={`fill:#${color}`}>
-              {@html IconoVariantes}
-            </span>
-            {#if !!lengua.familiaId}Familia {lengua.familiaId}{/if}
+        {#if !! lengua.transcripcionFonetica}
+          <p>
+            {lengua.transcripcionFonetica}
           </p>
         {/if}
+        <p
+          class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+          <span>
+            {@html RiesgoIcono}
+          </span>
+          {riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desaparición
+        </p>
+        <p class="FamiliaPertenece">
+          <span style={`fill:#${color}`}>
+            {@html IconoFamilia}
+          </span>
+          {#if !!lengua.agrupacionId}Agrupación: {lengua.agrupacionId}{/if}
+        </p>
+        <p class="FamiliaPertenece">
+          <span style={`fill:#${color}`}>
+            {@html IconoVariantes}
+          </span>
+          {#if !!lengua.familiaId}Familia {lengua.familiaId}{/if}
+        </p>
+      {/if}
 
         <!-- <p class="Informacion">
 
@@ -355,12 +364,10 @@
         {/if}
       </p> -->
 
-      </section>
-      <!--  -->
-      <!-- Botones Media -->
+    </section>
     <section class="BotonesMedia">
       <ul>
-        <li>
+        <li on:click={()=>{abreGaleria("audios")}}>
           <span class="BotonAudios">
             <div>
               <img src={iconoAudios} alt="Audio" />
@@ -368,7 +375,7 @@
             <p>{lengua.audios.length ? lengua.audios.length : 0} Audios</p>
           </span>
         </li>
-        <li>
+        <li on:click={()=>{abreGaleria("textiles")}}>
           <span class="BotonTextiles">
             <div>
               <img src={iconoTextiles} alt="Textiles" />
@@ -378,7 +385,7 @@
             </p>
           </span>
         </li>
-        <li>
+        <li on:click={()=>{abreGaleria("fotos")}}>
           <span class="BotonFotos">
             <div>
               <img src={iconoFotos} alt="Fotos" />
@@ -399,4 +406,13 @@
       </div>
     </footer>
   </section>
+{/if}
+
+<!-- Galerias  -->
+{#if ventanaGaleria === 'audios'}
+  <AudiosContenedor audios={lengua.audios} on:click={cerrarGaleria} />
+{:else if ventanaGaleria === 'fotos'}
+  <Fotos imagenes={lengua.fotografias} on:click={cerrarGaleria} />
+{:else if ventanaGaleria === 'textiles'}
+  <Textiles imagenes={lengua.textiles} on:click={cerrarGaleria} />
 {/if}
