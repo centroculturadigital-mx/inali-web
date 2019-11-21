@@ -44,27 +44,27 @@
   let ventanaGaleria = null;
 
   const abreGaleria = tipo => {
-    let tipoGaleria;
+    let array;
     
     switch (tipo) {
       case "audios":
-        tipoGaleria = lengua.audios.length;
+        array = lengua.audios.length;
         break;
       case "fotos":
-        tipoGaleria = lengua.fotografias.length; 
+        array = lengua.fotografias.length; 
         break;
       case "textiles":
-        tipoGaleria = lengua.textiles.length; 
+        array = lengua.textiles.length; 
         break;
       case null:
-        tipoGaleria = null 
+        array = null 
         break;
     }
 
-    if (tipoGaleria > 0) {
+    if (array > 0) {
       ventanaGaleria = tipo;
     }
-    console.log("VENTANA: ", tipoGaleria);
+    console.log("VENTANA: ", array);
   };
 
   const cerrarGaleria = event => {

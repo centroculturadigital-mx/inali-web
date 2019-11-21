@@ -44,6 +44,9 @@
     width: 60px;
     cursor: pointer;
   }
+  .BotonPlay img {
+    filter: invert();
+  }
   .Controles {
     /* display: flex; */
     align-items: center;
