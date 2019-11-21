@@ -242,9 +242,9 @@
   };
 
   onMount(async () => {
-    familiasModule = await import("../../../data/api/familias.json");
-    agrupacionesModule = await import("../../../data/api/agrupaciones.json");
-    variantesModule = await import("../../../data/api/variantes.json");
+    familiasModule = await import("../../../data/familias.json");
+    agrupacionesModule = await import("../../../data/agrupaciones.json");
+    variantesModule = await import("../../../data/variantes.json");
   });
 </script>
 

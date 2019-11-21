@@ -44,6 +44,9 @@
     width: 100%;
     height: auto;
   }
+  .Creditos {
+    font-size: 0.7em;
+  }
 </style>
 
 <section class="Galeria">
@@ -58,8 +61,11 @@
           alt="Fotos INALI" />
 
           <div class="Contenido">
+            <div class="Titulo">
+              {imagen.titulo}
+            </div>
             <div class="Creditos">
-              {imagen.creditos}
+              © {imagen.creditos}
             </div>
             <!-- {#if imagen.tipo == "imagen"}
 

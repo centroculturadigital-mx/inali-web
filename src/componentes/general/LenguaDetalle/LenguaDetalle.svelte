@@ -137,9 +137,9 @@
 
   onMount(async ()=>{
 
-    familias = await import(" ../../../data/api/familias.json")
-    agrupaciones = await import(" ../../../data/api/agrupaciones.json")
-    variantes = await import(" ../../../data/api/variantes.json")
+    familias = await import(" ../../../data/familias.json")
+    agrupaciones = await import(" ../../../data/agrupaciones.json")
+    variantes = await import(" ../../../data/variantes.json")
 
     familias=familias.default
     agrupaciones=agrupaciones.default
