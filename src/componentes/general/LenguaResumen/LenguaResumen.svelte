@@ -36,7 +36,7 @@
     return content;
   };
 
-  console.log("DEBUGGG:::", lengua);
+  console.log("DEBUGGG:::", lengua.riesgo, riesgo);
 </script>
 
 <style>
@@ -45,7 +45,7 @@
     top: 4rem;
     left: 22rem;
     width: 18rem;
-    height: 20rem;
+    height: 21rem;
     background-color: rgba(236, 236, 236, 0.9);
     border-radius: 0.5rem;
     display: flex;
@@ -122,6 +122,7 @@
     font-size: 0.9rem;
     margin: 0.25rem 0 0 0;
   }
+
   .FamiliaPertenece span {
     margin: 0.1rem 0.25rem 0 0;
   }
