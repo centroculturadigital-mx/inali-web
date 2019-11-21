@@ -7,13 +7,13 @@
   import Textiles from "../Galerias/Textiles.svelte";
 
   export let lengua;
-  
+
   let iconoCierra = "icono.cierra.circulo.svg";
   let iconoMinimiza = "minimiza.circulo.svg";
   let iconoAudios = "boton.play.solid.svg";
   let iconoTextiles = "boton.textiles.solid.svg";
   let iconoFotos = "boton.fotos.solid.svg";
-  
+
   const dispatch = createEventDispatcher();
 
   const cerrar = event => {
@@ -41,20 +41,37 @@
     return content;
   };
 
+  let ventanaGaleria = null;
 
-let ventanaGaleria = null;
+  const abreGaleria = tipo => {
+    let tipoGaleria;
+    
+    switch (tipo) {
+      case "audios":
+        tipoGaleria = lengua.audios.length;
+        break;
+      case "fotos":
+        tipoGaleria = lengua.fotografias.length; 
+        break;
+      case "textiles":
+        tipoGaleria = lengua.textiles.length; 
+        break;
+      case null:
+        tipoGaleria = null 
+        break;
+    }
 
-  const abreGaleria = (tipo) => {
-    ventanaGaleria = tipo;
+    if (tipoGaleria > 0) {
+      ventanaGaleria = tipo;
+    }
+    console.log("VENTANA: ", tipoGaleria);
   };
 
   const cerrarGaleria = event => {
     ventanaGaleria = null;
   };
 
-
   // console.log("DEBUGGG:::", lengua.riesgo, riesgo);
-
 </script>
 
 <style>
@@ -216,7 +233,7 @@ let ventanaGaleria = null;
     margin: 0;
     height: 100%;
     width: 100%;
-    border-top: 1px solid #C5C5C5;
+    border-top: 1px solid #c5c5c5;
   }
   .BotonesMedia ul li {
     transition: 0.35s;
@@ -224,15 +241,15 @@ let ventanaGaleria = null;
     justify-content: center;
     align-items: center;
     width: 33%;
-    border-top: 1px solid #C5C5C5;
+    border-top: 1px solid #c5c5c5;
     cursor: pointer;
   }
-  .BotonesMedia ul li:hover { 
-    background-color: rgba(0,0,0,0.1);
-      }
+  .BotonesMedia ul li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
   .BotonesMedia ul li:nth-child(2) {
-    border-left: 1px solid #C5C5C5;
-    border-right: 1px solid #C5C5C5;
+    border-left: 1px solid #c5c5c5;
+    border-right: 1px solid #c5c5c5;
   }
   .BotonesMedia .BotonAudios img {
     width: 1.5rem;
@@ -384,7 +401,10 @@ let ventanaGaleria = null;
       <!-- Botones Media -->
       <section class="BotonesMedia">
         <ul>
-          <li on:click={()=>{abreGaleria("audios")}}>
+          <li
+            on:click={() => {
+              abreGaleria('audios');
+            }}>
             <span class="BotonAudios">
               <div>
                 <img src={iconoAudios} alt="Audio" />
@@ -392,7 +412,10 @@ let ventanaGaleria = null;
               <p>{lengua.audios.length ? lengua.audios.length : 0} Audios</p>
             </span>
           </li>
-          <li on:click={()=>{abreGaleria("textiles")}}>
+          <li
+            on:click={() => {
+              abreGaleria('textiles');
+            }}>
             <span class="BotonTextiles">
               <div>
                 <img src={iconoTextiles} alt="Textiles" />
@@ -402,7 +425,10 @@ let ventanaGaleria = null;
               </p>
             </span>
           </li>
-          <li on:click={()=>{abreGaleria("fotos")}}>
+          <li
+            on:click={() => {
+              abreGaleria('fotos');
+            }}>
             <span class="BotonFotos">
               <div>
                 <img src={iconoFotos} alt="Fotos" />
