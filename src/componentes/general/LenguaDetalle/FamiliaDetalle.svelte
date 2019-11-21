@@ -22,10 +22,6 @@
   })
   $: mostrarFotos = Array.isArray(lengua.fotografias) ? lengua.fotografias.length > 0 : false
 
-  // <!--funcion: conseguirDatoDeAncestro() -->
-
-
-
   let ventanaGaleria = null;
 
 
