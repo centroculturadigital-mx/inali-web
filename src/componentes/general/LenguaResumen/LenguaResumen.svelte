@@ -6,9 +6,9 @@
   export let lengua;
   let iconoCierra = "icono.cierra.circulo.svg";
   let iconoMinimiza = "minimiza.circulo.svg";
-  let iconoAudios = "boton.play.svg";
-  let iconoTextiles = "icono.textiles.svg";
-  let iconoFotos = "icono.fotos.svg";
+  let iconoAudios = "boton.play.solid.svg";
+  let iconoTextiles = "boton.textiles.solid.svg";
+  let iconoFotos = "boton.fotos.solid.svg";
   const dispatch = createEventDispatcher();
 
   const cerrar = event => {
