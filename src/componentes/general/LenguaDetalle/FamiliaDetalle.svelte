@@ -127,6 +127,7 @@
     font-weight: lighter;
     text-transform: uppercase;
     letter-spacing: 0.25rem;
+    margin-top: 1.5rem;
   }
   .DetalleTitulo {
     font-weight: Bold;
@@ -145,7 +146,8 @@
     font-weight: Bold;
     /* color: #fbb634; */
     font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
   .NombreCastellano {
     font-weight: lighter;
@@ -289,7 +291,7 @@
     cursor: pointer;
   }
   .BotonGaleria:hover {
-    background-color: rgba(70, 93, 114, 0.7);
+    background-color: rgb(70, 93, 114);
   }
 
   .BotonGaleria > * {
