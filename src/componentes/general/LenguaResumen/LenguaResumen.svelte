@@ -4,7 +4,11 @@
 
   // your script goes here
   export let lengua;
-
+  let iconoCierra = "icono.cierra.circulo.svg";
+  let iconoMinimiza = "minimiza.circulo.svg";
+  let iconoAudios = "boton.play.svg";
+  let iconoTextiles = "icono.textiles.svg";
+  let iconoFotos = "icono.fotos.svg";
   const dispatch = createEventDispatcher();
 
   const cerrar = event => {
@@ -14,8 +18,7 @@
     dispatch("vermas");
   };
 
-  $: color = !! lengua ? lengua.color : "aaa";
-
+  $: color = !!lengua ? lengua.color : "aaa";
 
   const RiesgoIcono = `<svg width="16" height="15" viewBox="0 0 25 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.2666 0C5.52183 0 0.0666504 5.36575 0.0666504 12C0.0666504 18.6216 5.52183 24 12.2666 24C19.0115 24 24.4667 18.6342 24.4667 12C24.4538 5.36575 18.9986 0 12.2666 0ZM13.7497 20.1818C13.4015 20.5243 12.9115 20.7019 12.2796 20.7019C11.6347 20.7019 11.1318 20.537 10.7836 20.1945C10.4354 19.8647 10.2548 19.3827 10.2548 18.7738C10.2548 18.1395 10.4225 17.6575 10.7707 17.3404C11.1189 17.0106 11.6218 16.8583 12.2796 16.8583C12.9115 16.8583 13.4144 17.0233 13.7626 17.3531C14.1108 17.6829 14.2914 18.1649 14.2914 18.7738C14.2785 19.37 14.0979 19.8393 13.7497 20.1818ZM13.7626 14.9049H10.7965L9.76475 5.80972C9.68737 4.74419 10.8352 3.85624 12.2796 3.85624C13.7239 3.85624 14.8717 4.74419 14.7943 5.80972L13.7626 14.9049Z"/></svg>`;
   const IconoVariantes = `<svg width="16" height="15" viewBox="0 0 10 9" xmlns="http://www.w3.org/2000/svg"><path d="M0 1.2C0 0.537258 0.537258 0 1.2 0H8.7C9.36274 0 9.9 0.537258 9.9 1.2V6.51429C9.9 7.17703 9.36274 7.71429 8.7 7.71429H2.11973C2.08233 7.71429 2.04567 7.72478 2.01393 7.74456L0 9V1.2Z" /><circle cx="2" cy="4" r="1" /><circle cx="5" cy="4" r="1" /><circle cx="8" cy="4" r="1" /></svg>`;
@@ -23,30 +26,28 @@
   const IconoFamilia = `<svg width="16" height="15" viewBox="0 0 12 11" xmlns="http://www.w3.org/2000/svg"><path d="M0 5.77275C0 4.64308 0.915781 3.72729 2.04545 3.72729C3.17513 3.72729 4.09091 4.64308 4.09091 5.77275V8.42949C4.09091 8.46844 4.05933 8.50002 4.02038 8.50002H0.0705328C0.0315786 8.50002 0 8.46844 0 8.42949V5.77275Z" /><circle cx="2.04546" cy="2.36364" r="1.36364" /><path d="M7.36365 5.77275C7.36365 4.64308 8.27943 3.72729 9.4091 3.72729C10.5388 3.72729 11.4546 4.64308 11.4546 5.77275V8.42949C11.4546 8.46844 11.423 8.50002 11.384 8.50002H7.43418C7.39523 8.50002 7.36365 8.46844 7.36365 8.42949V5.77275Z" /><circle cx="9.40911" cy="2.36364" r="1.36364" /><path d="M3.27274 6.72725C3.27274 5.37164 4.37167 4.27271 5.72728 4.27271C7.08289 4.27271 8.18183 5.37164 8.18183 6.72725V9.91534C8.18183 9.96208 8.14393 9.99998 8.09719 9.99998H3.35738C3.31063 9.99998 3.27274 9.96208 3.27274 9.91534V6.72725Z" stroke="white"/><circle cx="5.72728" cy="2.63636" r="1.63636" stroke="white"/></svg>`;
   let riesgo = Math.random();
 
-
   let extractoTexto = (texto, limite, textoFinal) => {
-	if (!texto || !limite) return;
-	var content = texto;
-	content = content.trim();
-	content = content.split(' ').slice(0, limite);
-	content = content.join(' ') + (textoFinal ? textoFinal : '');
-	//
-  return content;
+    if (!texto || !limite) return;
+    var content = texto;
+    content = content.trim();
+    content = content.split(" ").slice(0, limite);
+    content = content.join(" ") + (textoFinal ? textoFinal : "");
+    //
+    return content;
+  };
 
-};
-
-
+  console.log("DEBUGGG:::", lengua);
 </script>
 
 <style>
   .card {
     position: absolute;
-    top: 10rem;
-    left: 40%;
+    top: 4rem;
+    left: 22rem;
     width: 18rem;
-    height: 22rem;
+    height: 20rem;
     background-color: rgba(236, 236, 236, 0.9);
-    border-radius: 2rem 2rem 2rem 0;
+    border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
@@ -57,7 +58,7 @@
   }
   .ResumenInformacion {
     font-size: 1rem;
-    height: 13rem;
+    height: auto;
     padding: 0rem 1rem 1rem 1.5rem;
     overflow-y: auto;
   }
@@ -68,23 +69,21 @@
   }
 
   .NombreFamilia {
-    padding: 0rem 0rem 0rem 1.5rem;
     color: rgba(61, 61, 61, 1);
     text-transform: uppercase;
+    text-align: center;
     letter-spacing: 4px;
     font-weight: 200;
-    /* font-size: 1rem; */
     margin-bottom: 0rem;
-    margin-top: 0.75rem;
-    font-size: 0.75rem;
+    margin-top: 0rem;
+    font-size: 1rem;
   }
 
   .TituloTarjetaResumen {
-    padding: 0rem 0rem 0rem 1.5rem;
+    text-align: center;
     font-weight: 600;
     font-weight: bold;
-    /* color: #e6aa30; */
-    margin-bottom: 0rem;
+    margin-bottom: 0.5rem;
     text-transform: capitalize;
   }
 
@@ -136,22 +135,27 @@
     font-weight: 400;
     /* color: #e6aa30; */
     margin-bottom: 0.25rem;
-    color: #3D3D3D;
+    color: #3d3d3d;
   }
 
   .Cerrar {
     display: flex;
     justify-content: flex-end;
-    position: absolute;
-    right: 1rem;
-    top: 0.75rem;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
   }
   .Cerrar a:hover {
-    color: black;
+    opacity: 0.85;
   }
 
   .Cerrar a {
     color: rgba(135, 135, 135, 1);
+  }
+  .Cerrar img {
+    width: 1rem;
+  }
+  .Cerrar span {
+    margin-right: 0.5rem;
   }
 
   footer {
@@ -163,8 +167,8 @@
     cursor: pointer;
     width: 100%;
     height: 3rem;
-    /* background-color: #465d72; */
-    border-radius: 0 0 2rem 0;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
     position: absolute;
     bottom: 0;
   }
@@ -179,136 +183,227 @@
     fill: green;
     color: green;
   }
+  .BotonesMedia {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5rem;
+    width: 100%;
+  }
+  .BotonesMedia ul {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    border-top: 1px solid #C5C5C5;
+  }
+  .BotonesMedia ul li {
+    transition: 0.35s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    border-top: 1px solid #C5C5C5;
+    cursor: pointer;
+  }
+  .BotonesMedia ul li:hover { 
+    background-color: rgba(0,0,0,0.1);
+      }
+  .BotonesMedia ul li:nth-child(2) {
+    border-left: 1px solid #C5C5C5;
+    border-right: 1px solid #C5C5C5;
+  }
+  .BotonesMedia .BotonAudios img {
+    width: 1.5rem;
+    stroke: rgba(0, 0, 0, 0.75);
+  }
+  .BotonesMedia .BotonTextiles img {
+    width: 1.25rem;
+    stroke: rgba(0, 0, 0, 0.75);
+  }
+  .BotonesMedia .BotonFotos img {
+    width: 1.75rem;
+    stroke: rgba(0, 0, 0, 0.75);
+  }
+  .BotonesMedia div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+  }
+  .BotonesMedia p {
+    font-size: 0.75rem;
+    margin: 0;
+    padding: 0;
+    margin-top: 0.25rem;
+  }
+  .Contenido {
+    height: calc(100% - 3rem);
+    position: relative;
+  }
 </style>
 
 {#if lengua}
   <section class="card" transition:fade={{ duration: 750 }}>
-    <header>
-      <span class="Cerrar" on:click={cerrar}>
-        <a href="/">
-          <i class="fa fa-close" />
-        </a>
-      </span>
+    <section class="Contenido">
+      <header>
+        <span class="Cerrar" on:click={cerrar}>
+          <!-- <span>
+          <img src={iconoMinimiza} alt="Minimiza">
+        </span> -->
+          <a href="/">
+            <img src={iconoCierra} alt="Cierra" />
+          </a>
+        </span>
 
-      <!-- titulo caja resumen -->
-      <p class="NombreFamilia">
-        {#if !!lengua.NOM_FAM}
-          Familia
-        {:else if !!lengua.NOM_AGRUP}
-          Agrupación
-        {:else if !!lengua.NOM_VAR}Variante{/if}
-      </p>
-      <h2 class="TituloTarjetaResumen" >
-        {#if !!lengua.NOM_FAM}
-          {lengua.NOM_FAM}
-        {:else if !!lengua.NOM_AGRUP}
-          {lengua.NOM_AGRUP}
-        {:else if !!lengua.NOM_VAR}{lengua.NOM_VAR}{/if}
-      </h2>
-      <!--  -->
-      <!-- titulo 2 variante  -->
-      <h2 class="SubTitulo">
-
-        {#if lengua.NOM_VAR}
-        {lengua.NOM_VAR}{/if}
-
-      </h2>
-      <!--  -->
-      <!-- familia numero agrupaciones -->
-      {#if lengua.NOM_FAM}
-        <p class="NumeroAgrupaciones">
-          <span style={`fill:#${color}`}>
-            {@html IconoAgrupacion}
-          </span>
-          {#if !!lengua.agrupaciones.length}
-            {lengua.agrupaciones.length} Agrupaciones linguísticas
-          {/if}
+        <!-- titulo caja resumen -->
+        <p class="NombreFamilia">
+          {#if !!lengua.NOM_FAM}
+            Familia
+          {:else if !!lengua.NOM_AGRUP}
+            Agrupación
+          {:else if !!lengua.NOM_VAR}Variante{/if}
         </p>
-      {/if}
-      <!--  -->
-    </header>
+        <h2 class="TituloTarjetaResumen">
+          {#if !!lengua.NOM_FAM}
+            {lengua.NOM_FAM}
+          {:else if !!lengua.NOM_AGRUP}
+            {lengua.NOM_AGRUP}
+          {:else if !!lengua.NOM_VAR}{lengua.NOM_VAR}{/if}
+        </h2>
+        <!--  -->
+        <!-- titulo 2 variante  -->
+        <!-- <h2 class="SubTitulo">
 
-    <section
-      class="ResumenInformacion {lengua.NOM_AGRUP ? 'ResumenInformacionAgrupacion' : ''}">
-      <section class="InformacionRelevante">
+          {#if lengua.NOM_VAR}{lengua.NOM_VAR}{/if}
 
-        <!-- caja Riesgo Agrupaciones -->
-        {#if lengua.NOM_AGRUP}
-          <p
-            class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
-            <span>
-              {@html RiesgoIcono}
-            </span>
-            {riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desaparición
-          </p>
-          <p class="FamiliaPertenece">
+        </h2> -->
+        <!--  -->
+        <!-- familia numero agrupaciones -->
+        {#if lengua.NOM_FAM}
+          <p class="NumeroAgrupaciones">
             <span style={`fill:#${color}`}>
-              {@html IconoFamilia}
+              {@html IconoAgrupacion}
             </span>
-            {#if !!lengua.familiaId}Familia {lengua.familiaId}{/if}
-          </p>
-          <p class="FamiliaPertenece">
-            <span style={`fill:#${color}`}>
-              {@html IconoVariantes}
-            </span>
-            {#if lengua.variantes.length > 1}
-              <!-- plural -->
-              {lengua.variantes.length} variantes linguísticas
-            {:else}
-              <!-- singular -->
-              {lengua.variantes.length} variante linguística
+            {#if !!lengua.agrupaciones.length}
+              {lengua.agrupaciones.length} Agrupaciones linguísticas
             {/if}
           </p>
         {/if}
-        <!--  caja Riesgo Variantes -->
-        {#if lengua.NOM_VAR}
-          <p
-            class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
-            <span>
-              {@html RiesgoIcono}
-            </span>
-            {riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desaparición
-          </p>
-          <p class="FamiliaPertenece">
-            <span style={`fill:#${color}`}>
-              {@html IconoFamilia}
-            </span>
-            {#if !!lengua.agrupacionId}Agrupación: {lengua.agrupacionId}{/if}
-          </p>
-          <p class="FamiliaPertenece">
-            <span style={`fill:#${color}`}>
-              {@html IconoVariantes}
-            </span>
-            {#if !!lengua.familiaId}Familia {lengua.familiaId}{/if}
-          </p>
-        {/if}
+        <!--  -->
+      </header>
 
-      </section>
-      <p class="Informacion">
+      <section
+        class="ResumenInformacion {lengua.NOM_AGRUP ? 'ResumenInformacionAgrupacion' : ''}">
+        <section class="InformacionRelevante">
+
+          <!-- caja Riesgo Agrupaciones -->
+          {#if lengua.NOM_AGRUP}
+            <p
+              class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+              <span>
+                {@html RiesgoIcono}
+              </span>
+              {riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desaparición
+            </p>
+            <p class="FamiliaPertenece">
+              <span style={`fill:#${color}`}>
+                {@html IconoFamilia}
+              </span>
+              {#if !!lengua.familiaId}Familia {lengua.familiaId}{/if}
+            </p>
+            <p class="FamiliaPertenece">
+              <span style={`fill:#${color}`}>
+                {@html IconoVariantes}
+              </span>
+              {#if lengua.variantes.length > 1}
+                <!-- plural -->
+                {lengua.variantes.length} variantes linguísticas
+              {:else}
+                <!-- singular -->
+                {lengua.variantes.length} variante linguística
+              {/if}
+            </p>
+          {/if}
+          <!--  caja Riesgo Variantes -->
+          {#if lengua.NOM_VAR}
+            <p
+              class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+              <span>
+                {@html RiesgoIcono}
+              </span>
+              {riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desaparición
+            </p>
+            <p class="FamiliaPertenece">
+              <span style={`fill:#${color}`}>
+                {@html IconoFamilia}
+              </span>
+              {#if !!lengua.agrupacionId}Agrupación: {lengua.agrupacionId}{/if}
+            </p>
+            <p class="FamiliaPertenece">
+              <span style={`fill:#${color}`}>
+                {@html IconoVariantes}
+              </span>
+              {#if !!lengua.familiaId}Familia {lengua.familiaId}{/if}
+            </p>
+          {/if}
+
+        </section>
+        <!-- <p class="Informacion">
 
         {#if !!lengua.informacion}
 
           {extractoTexto(lengua.informacion,28,' ... ')}
        
-        {:else}
-          <!--funcion: conseguirDatoDeAncestro() -->
         {/if}
-      </p>
+      </p> -->
+
+      </section>
+      <!--  -->
+      <!-- Botones Media -->
+      <section class="BotonesMedia">
+        <ul>
+          <li>
+            <span class="BotonAudios">
+              <div>
+                <img src={iconoAudios} alt="Audio" />
+              </div>
+              <p>{lengua.audios.length ? lengua.audios.length : 0} Audios</p>
+            </span>
+          </li>
+          <li>
+            <span class="BotonTextiles">
+              <div>
+                <img src={iconoTextiles} alt="Textiles" />
+              </div>
+              <p>
+                {lengua.textiles.lenght ? lengua.textiles.length : 0} Textiles
+              </p>
+            </span>
+          </li>
+          <li>
+            <span class="BotonFotos">
+              <div>
+                <img src={iconoFotos} alt="Fotos" />
+              </div>
+              <p>
+                {lengua.fotografias.lenght ? lengua.fotografias.length : 0}
+                Fotos
+              </p>
+            </span>
+          </li>
+        </ul>
+      </section>
+      <!--  -->
     </section>
     <footer on:click={verMas} style={`background-color: #${color}`}>
       <div class="SaberMas">
         <a href="/">
-          <!-- <i class="fa fa-arrow-left" /> -->
           <span>Saber más</span>
-          <!-- <i class="fa fa-arrow-right" /> -->
         </a>
       </div>
     </footer>
   </section>
 {/if}
-
-<!-- {
-          lengua.NOM_FAM ? lengua.NOM_FAM :
-          lengua.NOM_AGRUP ? lengua.NOM_AGRUP : 
-          lengua.NOM_VAR 
-        } -->

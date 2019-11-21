@@ -21,6 +21,7 @@
     position: relative;
     padding: 0 2rem;
     width: 50%;
+    display: contents;
   }
   .InputBusqueda {
     transition: 0.5s;
