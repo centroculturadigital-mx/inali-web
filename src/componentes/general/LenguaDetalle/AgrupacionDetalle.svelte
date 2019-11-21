@@ -127,12 +127,9 @@
     font-weight: lighter;
     text-transform: uppercase;
     letter-spacing: 0.25rem;
+    margin-top: 1.5rem;
   }
   
-  
-
-
-
   .DetalleNumeroHablantes {
     padding: 0.75rem;
     display: inline-block;
@@ -269,7 +266,7 @@
     cursor: pointer;
   }
   .BotonGaleria:hover {
-    background-color: rgba(70, 93, 114, 0.7);
+    background-color: rgb(70, 93, 114);
   }
 
   .BotonGaleria > * {
@@ -289,6 +286,9 @@
   }
   .descripcion {
     white-space: pre-line;
+  }
+  .Nombre {
+    font-weight: Bold;
   }
   
 </style>
