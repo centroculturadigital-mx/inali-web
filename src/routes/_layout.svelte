@@ -19,6 +19,7 @@
 	let siguientesImagenes;
 	let goToLightbox
 
+	let ingreso = false
 	
 	const abrir = i => {
 		goToLightbox = null;
@@ -26,6 +27,17 @@
 		
 		setTimeout(() => (goToLightbox = i));
 	};
+
+	const validaIngreso = () => {
+		const usuario = document.getElementById('usuario')
+		const contrasenna = document.getElementById('contrasenna')
+
+		if ( usuario.value === "ccd" && contrasenna.value === "123") {
+			ingreso = true;
+		} else {
+			alert('acceso restringido')
+		}
+	}
 
 
 
@@ -54,12 +66,28 @@
 		height: 100vh;
 	}
 
+	#form-ingreso {
+		margin-top: 100px;
+	}
+
 </style>
 <Cabecera {segment}/>
 
 <main>
-	<Principal/>
-	<slot></slot>
+	{#if !! ingreso}
+
+		<Principal/>
+		<slot></slot>
+		 <!-- content here -->
+	{:else}
+
+		<div id="form-ingreso">
+			<input id="usuario" type="text" placeholder="usuario">
+			<input id="contrasenna" type="password" placeholder="contraseña">
+			<button on:click={() => validaIngreso()}>Ingresar</button>
+		</div>
+		 <!-- else content here -->
+	{/if}
 </main>
 
 <Pie/>
