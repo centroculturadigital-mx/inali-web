@@ -4,6 +4,7 @@
   import Audios from "../AudioReproductor/Audios.svelte";
 
   export let audios;
+  export let width;
 
 </script>
 

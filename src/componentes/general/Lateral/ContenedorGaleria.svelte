@@ -46,6 +46,12 @@
   .Regresa img:hover {
     opacity: 0.85;
   }
+
+  @media (max-width: 920px) {
+    .GaleriaMedia {
+      width: 100%;
+    }
+  }
 </style>
 
 <aside class="GaleriaMedia" transition:fade>
