@@ -278,7 +278,7 @@
   .IconoBotonGaleria {
     display: flex;
     justify-content: center;
-    min-height: 3rem;
+    height: 3rem;
   }
   .TextoBotonGaleria {
     text-align: center;
