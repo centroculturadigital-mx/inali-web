@@ -54,8 +54,6 @@
   
   $: color = !! lengua ? lengua.color : "aaa";
 
-
-
   let nombre = !!lengua.NOM_FAM ? lengua.NOM_FAM : !!lengua.NOM_AGRUP ? lengua.NOM_AGRUP: !!lengua.NOM_VAR ? lengua.NOM_VAR : "";
   let nombreCastellanizado = ''
   let otrosNombres = ''
@@ -66,8 +64,6 @@
 
   let lenguaVista
   
-
-
   const abrirLengua = nuevaLengua => {
     lengua = nuevaLengua;
 

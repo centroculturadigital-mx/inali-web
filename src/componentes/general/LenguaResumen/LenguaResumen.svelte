@@ -2,6 +2,10 @@
   import { onMount, createEventDispatcher } from "svelte";
   import { fade } from "svelte/transition";
 
+  import FamiliaResumen from "./FamiliaResumen.svelte";
+  import AgrupacionResumen from "./AgrupacionResumen.svelte";
+  import VarianteResumen from "./VarianteResumen.svelte";
+
   import AudiosContenedor from "../Galerias/AudiosContenedor.svelte";
   import Fotos from "../Galerias/Fotos.svelte";
   import Textiles from "../Galerias/Textiles.svelte";
@@ -31,33 +35,23 @@
   const IconoFamilia = `<svg width="16" height="15" viewBox="0 0 12 11" xmlns="http://www.w3.org/2000/svg"><path d="M0 5.77275C0 4.64308 0.915781 3.72729 2.04545 3.72729C3.17513 3.72729 4.09091 4.64308 4.09091 5.77275V8.42949C4.09091 8.46844 4.05933 8.50002 4.02038 8.50002H0.0705328C0.0315786 8.50002 0 8.46844 0 8.42949V5.77275Z" /><circle cx="2.04546" cy="2.36364" r="1.36364" /><path d="M7.36365 5.77275C7.36365 4.64308 8.27943 3.72729 9.4091 3.72729C10.5388 3.72729 11.4546 4.64308 11.4546 5.77275V8.42949C11.4546 8.46844 11.423 8.50002 11.384 8.50002H7.43418C7.39523 8.50002 7.36365 8.46844 7.36365 8.42949V5.77275Z" /><circle cx="9.40911" cy="2.36364" r="1.36364" /><path d="M3.27274 6.72725C3.27274 5.37164 4.37167 4.27271 5.72728 4.27271C7.08289 4.27271 8.18183 5.37164 8.18183 6.72725V9.91534C8.18183 9.96208 8.14393 9.99998 8.09719 9.99998H3.35738C3.31063 9.99998 3.27274 9.96208 3.27274 9.91534V6.72725Z" stroke="white"/><circle cx="5.72728" cy="2.63636" r="1.63636" stroke="white"/></svg>`;
   let riesgo = Math.random();
 
-  let extractoTexto = (texto, limite, textoFinal) => {
-    if (!texto || !limite) return;
-    var content = texto;
-    content = content.trim();
-    content = content.split(" ").slice(0, limite);
-    content = content.join(" ") + (textoFinal ? textoFinal : "");
-    //
-    return content;
-  };
-
   let ventanaGaleria = null;
 
   const abreGaleria = tipo => {
     let array;
-    
+
     switch (tipo) {
       case "audios":
         array = lengua.audios.length;
         break;
       case "fotos":
-        array = lengua.fotografias.length; 
+        array = lengua.fotografias.length;
         break;
       case "textiles":
-        array = lengua.textiles.length; 
+        array = lengua.textiles.length;
         break;
       case null:
-        array = null 
+        array = null;
         break;
     }
 
@@ -70,8 +64,6 @@
   const cerrarGaleria = event => {
     ventanaGaleria = null;
   };
-
-  // console.log("DEBUGGG:::", lengua.riesgo, riesgo);
 </script>
 
 <style>
@@ -87,10 +79,6 @@
     flex-direction: column;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
   }
-  .Informacion {
-    margin: 0;
-    padding-bottom: 1rem;
-  }
   .ResumenInformacion {
     font-size: 1rem;
     height: auto;
@@ -102,70 +90,13 @@
     height: 15rem;
     overflow-y: auto;
   }
-
-  .NombreFamilia {
-    color: rgba(61, 61, 61, 1);
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 4px;
-    font-weight: 200;
-    margin-bottom: 0rem;
-    margin-top: 0rem;
-    font-size: 1rem;
-  }
-
-  .TituloTarjetaResumen {
-    text-align: center;
-    font-weight: 600;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    text-transform: capitalize;
-  }
-
   .SaberMas {
     color: rgba(255, 255, 255, 1);
   }
-
   .SaberMas a {
     font-size: 1rem;
     color: rgba(255, 255, 255, 1);
   }
-
-  .NumeroAgrupaciones {
-    padding: 0rem 0rem 0rem 1.5rem;
-    color: rgba(61, 61, 61, 1);
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin: 0.5rem 0 0.5rem 0px;
-  }
-
-  .RiesgoDesaparicion {
-    display: flex;
-    color: rgb(219, 4, 4);
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin: 0.25rem 0 0 0;
-  }
-  .RiesgoDesaparicion span {
-    margin: 0.1rem 0.5rem 0 0;
-  }
-
-  .FamiliaPertenece {
-    /* padding: 0rem 0rem 0rem 2rem; */
-    color: rgba(61, 61, 61, 1);
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin: 0.25rem 0 0 0;
-  }
-
-  .FamiliaPertenece span {
-    margin: 0.1rem 0.25rem 0 0;
-  }
-
-  .InformacionRelevante {
-    margin-bottom: 0.5rem;
-  }
-
   .SubTitulo {
     padding: 0rem 0rem 0rem 1.5rem;
     font-weight: 400;
@@ -173,27 +104,22 @@
     margin-bottom: 0.25rem;
     color: #3d3d3d;
   }
-
   .Cerrar {
     display: flex;
     justify-content: flex-end;
     padding-top: 0.5rem;
     padding-right: 0.5rem;
+    height: 1.5rem;
   }
   .Cerrar a:hover {
     opacity: 0.85;
   }
-
   .Cerrar a {
     color: rgba(135, 135, 135, 1);
   }
   .Cerrar img {
     width: 1rem;
   }
-  .Cerrar span {
-    margin-right: 0.5rem;
-  }
-
   footer {
     transition: 0.5s;
     display: flex;
@@ -286,135 +212,80 @@
 
 {#if lengua}
   <section class="card" transition:fade={{ duration: 750 }}>
-    <header>
-      <span class="Cerrar" on:click={cerrar}>
-        <a href="/">
-          <img src={iconoCierra} alt="Cierra" />
-        </a>
-      </span>
+    <!--  -->
+    <section class="Contenido">
+      <header>
+        <span class="Cerrar" on:click={cerrar}>
+          <!-- <span>
+          <img src={iconoMinimiza} alt="Minimiza">
+        </span> -->
+          <a href="/">
+            <img src={iconoCierra} alt="Cierra" />
+          </a>
+        </span>
 
-      <!-- titulo caja resumen -->
-      <p class="NombreFamilia">
+      </header>
+
+      <section
+        class="ResumenInformacion {lengua.NOM_AGRUP ? 'ResumenInformacionAgrupacion' : ''}">
+
         {#if !!lengua.NOM_FAM}
-          Familia
-        {:else if !!lengua.NOM_AGRUP}
-          Agrupación
-        {:else if !!lengua.NOM_VAR}Variante{/if}
-      </p>
-      <h2 class="TituloTarjetaResumen" >
-          {lengua.nombreOriginario ? lengua.nombreOriginario : lengua.nombreCastellanizado}
-      </h2>
-      {#if !! lengua.nombreOriginario}
-        <h3 class="TituloTarjetaResumen">
-            {lengua.nombreCastellanizado}
-        </h3>
-      {/if}
-      <!-- familia numero agrupaciones -->
-      {#if lengua.NOM_FAM}
-        <p class="NumeroAgrupaciones">
-          <span style={`fill:#${color}`}>
-            {@html IconoAgrupacion}
-          </span>
-          {#if !!lengua.agrupaciones.length}
-            {lengua.agrupaciones.length} Agrupaciones linguísticas
-          {/if}
-        </p>
-        <h2 class="TituloTarjetaResumen">
-          {#if !!lengua.NOM_FAM}
-            {lengua.NOM_FAM}
-          {:else if !!lengua.NOM_AGRUP}
-            {lengua.NOM_AGRUP}
-          {:else if !!lengua.NOM_VAR}{lengua.NOM_VAR}{/if}
-        </h2>
-      {/if}
-    </header>
-    <section>
-      {#if lengua.NOM_FAM}
-        <p class="NumeroAgrupaciones">
-          <span style={`fill:#${color}`}>
-            {@html IconoAgrupacion}
-          </span>
-          {#if !!lengua.agrupaciones.length}
-            {lengua.agrupaciones.length} Agrupaciones linguísticas
-          {/if}
-        </p>
-      {/if}
-      <!--  caja Riesgo Variantes -->
-      {#if lengua.NOM_VAR}
-        {#if !! lengua.otrosNombres}
-          <p>
-            {lengua.otrosNombres}
-          </p>
+          <FamiliaResumen lengua={lengua} color={lengua.color} />
         {/if}
-        {#if !! lengua.transcripcionFonetica}
-          <p>
-            {lengua.transcripcionFonetica}
-          </p>
+        {#if !!lengua.NOM_AGRUP}
+          <AgrupacionResumen lengua={lengua} color={lengua.color} riesgo />
         {/if}
-        <p
-          class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
-          <span>
-            {@html RiesgoIcono}
-          </span>
-          {riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desaparición
-        </p>
-        <p class="FamiliaPertenece">
-          <span style={`fill:#${color}`}>
-            {@html IconoFamilia}
-          </span>
-          {#if !!lengua.agrupacionId}Agrupación: {lengua.agrupacionId}{/if}
-        </p>
-        <p class="FamiliaPertenece">
-          <span style={`fill:#${color}`}>
-            {@html IconoVariantes}
-          </span>
-          {#if !!lengua.familiaId}Familia {lengua.familiaId}{/if}
-        </p>
-      {/if}
-
-        <!-- <p class="Informacion">
-
-        {#if !!lengua.informacion || !!lengua.comunidades}
-
-          {extractoTexto(lengua.informacion || lengua.comunidades,28,' ... ')}
-       
+        {#if !!lengua.NOM_VAR}
+          <VarianteResumen lengua={lengua} color={lengua.color} riesgo />
         {/if}
-      </p> -->
 
+      </section>
+      <!-- Botones Media -->
+      <section class="BotonesMedia">
+        <ul>
+          <li
+            on:click={() => {
+              abreGaleria('audios');
+            }}>
+            <span class="BotonAudios">
+              <div>
+                <img src={iconoAudios} alt="Audio" />
+              </div>
+              <p>{lengua.audios.length ? lengua.audios.length : 0} Audios</p>
+            </span>
+          </li>
+          <li
+            on:click={() => {
+              abreGaleria('textiles');
+            }}>
+            <span class="BotonTextiles">
+              <div>
+                <img src={iconoTextiles} alt="Textiles" />
+              </div>
+              <p>
+                {lengua.textiles.lenght ? lengua.textiles.length : 0} Textiles
+              </p>
+            </span>
+          </li>
+          <li
+            on:click={() => {
+              abreGaleria('fotos');
+            }}>
+            <span class="BotonFotos">
+              <div>
+                <img src={iconoFotos} alt="Fotos" />
+              </div>
+              <p>
+                {lengua.fotografias.lenght ? lengua.fotografias.length : 0}
+                Fotos
+              </p>
+            </span>
+          </li>
+        </ul>
+      </section>
+      <!--  -->
     </section>
-    <section class="BotonesMedia">
-      <ul>
-        <li on:click={()=>{abreGaleria("audios")}}>
-          <span class="BotonAudios">
-            <div>
-              <img src={iconoAudios} alt="Audio" />
-            </div>
-            <p>{lengua.audios.length ? lengua.audios.length : 0} Audios</p>
-          </span>
-        </li>
-        <li on:click={()=>{abreGaleria("textiles")}}>
-          <span class="BotonTextiles">
-            <div>
-              <img src={iconoTextiles} alt="Textiles" />
-            </div>
-            <p>
-              {lengua.textiles.lenght ? lengua.textiles.length : 0} Textiles
-            </p>
-          </span>
-        </li>
-        <li on:click={()=>{abreGaleria("fotos")}}>
-          <span class="BotonFotos">
-            <div>
-              <img src={iconoFotos} alt="Fotos" />
-            </div>
-            <p>
-              {lengua.fotografias.lenght ? lengua.fotografias.length : 0}
-              Fotos
-            </p>
-          </span>
-        </li>
-      </ul>
-    </section>
+
     <footer on:click={verMas} style={`background-color: #${color}`}>
       <div class="SaberMas">
         <a href="/">
@@ -422,6 +293,7 @@
         </a>
       </div>
     </footer>
+
   </section>
 {/if}
 
