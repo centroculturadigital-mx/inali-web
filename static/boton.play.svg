@@ -1,63 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   version="1.1"
-   id="Capa_1"
-   x="0px"
-   y="0px"
-   viewBox="0 0 60 60"
-   style="enable-background:new 0 0 60 60;stroke: white;"
-   xml:space="preserve"
-   sodipodi:docname="boton.play.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"><metadata
-   id="metadata15"><rdf:RDF><cc:Work
-       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
-   id="defs13" /><sodipodi:namedview
-   pagecolor="#ffffff"
-   bordercolor="#666666"
-   borderopacity="1"
-   objecttolerance="10"
-   gridtolerance="10"
-   guidetolerance="10"
-   inkscape:pageopacity="0"
-   inkscape:pageshadow="2"
-   inkscape:window-width="747"
-   inkscape:window-height="480"
-   id="namedview11"
-   showgrid="false"
-   inkscape:zoom="3.9333333"
-   inkscape:cx="30"
-   inkscape:cy="30"
-   inkscape:window-x="0"
-   inkscape:window-y="27"
-   inkscape:window-maximized="0"
-   inkscape:current-layer="Capa_1" />
-<style
-   type="text/css"
-   id="style2">
-	.st0{fill:#FFFFFF;}
+<svg version="1.1"
+	 id="Capa_1" inkscape:version="0.92.3 (2405546, 2018-03-11)" sodipodi:docname="boton.play.svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 60"
+	 style="enable-background:new 0 0 60 60;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#FFFFFF;stroke-width:1.5;stroke-linejoin:round;}
+	.st1{fill:none;stroke:#FFFFFF;stroke-width:1.5;}
 </style>
-<g
-   id="g8"
-   style="fill:#ffffff">
-	<path
-   class="st0"
-   d="M45.6,29.2l-22-15c-0.3-0.2-0.7-0.2-1-0.1C22.2,14.3,22,14.6,22,15v30c0,0.4,0.2,0.7,0.5,0.9   C22.7,46,22.8,46,23,46c0.2,0,0.4-0.1,0.6-0.2l22-15c0.3-0.2,0.4-0.5,0.4-0.8S45.8,29.4,45.6,29.2z M24,43.1V16.9L43.2,30L24,43.1z   "
-   id="path4"
-   style="fill:#ffffff" />
-	<path
-   class="st0"
-   d="M30,0C13.5,0,0,13.5,0,30s13.5,30,30,30s30-13.5,30-30S46.5,0,30,0z M30,58C14.6,58,2,45.4,2,30S14.6,2,30,2   s28,12.6,28,28S45.4,58,30,58z"
-   id="path6"
-   style="fill:#ffffff" />
-</g>
+<sodipodi:namedview  bordercolor="#666666" borderopacity="1" gridtolerance="10" guidetolerance="10" id="namedview11" inkscape:current-layer="Capa_1" inkscape:cx="30" inkscape:cy="30" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-height="480" inkscape:window-maximized="0" inkscape:window-width="747" inkscape:window-x="0" inkscape:window-y="27" inkscape:zoom="3.9333333" objecttolerance="10" pagecolor="#ffffff" showgrid="false">
+	</sodipodi:namedview>
+<path class="st0" d="M30.3,16.9l-11,7.6h-5.9v10.1h5.9l11,7.6V16.9z"/>
+<path class="st0" d="M34.6,39.6c5.8,0,10.5-4.7,10.5-10.5s-4.7-10.5-10.5-10.5"/>
+<path class="st0" d="M34.6,34.6c2.8,0,5.1-2.5,5.1-5.5c0-3-2.3-5.5-5.1-5.5"/>
+<path class="st1" d="M16.4,24.4v10.1"/>
+<circle class="st1" cx="29.5" cy="29.5" r="28.5"/>
 </svg>
