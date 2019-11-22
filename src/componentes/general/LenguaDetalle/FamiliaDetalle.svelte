@@ -54,7 +54,7 @@
   const IconoTextiles = "icono.textiles.svg";
   const IconoFotos = "icono.fotos.svg";
   const IconoAudios = "icono.audios.svg";
-
+  const IconoCerrar = "cerrar.svg";
 
 </script>
 
@@ -95,6 +95,8 @@
     margin-top: 0;
     position: relative;
     width: 100%;
+    display: flex;
+    align-items: center;
   }
   .DetalleContenidosNavegacion span {
     cursor: pointer;
@@ -107,7 +109,8 @@
     padding: 0.25rem 0.5rem;
   }
   #DetalleCerrar {
-    font-size: 1rem;
+    font-size: .75rem;
+    font-weight: lighter;
     color: #000;
     position: absolute;
     cursor: pointer;
@@ -115,10 +118,17 @@
     right: 0;
     background-color: transparent;
     border: none;
+    display: flex;
+    align-items: center;
   }
   #DetalleCerrar:hover {
-    color: rgba(255, 97, 97, 0.8);
+    color:rgb(114, 166, 170);
   }
+  #DetalleCerrar img {
+    width: 1.75rem;
+    margin-left: .5rem;
+  }
+  
   .DetalleTituloTop {
     font-weight: lighter;
     text-transform: uppercase;
@@ -331,7 +341,8 @@
       {lengua.nombre}
     </a>
     <button id="DetalleCerrar" on:click>
-      <i class="fa fa-close" />
+      <span>Cerrar</span>
+      <img src={IconoCerrar} alt="Cerrar Ventana" />
     </button>
   </nav>
 
