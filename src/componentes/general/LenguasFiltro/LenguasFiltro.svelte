@@ -132,7 +132,7 @@
     height: 100%;
   }
   .CierraBarra:hover {
-    color: rgba(255, 97, 97, 1);
+    color: rgb(255, 255, 255);
   }
   #MostrarTodas {
     padding: 0.75rem;
