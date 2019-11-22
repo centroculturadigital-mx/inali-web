@@ -1,6 +1,6 @@
 <script>
   import { onMount, createEventDispatcher } from "svelte";
-  import { fade } from "svelte/transition";
+  import { fade, slide } from "svelte/transition";
 
   import FamiliaResumen from "./FamiliaResumen.svelte";
   import AgrupacionResumen from "./AgrupacionResumen.svelte";
@@ -14,6 +14,7 @@
 
   let iconoCierra = "icono.cierra.circulo.svg";
   let iconoMinimiza = "minimiza.circulo.svg";
+  let iconoMaximiza = "icono.maximiza.svg";
   let iconoAudios = "boton.play.solid.svg";
   let iconoTextiles = "boton.textiles.solid.svg";
   let iconoFotos = "boton.fotos.solid.svg";
@@ -64,6 +65,12 @@
   const cerrarGaleria = event => {
     ventanaGaleria = null;
   };
+
+  let minimizado = false;
+
+  const minimiza = () => {
+    minimizado == false ? (minimizado = true) : (minimizado = false);
+  };
 </script>
 
 <style>
@@ -78,6 +85,10 @@
     display: flex;
     flex-direction: column;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
+  }
+  .CardMinimizada {
+    height: auto;
+    background-color: transparent;
   }
   .ResumenInformacion {
     font-size: 1rem;
@@ -107,18 +118,32 @@
   .Cerrar {
     display: flex;
     justify-content: flex-end;
-    padding-top: 0.5rem;
+    padding: 0.5rem;
+    height: auto;
+  }
+  .Cerrar span {
     padding-right: 0.5rem;
-    height: 1.5rem;
+    display: flex;
   }
   .Cerrar a:hover {
     opacity: 0.85;
   }
   .Cerrar a {
     color: rgba(135, 135, 135, 1);
+    display: flex;
   }
   .Cerrar img {
     width: 1rem;
+  }
+  .Cerrar span img:hover {
+    cursor: pointer;
+    opacity: 0.85;
+  }
+  .Cerrar p {
+    width: 85%;
+    color: #fff;
+    text-align: left;
+    margin: 0;
   }
   footer {
     transition: 0.5s;
@@ -208,93 +233,124 @@
     height: calc(100% - 3rem);
     position: relative;
   }
+  .HeaderMinimizado {
+    border-radius: 0.5rem;
+  }
 </style>
 
 {#if lengua}
-  <section class="card" transition:fade={{ duration: 750 }}>
-    <!--  -->
-    <section class="Contenido">
-      <header>
-        <span class="Cerrar" on:click={cerrar}>
-          <!-- <span>
-          <img src={iconoMinimiza} alt="Minimiza">
-        </span> -->
-          <a href="/">
+
+<!-- Ventana minimizada -->
+  {#if minimizado != false}
+    
+    <section class="CardMinimizada card" transition:fade={{ duration: 750 }}>
+      <header
+        class="HeaderMinimizado"
+        style="background-color: #{lengua.color}">
+        <span class="Cerrar">
+          {#if !!lengua.NOM_FAM}
+            <p>Familia: <b>{lengua.NOM_FAM}</b></p>
+          {:else if !!lengua.NOM_AGRUP}
+           <p>Agrupación: <b>{lengua.NOM_AGRUP}</b></p>
+          {:else if !!lengua.NOM_VAR}
+           <p>Variante: <b>{lengua.NOM_VAR}</b></p>
+        {/if}
+          <span on:click={minimiza}>
+            <img src={iconoMaximiza} alt="Maximiza" />
+          </span>
+          <a href="/" on:click={cerrar}>
             <img src={iconoCierra} alt="Cierra" />
           </a>
         </span>
-
       </header>
-
-      <section
-        class="ResumenInformacion {lengua.NOM_AGRUP ? 'ResumenInformacionAgrupacion' : ''}">
-
-        {#if !!lengua.NOM_FAM}
-          <FamiliaResumen lengua={lengua} color={lengua.color} />
-        {/if}
-        {#if !!lengua.NOM_AGRUP}
-          <AgrupacionResumen lengua={lengua} color={lengua.color} riesgo />
-        {/if}
-        {#if !!lengua.NOM_VAR}
-          <VarianteResumen lengua={lengua} color={lengua.color} riesgo />
-        {/if}
-
-      </section>
-      <!-- Botones Media -->
-      <section class="BotonesMedia">
-        <ul>
-          <li
-            on:click={() => {
-              abreGaleria('audios');
-            }}>
-            <span class="BotonAudios">
-              <div>
-                <img src={iconoAudios} alt="Audio" />
-              </div>
-              <p>{lengua.audios.length ? lengua.audios.length : 0} Audios</p>
-            </span>
-          </li>
-          <li
-            on:click={() => {
-              abreGaleria('textiles');
-            }}>
-            <span class="BotonTextiles">
-              <div>
-                <img src={iconoTextiles} alt="Textiles" />
-              </div>
-              <p>
-                {lengua.textiles.lenght ? lengua.textiles.length : 0} Textiles
-              </p>
-            </span>
-          </li>
-          <li
-            on:click={() => {
-              abreGaleria('fotos');
-            }}>
-            <span class="BotonFotos">
-              <div>
-                <img src={iconoFotos} alt="Fotos" />
-              </div>
-              <p>
-                {lengua.fotografias.lenght ? lengua.fotografias.length : 0}
-                Fotos
-              </p>
-            </span>
-          </li>
-        </ul>
-      </section>
-      <!--  -->
     </section>
 
-    <footer on:click={verMas} style={`background-color: #${color}`}>
-      <div class="SaberMas">
-        <a href="/">
-          <span>Saber más</span>
-        </a>
-      </div>
-    </footer>
+  {:else}
+  <!-- Ventana Maximizada -->
+    <section class="card" transition:fade={{ duration: 750 }}>
+      <!--  -->
+      <section class="Contenido">
+        <header>
+          <span class="Cerrar">
+            <span on:click={minimiza}>
+              <img src={iconoMinimiza} alt="Minimiza" />
+            </span>
+            <a href="/" on:click={cerrar}>
+              <img src={iconoCierra} alt="Cierra" />
+            </a>
+          </span>
+        </header>
+        <section
+          class="ResumenInformacion {lengua.NOM_AGRUP ? 'ResumenInformacionAgrupacion' : ''}">
 
-  </section>
+          {#if !!lengua.NOM_FAM}
+            <FamiliaResumen {lengua} color={lengua.color} />
+          {/if}
+          {#if !!lengua.NOM_AGRUP}
+            <AgrupacionResumen {lengua} color={lengua.color} riesgo />
+          {/if}
+          {#if !!lengua.NOM_VAR}
+            <VarianteResumen {lengua} color={lengua.color} riesgo />
+          {/if}
+
+        </section>
+        <!-- Botones Media -->
+        <section class="BotonesMedia">
+          <ul>
+            <li
+              on:click={() => {
+                abreGaleria('audios');
+              }}>
+              <span class="BotonAudios">
+                <div>
+                  <img src={iconoAudios} alt="Audio" />
+                </div>
+                <p>{lengua.audios.length ? lengua.audios.length : 0} Audios</p>
+              </span>
+            </li>
+            <li
+              on:click={() => {
+                abreGaleria('textiles');
+              }}>
+              <span class="BotonTextiles">
+                <div>
+                  <img src={iconoTextiles} alt="Textiles" />
+                </div>
+                <p>
+                  {lengua.textiles.lenght ? lengua.textiles.length : 0} Textiles
+                </p>
+              </span>
+            </li>
+            <li
+              on:click={() => {
+                abreGaleria('fotos');
+              }}>
+              <span class="BotonFotos">
+                <div>
+                  <img src={iconoFotos} alt="Fotos" />
+                </div>
+                <p>
+                  {lengua.fotografias.lenght ? lengua.fotografias.length : 0}
+                  Fotos
+                </p>
+              </span>
+            </li>
+          </ul>
+        </section>
+        <!--  -->
+      </section>
+
+      <footer on:click={verMas} style={`background-color: #${color}`}>
+        <div class="SaberMas">
+          <a href="/">
+            <span>Saber más</span>
+          </a>
+        </div>
+      </footer>
+
+    </section>
+  {/if}
+  <!-- fin contenido NO minimizado -->
 {/if}
 
 <!-- Galerias  -->
