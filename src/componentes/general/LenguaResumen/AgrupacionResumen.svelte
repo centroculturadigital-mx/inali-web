@@ -71,7 +71,7 @@
 
 <p class="NombreFamilia">Agrupación</p>
 
-<h2 class="TituloTarjetaResumen">{lengua.NOM_AGRUP}</h2>
+<h2 class="TituloTarjetaResumen">{lengua.nombreOriginario || lengua.nombreCastellanizado}</h2>
 
 <section class="InformacionRelevante">
 

@@ -187,8 +187,8 @@
         <details open={fam.open}>
           <summary>
             <button class={seleccion.famId === fam.id ? 'activo' : ''} on:click={() => seleccionarFamilia(fam.id)}>
-              <span class="originario">{fam.nombre}</span>
-              {#if !! fam.nombreCastellanizado}
+              <span class="originario">{fam.nombreOriginario || fam.nombreCastellanizado }</span>
+              {#if !! fam.nombreOriginario && !! fam.nombreCastellanizado}
                 <span class="castellanizado">({fam.nombreCastellanizado})</span>
               {/if}
             </button>
@@ -204,8 +204,8 @@
                 <details open={agr.open}>
                   <summary>
                     <button class={seleccion.agrId === agr.id ? 'activo' : ''} on:click={() => seleccionarAgrupacion(agr.id)}>
-                      <span class="originario">{agr.nombre}</span>
-                      {#if !! agr.nombreCastellanizado}
+                      <span class="originario">{agr.nombreOriginario || agr.nombreCastellanizado }</span>
+                      {#if !! agr.nombreOriginario && !! agr.nombreCastellanizado}
                         <span class="castellanizado"> ({agr.nombreCastellanizado})</span>
                          <!-- content here -->
                       {/if}
@@ -217,9 +217,9 @@
                       <li class="variante" style="border-color: {vari.color}">
                         <b>-</b>
                         <button class={seleccion.varId === vari.id ? 'activo' : ''} on:click={() => seleccionarVariante(vari.id)}>
-                          <span class="originario">{vari.nombre}</span>
-                          {#if !! vari.nombreCastellanizado}
-                            <span class="castellanizado"> ({vari.nombreCastellanizado})</span>
+                          <span class="originario">{vari.nombreOriginario || ari.nombreCastellanizado }</span>
+                          {#if !! vari.nombreOriginario && !! vari.nombreCastellanizado}
+                            <span class="castellanizado"> ({vari.nombreCastellanizado || ''})</span>
                             <!-- content here -->
                           {/if}
                         </button>

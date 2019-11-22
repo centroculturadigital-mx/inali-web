@@ -57,6 +57,7 @@
   let nombre = !!lengua.NOM_FAM ? lengua.NOM_FAM : !!lengua.NOM_AGRUP ? lengua.NOM_AGRUP: !!lengua.NOM_VAR ? lengua.NOM_VAR : "";
   let nombreCastellanizado = ''
   let otrosNombres = ''
+  let transcripcionFonetica = ''
 
   const riesgo = Math.random();
 
@@ -67,15 +68,17 @@
   const abrirLengua = nuevaLengua => {
     lengua = nuevaLengua;
 
-    nombre = lengua.nombreOriginario
-    nombreCastellanizado = lengua.nombreCastellanizado
+    nombre = lengua.nombreOriginario || lengua.nombreCastellanizado
+    nombreCastellanizado = lengua.nombreOriginario ? lengua.nombreCastellanizado : ''
     otrosNombres = lengua.otrosNombres
+    transcripcionFonetica = lengua.transcripcionFonetica
     
     lenguaVista = {
       ...lengua,
       nombre,
       nombreCastellanizado,
       otrosNombres,
+      transcripcionFonetica,
       color,
       riesgo,
       numeroHablantes,

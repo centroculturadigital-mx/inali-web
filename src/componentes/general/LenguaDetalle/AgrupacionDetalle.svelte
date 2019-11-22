@@ -300,7 +300,7 @@
     <div class="Breadcrumb">
       <span on:click>mapa ></span>
       <a href="../">{lengua.familiaId}</a>
-      <a href="../">{lengua.nombre}</a>
+      <a href="../">{lengua.nombreOriginario || lengua.nombreCastellanizado}</a>
     </div>
     <button id="DetalleCerrar" on:click>
       <span>Cerrar</span>
@@ -312,9 +312,9 @@
   <h3 class="DetalleTituloTop">Agrupación</h3>
 
     <h1 class="Nombre" style={`color: #${lengua.color}`}>
-      { lengua.nombre }
+      { lengua.nombreOriginario || lengua.castellanizado }
     </h1>
-    {#if !! lengua.nombreCastellanizado}
+    {#if !! lengua.nombreOriginario}
       <h3 class="Nombre2" style={`color: #${lengua.color}`}>
         { lengua.nombreCastellanizado }
       </h3>

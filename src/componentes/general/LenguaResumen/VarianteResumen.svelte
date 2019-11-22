@@ -67,8 +67,14 @@
 </style>
 
 <p class="NombreFamilia">Variante</p>
-<h2 class="TituloTarjetaResumen">{lengua.NOM_VAR}</h2>
+<h2 class="TituloTarjetaResumen">{lengua.nombreOriginario || lengua.nombreCastellanizado}</h2>
 <section class="InformacionRelevante">
+  {#if lengua.otrosNombres}
+    <p>{lengua.otrosNombres}</p>
+  {/if}
+  {#if lengua.transcripcionFonetica}
+    <p>{lengua.transcripcionFonetica}</p>
+  {/if}
   <p class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
     <span>
       {@html RiesgoIcono}

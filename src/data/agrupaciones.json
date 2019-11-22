@@ -122,6 +122,7 @@
   "audios": [],
   "informacion": "El tohonoo’otham/  tohonoo’odham , más conocido como pápago, es una lengua que pertenece a la famila yuto-nahua; las lenguas más cercanas  son , el pima (pima bajo), el tepehuano del norte, tepehuano del sur,  y el tepecano (lengua extinta). Se habla en el Estado de Sonora, en los municipios de Altar y General Plutarco Elías Calles. También se habla en los Estados Unidos de América. Hasta 2010, según cifras oficiales el pápago contaba con 161 hablantes. Es una lengua considerada en muy alto riesgo de desaparición. Actualmente se trabaja en la publicación de  la norma de la escritura de la lengua pápago, a cargo del Instituto Nacional de Lenguas Indígenas.",
   "nombre": "Pápago",
+  "nombreOriginario": "Tohonoo’otham",
   "riesgo": 3,
   "habitantes": 112,
   "nombreCastellanizado": "Pápago"
@@ -230,7 +231,8 @@
   "familiaId": "yutonahua",
   "color": "ee5080",
   "fotografias": [],
-  "textiles": [{
+  "textiles": [
+    {
     "id": "inali/imagenes/yutonahua/pima/textiles/10-0595529_r.jpg",
     "public_id": "inali/imagenes/yutonahua/pima/textiles/10-0595529_r.jpg",
     "url": "http://res.cloudinary.com/centro-cultura-digital/image/upload/v1571463257/inali/imagenes/yutonahua/pima/textiles/10-0595529_r.jpg.jpg",
@@ -251,7 +253,8 @@
     "descripcion": "Manufactura domestica cosido a mano de forma rectangular color blanco, con bordados en motivos geometricos y zoomorfos en color rojo, amarillo y café. En los cuatro extremos tiene cuadro de tela de algodón en color rosa mexicano y sobre estos bordado un venado en color cafe, rematado a gancho con hilo de artisela en color blanco. ",
     "riesgo": "Uso ritual"
   }],
-  "audios": [{
+  "audios": [
+    {
     "id": "inali/audios/yutonahua/pima/FN16040044800_14.ogg",
     "url": "http://res.cloudinary.com/centro-cultura-digital/video/upload/v1573526084/inali/audios/yutonahua/pima/FN16040044800_14.ogg.ogg",
     "nombreArchivo": "FN16040044800_14.ogg",

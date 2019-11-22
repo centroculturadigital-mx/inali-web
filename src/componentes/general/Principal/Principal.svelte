@@ -198,7 +198,7 @@
       // recorro familias
       let nuevoArbol = familias.map(f => {
         let fam = {
-          nombre: f.nombreOriginario ? f.nombreOriginario : f.nombreCastellanizado,
+          nombreOriginario: f.nombreOriginario || f.nombreCastellanizado,
           nombreCastellanizado: f.nombreOriginario ? f.nombreCastellanizado : '',
           id: f.id,
           tipo: "familia",
@@ -211,7 +211,7 @@
           })
           .map(a => {
             let agr = {
-              nombre: a.nombreOriginario ? a.nombreOriginario : a.nombreCastellanizado,
+              nombreOriginario: a.nombreOriginario || a.nombreCastellanizado,
               nombreCastellanizado: a.nombreOriginario ? a.nombreCastellanizado : '',
               id: a.id,
               famId: f.id,
@@ -225,7 +225,7 @@
               })
               .map(v => {
                 return {
-                  nombre: v.nombreOriginario ? v.nombreOriginario : v.nombreCastellanizado,
+                  nombreOriginario: v.nombreOriginario || v.nombreCastellanizado,
                   nombreCastellanizado: v.nombreOriginario ? v.nombreCastellanizado : '',
                   id: v.id,
                   agrId: a.id,

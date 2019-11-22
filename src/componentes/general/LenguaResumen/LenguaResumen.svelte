@@ -12,6 +12,8 @@
 
   export let lengua;
 
+  $: console.log('lengua', lengua)
+
   let iconoCierra = "icono.cierra.circulo.svg";
   let iconoMinimiza = "minimiza.circulo.svg";
   let iconoMaximiza = "icono.maximiza.svg";
@@ -317,7 +319,7 @@
                   <img src={iconoTextiles} alt="Textiles" />
                 </div>
                 <p>
-                  {lengua.textiles.lenght ? lengua.textiles.length : 0} Textiles
+                  {lengua.textiles.length ? lengua.textiles.length : 0} Textiles
                 </p>
               </span>
             </li>
@@ -330,7 +332,7 @@
                   <img src={iconoFotos} alt="Fotos" />
                 </div>
                 <p>
-                  {lengua.fotografias.lenght ? lengua.fotografias.length : 0}
+                  {lengua.fotografias.length ? lengua.fotografias.length : 0}
                   Fotos
                 </p>
               </span>

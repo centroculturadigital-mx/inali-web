@@ -62,7 +62,7 @@
 
           <div class="Contenido">
             <div class="Titulo">
-              {imagen.titulo}
+              {imagen.titulo || imagen.nombre}
             </div>
             <div class="Creditos">
               © {imagen.creditos}
