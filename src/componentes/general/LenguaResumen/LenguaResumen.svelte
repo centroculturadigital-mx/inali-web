@@ -232,7 +232,7 @@
 <!-- Ventana minimizada -->
   {#if minimizado != false}
     
-    <section class="CardMinimizada card" transition:fade={{ duration: 750 }}>
+    <section class="CardMinimizada card" transition:slide={{ duration: 500 }}>
       <header
         class="HeaderMinimizado"
         style="background-color: #{lengua.color}">
@@ -256,7 +256,7 @@
 
   {:else}
   <!-- Ventana Maximizada -->
-    <section class="card" transition:fade={{ duration: 750 }}>
+    <section class="card" transition:slide={{ duration: 500 }}>
       <!--  -->
       <section class="Contenido">
         <header>
