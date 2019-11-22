@@ -3,7 +3,6 @@
 
   // const dispatch = createEventDispatcher();
 
-
   import AudiosContenedor from "../Galerias/AudiosContenedor.svelte";
   import Fotos from "../Galerias/Fotos.svelte";
   import Textiles from "../Galerias/Textiles.svelte";
@@ -59,6 +58,12 @@
 </script>
 
 <style>
+nav {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 .DetalleContenedor {
     display: flex;
@@ -93,13 +98,20 @@
     font-weight: lighter;
     font-size: 0.75rem;
     margin-top: 0;
-    position: relative;
-    width: 100%;
-    display: flex;
-    align-items: center;
+    /* position: relative; */
+    /* width: 100%; */
+    /* display: flex; */
+    /* align-items: center; */
+    width: 96%;
+    background-color:rgba(255, 255, 255, 0.95);
+    box-shadow: 1px 2px 18px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    top: 3.25rem;
+    left: 1rem;
   }
   .DetalleContenidosNavegacion span {
     cursor: pointer;
+    margin-left: .5rem;
   }
   .DetalleContenidosNavegacion a {
     font-weight: 400;
@@ -112,7 +124,7 @@
     font-size: .75rem;
     font-weight: lighter;
     color: #000;
-    position: absolute;
+    /* position: absolute; */
     cursor: pointer;
     top: 0;
     right: 0;
@@ -129,11 +141,12 @@
     margin-left: .5rem;
   }
   
+  
   .DetalleTituloTop {
     font-weight: lighter;
     text-transform: uppercase;
     letter-spacing: 0.25rem;
-    margin-top: 1.5rem;
+    margin-top: 2.5rem;
   }
   .DetalleTitulo {
     font-weight: Bold;
@@ -323,11 +336,14 @@
 
 <header>
 
+<!-- NAV  -->
   <nav class="DetalleContenidosNavegacion">
+  <div class="Breadcrumb">
     <span on:click>mapa ></span>
     <a href="../">
       {lengua.nombre}
     </a>
+  </div>
     <button id="DetalleCerrar" on:click>
       <span>Cerrar</span>
       <img src={IconoCerrar} alt="Cerrar Ventana" />

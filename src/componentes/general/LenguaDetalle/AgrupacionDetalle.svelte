@@ -56,14 +56,22 @@
   const RiesgoIcono = `<svg width="25" height="24" viewBox="0 0 25 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.2666 0C5.52183 0 0.0666504 5.36575 0.0666504 12C0.0666504 18.6216 5.52183 24 12.2666 24C19.0115 24 24.4667 18.6342 24.4667 12C24.4538 5.36575 18.9986 0 12.2666 0ZM13.7497 20.1818C13.4015 20.5243 12.9115 20.7019 12.2796 20.7019C11.6347 20.7019 11.1318 20.537 10.7836 20.1945C10.4354 19.8647 10.2548 19.3827 10.2548 18.7738C10.2548 18.1395 10.4225 17.6575 10.7707 17.3404C11.1189 17.0106 11.6218 16.8583 12.2796 16.8583C12.9115 16.8583 13.4144 17.0233 13.7626 17.3531C14.1108 17.6829 14.2914 18.1649 14.2914 18.7738C14.2785 19.37 14.0979 19.8393 13.7497 20.1818ZM13.7626 14.9049H10.7965L9.76475 5.80972C9.68737 4.74419 10.8352 3.85624 12.2796 3.85624C13.7239 3.85624 14.8717 4.74419 14.7943 5.80972L13.7626 14.9049Z"/></svg>`;
 
 
-    const IconoTextiles = "icono.textiles.svg";
+  const IconoTextiles = "icono.textiles.svg";
   const IconoFotos = "icono.fotos.svg";
   const IconoAudios = "icono.audios.svg";
+  const IconoCerrar = "cerrar.svg";
+
 
   
 </script>
 
 <style>
+nav {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .DetalleContenedor {
     display: flex;
     justify-content: flex-start;
@@ -98,10 +106,18 @@
     font-size: 0.75rem;
     margin-top: 0;
     position: relative;
-    width: 100%;
+    /* width: 100%; */
+    width: 96%;
+    background-color:rgba(255, 255, 255, 0.95);
+    box-shadow: 1px 2px 18px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    top: 3.25rem;
+    left: 1rem;
   }
   .DetalleContenidosNavegacion span {
     cursor: pointer;
+    margin-left: .5rem;
+
   }
   .DetalleContenidosNavegacion a {
     font-weight: 400;
@@ -111,23 +127,30 @@
     padding: 0.25rem 0.5rem;
   }
   #DetalleCerrar {
-    font-size: 1rem;
+    font-size: .75rem;
+    font-weight: lighter;
     color: #000;
-    position: absolute;
+    /* position: absolute; */
     cursor: pointer;
     top: 0;
     right: 0;
     background-color: transparent;
     border: none;
+    display: flex;
+    align-items: center;
   }
   #DetalleCerrar:hover {
-    color: rgba(255, 97, 97, 0.8);
+    color:rgb(114, 166, 170);
+  }
+  #DetalleCerrar img {
+    width: 1.75rem;
+    margin-left: .5rem;
   }
   .DetalleTituloTop {
     font-weight: lighter;
     text-transform: uppercase;
     letter-spacing: 0.25rem;
-    margin-top: 1.5rem;
+    margin-top: 2.5rem;
   }
   
   .DetalleNumeroHablantes {
@@ -297,12 +320,15 @@
 
 
   <nav class="DetalleContenidosNavegacion">
+  <div class="Breadcrumb">
     <span on:click>mapa ></span>
     <a href="../">
       {lengua.nombre}
     </a>
+  </div>
     <button id="DetalleCerrar" on:click>
-      <i class="fa fa-close" />
+      <span>Cerrar</span>
+      <img src={IconoCerrar} alt="Cerrar Ventana" />
     </button>
   </nav>
   
