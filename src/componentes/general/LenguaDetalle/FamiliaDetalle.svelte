@@ -1,12 +1,11 @@
 <script>
-    import { onMount, createEventDispatcher } from "svelte";
+  import { onMount, createEventDispatcher } from "svelte";
 
   // const dispatch = createEventDispatcher();
 
   import AudiosContenedor from "../Galerias/AudiosContenedor.svelte";
   import Fotos from "../Galerias/Fotos.svelte";
   import Textiles from "../Galerias/Textiles.svelte";
-
 
   export let lengua;
   export let abrirLengua;
@@ -15,17 +14,16 @@
     // dispatch("cerrar");
   };
 
-  onMount(()=>{
+  onMount(() => {
     console.log("cargar familia", lengua);
-    
-  })
-  $: mostrarFotos = Array.isArray(lengua.fotografias) ? lengua.fotografias.length > 0 : false
+  });
+  $: mostrarFotos = Array.isArray(lengua.fotografias)
+    ? lengua.fotografias.length > 0
+    : false;
 
   let ventanaGaleria = null;
 
-
-  const abreGaleria = (tipo) => {
-    
+  const abreGaleria = tipo => {
     ventanaGaleria = tipo;
 
     // if (e.target.classList.contains("Audio")) {
@@ -42,37 +40,34 @@
     // ventanaGaleria = event.detail.cierra;
   };
 
-
   // const cerrarGaleria = event => {
   //   ventanaGaleria = event.detail.cierra;
   // };
 
   $: console.log("lenguaDetalle", lengua);
 
-
   const IconoTextiles = "icono.textiles.svg";
   const IconoFotos = "icono.fotos.svg";
   const IconoAudios = "icono.audios.svg";
   const IconoCerrar = "cerrar.svg";
-
 </script>
 
 <style>
-nav {
+  nav {
     height: 3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+  }
 
-.DetalleContenedor {
+  .DetalleContenedor {
     display: flex;
     justify-content: flex-start;
     position: absolute;
     padding-top: 3.25rem;
     padding-bottom: 2.25rem;
     width: 50%;
-    height: 100%;
+    height: 100%
   }
   .DetallePleca {
     background-color: #fbb634;
@@ -102,8 +97,9 @@ nav {
     /* width: 100%; */
     /* display: flex; */
     /* align-items: center; */
-    width: 96%;
-    background-color:rgba(255, 255, 255, 0.95);
+    width: calc(100% - 1rem);
+    height: 3rem;
+    background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 1px 2px 18px rgba(0, 0, 0, 0.15);
     position: absolute;
     top: 3.25rem;
@@ -111,7 +107,7 @@ nav {
   }
   .DetalleContenidosNavegacion span {
     cursor: pointer;
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
   .DetalleContenidosNavegacion a {
     font-weight: 400;
@@ -121,7 +117,7 @@ nav {
     padding: 0.25rem 0.5rem;
   }
   #DetalleCerrar {
-    font-size: .75rem;
+    font-size: 0.75rem;
     font-weight: lighter;
     color: #000;
     /* position: absolute; */
@@ -134,19 +130,18 @@ nav {
     align-items: center;
   }
   #DetalleCerrar:hover {
-    color:rgb(114, 166, 170);
+    color: rgb(114, 166, 170);
   }
   #DetalleCerrar img {
     width: 1.75rem;
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
-  
-  
+
   .DetalleTituloTop {
     font-weight: lighter;
     text-transform: uppercase;
     letter-spacing: 0.25rem;
-    margin-top: 2.5rem;
+    margin-top: 0.5rem;
   }
   .DetalleTitulo {
     font-weight: Bold;
@@ -297,7 +292,7 @@ nav {
   }
   .DetalleFamiliaAgrupacion {
     text-align: center;
-    width: 85%; 
+    width: 85%;
   }
   .DetalleFamiliaAgrupacion h3 {
     margin: 2rem;
@@ -344,25 +339,23 @@ nav {
   .descripcion {
     white-space: pre-line;
   }
+
 </style>
 
 <header>
 
-<!-- NAV  -->
+  <!-- NAV  -->
   <nav class="DetalleContenidosNavegacion">
-  <div class="Breadcrumb">
-    <span on:click>mapa ></span>
-    <a href="../">
-      {lengua.nombre}
-    </a>
-  </div>
+    <div class="Breadcrumb">
+      <span on:click>mapa ></span>
+      <a href="../">{lengua.nombre}</a>
+    </div>
     <button id="DetalleCerrar" on:click>
       <span>Cerrar</span>
       <img src={IconoCerrar} alt="Cerrar Ventana" />
     </button>
   </nav>
 
-    
   <!-- titulo Raiz -->
   <h3 class="DetalleTituloTop">
       Familia
@@ -392,44 +385,40 @@ nav {
 
 </header>
 
-
 <div class="DetalleBotonesGaleria">
   <!-- 
   -->
-  {#if !! Array.isArray(lengua.audios) && lengua.audios.length > 0}
-  <button class="BotonGaleria Audio" on:click={()=>abreGaleria("audios")}>
-    <div class="IconoBotonGaleria">
-      <img src={IconoAudios} alt="Icono Boton Audios INALI" />
-    </div>
-    <div class="TextoBotonGaleria ">AUDIOS</div>
-  </button> 
+  {#if !!Array.isArray(lengua.audios) && lengua.audios.length > 0}
+    <button class="BotonGaleria Audio" on:click={() => abreGaleria('audios')}>
+      <div class="IconoBotonGaleria">
+        <img src={IconoAudios} alt="Icono Boton Audios INALI" />
+      </div>
+      <div class="TextoBotonGaleria ">AUDIOS</div>
+    </button>
   {/if}
-  {#if !! Array.isArray(lengua.fotografias) && lengua.fotografias.length > 0}
-  <button class="BotonGaleria Foto" on:click={()=>abreGaleria("fotos")}>
-    <div class="IconoBotonGaleria ">
-      <img src={IconoFotos} alt="Icono Boton Fotos INALI" />
-    </div>
-    <div class="TextoBotonGaleria">FOTOS</div>
-  </button>
+  {#if !!Array.isArray(lengua.fotografias) && lengua.fotografias.length > 0}
+    <button class="BotonGaleria Foto" on:click={() => abreGaleria('fotos')}>
+      <div class="IconoBotonGaleria ">
+        <img src={IconoFotos} alt="Icono Boton Fotos INALI" />
+      </div>
+      <div class="TextoBotonGaleria">FOTOS</div>
+    </button>
   {/if}
-  {#if !! Array.isArray(lengua.textiles) && lengua.textiles.length > 0}
-  <button class="BotonGaleria Textil" on:click={()=>abreGaleria("textiles")}>
-    <div class="IconoBotonGaleria ">
-      <img src={IconoTextiles} alt="Icono Boton Textiles INALI" />
-    </div>
-    <div class="TextoBotonGaleria">TEXTILES</div>
-  </button>
+  {#if !!Array.isArray(lengua.textiles) && lengua.textiles.length > 0}
+    <button
+      class="BotonGaleria Textil"
+      on:click={() => abreGaleria('textiles')}>
+      <div class="IconoBotonGaleria ">
+        <img src={IconoTextiles} alt="Icono Boton Textiles INALI" />
+      </div>
+      <div class="TextoBotonGaleria">TEXTILES</div>
+    </button>
   {/if}
 </div>
 
-
-
 <div class="DetalleTextoDescripcion">
   <p class="descripcion">
-    {#if !!lengua.informacion}
-      {lengua.informacion}
-    {:else}
-    {/if}
+    {#if !!lengua.informacion}{lengua.informacion}{:else}{/if}
   </p>
 </div>
 
@@ -460,7 +449,6 @@ nav {
   </button> -->
 </div>
 
-
 <div class="DetalleFamiliaAgrupacion">
   {#if !!lengua.agrupaciones}
     <h3>Agrupaciones lingüísticas ({lengua.agrupaciones.length})</h3>
@@ -468,8 +456,8 @@ nav {
 
   {#if !!lengua.agrupaciones}
     <ul class="DetalleLista">
-      {#each lengua.agrupaciones as agrupacion ("agrupacion_"+agrupacion.id)}
-        <li on:click={()=>abrirLengua(agrupacion)}>
+      {#each lengua.agrupaciones as agrupacion ('agrupacion_' + agrupacion.id)}
+        <li on:click={() => abrirLengua(agrupacion)}>
           <h4>{agrupacion.NOM_AGRUP}</h4>
           <i class="fa fa-arrow-circle-right" />
         </li>
@@ -478,8 +466,6 @@ nav {
   {/if}
 
 </div>
-
-
 
 <!-- Galerias  -->
 {#if ventanaGaleria === 'audios'}

@@ -1,13 +1,11 @@
 <script>
-
   import { onMount, createEventDispatcher } from "svelte";
 
   import AudiosContenedor from "../Galerias/AudiosContenedor.svelte";
   import Fotos from "../Galerias/Fotos.svelte";
   import Textiles from "../Galerias/Textiles.svelte";
 
-//   const dispatch = createEventDispatcher();
-
+  //   const dispatch = createEventDispatcher();
 
   export let lengua;
 
@@ -15,19 +13,13 @@
     // dispatch("cerrar");
   };
 
-
   // <!--funcion: conseguirDatoDeAncestro() -->
-
-
 
   // $: console.log("lenguaDetalle", lengua);
 
-
   let ventanaGaleria = null;
 
-
-  const abreGaleria = (tipo) => {
-    
+  const abreGaleria = tipo => {
     ventanaGaleria = tipo;
 
     // if (e.target.classList.contains("Audio")) {
@@ -44,35 +36,22 @@
     // ventanaGaleria = event.detail.cierra;
   };
 
-  const contenidoFake = {
-    descripcion:
-      "También llamada algonquina o algonquina-ritwan. \n\nEl nombre de la familia lingüística álgica proviene de la contracción del nombre de una de las dos subfamilias que la integran, la algonquina (alg-), y la adhesión a ésta de una partícula (-ic) que señala pertenencia a algo. Cabe mencionar que, dentro de esta familia, las lenguas algonquinas han tenido, en términos de cobertura geográfica, diversidad interna y número de hablantes, mucha relevancia. \n\nLas lenguas de esta familia se hablan en gran parte de Canadá y en el extremo norte de los Estados Unidos de América, teniendo una concentración muy significativa en la región de los Grandes Lagos. El Kickapoo, que pertenece a la subfamilia algonquina, es el único idioma de esta familia que se habla en México. La llegada de los kickapoo a territorio nacional se dio en el siglo XIX cuando, después de una invasión de los anglosajones a su territorio, le pidieron al gobierno mexicano un espacio para vivir y éste, a cambio, les solicitó que defendieran a los pobladores mexicanos de los ataques de los comanches, muy frecuentes en aquel tiempo. Desde ese momento, los kickapoo son considerados un grupo binacional. En los Estados Unidos de América a los kickapoo de México ."
-  };
-
-  
-
-
-
   const RiesgoIcono = `<svg width="25" height="24" viewBox="0 0 25 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.2666 0C5.52183 0 0.0666504 5.36575 0.0666504 12C0.0666504 18.6216 5.52183 24 12.2666 24C19.0115 24 24.4667 18.6342 24.4667 12C24.4538 5.36575 18.9986 0 12.2666 0ZM13.7497 20.1818C13.4015 20.5243 12.9115 20.7019 12.2796 20.7019C11.6347 20.7019 11.1318 20.537 10.7836 20.1945C10.4354 19.8647 10.2548 19.3827 10.2548 18.7738C10.2548 18.1395 10.4225 17.6575 10.7707 17.3404C11.1189 17.0106 11.6218 16.8583 12.2796 16.8583C12.9115 16.8583 13.4144 17.0233 13.7626 17.3531C14.1108 17.6829 14.2914 18.1649 14.2914 18.7738C14.2785 19.37 14.0979 19.8393 13.7497 20.1818ZM13.7626 14.9049H10.7965L9.76475 5.80972C9.68737 4.74419 10.8352 3.85624 12.2796 3.85624C13.7239 3.85624 14.8717 4.74419 14.7943 5.80972L13.7626 14.9049Z"/></svg>`;
-
 
   const IconoTextiles = "icono.textiles.svg";
   const IconoFotos = "icono.fotos.svg";
   const IconoAudios = "icono.audios.svg";
   const IconoCerrar = "cerrar.svg";
-
-
-  
 </script>
 
 <style>
-nav {
+  nav {
     height: 3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-.DetalleContenedor {
+  }
+  .DetalleContenedor {
     display: flex;
     justify-content: flex-start;
     position: absolute;
@@ -107,8 +86,8 @@ nav {
     margin-top: 0;
     position: relative;
     /* width: 100%; */
-    width: 96%;
-    background-color:rgba(255, 255, 255, 0.95);
+    width: calc(100% - 1rem);
+    background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 1px 2px 18px rgba(0, 0, 0, 0.15);
     position: absolute;
     top: 3.25rem;
@@ -116,8 +95,7 @@ nav {
   }
   .DetalleContenidosNavegacion span {
     cursor: pointer;
-    margin-left: .5rem;
-
+    margin-left: 0.5rem;
   }
   .DetalleContenidosNavegacion a {
     font-weight: 400;
@@ -127,7 +105,7 @@ nav {
     padding: 0.25rem 0.5rem;
   }
   #DetalleCerrar {
-    font-size: .75rem;
+    font-size: 0.75rem;
     font-weight: lighter;
     color: #000;
     /* position: absolute; */
@@ -140,19 +118,19 @@ nav {
     align-items: center;
   }
   #DetalleCerrar:hover {
-    color:rgb(114, 166, 170);
+    color: rgb(114, 166, 170);
   }
   #DetalleCerrar img {
     width: 1.75rem;
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
   .DetalleTituloTop {
     font-weight: lighter;
     text-transform: uppercase;
     letter-spacing: 0.25rem;
-    margin-top: 2.5rem;
+    margin-top: 0.5rem;
   }
-  
+
   .DetalleNumeroHablantes {
     padding: 0.75rem;
     display: inline-block;
@@ -264,7 +242,7 @@ nav {
   }
   .DetalleFamiliaAgrupacion {
     text-align: center;
-    width: 85%; 
+    width: 85%;
   }
   .DetalleFamiliaAgrupacion h3 {
     margin: 2rem;
@@ -276,7 +254,8 @@ nav {
   .DetalleBotonesGaleria {
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
     color: #fff;
     width: 100%;
   }
@@ -313,30 +292,24 @@ nav {
   .Nombre {
     font-weight: Bold;
   }
-  
 </style>
 
 <header>
 
-
   <nav class="DetalleContenidosNavegacion">
-  <div class="Breadcrumb">
-    <span on:click>mapa ></span>
-    <a href="../">
-      {lengua.nombre}
-    </a>
-  </div>
+    <div class="Breadcrumb">
+      <span on:click>mapa ></span>
+      <a href="../">{lengua.familiaId}</a>
+      <a href="../">{lengua.nombre}</a>
+    </div>
     <button id="DetalleCerrar" on:click>
       <span>Cerrar</span>
       <img src={IconoCerrar} alt="Cerrar Ventana" />
     </button>
   </nav>
-  
 
   <!-- titulo Raiz -->
-  <h3 class="DetalleTituloTop">
-      Agrupación
-  </h3>
+  <h3 class="DetalleTituloTop">Agrupación</h3>
 
     <h1 class="Nombre" style={`color: #${lengua.color}`}>
       { lengua.nombre }
@@ -393,62 +366,58 @@ nav {
 
 </header>
 
-
-<div class="DetalleTextoDescripcion">
-        <p class="descripcion">
-        <!-- {contenidoFake.descripcion} -->
-          { lengua.informacion }
-        </p>
-
-      </div>
-      <!-- Botones a galerias Agrupacion -->
-      <div class="DetalleBotonesGaleria">
-        <!-- 
+<!-- Botones a galerias Agrupacion -->
+<div class="DetalleBotonesGaleria">
+  <!-- 
         -->
-        {#if !! Array.isArray(lengua.audios) && lengua.audios.length > 0}
-        <button class="BotonGaleria Audio" on:click={()=>abreGaleria("audios")}>
-          <div class="IconoBotonGaleria">
-            <img src={IconoAudios} alt="Icono Boton Audios INALI" />
-          </div>
-          <div class="TextoBotonGaleria ">AUDIOS</div>
-        </button> 
-        {/if}
-        {#if !! Array.isArray(lengua.fotografias) && lengua.fotografias.length > 0}
-        <button class="BotonGaleria Foto" on:click={()=>abreGaleria("fotos")}>
-          <div class="IconoBotonGaleria ">
-            <img src={IconoFotos} alt="Icono Boton Fotos INALI" />
-          </div>
-          <div class="TextoBotonGaleria">FOTOS</div>
-        </button>
-        {/if}
-        <!-- <button class="BotonGaleria Textil" on:click={()=>abreGaleria("textiles")}>
+  {#if !!Array.isArray(lengua.audios) && lengua.audios.length > 0}
+    <button class="BotonGaleria Audio" on:click={() => abreGaleria('audios')}>
+      <div class="IconoBotonGaleria">
+        <img src={IconoAudios} alt="Icono Boton Audios INALI" />
+      </div>
+      <div class="TextoBotonGaleria ">AUDIOS</div>
+    </button>
+  {/if}
+  {#if !!Array.isArray(lengua.fotografias) && lengua.fotografias.length > 0}
+    <button class="BotonGaleria Foto" on:click={() => abreGaleria('fotos')}>
+      <div class="IconoBotonGaleria ">
+        <img src={IconoFotos} alt="Icono Boton Fotos INALI" />
+      </div>
+      <div class="TextoBotonGaleria">FOTOS</div>
+    </button>
+  {/if}
+  <!-- <button class="BotonGaleria Textil" on:click={()=>abreGaleria("textiles")}>
           <div class="IconoBotonGaleria ">
             <img src={IconoTextiles} alt="Icono Boton Textiles INALI" />
           </div>
           <div class="TextoBotonGaleria">TEXTILES</div>
         </button> -->
-      </div>
+</div>
+<!-- Informacion -->
+<div class="DetalleTextoDescripcion">
+  <p class="descripcion">
+    {lengua.informacion}
+  </p>
+</div>
+<!--  -->
+<div class="DetalleAgrupacionVariantes">
+  {#if !!lengua.variantes}
+    <h3>Variantes lingüísticas ({lengua.variantes.length})</h3>
+  {/if}
 
-      <div class="DetalleAgrupacionVariantes">
-        {#if !!lengua.variantes}
-          <h3>Variantes lingüísticas ({lengua.variantes.length})</h3>
-        {/if}
+  {#if !!lengua.variantes}
+    <ul class="DetalleLista">
+      {#each lengua.variantes as variante}
+        <li>
+          <!-- <li on:click={verHijoDetalle}> -->
+          <h4>{variante.NOM_VAR}</h4>
+          <i class="fa fa-arrow-circle-right" />
+        </li>
+      {/each}
+    </ul>
+  {/if}
 
-        {#if !!lengua.variantes}
-          <ul class="DetalleLista">
-            {#each lengua.variantes as variante}
-              <li>
-              <!-- <li on:click={verHijoDetalle}> -->
-                <h4>{variante.NOM_VAR}</h4>
-                <i class="fa fa-arrow-circle-right" />
-              </li>
-            {/each}
-          </ul>
-        {/if}
-
-      </div>
-
-
+</div>
 
 <!-- Galerias  -->
 {#if ventanaGaleria === 'audios'}

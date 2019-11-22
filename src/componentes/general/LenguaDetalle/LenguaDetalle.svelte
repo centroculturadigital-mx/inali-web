@@ -172,12 +172,13 @@
   .DetalleContenidos {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 1.5rem;
-    height: 100%;
     width: 100%;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: calc(100% - 3rem);
+    margin-top: 3rem;
   }
   header {
     height: auto;
@@ -219,11 +220,6 @@
     text-transform: uppercase;
     letter-spacing: 0.25rem;
   }
-  
-  
-
-
-
   .DetalleNumeroHablantes {
     padding: 0.75rem;
     display: inline-block;
@@ -377,6 +373,11 @@
   }
   .DetalleTextoDescripcion {
     padding: 0 1rem;
+  }
+    @media (max-width: 920px) {
+    .DetalleContenedor {
+      width: 100%;
+    }
   }
 </style>
 
