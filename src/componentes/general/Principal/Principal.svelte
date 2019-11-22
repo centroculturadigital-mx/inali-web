@@ -78,9 +78,9 @@
   );
   $: variantesVisibles = calculaVariantesVisibles(variantes, seleccion);
 
-  $: console.log("familiasVisibles", familiasVisibles);
-  $: console.log("agrupacionesVisibles", agrupacionesVisibles);
-  $: console.log("variantesVisibles", variantesVisibles);
+  // $: console.log("familiasVisibles", familiasVisibles);
+  // $: console.log("agrupacionesVisibles", agrupacionesVisibles);
+  // $: console.log("variantesVisibles", variantesVisibles);
 
   // TODO multiselect find => filter
 
@@ -122,8 +122,6 @@
         : seleccion.detail.tipo === "variante"
         ? variantes.find(v => v.id === seleccion.detail.id).geojson
         : null;
-
-    console.log("poligono a acomodar", poligono);
 
     if (poligono) {
       mapa.fitBounds(bbox(poligono), {
@@ -175,15 +173,14 @@
   };
 
   const calculaLenguaDetalle = selec => {
-    console.log("calculaLenguaDetalle", selec);
     if (selec.famId) {
-      console.log("Detalle para", selec.famId);
+      // console.log("Detalle para", selec.famId);
       return familias.find(f => f.id === selec.famId);
     } else if (selec.agrId) {
-      console.log("Detalle para", selec.agrId);
+      // console.log("Detalle para", selec.agrId);
       return agrupaciones.find(a => a.id === selec.agrId);
     } else if (selec.varId) {
-      console.log("Detalle para", selec.varId);
+      // console.log("Detalle para", selec.varId);
       return variantes.find(v => v.id === selec.varId);
     } else {
       return null;
@@ -199,7 +196,8 @@
       // recorro familias
       let nuevoArbol = familias.map(f => {
         let fam = {
-          nombre: f.NOM_FAM,
+          nombre: f.nombreOriginario ? f.nombreOriginario : f.nombreCastellanizado,
+          nombreCastellanizado: f.nombreOriginario ? f.nombreCastellanizado : '',
           id: f.id,
           tipo: "familia",
           color: "#" + f.color
@@ -211,7 +209,8 @@
           })
           .map(a => {
             let agr = {
-              nombre: a.NOM_AGRUP,
+              nombre: a.nombreOriginario ? a.nombreOriginario : a.nombreCastellanizado,
+              nombreCastellanizado: a.nombreOriginario ? a.nombreCastellanizado : '',
               id: a.id,
               famId: f.id,
               tipo: "agrupacion",
@@ -224,7 +223,8 @@
               })
               .map(v => {
                 return {
-                  nombre: v.NOM_VAR,
+                  nombre: v.nombreOriginario ? v.nombreOriginario : v.nombreCastellanizado,
+                  nombreCastellanizado: v.nombreOriginario ? v.nombreCastellanizado : '',
                   id: v.id,
                   agrId: a.id,
                   famId: f.id,
@@ -236,7 +236,6 @@
           });
         return fam;
       });
-      console.log("arbolFiltro", nuevoArbol);
       return nuevoArbol;
     } else return [];
   };

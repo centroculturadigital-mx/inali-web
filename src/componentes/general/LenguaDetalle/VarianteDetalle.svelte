@@ -323,8 +323,20 @@
 
     <!-- Titulo -->
     <h1 class="Nombre" style={`color: #${lengua.color}`}>
-        { lengua.nombre }
+      { lengua.nombre || lengua.nombreOriginario }
     </h1>
+    {#if !! lengua.nombreCastellanizado}
+      <h3 class="Nombre2" style={`color: #${lengua.color}`}>
+        { lengua.nombreCastellanizado }
+      </h3>
+      <!-- content here -->
+    {/if}
+    {#if !! lengua.otrosNombres}
+      <h5 class="Nombre3" style={`color: #${lengua.color}`}>
+        { lengua.otrosNombres }
+      </h5>
+      <!-- content here -->
+  {/if}
 
 
     <!-- 

@@ -313,46 +313,57 @@
   </h3>
 
     <h1 class="Nombre" style={`color: #${lengua.color}`}>
-        { lengua.nombre }
+      { lengua.nombre }
     </h1>
+    {#if !! lengua.nombreCastellanizado}
+      <h3 class="Nombre2" style={`color: #${lengua.color}`}>
+        { lengua.nombreCastellanizado }
+      </h3>
+      <!-- content here -->
+    {/if}
+    {#if !! lengua.otrosNombres}
+      <h5 class="Nombre3" style={`color: #${lengua.color}`}>
+        { lengua.otrosNombres }
+      </h5>
+      <!-- content here -->
+  {/if}
 
-
-    <div class="DetalleOrigen">
-        <div class="DetalleOrigenRiesgo">
-        <div
-            class="DetalleOrigenIcono {lengua.riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
-            {@html RiesgoIcono}
-        </div>
-        <div class="DetalleOrigenTexto">
-            <div>
-            <p>{lengua.riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desparición</p>
-            <!-- <small>
-                <b>1,725,620 hablantes</b>
-            </small> -->
-            </div>
-        </div>
-        </div>
-        <div class="DetalleOrigenFamilia">
-        <div class="DetalleOrigenIcono">
-            <i class="fa fa-group" />
-        </div>
-        <div class="DetalleOrigenTexto">
-            {#if !!lengua.familiaId}
-            <p>Familia {lengua.familiaId}</p>
-            {/if}
-        </div>
-        </div>
-        <div class="DetalleOrigenVariantes">
-        <div class="DetalleOrigenIcono">
-            <i class="fa fa-share-alt-square" />
-        </div>
-        <div class="DetalleOrigenTexto">
-            {#if !!lengua.variantes}
-            <p>{lengua.variantes.length} variantes linguísticas</p>
-            {/if}
-        </div>
-        </div>
-    </div>
+  <div class="DetalleOrigen">
+      <div class="DetalleOrigenRiesgo">
+      <div
+          class="DetalleOrigenIcono {lengua.riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+          {@html RiesgoIcono}
+      </div>
+      <div class="DetalleOrigenTexto">
+          <div>
+          <p>{lengua.riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desparición</p>
+          <!-- <small>
+              <b>1,725,620 hablantes</b>
+          </small> -->
+          </div>
+      </div>
+      </div>
+      <div class="DetalleOrigenFamilia">
+      <div class="DetalleOrigenIcono">
+          <i class="fa fa-group" />
+      </div>
+      <div class="DetalleOrigenTexto">
+          {#if !!lengua.familiaId}
+          <p>Familia {lengua.familiaId}</p>
+          {/if}
+      </div>
+      </div>
+      <div class="DetalleOrigenVariantes">
+      <div class="DetalleOrigenIcono">
+          <i class="fa fa-share-alt-square" />
+      </div>
+      <div class="DetalleOrigenTexto">
+          {#if !!lengua.variantes}
+          <p>{lengua.variantes.length} variantes linguísticas</p>
+          {/if}
+      </div>
+      </div>
+  </div>
 
 </header>
 

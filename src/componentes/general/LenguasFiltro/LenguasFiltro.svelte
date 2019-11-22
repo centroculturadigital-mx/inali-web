@@ -159,6 +159,12 @@
   .variante b {
     color: #b8d3d1;
   }
+
+  .castellanizado {
+    font-size: 0.7em;
+    font-weight: lighter;
+    opacity: 0.8;
+  }
 </style>
 
 <div class="BarraOcultar">
@@ -181,7 +187,10 @@
         <details open={fam.open}>
           <summary>
             <button class={seleccion.famId === fam.id ? 'activo' : ''} on:click={() => seleccionarFamilia(fam.id)}>
-              {fam.nombre}
+              <span class="originario">{fam.nombre}</span>
+              {#if !! fam.nombreCastellanizado}
+                <span class="castellanizado">({fam.nombreCastellanizado})</span>
+              {/if}
             </button>
           </summary>
           <ul>
@@ -195,7 +204,11 @@
                 <details open={agr.open}>
                   <summary>
                     <button class={seleccion.agrId === agr.id ? 'activo' : ''} on:click={() => seleccionarAgrupacion(agr.id)}>
-                      {agr.nombre}
+                      <span class="originario">{agr.nombre}</span>
+                      {#if !! agr.nombreCastellanizado}
+                        <span class="castellanizado"> ({agr.nombreCastellanizado})</span>
+                         <!-- content here -->
+                      {/if}
                     </button>
                   </summary>
                   <ul>
@@ -204,7 +217,11 @@
                       <li class="variante" style="border-color: {vari.color}">
                         <b>-</b>
                         <button class={seleccion.varId === vari.id ? 'activo' : ''} on:click={() => seleccionarVariante(vari.id)}>
-                          {vari.nombre}
+                          <span class="originario">{vari.nombre}</span>
+                          {#if !! vari.nombreCastellanizado}
+                            <span class="castellanizado"> ({vari.nombreCastellanizado})</span>
+                            <!-- content here -->
+                          {/if}
                         </button>
                       </li>
                     {/each}

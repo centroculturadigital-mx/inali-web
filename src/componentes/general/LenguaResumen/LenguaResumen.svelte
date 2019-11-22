@@ -179,6 +179,10 @@
     fill: green;
     color: green;
   }
+
+  p {
+    white-space: pre-line;
+  }
 </style>
 
 {#if lengua}
@@ -199,21 +203,13 @@
         {:else if !!lengua.NOM_VAR}Variante{/if}
       </p>
       <h2 class="TituloTarjetaResumen" >
-        {#if !!lengua.NOM_FAM}
-          {lengua.NOM_FAM}
-        {:else if !!lengua.NOM_AGRUP}
-          {lengua.NOM_AGRUP}
-        {:else if !!lengua.NOM_VAR}{lengua.NOM_VAR}{/if}
+          {lengua.nombreOriginario ? lengua.nombreOriginario : lengua.nombreCastellanizado}
       </h2>
-      <!--  -->
-      <!-- titulo 2 variante  -->
-      <h2 class="SubTitulo">
-
-        {#if lengua.NOM_VAR}
-        {lengua.NOM_VAR}{/if}
-
-      </h2>
-      <!--  -->
+      {#if !! lengua.nombreOriginario}
+        <h3 class="TituloTarjetaResumen">
+            {lengua.nombreCastellanizado}
+        </h3>
+      {/if}
       <!-- familia numero agrupaciones -->
       {#if lengua.NOM_FAM}
         <p class="NumeroAgrupaciones">
@@ -262,6 +258,16 @@
         {/if}
         <!--  caja Riesgo Variantes -->
         {#if lengua.NOM_VAR}
+          {#if !! lengua.otrosNombres}
+            <p>
+              {lengua.otrosNombres}
+            </p>
+          {/if}
+          {#if !! lengua.transcripcionFonetica}
+            <p>
+              {lengua.transcripcionFonetica}
+            </p>
+          {/if}
           <p
             class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
             <span>
@@ -286,9 +292,9 @@
       </section>
       <p class="Informacion">
 
-        {#if !!lengua.informacion}
+        {#if !!lengua.informacion || !!lengua.comunidades}
 
-          {extractoTexto(lengua.informacion,28,' ... ')}
+          {extractoTexto(lengua.informacion || lengua.comunidades,28,' ... ')}
        
         {:else}
           <!--funcion: conseguirDatoDeAncestro() -->

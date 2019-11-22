@@ -158,6 +158,18 @@
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
   }
+  .Nombre2 {
+    font-weight: Bold;
+    /* color: #fbb634; */
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .Nombre3 {
+    font-weight: Bold;
+    /* color: #fbb634; */
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
   .NombreCastellano {
     font-weight: lighter;
     /* color: #fcc745; */
@@ -346,6 +358,18 @@
   <h1 class="Nombre" style={`color: #${lengua.color}`}>
       { lengua.nombre }
   </h1>
+  {#if !! lengua.nombreCastellanizado}
+    <h3 class="Nombre2" style={`color: #${lengua.color}`}>
+      { lengua.nombreCastellanizado }
+    </h3>
+     <!-- content here -->
+  {/if}
+  {#if !! lengua.otrosNombres}
+    <h5 class="Nombre3" style={`color: #${lengua.color}`}>
+      { lengua.otrosNombres }
+    </h5>
+     <!-- content here -->
+  {/if}
   <!-- 
   <div class="DetalleNumeroHablantes">
     <p>Numero de hablantes:</p>
