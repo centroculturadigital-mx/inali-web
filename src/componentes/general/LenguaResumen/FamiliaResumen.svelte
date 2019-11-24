@@ -80,7 +80,13 @@
       {@html IconoAgrupacion}
     </span>
     {#if !!lengua.agrupaciones.length}
-      {lengua.agrupaciones.length} Agrupaciones linguísticas
+      {
+        lengua.agrupaciones.length > 1
+        ? 
+        lengua.agrupaciones.length + " Agrupaciones linguísticas"
+        :
+        lengua.agrupaciones.length + " Agrupación linguística"
+      } 
     {/if}
   </p>
 </section>
@@ -89,7 +95,7 @@
 
   {#if !!lengua.informacion}
 
-    {extractoTexto(lengua.informacion,7,' ... ')}
+    {extractoTexto(lengua.informacion,12,' ... ')}
   
   {/if}
 </p>

@@ -177,7 +177,19 @@
   const calculaLenguaDetalle = selec => {
     if (selec.famId) {
       // console.log("Detalle para", selec.famId);
-      return familias.find(f => f.id === selec.famId);
+      let l = familias.find(f => f.id === selec.famId)
+      l.agrupacionesInfo = l.agrupaciones.map(
+        a => {
+          let agr = agrupaciones.find(agr=>agr.id==a)
+          let agrupacionInfo = {
+            id: agr.id,
+            nombre: agr.nombreOriginario || agr.nombreCastellanizado
+          }
+          return agrupacionInfo            
+        }
+      )
+      return l
+
     } else if (selec.agrId) {
       // console.log("Detalle para", selec.agrId);
       return agrupaciones.find(a => a.id === selec.agrId);

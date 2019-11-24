@@ -7,7 +7,10 @@
 
   //   const dispatch = createEventDispatcher();
 
+  export let abrirLengua;
+  
   export let lengua;
+
 
   const cerrar = event => {
     // dispatch("cerrar");
@@ -408,8 +411,7 @@
   {#if !!lengua.variantes}
     <ul class="DetalleLista">
       {#each lengua.variantes as variante}
-        <li>
-          <!-- <li on:click={verHijoDetalle}> -->
+        <li on:click={() => abrirLengua(variante)}>
           <h4>{variante.NOM_VAR}</h4>
           <i class="fa fa-arrow-circle-right" />
         </li>

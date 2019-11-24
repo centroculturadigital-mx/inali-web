@@ -8,6 +8,20 @@
 
   const dispatch = createEventDispatcher();
 
+  const colores = [
+    "E6AA30",
+    "F45C92",
+    "D31A27",
+    "7D8796",
+    "5EA279",
+    "6D6DB3",
+    "4B84FA",
+    "48CBFF",
+    "877477",
+    "F46E7E",
+    "986293"
+  ]
+
   const deseleccionar = event => {
     dispatch("deseleccionar");
   };
@@ -165,6 +179,11 @@
     font-weight: lighter;
     opacity: 0.8;
   }
+
+  .Whipala {
+    height: 2px;
+    display: flex;
+  }
 </style>
 
 <div class="BarraOcultar">
@@ -178,7 +197,14 @@
 
   {#if seleccion.famId || seleccion.agrId || seleccion.varId}
     <div id="MostrarTodas">
-      <button on:click={deseleccionar}>Mostrar Todas</button>
+      <button on:click={deseleccionar}>
+        Mostrar Todas
+        <div class="Whipala">
+          {#each colores as color}
+            <div style={`background-color: ${color}`}></div>
+          {/each}
+        </div>
+      </button>
     </div>
   {/if}
   <ul>

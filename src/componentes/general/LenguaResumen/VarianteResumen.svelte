@@ -113,11 +113,3 @@
   </p>
 
 </section>
-
-<p class="Informacion">
-  {#if !!lengua.informacion}
-
-    { extractoTexto(lengua.informacion,7,' ... ') }
-  
-  {/if}
-</p>

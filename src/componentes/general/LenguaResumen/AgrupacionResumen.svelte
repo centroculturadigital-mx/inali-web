@@ -122,7 +122,7 @@
 
   {#if !!lengua.informacion}
 
-    {extractoTexto(lengua.informacion,7,' ... ')}
+    {extractoTexto(lengua.informacion,12,' ... ')}
   
   {/if}
 </p>
