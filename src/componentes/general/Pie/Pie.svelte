@@ -1,7 +1,11 @@
 <script>
+<<<<<<< HEAD
 // const Logotipos = ['gobierno.cultura.inah.svg','logo.imer.svg','logo.inali.svg','logo.ccd.svg','logo.fonoteca.svg', 'logo.cenidim.svg','logo.cid.svg','logo.chihuahua.svg','logo.pacmyc.svg']
 const Logotipos = ['logoGobierno.svg','logoCultura.svg','logoInah.svg','logoImer.svg','logoInali.png','logoCcd.svg','logoFonoteca.svg', 'logoInpi.svg','logoCenidim.png','logoCulturaUnam.png','logoCid.svg','logoPacmyc.svg']
 
+=======
+const Logotipos = ['logoGobierno.svg','logoCultura.svg','logoInah.svg','logoImer.svg','logoInali.png','logoCcd.svg','logoFonoteca.svg', 'logoInpi.svg','logoCenidim.png','logoCulturaUnam.png','logoCid.svg','logoPacmyc.svg']
+>>>>>>> 65e95747c177ba68423f8eb210f2315008b7d7b3
 </script>
 
 <style>

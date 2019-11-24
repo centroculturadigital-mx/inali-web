@@ -151,6 +151,7 @@
    border: 1px solid #000;
     color: #000;
   }
+<<<<<<< HEAD
   .variante button {
     cursor: pointer;
     color: #465d72;
@@ -165,6 +166,8 @@
     font-weight: lighter;
     opacity: 0.8;
   }
+=======
+>>>>>>> 65e95747c177ba68423f8eb210f2315008b7d7b3
 
 @media  (max-width: 575.98px) {
   aside { 
@@ -229,6 +232,10 @@
   }
   
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 65e95747c177ba68423f8eb210f2315008b7d7b3
 </style>
 
 <div class="BarraOcultar">

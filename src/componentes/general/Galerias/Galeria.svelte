@@ -44,9 +44,6 @@
     width: 100%;
     height: auto;
   }
-  .Creditos {
-    font-size: 0.7em;
-  }
 
 @media  (max-width: 320px) {
   .Galeria ul {
