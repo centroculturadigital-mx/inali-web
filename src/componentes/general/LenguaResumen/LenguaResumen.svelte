@@ -81,7 +81,7 @@
     top: 4rem;
     left: 22rem;
     width: 18rem;
-    min-height: 18rem;
+    /* min-height: 18rem; */
     background-color: rgba(236, 236, 236, 0.9);
     border-radius: 0.5rem;
     display: flex;
@@ -242,7 +242,7 @@
 {#if lengua}
 
 <!-- Ventana minimizada -->
-  {#if minimizado != false}
+  {#if minimizado }
     
     <section class="CardMinimizada card" transition:slide={{ duration: 500 }}>
       <header
