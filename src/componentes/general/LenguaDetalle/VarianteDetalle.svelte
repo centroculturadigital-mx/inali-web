@@ -15,21 +15,18 @@
 
   // <!--funcion: conseguirDatoDeAncestro() -->
 
-  const cerrarGaleria = event => {
-    ventanaGaleria = event.detail.cierra;
+  let ventanaGaleria = null;
+
+  const abreGaleria = tipo => {
+    ventanaGaleria = tipo;
   };
 
+  const cerrarGaleria = event => {
+    ventanaGaleria = null;
+  };
+  
   $: console.log("lenguaDetalle", lengua);
 
-  const abreGaleria = e => {
-    if (e.target.classList.contains("Audio")) {
-      ventanaGaleria = "audios";
-    } else if (e.target.classList.contains("Foto")) {
-      ventanaGaleria = "fotos";
-    } else if (e.target.classList.contains("Textil")) {
-      ventanaGaleria = "textiles";
-    }
-  };
 
   const contenidoFake = {
     descripcion:
@@ -275,6 +272,14 @@
     text-align: center;
     width: 85%;
   }
+
+  
+  
+
+
+
+
+
   .DetalleBotonesGaleria {
     display: flex;
     justify-content: space-evenly;
@@ -300,12 +305,15 @@
   .IconoBotonGaleria {
     display: flex;
     justify-content: center;
-    min-height: 3rem;
+    height: 3rem;
   }
   .TextoBotonGaleria {
     text-align: center;
     color: #fff;
   }
+
+
+  
   .DetalleTextoDescripcion {
     padding: 0 1rem;
   }
@@ -396,3 +404,56 @@
   </div>
 
 </header>
+
+
+
+<div class="DetalleBotonesGaleria">
+  <!-- 
+  -->
+  {#if !!Array.isArray(lengua.audios) && lengua.audios.length > 0}
+    <button class="BotonGaleria Audio" on:click={() => abreGaleria('audios')}>
+      <div class="IconoBotonGaleria">
+        <img src={IconoAudios} alt="Icono Boton Audios INALI" />
+      </div>
+      <div class="TextoBotonGaleria ">AUDIOS</div>
+    </button>
+  {/if}
+  {#if !!Array.isArray(lengua.fotografias) && lengua.fotografias.length > 0}
+    <button class="BotonGaleria Foto" on:click={() => abreGaleria('fotos')}>
+      <div class="IconoBotonGaleria ">
+        <img src={IconoFotos} alt="Icono Boton Fotos INALI" />
+      </div>
+      <div class="TextoBotonGaleria">FOTOS</div>
+    </button>
+  {/if}
+  {#if !!Array.isArray(lengua.textiles) && lengua.textiles.length > 0}
+    <button
+      class="BotonGaleria Textil"
+      on:click={() => abreGaleria('textiles')}>
+      <div class="IconoBotonGaleria ">
+        <img src={IconoTextiles} alt="Icono Boton Textiles INALI" />
+      </div>
+      <div class="TextoBotonGaleria">TEXTILES</div>
+    </button>
+  {/if}
+</div>
+
+
+
+<!-- Informacion -->
+<div class="DetalleTextoDescripcion">
+  <p class="descripcion">
+    {lengua.comunidades}
+  </p>
+</div>
+
+
+<!-- Galerias  -->
+{#if ventanaGaleria === 'audios'}
+  <AudiosContenedor audios={lengua.audios} on:click={cerrarGaleria} />
+{:else if ventanaGaleria === 'fotos'}
+  <Fotos imagenes={lengua.fotografias} on:click={cerrarGaleria} />
+{:else if ventanaGaleria === 'textiles'}
+  <Textiles imagenes={lengua.textiles} on:click={cerrarGaleria} />
+{/if}
+<!--  -->

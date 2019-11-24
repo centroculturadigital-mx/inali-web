@@ -291,6 +291,7 @@
     text-align: center;
     width: 85%;
   }
+  
   .DetalleBotonesGaleria {
     display: flex;
     justify-content: space-evenly;
@@ -411,32 +412,6 @@
   </p>
 </div>
 
-<div class="DetalleBotonesGaleria">
-  <!-- <button class="BotonGaleria Audio" on:click={abreGaleria}>
-    <div class="IconoBotonGaleria">
-      <img src={IconoAudios} alt="Icono Boton Audios INALI" />
-    </div>
-    <div class="TextoBotonGaleria ">AUDIOS</div>
-  </button> -->
-
-  <!-- {#if Array.isArray(lengua.fotografias) && lengua.fotografias.length > 0 }
-
-  <button class="BotonGaleria Foto" on:click={abreGaleria}>
-    <div class="IconoBotonGaleria ">
-      <img src={IconoFotos} alt="Icono Boton Fotos INALI" />
-    </div>
-    <div class="TextoBotonGaleria">FOTOS</div>
-  </button>
-
-  {/if} -->
-
-  <!-- <button class="BotonGaleria Textil" on:click={abreGaleria}>
-    <div class="IconoBotonGaleria ">
-      <img src={IconoTextiles} alt="Icono Boton Textiles INALI" />
-    </div>
-    <div class="TextoBotonGaleria">TEXTILES</div>
-  </button> -->
-</div>
 
 <div class="DetalleFamiliaAgrupacion">
   {#if !!lengua.agrupaciones}
