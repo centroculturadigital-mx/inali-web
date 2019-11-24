@@ -1,6 +1,6 @@
 <script>
   //   import LightBox from "../LightBox/LightBox.svelte";
-
+  import escalarImagenCloudinary from "../../../funciones/escalarImagenCloudinary.js"
   export let imagenes;
   export let lightboxAbrir;
 
@@ -52,33 +52,35 @@
 <section class="Galeria">
   <ul>
     {#each imagenes as imagen, i ('imagen_' + i)}
-      <article>
+      {#if imagen.creditos}
+        <article>
 
-        <img
-          on:click={() => lightboxAbrir(i)}
-          class="Imagen"
-          src={imagen.url}
-          alt="Fotos INALI" />
+          <img
+            on:click={() => lightboxAbrir(i)}
+            class="Imagen"
+            src={escalarImagenCloudinary(imagen.url)}
+            alt="Fotos INALI" />
 
-          <div class="Contenido">
-            <div class="Titulo">
-              {imagen.titulo || imagen.nombre}
+            <div class="Contenido">
+              <div class="Titulo">
+                {imagen.titulo || imagen.nombre}
+              </div>
+              <div class="Creditos">
+                © {imagen.creditos}
+              </div>
+              <!-- {#if imagen.tipo == "imagen"}
+
+                <span>
+                  {imagen.metadatos.titulo}
+                </span>
+              {:else if imagen.tipo == "textil"}
+                <span>
+                  {imagen.metadatos.nombreDelProducto}
+                </span>
+              {/if} -->
             </div>
-            <div class="Creditos">
-              © {imagen.creditos}
-            </div>
-            <!-- {#if imagen.tipo == "imagen"}
-
-              <span>
-                {imagen.metadatos.titulo}
-              </span>
-            {:else if imagen.tipo == "textil"}
-              <span>
-                {imagen.metadatos.nombreDelProducto}
-              </span>
-            {/if} -->
-          </div>
-      </article>
+        </article>
+      {/if}
     {/each}
   </ul>
 </section>
