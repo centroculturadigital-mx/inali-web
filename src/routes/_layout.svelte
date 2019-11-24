@@ -19,7 +19,7 @@
 	let siguientesImagenes;
 	let goToLightbox
 
-	let ingreso = false
+	let ingreso = true
 	
 	const abrir = i => {
 		goToLightbox = null;
@@ -67,8 +67,23 @@
 	}
 
 	#form-ingreso {
-		margin-top: 100px;
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
 	}
+
+	#form-ingreso button,
+	input {
+		background-color: none;
+		padding: 0.5rem;
+		border: 1px solid #eee;
+		border-radius: .25rem;
+		margin-bottom: 1rem;
+	}
+
 
 </style>
 <Cabecera {segment}/>

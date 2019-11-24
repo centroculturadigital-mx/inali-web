@@ -81,7 +81,7 @@
     top: 4rem;
     left: 22rem;
     width: 18rem;
-    height: 21rem;
+    min-height: 18rem;
     background-color: rgba(236, 236, 236, 0.9);
     border-radius: 0.5rem;
     display: flex;
@@ -100,7 +100,7 @@
   }
   .ResumenInformacionAgrupacion {
     font-size: 1rem;
-    height: 15rem;
+    /* height: 15rem; */
     overflow-y: auto;
   }
   .SaberMas {
@@ -158,7 +158,7 @@
     height: 3rem;
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
   }
   footer:hover {
@@ -172,12 +172,11 @@
     fill: green;
     color: green;
   }
-  p {
-    white-space: pre-line;
-  }
+  
+  
   .BotonesMedia {
     display: block;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
     left: 0;
     height: 5rem;
@@ -232,7 +231,7 @@
     margin-top: 0.25rem;
   }
   .Contenido {
-    height: calc(100% - 3rem);
+    /* height: calc(100% - 3rem); */
     position: relative;
   }
   .HeaderMinimizado {
@@ -256,7 +255,7 @@
            <p>Agrupación: <b>{lengua.NOM_AGRUP}</b></p>
           {:else if !!lengua.NOM_VAR}
            <p>Variante: <b>{lengua.NOM_VAR}</b></p>
-        {/if}
+          {/if}
           <span on:click={minimiza}>
             <img src={iconoMaximiza} alt="Maximiza" />
           </span>

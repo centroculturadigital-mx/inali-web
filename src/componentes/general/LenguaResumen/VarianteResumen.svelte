@@ -1,5 +1,5 @@
 <script>
-//   import extractoTexto from "./extractos.js";
+  import extractoTexto from "./extractos.js";
 
   export let lengua;
   export let color;
@@ -24,6 +24,7 @@
     font-size: 1rem;
   }
   .TituloTarjetaResumen {
+    font-size: 1.25rem;
     text-align: center;
     font-weight: 600;
     font-weight: bold;
@@ -33,6 +34,20 @@
   .InformacionRelevante {
     margin-bottom: 0.5rem;
   }
+
+  .InformacionRelevante .Nombres {
+    margin: .5rem 0;    
+    text-align: center;
+  }
+  .InformacionRelevante .Nombres * {
+    font-size: .85rem;
+    margin: 0;    
+    margin-bottom: 0.25rem;
+  }
+  .InformacionRelevante .Nombres *:last-child {
+    margin-bottom: 0;
+  }
+
   .RiesgoDesaparicion {
     display: flex;
     color: rgb(219, 4, 4);
@@ -46,6 +61,7 @@
   .Informacion {
     margin: 0;
     padding-bottom: 1rem;
+    font-size: 0.85rem;
   }
   .FamiliaPertenece {
     color: rgba(61, 61, 61, 1);
@@ -69,12 +85,14 @@
 <p class="NombreFamilia">Variante</p>
 <h2 class="TituloTarjetaResumen">{lengua.nombreOriginario || lengua.nombreCastellanizado}</h2>
 <section class="InformacionRelevante">
-  {#if lengua.otrosNombres}
-    <p>{lengua.otrosNombres}</p>
-  {/if}
-  {#if lengua.transcripcionFonetica}
-    <p>{lengua.transcripcionFonetica}</p>
-  {/if}
+  <div class="Nombres">
+    {#if lengua.otrosNombres}
+      <p>{lengua.otrosNombres}</p>
+    {/if}
+    {#if lengua.transcripcionFonetica}
+      <p>{lengua.transcripcionFonetica}</p>
+    {/if}
+  </div>
   <p class="RiesgoDesaparicion {riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
     <span>
       {@html RiesgoIcono}
@@ -95,11 +113,11 @@
   </p>
 
 </section>
-<!-- <p class="Informacion">
 
-        {#if !!lengua.informacion}
+<p class="Informacion">
+  {#if !!lengua.informacion}
 
-          {extractoTexto(lengua.informacion,28,' ... ')}
-       
-        {/if}
-      </p> -->
+    { extractoTexto(lengua.informacion,7,' ... ') }
+  
+  {/if}
+</p>

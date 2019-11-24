@@ -1,5 +1,5 @@
 <script>
-//   import extractoTexto from "./extractos.js";
+  import extractoTexto from "./extractos.js";
 
   export let lengua;
   export let color;
@@ -24,6 +24,7 @@
     font-size: 1rem;
   }
   .TituloTarjetaResumen {
+    font-size: 1.25rem;
     text-align: center;
     font-weight: 600;
     font-weight: bold;
@@ -33,6 +34,19 @@
   .InformacionRelevante {
     margin-bottom: 0.5rem;
   }
+  .InformacionRelevante .Nombres {
+    margin: .5rem 0;    
+    text-align: center;
+  }
+  .InformacionRelevante .Nombres * {
+    font-size: .85rem;
+    margin: 0;    
+    margin-bottom: 0.25rem;
+  }
+  .InformacionRelevante .Nombres *:last-child {
+    margin-bottom: 0;
+  }
+
   .RiesgoDesaparicion {
     display: flex;
     color: rgb(219, 4, 4);
@@ -46,6 +60,8 @@
   .Informacion {
     margin: 0;
     padding-bottom: 1rem;
+    font-size: 0.85rem;
+
   }
 
   .FamiliaPertenece {
@@ -102,11 +118,11 @@
   </p>
 
 </section>
-<!-- <p class="Informacion">
+<p class="Informacion">
 
-        {#if !!lengua.informacion}
+  {#if !!lengua.informacion}
 
-          {extractoTexto(lengua.informacion,28,' ... ')}
-       
-        {/if}
-      </p> -->
+    {extractoTexto(lengua.informacion,7,' ... ')}
+  
+  {/if}
+</p>
