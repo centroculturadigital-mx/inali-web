@@ -445,13 +445,14 @@
     <div class="LenguaDetalle">
       <LenguaDetalle lengua={lenguaDetalle} on:cerrar={manejaCierraDetalle} on:seleccionar={manejaSeleccion}/>
     </div>
-  {/if}
-  {#if muestraResumen && !!lenguaDetalle}
-    <div class="LenguaResumen">
-      <LenguaResumen
-        lengua={lenguaDetalle}
-        on:cerrar={manejaLimpiaFiltro}
-        on:vermas={manejaVerDetalle} />
-    </div>
+  {:else}
+    {#if muestraResumen && !!lenguaDetalle}
+      <div class="LenguaResumen">
+        <LenguaResumen
+          lengua={lenguaDetalle}
+          on:cerrar={manejaLimpiaFiltro}
+          on:vermas={manejaVerDetalle} />
+      </div>
+    {/if}
   {/if}
 </div>
