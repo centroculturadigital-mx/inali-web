@@ -31,6 +31,14 @@
     margin-bottom: 0.5rem;
     text-transform: capitalize;
   }
+  .SubTituloTarjetaResumen {
+    text-align: center;
+    font-weight: 400;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+  }
+
   .InformacionRelevante {
     margin-bottom: 0.5rem;
   }
@@ -83,7 +91,15 @@
 </style>
 
 <p class="NombreFamilia">Variante</p>
-<h2 class="TituloTarjetaResumen">{lengua.nombreOriginario || lengua.nombreCastellanizado}</h2>
+
+
+<h2 class="TituloTarjetaResumen">{lengua.nombreOriginario || lengua.nombre || lengua.nombreCastellanizado}</h2>
+{#if lengua.nombreOriginario}
+  <h4 class="SubTituloTarjetaResumen">{lengua.nombreCastellanizado}</h4>
+   <!-- content here -->
+{/if}
+
+
 <section class="InformacionRelevante">
   <div class="Nombres">
     {#if lengua.otrosNombres}
