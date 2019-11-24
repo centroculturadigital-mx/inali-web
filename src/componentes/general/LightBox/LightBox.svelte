@@ -140,18 +140,21 @@
   {#if contents.length > 0}
     <Carousel perPage={{ perParge: 1 }} {go}>
 
-      {#each contents as content, i ('content_' + i)}
-        {#if content.tipo == 'imagen' || !content.tipo}
-          <img src={content.url}/>
-          <!-- <img src={content.url} alt={content.metadatos.nombre} /> -->
-          <!-- <img src={content.full} alt={content.metadatos.nombre} /> -->
-          <!-- <FotosMetadatos metadatos={content.metadatos}/> -->
-        {/if}
-        {#if content.tipo == 'textil' || !content.tipo}
-          <img src={content.url} />
-          <!-- <img src={content.url} alt={content.metadatos.nombreDelProducto} /> -->
-          <!-- <Metadatos metadatos={content.metadatos} tipo={content.tipo}/> -->
-        {/if}
+      {#each contents as content, i ('content_' + content.tipo + i+ Math.random() )}
+        <div>
+          {#if content.tipo == 'imagen' || !content.tipo}
+            <img src={content.url}/>
+            <!-- <img src={content.url} alt={content.metadatos.nombre} /> -->
+            <!-- <img src={content.full} alt={content.metadatos.nombre} /> -->
+            <!-- <FotosMetadatos metadatos={content.metadatos}/> -->
+          {/if}
+          {#if content.tipo == 'textil'}
+            <img src={content.url} />
+            <!-- <img src={content.url} alt={content.metadatos.nombreDelProducto} /> -->
+            <!-- <Metadatos metadatos={content.metadatos} tipo={content.tipo}/> -->
+          {/if}
+
+        </div>
       {/each}
 
     </Carousel>

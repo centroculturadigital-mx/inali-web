@@ -153,6 +153,7 @@
     background-color: rgba(70, 93, 114, 0.1);
   }
   #MostrarTodas button {
+    position: relative;
     background-color: transparent;
     border: 0.5px solid #465d72;
     color: #465d72;
@@ -180,10 +181,29 @@
     opacity: 0.8;
   }
 
-  .Whipala {
-    height: 2px;
+  .Colores {
+    position: absolute;
+
+    height: 3px;
     display: flex;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
   }
+  .Colores div {
+    display: block;
+    flex-grow: 1;
+    /* width: 10px; */
+  }
+  /* .Colores div:first-child {
+    border-top-left-radius: 50% ;
+  }
+  .Colores div:last-child {
+    border-top-right-radius: 50% ;
+  } */
 </style>
 
 <div class="BarraOcultar">
@@ -198,10 +218,12 @@
   {#if seleccion.famId || seleccion.agrId || seleccion.varId}
     <div id="MostrarTodas">
       <button on:click={deseleccionar}>
-        Mostrar Todas
-        <div class="Whipala">
+        <span>
+          Mostrar Todas
+        </span>
+        <div class="Colores">
           {#each colores as color}
-            <div style={`background-color: ${color}`}></div>
+            <div style={`background-color: #${color}`}></div>
           {/each}
         </div>
       </button>

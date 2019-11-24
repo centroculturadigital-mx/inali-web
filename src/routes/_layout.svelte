@@ -50,8 +50,21 @@
 	})
 	// onMount(()=>{
 	// })
+	let imagenesLightbox
+	
+	const actualizarImagenes = imgs => {
+	
+		imagenesLightbox = null
 
-	$: imagenesLightbox = siguientesImagenes;
+		setTimeout(()=>{
+			imagenesLightbox = imgs
+			
+		},500)
+
+
+	}
+
+	$: actualizarImagenes(siguientesImagenes);
 	$: goLightbox = goToLightbox;
 	$: console.log(goToLightbox);
 	$: console.log(goLightbox);
@@ -109,5 +122,5 @@
 
 
 {#if !! imagenesLightbox }
-<LightBox content={imagenesLightbox} go={goLightbox} />
+	<LightBox content={imagenesLightbox} go={goLightbox} />
 {/if}
