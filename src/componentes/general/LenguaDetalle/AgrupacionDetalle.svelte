@@ -313,7 +313,7 @@
   <h3 class="DetalleTituloTop">Agrupación</h3>
 
     <h1 class="Nombre" style={`color: #${lengua.color}`}>
-      { lengua.nombreOriginario || lengua.castellanizado }
+      { lengua.nombreOriginario || lengua.nombreCastellanizado }
     </h1>
     {#if !! lengua.nombreOriginario}
       <h3 class="Nombre2" style={`color: #${lengua.color}`}>

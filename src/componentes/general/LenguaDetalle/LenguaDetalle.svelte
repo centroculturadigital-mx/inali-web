@@ -76,7 +76,6 @@
   let lenguaVista
   
   const seleccionar = (id,tipo) => {
-    console.log("seleccionar", { id, tipo });
     dispatch("seleccionar", { id, tipo });
   }
   
@@ -308,6 +307,21 @@
       width: 100%;
     }
   }
+
+  
+  .Breadcrumb {
+    padding: 1rem .5rem;
+  }
+  .Breadcrumb span {
+    cursor: pointer;
+  }
+  .Breadcrumb span {
+    font-weight: 400;
+    font-size: 0.75rem;
+    background-color: lightgray;
+    border-radius: 50px;
+    padding: 0.25rem 0.5rem;
+  }
 </style>
 
 <section class="DetalleContenedor" transition:fade={{ x: 500, duration: 750 }}>
@@ -321,7 +335,8 @@
       {#if !! lengua.NOM_FAM }
         <FamiliaDetalle lengua={lengua} on:click={cerrar} seleccionar={seleccionar}>
           <div class="Breadcrumb">
-            <span on:click>mapa ></span>
+            <span on:click={deseleccionar}>Mapa</span>
+            >
             <span>{lengua.nombreOriginario || lengua.nombreCastellanizado}</span>
           </div>
         </FamiliaDetalle>
@@ -329,8 +344,9 @@
       {#if !! lengua.NOM_AGRUP }
         <AgrupacionDetalle lengua={lengua} on:click={cerrar} seleccionar={seleccionar}>
           <div class="Breadcrumb">
-            <span on:click>mapa ></span>
-            <span>{lengua.familiaInfo.nombre}</span>
+            <span on:click={deseleccionar}>Mapa</span>
+            >
+            <span on:click={()=>seleccionar(lengua.familiaInfo.id,'familia')}>{lengua.familiaInfo.nombre}</span>
             >
             <span>{lengua.nombreOriginario || lengua.nombreCastellanizado}</span>
           </div>
@@ -339,10 +355,11 @@
       {#if !! lengua.NOM_VAR }
         <VarianteDetalle lengua={lengua} on:click={cerrar}>
           <div class="Breadcrumb">
-            <span on:click>mapa ></span>
-            <span>{lengua.familiaInfo.nombre}</span>
+            <span on:click={deseleccionar}>Mapa</span>
             >
-            <span>{lengua.agrupacionInfo.nombre}</span>
+            <span on:click={()=>seleccionar(lengua.familiaInfo.id,'familia')}>{lengua.familiaInfo.nombre}</span>
+            >
+            <span on:click={()=>seleccionar(lengua.agrupacionInfo.id,'agrupacion')}>{lengua.agrupacionInfo.nombre}</span>
             >
             <span>{lengua.nombreOriginario || lengua.nombreCastellanizado}</span>
           </div>

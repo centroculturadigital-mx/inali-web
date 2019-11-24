@@ -14,15 +14,15 @@
   import MapaMarcador from "../Mapa/MapaMarcador.svelte";
 
   export let cierraVentanaFiltro;
-  let estadoInicialventanaFiltro = "abierto";
+  let estadoInicialVentanaFiltro = "abierto";
   // const iconoFiltro = "icono.inicial.filtro.svg";
   let IconoFiltros = "icono-filtros.svg";
 
   const abreVentana = () => {
-    estadoInicialventanaFiltro = "abierto";
+    estadoInicialVentanaFiltro = "abierto";
   };
   const cierraVentana = () => {
-    estadoInicialventanaFiltro = "cerrado";
+    estadoInicialVentanaFiltro = "cerrado";
   };
 
   // Variables ara importación dinámica (síncrona) dentro de onMount()
@@ -158,6 +158,8 @@
       zoom: mapaInicio.zoom,
       speed: 0.6,
     });
+
+    muestraFiltro = true;
   };
 
   const manejaVerDetalle = () => {
@@ -418,7 +420,7 @@
   {#if muestraFiltro && !!familias && famArbol}
     <div class="LenguasFiltro">
 
-      {#if estadoInicialventanaFiltro === 'cerrado'}
+      {#if estadoInicialVentanaFiltro === 'cerrado'}
         <button
           class="FiltroIcono"
           on:click={abreVentana}
@@ -428,7 +430,7 @@
             Filtros
           </span>
         </button>
-      {:else if estadoInicialventanaFiltro === 'abierto'}
+      {:else if estadoInicialVentanaFiltro === 'abierto'}
         <div>
           <LenguasFiltro
             arbol={famArbol}
@@ -443,7 +445,12 @@
 
   {#if muestraDetalle && !!lenguaDetalle}
     <div class="LenguaDetalle">
-      <LenguaDetalle lengua={lenguaDetalle} on:cerrar={manejaCierraDetalle} on:seleccionar={manejaSeleccion}/>
+      <LenguaDetalle
+      lengua={lenguaDetalle}
+      on:cerrar={manejaCierraDetalle}
+      on:seleccionar={manejaSeleccion}
+      on:deseleccionar={manejaLimpiaFiltro}
+      />
     </div>
   {:else}
     {#if muestraResumen && !!lenguaDetalle}

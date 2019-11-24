@@ -105,17 +105,7 @@
     top: 3.25rem;
     left: 1rem;
   }
-  .DetalleContenidosNavegacion span {
-    cursor: pointer;
-    margin-left: 0.5rem;
-  }
-  .DetalleContenidosNavegacion a {
-    font-weight: 400;
-    font-size: 0.75rem;
-    background-color: lightgray;
-    border-radius: 50px;
-    padding: 0.25rem 0.5rem;
-  }
+  
   #DetalleCerrar {
     font-size: 0.75rem;
     font-weight: lighter;
