@@ -314,12 +314,9 @@
 <header>
 
   <nav class="DetalleContenidosNavegacion">
-    <div class="Breadcrumb">
-      <span on:click>mapa ></span>
-      <a href="../">{lengua.familiaId}</a>
-      <a href="../">{lengua.agrupacionId}</a>
-      <a href="../">{lengua.nombreOriginario || lengua.nombreCastellanizado}</a>
-    </div>
+    
+    <slot/>
+
     <button id="DetalleCerrar" on:click>
       <span>Cerrar</span>
       <img src={IconoCerrar} alt="Cerrar Ventana" />
@@ -330,8 +327,6 @@
   <h3 class="DetalleTituloTop">Variante</h3>
 
   <!-- Titulo -->
-  <h1 class="Nombre" style={`color: #${lengua.color}`}>{lengua.nombre}</h1>
-
     <!-- Titulo -->
     <h1 class="Nombre" style={`color: #${lengua.color}`}>
       { lengua.nombreOriginario || lengua.nombreCastellanizado }

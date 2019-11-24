@@ -56,6 +56,8 @@
 
   // Lengua
   $: lenguaDetalle = calculaLenguaDetalle(seleccion);
+  $: console.log(lenguaDetalle)
+  
   // $: lenguaResumen = calculaLenguaResumen(seleccion)
 
   //
@@ -191,11 +193,48 @@
       return l
 
     } else if (selec.agrId) {
+      
+      let l = agrupaciones.find(a => a.id === selec.agrId);
+
+      let fam = familias.find(f => f.id === l.familiaId);
+     
+      l.familiaInfo = {
+        id: fam.id,
+        nombre: fam.nombreOriginario || fam.nombreCastellanizado
+      }
+
+      l.variantesInfo = l.variantes.map(
+        a => {
+          let agr = variantes.find(agr=>agr.id==a)
+          let agrupacionInfo = {
+            id: agr.id,
+            nombre: agr.nombreOriginario || agr.nombreCastellanizado
+          }
+          return agrupacionInfo            
+        }
+      )
+
+      return l
       // console.log("Detalle para", selec.agrId);
-      return agrupaciones.find(a => a.id === selec.agrId);
     } else if (selec.varId) {
       // console.log("Detalle para", selec.varId);
-      return variantes.find(v => v.id === selec.varId);
+      
+      let l = variantes.find(v => v.id === selec.varId);
+
+      let fam = familias.find(f => f.id === l.familiaId);     
+      let agr = agrupaciones.find(a => a.id === l.agrupacionId);     
+
+      l.familiaInfo = {
+        id: fam.id,
+        nombre: fam.nombreOriginario || fam.nombreCastellanizado
+      }
+      l.agrupacionInfo = {
+        id: agr.id,
+        nombre: agr.nombreOriginario || agr.nombreCastellanizado
+      }
+      
+      return l
+
     } else {
       return null;
     }
@@ -404,7 +443,7 @@
 
   {#if muestraDetalle && !!lenguaDetalle}
     <div class="LenguaDetalle">
-      <LenguaDetalle lengua={lenguaDetalle} on:cerrar={manejaCierraDetalle} />
+      <LenguaDetalle lengua={lenguaDetalle} on:cerrar={manejaCierraDetalle} on:seleccionar={manejaSeleccion}/>
     </div>
   {/if}
   {#if muestraResumen && !!lenguaDetalle}

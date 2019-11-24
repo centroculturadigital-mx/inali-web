@@ -4,8 +4,18 @@
   import AudiosContenedor from "../Galerias/AudiosContenedor.svelte";
   import Fotos from "../Galerias/Fotos.svelte";
   import Textiles from "../Galerias/Textiles.svelte";
-
+  
+  
   const dispatch = createEventDispatcher();
+
+
+  const deseleccionar = event => {
+    dispatch("deseleccionar");
+  };
+
+  const seleccionarFamilia = famId => {
+    dispatch("seleccionar", { id: famId, tipo: "familia" });
+  };
   
   import FamiliaDetalle from "./FamiliaDetalle.svelte"
   import AgrupacionDetalle from "./AgrupacionDetalle.svelte"
@@ -65,95 +75,11 @@
 
   let lenguaVista
   
-  const abrirLengua = nuevaLengua => {
-    lengua = nuevaLengua;
-
-    nombre = lengua.nombreOriginario || lengua.nombreCastellanizado
-    nombreCastellanizado = lengua.nombreOriginario ? lengua.nombreCastellanizado : ''
-    otrosNombres = lengua.otrosNombres
-    transcripcionFonetica = lengua.transcripcionFonetica
-    
-    lenguaVista = {
-      ...lengua,
-      nombre,
-      nombreCastellanizado,
-      otrosNombres,
-      transcripcionFonetica,
-      color,
-      riesgo,
-      numeroHablantes,
-    }  
-
-    if( !! lengua.NOM_FAM ) {
-
-      let lenguaAgrupaciones = lengua.agrupaciones.map(id=>agrupaciones.find(ag=>ag.id===id))
-
-      
-
-      lenguaVista = {
-        ...lenguaVista,
-        agrupaciones: lenguaAgrupaciones
-      }  
-      
-      console.log("nueva lengua", lenguaVista);
-
-    }
-
-    if( !! lengua.NOM_AGRUP ) {
-
-      let lenguaVariantes = lengua.variantes.map(id=>variantes.find(ag=>ag.id===id))
-      let lenguaFamilia = familias.find(f=>f.ID_FAM===lengua.ID_FAM)
-      let informacion = !! lengua.informacion ? lengua.informacion : 
-      !! lenguaFamilia.informacion ? lenguaFamilia.informacion : "";
-        
-      lenguaVista = {
-        ...lenguaVista,
-        informacion,
-
-        variantes: lenguaVariantes
-      }  
-
-
-      lengua = lenguaVista
-      
-    }
-
-    if( !! lengua.NOM_VAR ) {
-
-      let lenguaAgrupacion = agrupaciones.find(a=>a.ID_AGRU===lengua.ID_AGRU)
-      let lenguaFamilia = familias.find(f=>f.ID_FAM===lenguaAgrupacion.ID_FAM)
-
-      let informacion = !! lengua.informacion ? lengua.informacion : 
-      !! lenguaAgrupacion.informacion ? lenguaAgrupacion.informacion : 
-      !! lenguaFamilia.informacion ? lenguaFamilia.informacion : "";
-      lenguaVista = {
-        ...lenguaVista,
-        informacion,
-        agrupacion: lenguaAgrupacion,
-        familia: lenguaFamilia,
-      }  
-      
-      console.log("lenguaVista",lenguaVista);
-      
-    }
-
+  const seleccionar = (id,tipo) => {
+    console.log("seleccionar", { id, tipo });
+    dispatch("seleccionar", { id, tipo });
   }
-
-  onMount(async ()=>{
-
-    familias = await import(" ../../../data/familias.json")
-    agrupaciones = await import(" ../../../data/agrupaciones.json")
-    variantes = await import(" ../../../data/variantes.json")
-
-    familias=familias.default
-    agrupaciones=agrupaciones.default
-    variantes=variantes.default
-    
-
-    abrirLengua(lengua)
-
-  })
-
+  
   
 </script>
 
@@ -391,15 +317,36 @@
 
 
 
-    {#if !! lenguaVista }
+    {#if !! lengua }
       {#if !! lengua.NOM_FAM }
-        <FamiliaDetalle lengua={lenguaVista} on:click={cerrar} abrirLengua={abrirLengua}/>
+        <FamiliaDetalle lengua={lengua} on:click={cerrar} seleccionar={seleccionar}>
+          <div class="Breadcrumb">
+            <span on:click>mapa ></span>
+            <span>{lengua.nombreOriginario || lengua.nombreCastellanizado}</span>
+          </div>
+        </FamiliaDetalle>
       {/if}
       {#if !! lengua.NOM_AGRUP }
-        <AgrupacionDetalle lengua={lenguaVista} on:click={cerrar} abrirLengua={abrirLengua}/>
+        <AgrupacionDetalle lengua={lengua} on:click={cerrar} seleccionar={seleccionar}>
+          <div class="Breadcrumb">
+            <span on:click>mapa ></span>
+            <span>{lengua.familiaInfo.nombre}</span>
+            >
+            <span>{lengua.nombreOriginario || lengua.nombreCastellanizado}</span>
+          </div>
+        </AgrupacionDetalle>
       {/if}
       {#if !! lengua.NOM_VAR }
-        <VarianteDetalle lengua={lenguaVista} on:click={cerrar}/>
+        <VarianteDetalle lengua={lengua} on:click={cerrar}>
+          <div class="Breadcrumb">
+            <span on:click>mapa ></span>
+            <span>{lengua.familiaInfo.nombre}</span>
+            >
+            <span>{lengua.agrupacionInfo.nombre}</span>
+            >
+            <span>{lengua.nombreOriginario || lengua.nombreCastellanizado}</span>
+          </div>
+        </VarianteDetalle>
       {/if}
     {/if}
 

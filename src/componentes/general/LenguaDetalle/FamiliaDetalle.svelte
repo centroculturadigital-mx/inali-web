@@ -8,7 +8,7 @@
   import Textiles from "../Galerias/Textiles.svelte";
 
   export let lengua;
-  export let abrirLengua;
+  export let seleccionar;
 
   const cerrar = event => {
     // dispatch("cerrar");
@@ -346,10 +346,9 @@
 
   <!-- NAV  -->
   <nav class="DetalleContenidosNavegacion">
-    <div class="Breadcrumb">
-      <span on:click>mapa ></span>
-      <a href="../">{lengua.nombreOriginario || lengua.nombreCastellanizado}</a>
-    </div>
+    
+    <slot/>
+
     <button id="DetalleCerrar" on:click>
       <span>Cerrar</span>
       <img src={IconoCerrar} alt="Cerrar Ventana" />
@@ -456,9 +455,9 @@
 
   {#if !!lengua.agrupaciones}
     <ul class="DetalleLista">
-      {#each lengua.agrupaciones as agrupacion ('agrupacion_' + agrupacion.id)}
-        <li on:click={() => abrirLengua(agrupacion)}>
-          <h4>{agrupacion.NOM_AGRUP}</h4>
+      {#each lengua.agrupacionesInfo as agrupacion ('agrupacion_' + agrupacion.id)}
+        <li on:click={() => seleccionar(agrupacion.id,'agrupacion')}>
+          <h4>{agrupacion.nombre}</h4>
           <i class="fa fa-arrow-circle-right" />
         </li>
       {/each}

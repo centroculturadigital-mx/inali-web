@@ -7,7 +7,7 @@
 
   //   const dispatch = createEventDispatcher();
 
-  export let abrirLengua;
+  export let seleccionar;
   
   export let lengua;
 
@@ -300,11 +300,9 @@
 <header>
 
   <nav class="DetalleContenidosNavegacion">
-    <div class="Breadcrumb">
-      <span on:click>mapa ></span>
-      <a href="../">{lengua.familiaId}</a>
-      <a href="../">{lengua.nombreOriginario || lengua.nombreCastellanizado}</a>
-    </div>
+    
+    <slot/>
+
     <button id="DetalleCerrar" on:click>
       <span>Cerrar</span>
       <img src={IconoCerrar} alt="Cerrar Ventana" />
@@ -410,9 +408,9 @@
 
   {#if !!lengua.variantes}
     <ul class="DetalleLista">
-      {#each lengua.variantes as variante}
-        <li on:click={() => abrirLengua(variante)}>
-          <h4>{variante.NOM_VAR}</h4>
+      {#each lengua.variantesInfo as variante}
+        <li on:click={() => seleccionar(variante.id,'variante')}>
+          <h4>{variante.nombre}</h4>
           <i class="fa fa-arrow-circle-right" />
         </li>
       {/each}
