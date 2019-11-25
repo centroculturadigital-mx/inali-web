@@ -377,8 +377,7 @@
       top: 1rem;
     }
     .LenguaResumen {
-      /* position: absolute; */
-      /* top: 15.5rem; */
+      display: none;
     }
   }
 </style>

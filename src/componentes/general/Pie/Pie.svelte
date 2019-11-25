@@ -5,10 +5,6 @@ const Logotipos = ['gobierno.cultura.inah.svg','logo.imer.svg','logo.inali.svg',
 </script>
 
 <style>
- /* footer {
-        background-color: #666;
-        padding: 2rem;
-    } */
   footer {
     display: flex;
     justify-content: center;
@@ -27,7 +23,7 @@ const Logotipos = ['gobierno.cultura.inah.svg','logo.imer.svg','logo.inali.svg',
     width: auto;
   }
 
-@media  (max-width: 575.98px) {
+@media  (max-width: 1024px) {
   footer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -46,51 +42,13 @@ const Logotipos = ['gobierno.cultura.inah.svg','logo.imer.svg','logo.inali.svg',
     justify-self: center;
   }
 }
-
-@media (min-width: 576px) and (max-width: 768px)  {
-
-  footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    height: 2.25rem;
-    left: 0;
-    bottom: 0;
-    background: #465d72;
-    z-index: 2;
-  }
+@media  (max-width: 420px) {
    .Logotipos {
-    margin: 0 0.5rem;
-    height: auto;
-    width: 40px;
-    justify-self: center;
+    width: 4rem;
   }
-
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) {
 
-  footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    height: 2.25rem;
-    left: 0;
-    bottom: 0;
-    background: #465d72;
-    z-index: 2;
-  }
-   .Logotipos {
-    margin: 0 0.05rem;
-    height: auto;
-    width: 50px;
-    justify-self: center;
-  }
-}
   
 </style>
 

@@ -202,10 +202,13 @@
     display: block;
     flex-grow: 1;
   }
+  .Resumen {
+    display: none;
+  }
   @media (max-width: 660px) {
     aside {
       overflow: auto;
-      max-height: calc(100vh - 7.5rem);
+      max-height: calc(100vh - 9rem);
     }
     .BarraOcultar {
       display: flex;
@@ -221,6 +224,9 @@
       border-radius: 0px;
       position: relative;
     }
+      .Resumen {
+    display:flex;
+  }
   }
 </style>
 
@@ -265,10 +271,12 @@
     </div>
   <!-- miniresumen -->
   {#if movil < breakpoint}
+  <div class="Resumen">
     <MiniResumen 
     lenguaDatos={infoMiniResumen} 
     muestraMapa={cierraVentanaFiltro}
     muestraDetalle={muestraDetalle}/>
+  </div>
   {/if}
   <!--  -->
   {/if}
