@@ -7,6 +7,7 @@
   export let seleccion;
   export let cierraVentanaFiltro;
   export let infoMiniResumen;
+  export let muestraDetalle;
 
   const dispatch = createEventDispatcher();
 
@@ -143,7 +144,7 @@
     color: #fff;
     cursor: pointer;
     position: absolute;
-    right: 0.5rem;
+    right: 0.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -200,22 +201,11 @@
   .Colores div {
     display: block;
     flex-grow: 1;
-    /* width: 10px; */
   }
-  /* .Colores div:first-child {
-    border-top-left-radius: 50% ;
-  }
-  .Colores div:last-child {
-    border-top-right-radius: 50% ;
-  } */
-
   @media (max-width: 660px) {
     aside {
       overflow: auto;
-      max-height: 25rem;
-    }
-    .CierraBarra {
-      padding-right: 1rem;
+      max-height: calc(100vh - 7.5rem);
     }
     .BarraOcultar {
       display: flex;
@@ -275,7 +265,10 @@
     </div>
   <!-- miniresumen -->
   {#if movil < breakpoint}
-    <MiniResumen lenguaDatos={infoMiniResumen} />
+    <MiniResumen 
+    lenguaDatos={infoMiniResumen} 
+    muestraMapa={cierraVentanaFiltro}
+    muestraDetalle={muestraDetalle}/>
   {/if}
   <!--  -->
   {/if}
