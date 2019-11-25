@@ -69,3 +69,6 @@ code {
 *:focus {
 	outline: none;
 }
+.descripcion {
+	font-size: 1rem;
+}

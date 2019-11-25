@@ -24,9 +24,8 @@
   const cerrarGaleria = event => {
     ventanaGaleria = null;
   };
-  
-  $: console.log("lenguaDetalle", lengua);
 
+  $: console.log("lenguaDetalle", lengua);
 
   const contenidoFake = {
     descripcion:
@@ -39,6 +38,9 @@
   const IconoFotos = "icono.fotos.svg";
   const IconoAudios = "icono.audios.svg";
   const IconoCerrar = "cerrar.svg";
+
+  export let movil;
+  let breakpoint = 660;
 </script>
 
 <style>
@@ -263,7 +265,7 @@
   }
   .DetalleFamiliaAgrupacion {
     text-align: center;
-    width: 85%;
+    width: 100%;
   }
   .DetalleFamiliaAgrupacion h3 {
     margin: 2rem;
@@ -272,13 +274,6 @@
     text-align: center;
     width: 85%;
   }
-
-  
-  
-
-
-
-
 
   .DetalleBotonesGaleria {
     display: flex;
@@ -312,21 +307,30 @@
     color: #fff;
   }
 
-
-  
   .DetalleTextoDescripcion {
     padding: 0 1rem;
+  }
+  /*  */
+  @media (max-width: 660px) {
+    .BotonGaleria {
+      padding: 0.75rem;
+    }
+    header {
+      padding-left: 0;
+    }
   }
 </style>
 
 <header>
 
   <nav class="DetalleContenidosNavegacion">
-    
-    <slot/>
+
+    <slot />
 
     <button id="DetalleCerrar" on:click>
-      <span>Cerrar</span>
+      {#if movil > breakpoint}
+        <span>Cerrar</span>
+      {/if}
       <img src={IconoCerrar} alt="Cerrar Ventana" />
     </button>
   </nav>
@@ -335,31 +339,28 @@
   <h3 class="DetalleTituloTop">Variante</h3>
 
   <!-- Titulo -->
-    <!-- Titulo -->
-    <h1 class="Nombre" style={`color: #${lengua.color}`}>
-      { lengua.nombreOriginario || lengua.nombreCastellanizado }
-    </h1>
-    {#if !! lengua.nombreOriginario}
-      <h3 class="Nombre2" style={`color: #${lengua.color}`}>
-        { lengua.nombreCastellanizado }
-      </h3>
-      <!-- content here -->
-    {/if}
-    {#if !! lengua.otrosNombres}
-      <h5 class="Nombre3" style={`color: #${lengua.color}`}>
-        { lengua.otrosNombres }
-      </h5>
-      <!-- content here -->
+  <!-- Titulo -->
+  <h1 class="Nombre" style={`color: #${lengua.color}`}>
+    {lengua.nombreOriginario || lengua.nombreCastellanizado}
+  </h1>
+  {#if !!lengua.nombreOriginario}
+    <h3 class="Nombre2" style={`color: #${lengua.color}`}>
+      {lengua.nombreCastellanizado}
+    </h3>
+    <!-- content here -->
   {/if}
-    {#if !! lengua.transcripcionFonetica}
-      <p>
-        { lengua.transcripcionFonetica }
-      </p>
-      <!-- content here -->
+  {#if !!lengua.otrosNombres}
+    <h5 class="Nombre3" style={`color: #${lengua.color}`}>
+      {lengua.otrosNombres}
+    </h5>
+    <!-- content here -->
+  {/if}
+  {#if !!lengua.transcripcionFonetica}
+    <p>{lengua.transcripcionFonetica}</p>
+    <!-- content here -->
   {/if}
 
-
-    <!-- 
+  <!-- 
     <h1 class="NombreCastellano" style={`color: #${lengua.color}`}>
         {lengua.nombreCastellanizado}
     </h1>
@@ -405,8 +406,6 @@
 
 </header>
 
-
-
 <div class="DetalleBotonesGaleria">
   <!-- 
   -->
@@ -438,15 +437,10 @@
   {/if}
 </div>
 
-
-
 <!-- Informacion -->
 <div class="DetalleTextoDescripcion">
-  <p class="descripcion">
-    {lengua.comunidades}
-  </p>
+  <p class="descripcion">{lengua.comunidades}</p>
 </div>
-
 
 <!-- Galerias  -->
 {#if ventanaGaleria === 'audios'}

@@ -7,11 +7,8 @@
   export let abreBusqueda;
   let buscador = false;
   const abreInputBusqueda = e => {
-    
-    !buscador ? buscador = true : buscador = false;
-      console.log("Cabecera", e);
-    
-
+    !buscador ? (buscador = true) : (buscador = false);
+    console.log("Cabecera", e);
   };
 </script>
 
@@ -43,10 +40,10 @@
     display: flex;
     justify-content: center;
     padding: 0 !important;
-    min-width: 25%;
+    /* min-width: 25%; */
   }
   .Busqueda:hover {
-    color: #72A6AA !important;
+    color: #72a6aa !important;
   }
   .Busqueda {
     background-color: transparent;
@@ -70,11 +67,21 @@
     align-items: center;
     justify-content: center;
   }
+  @media (max-width: 660px) {
+    #Logotipo {
+      min-width: 165px;
+      padding-left: 1rem;
+    }
+    .Navegacion {
+      font-size: 0.75rem;
+      padding: 0.5rem;
+    }
+  }
 </style>
 
 <header>
 
-  <div id="Logotipo" on:click={()=>location.assign('/')}>
+  <div id="Logotipo" on:click={() => location.assign('/')}>
     <Logo />
   </div>
   <!-- Posicion 1 Menu Nav -->
@@ -82,7 +89,7 @@
 
   <div class="BotonesDerecha">
 
-   <!-- <div class="Busqueda">
+    <!-- <div class="Busqueda">
    </div> -->
     <!-- <button on:click={abreInputBusqueda} class="Busqueda">
       <i class="fa fa-search" />
@@ -96,6 +103,5 @@
 
   <!-- Posicion Temporal Menu Nav -->
   <Navegacion {segment} abreBusqueda={buscador} />
-
 
 </header>
