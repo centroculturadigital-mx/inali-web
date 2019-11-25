@@ -50,6 +50,9 @@
   const IconoFotos = "icono.fotos.svg";
   const IconoAudios = "icono.audios.svg";
   const IconoCerrar = "cerrar.svg";
+
+  export let movil;
+  let breakpoint = 660;
 </script>
 
 <style>
@@ -67,7 +70,7 @@
     padding-top: 3.25rem;
     padding-bottom: 2.25rem;
     width: 50%;
-    height: 100%
+    height: 100%;
   }
   .DetallePleca {
     background-color: #fbb634;
@@ -98,14 +101,15 @@
     /* display: flex; */
     /* align-items: center; */
     width: calc(100% - 1rem);
-    height: 3rem;
+    height: auto;
+    min-height: 3rem;
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 1px 2px 18px rgba(0, 0, 0, 0.15);
     position: absolute;
     top: 3.25rem;
     left: 1rem;
   }
-  
+
   #DetalleCerrar {
     font-size: 0.75rem;
     font-weight: lighter;
@@ -282,7 +286,7 @@
   }
   .DetalleFamiliaAgrupacion {
     text-align: center;
-    width: 85%;
+    width: 100%;
   }
   .DetalleFamiliaAgrupacion h3 {
     margin: 2rem;
@@ -291,7 +295,7 @@
     text-align: center;
     width: 85%;
   }
-  
+
   .DetalleBotonesGaleria {
     display: flex;
     justify-content: space-evenly;
@@ -323,49 +327,56 @@
     text-align: center;
     color: #fff;
   }
-  .DetalleTextoDescripcion {
+  /* .DetalleTextoDescripcion {
     padding: 0 1rem;
-  }
+  } */
 
   .descripcion {
     white-space: pre-line;
   }
 
+  @media (max-width: 660px) {
+    .BotonGaleria {
+      padding: 0.75rem;
+    }
+    header {
+      padding-left: 0;
+    }
+  }
 </style>
 
 <header>
 
   <!-- NAV  -->
   <nav class="DetalleContenidosNavegacion">
-    
-    <slot/>
+
+    <slot />
 
     <button id="DetalleCerrar" on:click>
-      <span>Cerrar</span>
+      {#if movil > breakpoint}
+        <span>Cerrar</span>
+      {/if}
       <img src={IconoCerrar} alt="Cerrar Ventana" />
     </button>
   </nav>
 
   <!-- titulo Raiz -->
-  <h3 class="DetalleTituloTop">
-      Familia
-  </h3>
-  
-  
+  <h3 class="DetalleTituloTop">Familia</h3>
+
   <h1 class="Nombre" style={`color: #${lengua.color}`}>
-      { lengua.nombreOriginario || lengua.nombreCastellanizado}
+    {lengua.nombreOriginario || lengua.nombreCastellanizado}
   </h1>
-  {#if !! lengua.nombreOriginario}
+  {#if !!lengua.nombreOriginario}
     <h3 class="Nombre2" style={`color: #${lengua.color}`}>
-      { lengua.nombreCastellanizado }
+      {lengua.nombreCastellanizado}
     </h3>
-     <!-- content here -->
+    <!-- content here -->
   {/if}
-  {#if !! lengua.otrosNombres}
+  {#if !!lengua.otrosNombres}
     <h5 class="Nombre3" style={`color: #${lengua.color}`}>
-      { lengua.otrosNombres }
+      {lengua.otrosNombres}
     </h5>
-     <!-- content here -->
+    <!-- content here -->
   {/if}
   <!-- 
   <div class="DetalleNumeroHablantes">
@@ -412,7 +423,6 @@
   </p>
 </div>
 
-
 <div class="DetalleFamiliaAgrupacion">
   {#if !!lengua.agrupaciones}
     <h3>Agrupaciones lingüísticas ({lengua.agrupaciones.length})</h3>
@@ -421,7 +431,7 @@
   {#if !!lengua.agrupaciones}
     <ul class="DetalleLista">
       {#each lengua.agrupacionesInfo as agrupacion ('agrupacion_' + agrupacion.id)}
-        <li on:click={() => seleccionar(agrupacion.id,'agrupacion')}>
+        <li on:click={() => seleccionar(agrupacion.id, 'agrupacion')}>
           <h4>{agrupacion.nombre}</h4>
           <i class="fa fa-arrow-circle-right" />
         </li>

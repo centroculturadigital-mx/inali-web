@@ -5,7 +5,6 @@
   export let abreBusqueda;
 
   let buscadorInput;
-  
 </script>
 
 <style>
@@ -48,7 +47,7 @@
     width: 100%;
     height: 100%;
     background-color: #465d72;
-    color: #FFF;
+    color: #fff;
     border: none;
   }
   ::placeholder {
@@ -73,7 +72,6 @@
     /* justify-content: space-evenly; */
     justify-content: flex-end;
     text-transform: uppercase;
-
   }
   .Navegacion ul li {
     padding: 0;
@@ -96,7 +94,7 @@
   }
   a:hover {
     text-decoration-style: none;
-    color: #72A6AA;
+    color: #72a6aa;
   }
   /* menu  */
   ul::after {
@@ -111,7 +109,7 @@
   .selected {
     position: relative;
     display: inline-block;
-    color: #72A6AA;
+    color: #72a6aa;
   }
   /* .selected::after {
 		position: absolute;
@@ -128,7 +126,7 @@
     display: block;
   }
 
-/* Hover line */
+  /* Hover line */
 
   .ListaNavegacion li {
     display: inline-block;
@@ -144,7 +142,7 @@
   }
   .ListaNavegacion a:before {
     position: absolute;
-    content: '';
+    content: "";
     -webkit-transition: all 0.35s ease;
     transition: all 0.35s ease;
     opacity: 0;
@@ -152,52 +150,56 @@
     right: 15%;
     top: 40%;
     bottom: 0;
-    border-left: 1px solid #72A6AA;
-    border-right: 1px solid #72A6AA;
+    border-left: 1px solid #72a6aa;
+    border-right: 1px solid #72a6aa;
     height: 20%;
   }
-  
+
   .ListaNavegacion a:hover:before {
     opacity: 1;
     left: 0;
     right: 0;
   }
-
-
-
-
-
+  @media (max-width: 660px) {
+    .Navegacion ul li a {
+      font-size: 0.75rem;
+      padding: 0.5rem;
+    }
+  }
 </style>
 
 <nav class="Navegacion">
   {#if !abreBusqueda}
-  <ul class="ListaNavegacion"transition:fade="{{ duration: 500 }}">
-    <li>
-      <a class={segment === 'acerca-de' ? 'selected' : ''} href="acerca-de">
-        acerca de
-      </a>
-    </li>
-    <li>
-      <a class={segment === 'glosario' ? 'selected' : ''} href="glosario">
-        glosario
-      </a>
-    </li>
-    <!-- <li>
+    <ul class="ListaNavegacion" transition:fade={{ duration: 500 }}>
+      <li>
+        <a class={segment === 'acerca-de' ? 'selected' : ''} href="acerca-de">
+          acerca de
+        </a>
+      </li>
+      <li>
+        <a class={segment === 'glosario' ? 'selected' : ''} href="glosario">
+          glosario
+        </a>
+      </li>
+      <!-- <li>
       <a
         href="http://138.68.223.192:4000" target="_blank">
         mapa interactivo
       </a>
     </li> -->
-  </ul>
+    </ul>
   {:else}
-  <div class="InputBusqueda" bind:this={buscadorInput} transition:fade="{{duration: 500 }}">
-    <form action="">
-      <label for="Busqueda">
-        <input
-          type="text"
-          placeholder="Busca una lengua, agrupación o variante"/>
-      </label>
-    </form>
-  </div>
+    <div
+      class="InputBusqueda"
+      bind:this={buscadorInput}
+      transition:fade={{ duration: 500 }}>
+      <form action="">
+        <label for="Busqueda">
+          <input
+            type="text"
+            placeholder="Busca una lengua, agrupación o variante" />
+        </label>
+      </form>
+    </div>
   {/if}
 </nav>

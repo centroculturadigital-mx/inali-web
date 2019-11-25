@@ -8,9 +8,8 @@
   //   const dispatch = createEventDispatcher();
 
   export let seleccionar;
-  
-  export let lengua;
 
+  export let lengua;
 
   const cerrar = event => {
     // dispatch("cerrar");
@@ -45,6 +44,9 @@
   const IconoFotos = "icono.fotos.svg";
   const IconoAudios = "icono.audios.svg";
   const IconoCerrar = "cerrar.svg";
+
+  export let movil;
+  let breakpoint = 660;
 </script>
 
 <style>
@@ -245,14 +247,14 @@
   }
   .DetalleFamiliaAgrupacion {
     text-align: center;
-    width: 85%;
+    width: 100%;
   }
   .DetalleFamiliaAgrupacion h3 {
     margin: 2rem;
   }
   .DetalleAgrupacionVariantes {
     text-align: center;
-    width: 85%;
+    width: 100%;
   }
   .DetalleBotonesGaleria {
     display: flex;
@@ -295,16 +297,30 @@
   .Nombre {
     font-weight: Bold;
   }
+  /*  */
+  @media (max-width: 660px) {
+    .BotonGaleria {
+      padding: 0.75rem;
+    }
+    .DetalleTextoDescripcion {
+      padding: 0;
+    }
+    header {
+      padding-left: 0;
+    }
+  }
 </style>
 
 <header>
 
   <nav class="DetalleContenidosNavegacion">
-    
-    <slot/>
+
+    <slot />
 
     <button id="DetalleCerrar" on:click>
-      <span>Cerrar</span>
+      {#if movil > breakpoint}
+        <span>Cerrar</span>
+      {/if}
       <img src={IconoCerrar} alt="Cerrar Ventana" />
     </button>
   </nav>
@@ -312,57 +328,57 @@
   <!-- titulo Raiz -->
   <h3 class="DetalleTituloTop">Agrupación</h3>
 
-    <h1 class="Nombre" style={`color: #${lengua.color}`}>
-      { lengua.nombreOriginario || lengua.nombreCastellanizado }
-    </h1>
-    {#if !! lengua.nombreOriginario}
-      <h3 class="Nombre2" style={`color: #${lengua.color}`}>
-        { lengua.nombreCastellanizado }
-      </h3>
-      <!-- content here -->
-    {/if}
-    {#if !! lengua.otrosNombres}
-      <h5 class="Nombre3" style={`color: #${lengua.color}`}>
-        { lengua.otrosNombres }
-      </h5>
-      <!-- content here -->
+  <h1 class="Nombre" style={`color: #${lengua.color}`}>
+    {lengua.nombreOriginario || lengua.nombreCastellanizado}
+  </h1>
+  {#if !!lengua.nombreOriginario}
+    <h3 class="Nombre2" style={`color: #${lengua.color}`}>
+      {lengua.nombreCastellanizado}
+    </h3>
+    <!-- content here -->
+  {/if}
+  {#if !!lengua.otrosNombres}
+    <h5 class="Nombre3" style={`color: #${lengua.color}`}>
+      {lengua.otrosNombres}
+    </h5>
+    <!-- content here -->
   {/if}
 
   <div class="DetalleOrigen">
-      <div class="DetalleOrigenRiesgo">
+    <div class="DetalleOrigenRiesgo">
       <div
-          class="DetalleOrigenIcono {lengua.riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
-          {@html RiesgoIcono}
+        class="DetalleOrigenIcono {lengua.riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+        {@html RiesgoIcono}
       </div>
       <div class="DetalleOrigenTexto">
-          <div>
+        <div>
           <p>{lengua.riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desparición</p>
           <!-- <small>
               <b>1,725,620 hablantes</b>
           </small> -->
-          </div>
+        </div>
       </div>
-      </div>
-      <div class="DetalleOrigenFamilia">
+    </div>
+    <div class="DetalleOrigenFamilia">
       <div class="DetalleOrigenIcono">
-          <i class="fa fa-group" />
+        <i class="fa fa-group" />
       </div>
       <div class="DetalleOrigenTexto">
-          {#if !!lengua.familiaId}
+        {#if !!lengua.familiaId}
           <p>Familia {lengua.familiaId}</p>
-          {/if}
+        {/if}
       </div>
-      </div>
-      <div class="DetalleOrigenVariantes">
+    </div>
+    <div class="DetalleOrigenVariantes">
       <div class="DetalleOrigenIcono">
-          <i class="fa fa-share-alt-square" />
+        <i class="fa fa-share-alt-square" />
       </div>
       <div class="DetalleOrigenTexto">
-          {#if !!lengua.variantes}
+        {#if !!lengua.variantes}
           <p>{lengua.variantes.length} variantes linguísticas</p>
-          {/if}
+        {/if}
       </div>
-      </div>
+    </div>
   </div>
 
 </header>
@@ -396,9 +412,7 @@
 </div>
 <!-- Informacion -->
 <div class="DetalleTextoDescripcion">
-  <p class="descripcion">
-    {lengua.informacion}
-  </p>
+  <p class="descripcion">{lengua.informacion}</p>
 </div>
 <!--  -->
 <div class="DetalleAgrupacionVariantes">
@@ -409,7 +423,7 @@
   {#if !!lengua.variantes}
     <ul class="DetalleLista">
       {#each lengua.variantesInfo as variante}
-        <li on:click={() => seleccionar(variante.id,'variante')}>
+        <li on:click={() => seleccionar(variante.id, 'variante')}>
           <h4>{variante.nombre}</h4>
           <i class="fa fa-arrow-circle-right" />
         </li>
