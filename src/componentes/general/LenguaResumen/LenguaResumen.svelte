@@ -6,7 +6,7 @@
   import AgrupacionResumen from "./AgrupacionResumen.svelte";
   import VarianteResumen from "./VarianteResumen.svelte";
 
-  import AudiosContenedor from "../Galerias/AudiosContenedor.svelte";
+  import Audios from "../Galerias/Audios.svelte";
   import Fotos from "../Galerias/Fotos.svelte";
   import Textiles from "../Galerias/Textiles.svelte";
 
@@ -356,7 +356,7 @@
 
 <!-- Galerias  -->
 {#if ventanaGaleria === 'audios'}
-  <AudiosContenedor audios={lengua.audios} on:click={cerrarGaleria} />
+  <Audios audios={lengua.audios} on:click={cerrarGaleria} />
 {:else if ventanaGaleria === 'fotos'}
   <Fotos imagenes={lengua.fotografias} on:click={cerrarGaleria} />
 {:else if ventanaGaleria === 'textiles'}

@@ -1,7 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
   import ContenedorGaleria from "../Lateral/ContenedorGaleria.svelte";
-  import Audios from "../AudioReproductor/Audios.svelte";
+  import AudiosContenedor from "../AudioReproductor/AudiosContenedor.svelte";
 
   export let audios;
   export let width;
@@ -62,7 +62,7 @@
 
   <div class="Contenido">
 
-    <Audios {audios} />
+    <AudiosContenedor {audios}/>
 
   </div>
 </ContenedorGaleria>

@@ -89,7 +89,9 @@
 </script>
 
 <audio bind:this={audioHTML}>
-    <source src={audio.url}/>
+    {#each audio.sources as audioSrc }
+        <source src={audioSrc}/>
+    {/each}
 </audio>
 
 

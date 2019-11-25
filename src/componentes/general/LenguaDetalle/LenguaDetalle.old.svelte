@@ -1,7 +1,7 @@
 <script>
   import { onMount, createEventDispatcher } from "svelte";
   import { fade } from "svelte/transition";
-  import AudiosContenedor from "../Galerias/AudiosContenedor.svelte";
+  import Audios from "../Galerias/Audios.svelte";
   import Fotos from "../Galerias/Fotos.svelte";
   import Textiles from "../Galerias/Textiles.svelte";
 
@@ -541,7 +541,7 @@ const verHijoDetalle = () => {
 
 <!-- Galerias  -->
 {#if ventanaGaleria === 'audios'}
-  <AudiosContenedor on:cerrarGaleria={cerrarGaleria} />
+  <Audios on:cerrarGaleria={cerrarGaleria} />
 {:else if ventanaGaleria === 'fotos'}
   <Fotos on:cerrarGaleria={cerrarGaleria} />
 {:else if ventanaGaleria === 'textiles'}
