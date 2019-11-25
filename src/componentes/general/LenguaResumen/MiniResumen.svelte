@@ -1,7 +1,14 @@
 <script>
-import LenguaResumen from "./LenguaResumen.svelte";
+  import LenguaResumen from "./LenguaResumen.svelte";
+
+  export let lenguaDatos;
+
 </script>
-<style></style>
 
+<style>
 
-<LenguaResumen />
+</style>
+
+<section id="MiniResumen">
+  <LenguaResumen lengua={lenguaDatos} />
+</section>
