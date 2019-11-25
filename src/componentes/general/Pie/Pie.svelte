@@ -41,8 +41,8 @@ const Logotipos = ['gobierno.cultura.inah.svg','logo.imer.svg','logo.inali.svg',
   }
    .Logotipos {
     margin:0;
-    height: auto;
-    width: 40px;
+    height: 2rem;
+    width: 5rem;
     justify-self: center;
   }
 }

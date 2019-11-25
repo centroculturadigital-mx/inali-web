@@ -369,6 +369,7 @@
       top: 3.25rem;
       left: 0;
       width: 100vw;
+      max-height: calc(100% - 7.25rem);
     }
     .FiltroIcono {
       position: absolute;
@@ -453,8 +454,8 @@
             on:deseleccionar={manejaLimpiaFiltro}
             on:seleccionar={manejaSeleccion}
             cierraVentanaFiltro={cierraVentana}
-            infoMiniResumen={lenguaDetalle} 
-            muestraDetalle={manejaVerDetalle}/>
+            infoMiniResumen={lenguaDetalle}
+            muestraDetalle={manejaVerDetalle} />
         </div>
       {/if}
     </div>
