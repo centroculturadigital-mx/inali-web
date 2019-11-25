@@ -30,7 +30,7 @@ const Logotipos = ['gobierno.cultura.inah.svg','logo.imer.svg','logo.inali.svg',
 @media  (max-width: 575.98px) {
   footer {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
     position: fixed;
     width: 100%;
