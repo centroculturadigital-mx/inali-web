@@ -1,10 +1,12 @@
 <script>
   import { slide } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
+  import MiniResumen from "../LenguaResumen/MiniResumen.svelte";
 
   export let arbol = [];
   export let seleccion;
   export let cierraVentanaFiltro;
+  export let infoMiniResumen;
 
   const dispatch = createEventDispatcher();
 
@@ -70,6 +72,8 @@
     }, []);
   };
 
+  let movil;
+  let breakpoint = 660;
 </script>
 
 <style>
@@ -230,19 +234,20 @@
   }
 </style>
 
+<svelte:window bind:innerWidth={movil} />
 <!-- Barra top filtro -->
 <div class="BarraOcultar">
   {#if !!seleccion.famId || !!seleccion.agrId || !!seleccion.varId}
     <h4 class="FiltroTitulo">
       {#if !!seleccion.famId}
-          Familia:
-          <b>{seleccion.famId}</b>
+        Familia:
+        <b>{seleccion.famId}</b>
       {:else if !!seleccion.agrId}
-          Agrupación:
-          <b>{seleccion.agrId}</b>
+        Agrupación:
+        <b>{seleccion.agrId}</b>
       {:else if !!seleccion.varId}
-          Variante:
-          <b>{seleccion.varId}</b>
+        Variante:
+        <b>{seleccion.varId}</b>
       {/if}
     </h4>
   {:else}
@@ -254,8 +259,7 @@
   </span>
 
 </div>
-<!-- fin barrra -->
-<!--  -->
+<!-- -->
 <aside transition:slide>
 
   {#if seleccion.famId || seleccion.agrId || seleccion.varId}
@@ -269,6 +273,11 @@
         </div>
       </button>
     </div>
+  <!-- miniresumen -->
+  {#if movil < breakpoint}
+    <MiniResumen lenguaDatos={infoMiniResumen} />
+  {/if}
+  <!--  -->
   {/if}
   <ul>
     <!--  -->

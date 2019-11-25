@@ -12,7 +12,6 @@
   import Mapa from "../Mapa/Mapa.svelte";
   import MapaCapa from "../Mapa/MapaCapa.svelte";
   import MapaMarcador from "../Mapa/MapaMarcador.svelte";
-  import MiniResumen from "../LenguaResumen/MiniResumen.svelte";
 
   export let cierraVentanaFiltro;
   let estadoInicialVentanaFiltro = "abierto";
@@ -304,7 +303,7 @@
 
   let movil;
   let breakpoint = 660;
-  $: console.log("movil", movil);
+  // $: console.log("movil", movil);
 </script>
 
 <style>
@@ -377,24 +376,8 @@
       top: 1rem;
     }
     .LenguaResumen {
-      position: absolute;
-      top: 15.5rem;
-    }
-    .FiltroIcono:hover .tooltiptext {
-      visibility: hidden;
-      opacity: 1;
-    }
-    .tooltiptext {
-      position: absolute;
-
-      top: 104%;
-      left: 1%;
-      margin-left: 0;
-      font-size: 0.7rem;
-    }
-    .FiltroIcono:hover .tooltiptext {
-      visibility: hidden;
-      opacity: 1;
+      /* position: absolute; */
+      /* top: 15.5rem; */
     }
   }
 </style>
@@ -469,7 +452,8 @@
             {seleccion}
             on:deseleccionar={manejaLimpiaFiltro}
             on:seleccionar={manejaSeleccion}
-            cierraVentanaFiltro={cierraVentana} />
+            cierraVentanaFiltro={cierraVentana}
+            infoMiniResumen={lenguaDetalle} />
         </div>
       {/if}
     </div>
@@ -491,9 +475,6 @@
           on:cerrar={manejaLimpiaFiltro}
           on:vermas={manejaVerDetalle} />
       </div>
-    {:else if movil < breakpojnt}
-      <MiniResumen />
     {/if}
-    <!-- fin movil -->
   {/if}
 </div>

@@ -73,6 +73,9 @@
   const minimiza = () => {
     minimizado == false ? (minimizado = true) : (minimizado = false);
   };
+
+  let movil;
+  let breakpoint = 660;
 </script>
 
 <style>
@@ -237,7 +240,18 @@
   .HeaderMinimizado {
     border-radius: 0.5rem;
   }
+  @media  (max-width: 660px) {
+  .card {
+    visibility: hidden;
+    position: relative;
+    border-radius: 0;
+    width: 100%;
+    box-shadow: 0rem;
+  }
+}
 </style>
+
+<svelte:window bind:innerWidth={movil} />
 
 {#if lengua}
 
