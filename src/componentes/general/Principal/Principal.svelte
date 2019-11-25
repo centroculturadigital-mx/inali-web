@@ -12,6 +12,7 @@
   import Mapa from "../Mapa/Mapa.svelte";
   import MapaCapa from "../Mapa/MapaCapa.svelte";
   import MapaMarcador from "../Mapa/MapaMarcador.svelte";
+  import MiniResumen from "../LenguaResumen/MiniResumen.svelte";
 
   export let cierraVentanaFiltro;
   let estadoInicialVentanaFiltro = "abierto";
@@ -56,8 +57,8 @@
 
   // Lengua
   $: lenguaDetalle = calculaLenguaDetalle(seleccion);
-  $: console.log(lenguaDetalle)
-  
+  $: console.log(lenguaDetalle);
+
   // $: lenguaResumen = calculaLenguaResumen(seleccion)
 
   //
@@ -130,7 +131,7 @@
     if (poligono) {
       mapa.fitBounds(bbox(poligono), {
         padding: { top: 25, bottom: 25, left: 75, right: 25 },
-        speed: 0.6,
+        speed: 0.6
       });
     }
 
@@ -143,7 +144,7 @@
 
     setTimeout(() => {
       muestraResumen = true;
-    }, 2000)
+    }, 2000);
   };
 
   const manejaLimpiaFiltro = () => {
@@ -156,7 +157,7 @@
     mapa.flyTo({
       center: [mapaInicio.lon, mapaInicio.lat],
       zoom: mapaInicio.zoom,
-      speed: 0.6,
+      speed: 0.6
     });
 
     muestraFiltro = true;
@@ -181,62 +182,55 @@
   const calculaLenguaDetalle = selec => {
     if (selec.famId) {
       // console.log("Detalle para", selec.famId);
-      let l = familias.find(f => f.id === selec.famId)
-      l.agrupacionesInfo = l.agrupaciones.map(
-        a => {
-          let agr = agrupaciones.find(agr=>agr.id==a)
-          let agrupacionInfo = {
-            id: agr.id,
-            nombre: agr.nombreOriginario || agr.nombreCastellanizado
-          }
-          return agrupacionInfo            
-        }
-      )
-      return l
-
+      let l = familias.find(f => f.id === selec.famId);
+      l.agrupacionesInfo = l.agrupaciones.map(a => {
+        let agr = agrupaciones.find(agr => agr.id == a);
+        let agrupacionInfo = {
+          id: agr.id,
+          nombre: agr.nombreOriginario || agr.nombreCastellanizado
+        };
+        return agrupacionInfo;
+      });
+      return l;
     } else if (selec.agrId) {
-      
       let l = agrupaciones.find(a => a.id === selec.agrId);
 
       let fam = familias.find(f => f.id === l.familiaId);
-     
+
       l.familiaInfo = {
         id: fam.id,
         nombre: fam.nombreOriginario || fam.nombreCastellanizado
-      }
+      };
 
-      l.variantesInfo = l.variantes.map(
-        a => {
-          let agr = variantes.find(agr=>agr.id==a)
-          let agrupacionInfo = {
-            id: agr.id,
-            nombre: agr.nombreOriginario || agr.nombreCastellanizado
-          }
-          return agrupacionInfo            
-        }
-      )
+      l.variantesInfo = l.variantes.map(a => {
+        let agr = variantes.find(agr => agr.id == a);
+        let agrupacionInfo = {
+          id: agr.id,
+          nombre: agr.nombreOriginario || agr.nombreCastellanizado
+        };
+        return agrupacionInfo;
+      });
 
-      return l
+      return l;
       // console.log("Detalle para", selec.agrId);
     } else if (selec.varId) {
       // console.log("Detalle para", selec.varId);
-      
+
       let l = variantes.find(v => v.id === selec.varId);
 
-      let fam = familias.find(f => f.id === l.familiaId);     
-      let agr = agrupaciones.find(a => a.id === l.agrupacionId);     
+      let fam = familias.find(f => f.id === l.familiaId);
+      let agr = agrupaciones.find(a => a.id === l.agrupacionId);
 
       l.familiaInfo = {
         id: fam.id,
         nombre: fam.nombreOriginario || fam.nombreCastellanizado
-      }
+      };
       l.agrupacionInfo = {
         id: agr.id,
         nombre: agr.nombreOriginario || agr.nombreCastellanizado
-      }
-      
-      return l
+      };
 
+      return l;
     } else {
       return null;
     }
@@ -252,7 +246,9 @@
       let nuevoArbol = familias.map(f => {
         let fam = {
           nombreOriginario: f.nombreOriginario || f.nombreCastellanizado,
-          nombreCastellanizado: f.nombreOriginario ? f.nombreCastellanizado : '',
+          nombreCastellanizado: f.nombreOriginario
+            ? f.nombreCastellanizado
+            : "",
           id: f.id,
           tipo: "familia",
           color: "#" + f.color
@@ -265,7 +261,9 @@
           .map(a => {
             let agr = {
               nombreOriginario: a.nombreOriginario || a.nombreCastellanizado,
-              nombreCastellanizado: a.nombreOriginario ? a.nombreCastellanizado : '',
+              nombreCastellanizado: a.nombreOriginario
+                ? a.nombreCastellanizado
+                : "",
               id: a.id,
               famId: f.id,
               tipo: "agrupacion",
@@ -278,8 +276,11 @@
               })
               .map(v => {
                 return {
-                  nombreOriginario: v.nombreOriginario || v.nombreCastellanizado,
-                  nombreCastellanizado: v.nombreOriginario ? v.nombreCastellanizado : '',
+                  nombreOriginario:
+                    v.nombreOriginario || v.nombreCastellanizado,
+                  nombreCastellanizado: v.nombreOriginario
+                    ? v.nombreCastellanizado
+                    : "",
                   id: v.id,
                   agrId: a.id,
                   famId: f.id,
@@ -300,6 +301,10 @@
     agrupacionesModule = await import("../../../data/agrupaciones.json");
     variantesModule = await import("../../../data/variantes.json");
   });
+
+  let movil;
+  let breakpoint = 660;
+  $: console.log("movil", movil);
 </script>
 
 <style>
@@ -308,7 +313,6 @@
     height: 100%;
     background-color: #ddd;
   }
-
   .Mapa {
     position: absolute;
     width: 100%;
@@ -316,23 +320,20 @@
     top: 0;
     left: 0;
   }
-
   .Herramientas {
     position: absolute;
     top: 4rem;
     right: 1rem;
   }
-
   .LenguasFiltro {
     position: absolute;
-    top: 3.5rem;
+    top: 4rem;
     left: 1rem;
     background-color: transparent;
     /* height: calc( 100% - 2rem ); */
     max-height: 38rem;
     width: 320px;
   }
-
   .FiltroIcono {
     width: 9rem;
     position: absolute;
@@ -364,8 +365,41 @@
     font-size: 1rem;
     font-family: Fira Sans;
   }
+  @media (max-width: 660px) {
+    .LenguasFiltro {
+      top: 3.25rem;
+      left: 0;
+      width: 100vw;
+    }
+    .FiltroIcono {
+      position: absolute;
+      left: 0.75rem;
+      top: 1rem;
+    }
+    .LenguaResumen {
+      position: absolute;
+      top: 15.5rem;
+    }
+    .FiltroIcono:hover .tooltiptext {
+      visibility: hidden;
+      opacity: 1;
+    }
+    .tooltiptext {
+      position: absolute;
 
+      top: 104%;
+      left: 1%;
+      margin-left: 0;
+      font-size: 0.7rem;
+    }
+    .FiltroIcono:hover .tooltiptext {
+      visibility: hidden;
+      opacity: 1;
+    }
+  }
 </style>
+
+<svelte:window bind:innerWidth={movil} />
 
 <div class="Principal">
   <div class="Mapa">
@@ -426,9 +460,7 @@
           on:click={abreVentana}
           transition:fade={{ duration: 500 }}>
           <img src={IconoFiltros} alt="Filtro de lenguas indígenas" />
-          <span>
-            Filtros
-          </span>
+          <span>Filtros</span>
         </button>
       {:else if estadoInicialVentanaFiltro === 'abierto'}
         <div>
@@ -446,20 +478,22 @@
   {#if muestraDetalle && !!lenguaDetalle}
     <div class="LenguaDetalle">
       <LenguaDetalle
-      lengua={lenguaDetalle}
-      on:cerrar={manejaCierraDetalle}
-      on:seleccionar={manejaSeleccion}
-      on:deseleccionar={manejaLimpiaFiltro}
-      />
+        lengua={lenguaDetalle}
+        on:cerrar={manejaCierraDetalle}
+        on:seleccionar={manejaSeleccion}
+        on:deseleccionar={manejaLimpiaFiltro} />
     </div>
-  {:else}
-    {#if muestraResumen && !!lenguaDetalle}
+  {:else if muestraResumen && !!lenguaDetalle}
+    {#if movil > breakpoint}
       <div class="LenguaResumen">
         <LenguaResumen
           lengua={lenguaDetalle}
           on:cerrar={manejaLimpiaFiltro}
           on:vermas={manejaVerDetalle} />
       </div>
+    {:else if movil < breakpojnt}
+      <MiniResumen />
     {/if}
+    <!-- fin movil -->
   {/if}
 </div>

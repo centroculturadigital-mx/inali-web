@@ -1,5 +1,5 @@
 <script>
-  import { slide } from 'svelte/transition';
+  import { slide } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
 
   export let arbol = [];
@@ -20,7 +20,7 @@
     "877477",
     "F46E7E",
     "986293"
-  ]
+  ];
 
   const deseleccionar = event => {
     dispatch("deseleccionar");
@@ -69,6 +69,7 @@
       }
     }, []);
   };
+
 </script>
 
 <style>
@@ -76,21 +77,20 @@
     max-height: 25rem;
     overflow: auto;
     padding: 0;
-    margin-top: 7px;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
     background-color: rgba(255, 255, 255, 0.9);
   }
   .BarraOcultar {
     display: flex;
     background: #465d72;
-    border-radius: 0px;
     position: relative;
-    top: 0.5rem;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
+    text-transform: capitalize;
   }
   .FiltroTitulo {
     padding: 0.5em;
+    padding-left: 0.75rem;
     color: #fff;
     margin: 0;
   }
@@ -124,7 +124,7 @@
 
   details button.activo,
   summary button.activo {
-    background-color: rgba(184,211,209,0.2);
+    background-color: rgba(184, 211, 209, 0.2);
     font-weight: bold;
   }
 
@@ -163,7 +163,7 @@
     outline: none;
   }
   #MostrarTodas button:hover {
-   border: 1px solid #000;
+    border: 1px solid #000;
     color: #000;
   }
   .variante button {
@@ -190,8 +190,8 @@
     left: 0;
     width: 100%;
     overflow: hidden;
-    border-bottom-left-radius: .5rem;
-    border-bottom-right-radius: .5rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
   }
   .Colores div {
     display: block;
@@ -204,70 +204,125 @@
   .Colores div:last-child {
     border-top-right-radius: 50% ;
   } */
+
+  @media (max-width: 660px) {
+    aside {
+      overflow: auto;
+      max-height: 25rem;
+    }
+    .CierraBarra {
+      padding-right: 1rem;
+    }
+    .BarraOcultar {
+      display: flex;
+      background: #465d72;
+      position: relative;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      align-items: center;
+    }
+    .BarraOcultar {
+      display: flex;
+      background: #465d72;
+      border-radius: 0px;
+      position: relative;
+    }
+  }
 </style>
 
+<!-- Barra top filtro -->
 <div class="BarraOcultar">
-  <h4 class="FiltroTitulo">Familias lingüísticas</h4>
+  {#if !!seleccion.famId || !!seleccion.agrId || !!seleccion.varId}
+    <h4 class="FiltroTitulo">
+      {#if !!seleccion.famId}
+          Familia:
+          <b>{seleccion.famId}</b>
+      {:else if !!seleccion.agrId}
+          Agrupación:
+          <b>{seleccion.agrId}</b>
+      {:else if !!seleccion.varId}
+          Variante:
+          <b>{seleccion.varId}</b>
+      {/if}
+    </h4>
+  {:else}
+    <h4 class="FiltroTitulo">Familias lingüísticas</h4>
+  {/if}
+
   <span on:click={cierraVentanaFiltro} class="CierraBarra">
     <i class="fa fa-close" />
   </span>
-</div>
 
+</div>
+<!-- fin barrra -->
+<!--  -->
 <aside transition:slide>
 
   {#if seleccion.famId || seleccion.agrId || seleccion.varId}
     <div id="MostrarTodas">
       <button on:click={deseleccionar}>
-        <span>
-          Mostrar Todas
-        </span>
+        <span>Mostrar Todas</span>
         <div class="Colores">
           {#each colores as color}
-            <div style={`background-color: #${color}`}></div>
+            <div style={`background-color: #${color}`} />
           {/each}
         </div>
       </button>
     </div>
   {/if}
   <ul>
+    <!--  -->
     {#each arbolFiltrado as fam ('fam' + fam.id)}
       <li class="familia" style={`border-color: ${fam.color}`}>
         <details open={fam.open}>
           <summary>
-            <button class={seleccion.famId === fam.id ? 'activo' : ''} on:click={() => seleccionarFamilia(fam.id)}>
-              <span class="originario">{fam.nombreOriginario || fam.nombreCastellanizado }</span>
-              {#if !! fam.nombreOriginario && !! fam.nombreCastellanizado}
+            <button
+              class={seleccion.famId === fam.id ? 'activo' : ''}
+              on:click={() => seleccionarFamilia(fam.id)}>
+              <span class="originario">
+                {fam.nombreOriginario || fam.nombreCastellanizado}
+              </span>
+              {#if !!fam.nombreOriginario && !!fam.nombreCastellanizado}
                 <span class="castellanizado">({fam.nombreCastellanizado})</span>
               {/if}
             </button>
           </summary>
           <ul>
-
+            <!--  -->
             {#each fam.agrupaciones as agr ('agr' + agr.id)}
-              
-              <li
-                class="agrupacion"
-                style="border-color: {agr.color}">
+              <li class="agrupacion" style="border-color: {agr.color}">
                 <!-- style="border-color: {agr.variantes[0].color}"> -->
                 <details open={agr.open}>
                   <summary>
-                    <button class={seleccion.agrId === agr.id ? 'activo' : ''} on:click={() => seleccionarAgrupacion(agr.id)}>
-                      <span class="originario">{agr.nombreOriginario || agr.nombreCastellanizado }</span>
-                      {#if !! agr.nombreOriginario && !! agr.nombreCastellanizado}
-                        <span class="castellanizado"> ({agr.nombreCastellanizado})</span>
-                         <!-- content here -->
+                    <button
+                      class={seleccion.agrId === agr.id ? 'activo' : ''}
+                      on:click={() => seleccionarAgrupacion(agr.id)}>
+                      <span class="originario">
+                        {agr.nombreOriginario || agr.nombreCastellanizado}
+                      </span>
+                      {#if !!agr.nombreOriginario && !!agr.nombreCastellanizado}
+                        <span class="castellanizado">
+                          ({agr.nombreCastellanizado})
+                        </span>
+                        <!-- content here -->
                       {/if}
                     </button>
                   </summary>
                   <ul>
-
+                    <!--  -->
                     {#each agr.variantes as vari ('var' + vari.id)}
                       <li class="variante" style="border-color: {vari.color}">
                         <b>-</b>
-                        <button class={seleccion.varId === vari.id ? 'activo' : ''} on:click={() => seleccionarVariante(vari.id)}>
-                          <span class="originario">{vari.nombreOriginario || ari.nombreCastellanizado }</span>
-                          {#if !! vari.nombreOriginario && !! vari.nombreCastellanizado}
-                            <span class="castellanizado"> ({vari.nombreCastellanizado || ''})</span>
+                        <button
+                          class={seleccion.varId === vari.id ? 'activo' : ''}
+                          on:click={() => seleccionarVariante(vari.id)}>
+                          <span class="originario">
+                            {vari.nombreOriginario || vari.nombreCastellanizado}
+                          </span>
+                          {#if !!vari.nombreOriginario && !!vari.nombreCastellanizado}
+                            <span class="castellanizado">
+                              ({vari.nombreCastellanizado || ''})
+                            </span>
                             <!-- content here -->
                           {/if}
                         </button>
