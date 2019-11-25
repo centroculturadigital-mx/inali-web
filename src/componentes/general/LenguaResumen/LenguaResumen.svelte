@@ -11,8 +11,9 @@
   import Textiles from "../Galerias/Textiles.svelte";
 
   export let lengua;
+  export let muestraMapa;
 
-  $: console.log('lengua', lengua)
+  $: console.log("lengua", lengua);
 
   let iconoCierra = "icono.cierra.circulo.svg";
   let iconoMinimiza = "minimiza.circulo.svg";
@@ -175,8 +176,7 @@
     fill: green;
     color: green;
   }
-  
-  
+
   .BotonesMedia {
     display: block;
     /* position: absolute; */
@@ -191,15 +191,15 @@
     margin: 0;
     height: 100%;
     width: 100%;
-    border-top: 1px solid #c5c5c5;
+    /* border-top: 1px solid #c5c5c5; */
   }
   .BotonesMedia ul li {
     transition: 0.35s;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 33%;
-    border-top: 1px solid #c5c5c5;
+    width: 33.33%;
+    border: 1px solid #c5c5c5;
     cursor: pointer;
   }
   .BotonesMedia ul li:hover {
@@ -240,48 +240,91 @@
   .HeaderMinimizado {
     border-radius: 0.5rem;
   }
-  @media  (max-width: 660px) {
-  .card {
-    visibility: hidden;
-    position: relative;
-    border-radius: 0;
-    width: 100%;
-    box-shadow: 0rem;
+  @media (max-width: 660px) {
+    .card {
+      position: relative;
+      background-color: transparent;
+      top: 0;
+      left: 0;
+      border-radius: 0;
+      width: 100%;
+      box-shadow: none;
+    }
+    .HeaderMinimizado {
+      border-radius: 0rem;
+    }
+    .Cerrar {
+      padding-right: 0rem;
+    }
+    .Cerrar p {
+      padding-right: 0rem;
+      padding-left: 0.5rem;
+      width: 100%;
+    }
+    .ResumenInformacion {
+      text-align: center;
+    }
+    .RiesgoDesaparicion {
+      justify-content: center;
+    }
+      footer {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
   }
-}
+  }
 </style>
 
 <svelte:window bind:innerWidth={movil} />
 
 {#if lengua}
-
-<!-- Ventana minimizada -->
-  {#if minimizado }
-    
-    <section class="CardMinimizada card" transition:slide={{ duration: 500 }}>
+  <!-- Ventana minimizada -->
+  {#if minimizado}
+    <section
+      class="CardMinimizada card"
+      transition:slide={{ duration: 500 }}
+      on:click={minimiza}>
       <header
         class="HeaderMinimizado"
         style="background-color: #{lengua.color}">
         <span class="Cerrar">
-          {#if !!lengua.NOM_FAM}
-            <p>Familia: <b>{lengua.NOM_FAM}</b></p>
-          {:else if !!lengua.NOM_AGRUP}
-           <p>Agrupación: <b>{lengua.NOM_AGRUP}</b></p>
-          {:else if !!lengua.NOM_VAR}
-           <p>Variante: <b>{lengua.NOM_VAR}</b></p>
+          {#if movil > breakpoint}
+            <p>
+              Resumen:
+              <b>
+                {#if !!lengua.NOM_FAM}
+                  {lengua.NOM_FAM}
+                {:else if !!lengua.NOM_AGRUP}
+                  {lengua.NOM_AGRUP}
+                {:else if !!lengua.NOM_VAR}Variante: {lengua.NOM_VAR}{/if}
+              </b>
+            </p>
+          {:else}
+            <p>
+              Información sobre:
+              <b>
+                {#if !!lengua.NOM_FAM}
+                  {lengua.NOM_FAM}
+                {:else if !!lengua.NOM_AGRUP}
+                  {lengua.NOM_AGRUP}
+                {:else if !!lengua.NOM_VAR}{lengua.NOM_VAR}{/if}
+              </b>
+            </p>
           {/if}
-          <span on:click={minimiza}>
+          <!-- -->
+          <span>
             <img src={iconoMaximiza} alt="Maximiza" />
           </span>
-          <a href="/" on:click={cerrar}>
-            <img src={iconoCierra} alt="Cierra" />
-          </a>
+          {#if movil > breakpoint}
+            <a href="/" on:click={cerrar}>
+              <img src={iconoCierra} alt="Cierra" />
+            </a>
+          {/if}
         </span>
       </header>
     </section>
-
   {:else}
-  <!-- Ventana Maximizada -->
+    <!-- Ventana Maximizada -->
     <section class="card" transition:slide={{ duration: 500 }}>
       <!--  -->
       <section class="Contenido">
@@ -290,22 +333,24 @@
             <span on:click={minimiza}>
               <img src={iconoMinimiza} alt="Minimiza" />
             </span>
-            <a href="/" on:click={cerrar}>
-              <img src={iconoCierra} alt="Cierra" />
-            </a>
+            {#if movil > breakpoint}
+              <a href="/" on:click={cerrar}>
+                <img src={iconoCierra} alt="Cierra" />
+              </a>
+            {/if}
           </span>
         </header>
         <section
           class="ResumenInformacion {lengua.NOM_AGRUP ? 'ResumenInformacionAgrupacion' : ''}">
 
           {#if !!lengua.NOM_FAM}
-            <FamiliaResumen {lengua} color={lengua.color} />
+            <FamiliaResumen {lengua} color={lengua.color} {movil} />
           {/if}
           {#if !!lengua.NOM_AGRUP}
-            <AgrupacionResumen {lengua} color={lengua.color} riesgo />
+            <AgrupacionResumen {lengua} color={lengua.color} riesgo movil />
           {/if}
           {#if !!lengua.NOM_VAR}
-            <VarianteResumen {lengua} color={lengua.color} riesgo />
+            <VarianteResumen {lengua} color={lengua.color} riesgo movil />
           {/if}
 
         </section>
@@ -350,18 +395,36 @@
                 </p>
               </span>
             </li>
+            <!--  -->
+            {#if movil < breakpoint}
+              <!-- Cierra filtro -->
+              <li on:click={muestraMapa} class="">
+                <span class="BotonFotos">
+                  <div>
+                    <!-- <img src={iconoFotos} alt="Fotos" /> -->
+                    ^
+                  </div>
+                  <p>
+                    Ver Mapa
+                  </p>
+                </span>
+              </li>
+            {/if}
+
           </ul>
         </section>
         <!--  -->
       </section>
 
-      <footer on:click={verMas} style={`background-color: #${color}`}>
-        <div class="SaberMas">
-          <a href="/">
-            <span>Saber más</span>
-          </a>
-        </div>
-      </footer>
+      <!-- {#if movil > breakpoint} -->
+        <footer on:click={verMas} style={`background-color: #${color}`}>
+          <div class="SaberMas">
+            <a href="/">
+              <span>Saber más</span>
+            </a>
+          </div>
+        </footer>
+      <!-- {/if} -->
 
     </section>
   {/if}

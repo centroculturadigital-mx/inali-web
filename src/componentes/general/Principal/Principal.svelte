@@ -453,7 +453,8 @@
             on:deseleccionar={manejaLimpiaFiltro}
             on:seleccionar={manejaSeleccion}
             cierraVentanaFiltro={cierraVentana}
-            infoMiniResumen={lenguaDetalle} />
+            infoMiniResumen={lenguaDetalle} 
+            muestraDetalle={manejaVerDetalle}/>
         </div>
       {/if}
     </div>
