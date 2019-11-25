@@ -1,5 +1,7 @@
 <script>
   import extractoTexto from "./extractos.js";
+  // import calculaColorRiesgo from "./calculaColorRiesgo.js";
+
 
   export let lengua;
   export let color;
@@ -14,26 +16,6 @@
 
   // let riesgoColor;
 
-  // const calculaColorRiesgo = (riesgoLengua) => {
-  //   switch (riesgoLengua) {
-  //     case 0:
-  //       riesgoColor = 'RiesgoBajo'
-  //       break;
-  //     case 1:
-  //       riesgoColor = 'RiesgoMedioBajo'
-  //       break;
-  //     case 2:
-  //       riesgoColor = 'RiesgoMedioAlto'
-  //       break;
-  //     case 3:
-  //       riesgoColor = 'RiesgoAlto'
-  //       break;
-    
-  //     default:
-  //       riesgoColor;
-  //       break;
-  //   } 
-  // }
   // calculaColorRiesgo(lengua.riesgo);
 </script>
 
