@@ -8,7 +8,9 @@
 </script>
 
 <style>
-
+#MiniResumen {
+  width: 100%;
+}
 </style>
 
 <section id="MiniResumen">
