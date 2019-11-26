@@ -10,6 +10,8 @@
   import Fotos from "../Galerias/Fotos.svelte";
   import Textiles from "../Galerias/Textiles.svelte";
 
+  import organizarAudios from "../../../funciones/organizarAudios";
+
   export let lengua;
   export let muestraMapa;
 
@@ -41,29 +43,33 @@
 
   let ventanaGaleria = null;
 
+  $: numAudios = organizarAudios(lengua.audios).length;
+  $: numFotografias = lengua.fotografias.length;
+  $: numTextiles = lengua.textiles.length;
+
   const abreGaleria = tipo => {
-    let array;
+    let numElementos;
 
     switch (tipo) {
       case "audios":
-        array = lengua.audios.length;
+        numElementos = numAudios
         break;
       case "fotos":
-        array = lengua.fotografias.length;
+        numElementos = numFotografias
         break;
       case "textiles":
-        array = lengua.textiles.length;
+        numElementos = numTextiles
         break;
       case null:
-        array = null;
+        numElementos = null;
         break;
     }
 
-    if (array > 0) {
+    if (numElementos > 0) {
       ventanaGaleria = tipo;
     }
-    console.log("VENTANA: ", array);
-  };
+
+};
 
   const cerrarGaleria = event => {
     ventanaGaleria = null;
@@ -357,6 +363,7 @@
         <!-- Botones Media -->
         <section class="BotonesMedia">
           <ul>
+            {#if numAudios > 0 }
             <li
               on:click={() => {
                 abreGaleria('audios');
@@ -365,9 +372,13 @@
                 <div>
                   <img src={iconoAudios} alt="Audio" />
                 </div>
-                <p>{lengua.audios.length ? lengua.audios.length : 0} Audios</p>
+                <p>
+                  {numAudios} {numAudios > 1 ? "Audios" : "Audio"}
+                </p>
               </span>
             </li>
+            {/if}
+            {#if numTextiles > 0 }
             <li
               on:click={() => {
                 abreGaleria('textiles');
@@ -377,10 +388,12 @@
                   <img src={iconoTextiles} alt="Textiles" />
                 </div>
                 <p>
-                  {lengua.textiles.length ? lengua.textiles.length : 0} Textiles
+                  {numTextiles} {numTextiles > 1 ? "Textiles" : "Textil"}
                 </p>
               </span>
             </li>
+            {/if}
+            {#if numFotografias > 0 }
             <li
               on:click={() => {
                 abreGaleria('fotos');
@@ -390,11 +403,11 @@
                   <img src={iconoFotos} alt="Fotos" />
                 </div>
                 <p>
-                  {lengua.fotografias.length ? lengua.fotografias.length : 0}
-                  Fotos
+                  {numFotografias} {numFotografias > 1 ? "Fotografías" : "Fotografía"}
                 </p>
               </span>
             </li>
+            {/if}
             <!--  -->
             {#if movil < breakpoint}
               <!-- Cierra filtro -->
