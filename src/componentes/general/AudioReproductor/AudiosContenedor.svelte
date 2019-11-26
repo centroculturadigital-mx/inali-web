@@ -4,35 +4,36 @@ import AudioReproductor from './AudioReproductor.svelte';
 
 export let audios;
 
-
-const organizarAudios = audios => {
-
-    let audiosOrganizados = {}
-
-    audios.forEach(audio => {
-        
-        if( ! audiosOrganizados[audio.nombreArchivo.split(".")[0]]) {
-            audiosOrganizados[audio.nombreArchivo.split(".")[0]] = {...audio,sources: []}
-        };
-
-        audiosOrganizados[audio.nombreArchivo.split(".")[0]].sources.push(audio.url);
-
-    });
-
-    return Object.keys(audiosOrganizados).map(k=>audiosOrganizados[k])
-
-}
+import organizarAudios from "../../../funciones/organizarAudios"
 
 
 $: audiosOrganizados = organizarAudios(audios)
 
 
+const reproductores = []
+let tocando = null
+
+const manejarTocar = indice => {
+    
+    tocando=indice;
+
+    console.log('maneejar tocar', indice);
+
+}
+
 </script>
 
 {#if Array.isArray(audiosOrganizados) }
-    {#each audiosOrganizados as audio ('audio_'+Math.random()) }
+    {#each audiosOrganizados as audio, indice ('audio_'+indice) }
         
-        <AudioReproductor audio={audio}/>
+        <!-- bind:this={reproductores[indice]} -->
+        <AudioReproductor
+            audio={audio}
+            indice={indice}
+            tocar={manejarTocar}
+            pausar={tocando!==indice}
+        />
+            <!-- tocando={tocando[indice]} -->
 
     {/each}
 {/if}

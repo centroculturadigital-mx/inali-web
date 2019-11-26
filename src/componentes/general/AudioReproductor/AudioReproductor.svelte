@@ -5,24 +5,38 @@
     import AudioReproductorVista from "./AudioReproductorVista.svelte"
 
     export let audio;
+    export let tocar;
+    export let indice;
+    export let pausar;
+    // export let tocando;
 
     let audioHTML
     
     let cargando = true;
 
     let actualizacion;
-    let tiempo;
-    let progreso 
+    // let tiempo;
+    // let progreso 
+
+    let tocando = false
 
 
-    $: tocando = !! actualizacion
+    // $: tocando = !! actualizacion
     $: tiempo = !! audioHTML ? formatearDuracion(audioHTML.currentTime) : 0
     $: duracion = !! audioHTML ? formatearDuracion(audioHTML.duration) : 0
     $: progreso = !! audioHTML ? calcularProgreso(audioHTML.currentTime,audioHTML.duration) : 0
+    $: tocarSoloUno(pausar)
     
 
+    const tocarSoloUno = pausar_ => pausar_ ? parar() : null
 
-    const calcularProgreso = (tiempo,duracion) => (tiempo / duracion)*100
+    const calcularProgreso = (tiempo_,duracion_) => {
+        
+        const t = new Date(tiempo_)
+        const d = new Date(duracion_)
+        
+        return (t / d)*100
+    }
 
     const actualizar = ()=>{
         // reasignar para detonar asignacion reactiva con '$'
@@ -31,21 +45,26 @@
 
 
 
-    const tocar = () => {
+    const reproducir = () => {
 
         if( ! actualizacion ) {
             actualizacion = setInterval(actualizar,1000) 
         }
     
         audioHTML.play()
+        tocando = true
+        tocar(indice)
     }
     
     const parar = () => {
-    
-        audioHTML.pause()
-        clearInterval(actualizacion)
-        actualizacion = false
+        if( !! audioHTML ) {
+            
+            audioHTML.pause()
+            clearInterval(actualizacion)
+            actualizacion = null
+            tocando = false
         
+        }
     }
 
     
@@ -86,6 +105,16 @@
     }
 
 
+    const seek = posicion => {
+        
+        const tiempo = Math.floor((posicion/100) * audioHTML.duration);
+        console.log( posicion, audioHTML.duration, tiempo );
+
+        audioHTML.currentTime = tiempo
+
+    }
+
+
 </script>
 
 <audio bind:this={audioHTML}>
@@ -104,8 +133,9 @@
             progreso,
             audio,
             parar,
-            tocar,
-            cargando
+            reproducir,
+            cargando,
+            seek
         }
     }
 />

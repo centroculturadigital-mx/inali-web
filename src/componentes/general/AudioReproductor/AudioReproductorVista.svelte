@@ -4,11 +4,12 @@
   export let audio;
   export let tocando;
   export let parar;
-  export let tocar;
+  export let reproducir;
   export let tiempo;
   export let duracion;
   export let progreso;
   export let cargando;
+  export let seek;
 
   const imagenPausa = "boton.pause.svg";
   const imagenPlay = "boton.play.svg";
@@ -169,7 +170,7 @@
               <img src={imagenPausa} alt="Pausa" />
             </button>
           {:else}
-            <button class="BotonPlay" on:click={tocar}>
+            <button class="BotonPlay" on:click={reproducir}>
               <img src={imagenPlay} alt="Play" />
             </button>
           {/if}
@@ -191,7 +192,7 @@
           </div>
 
           <div class="Tiempo">
-            <input type="range" class="Progreso" value={progreso} />
+            <input type="range" class="Progreso" value={progreso} on:click={e=>seek(e.target.value)}/>
             <div class="TiempoCuenta">
               <span class="Posicion">{tiempo}</span>
               <span class="Duracion">{duracion}</span>
