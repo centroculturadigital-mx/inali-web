@@ -2,7 +2,7 @@
   import Lateral from "../componentes/general/Lateral/Lateral.svelte";
   import ContentBlocks from "../componentes/general/ContentBlocks/ContentBlocks.svelte";
   let Mapbox = "logoMapBox.svg";
-  let Logotipos = ['logo.inah.svg','logo.imer.svg','logo.fonoteca.svg','logo.cenidim.svg','logo.cid.svg','logo.chihuahua.svg','logo.pacmyc.svg']
+  let Logotipos = ['logo.inah.svg','logo.imer.svg','logo.fonoteca.svg','logo.cenidim.svg','logo.cid.svg','logo.chihuahua.svg','logo.pacmyc.svg','logoMapBox.svg']
 
   let blocks = [
     {
@@ -66,18 +66,18 @@
           "Uno de los objetivos del mapa es contar con versiones de interfaz y contenido traducidos a, cuando menos, una variante de cada una de las 68 agrupaciones lingüísticas. A largo plazo el objetivo es que, dentro del mismo sitio web, los usuarios puedan colaborar con traducciones, las cuales se enviarían en un formulario y pasarían por un proceso de validación hasta integrarse."
       }
     },
-    {
-      type: "img",
-      data: {
-        src: `${Mapbox}`,
-        alt: "Mapbox"
-      }
-    },
+    // {
+    //   type: "img",
+    //   data: {
+    //     src: `${Mapbox}`,
+    //     alt: "Mapbox"
+    //   }
+    // },
     {
       type: "h5",
       data: {
         text:
-        "El equipo del CCD de Diseño y Desarrollo del Mapa está integrado por:"
+        "El equipo del CCD de Contenidos, Diseño y Desarrollo del Mapa está integrado por:"
       }
     },
     {
