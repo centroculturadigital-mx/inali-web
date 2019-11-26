@@ -23,6 +23,7 @@
   let iconoAudios = "boton.play.solid.svg";
   let iconoTextiles = "boton.textiles.solid.svg";
   let iconoFotos = "boton.fotos.solid.svg";
+  let iconoMapa = "boton.mapa.solid.svg";
 
   const dispatch = createEventDispatcher();
 
@@ -414,8 +415,7 @@
               <li on:click={muestraMapa} class="">
                 <span class="BotonFotos">
                   <div>
-                    <!-- <img src={iconoFotos} alt="Fotos" /> -->
-                    ^
+                    <img src={iconoMapa} alt="Fotos" />
                   </div>
                   <p>
                     Ver Mapa
