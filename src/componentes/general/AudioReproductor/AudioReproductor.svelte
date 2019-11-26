@@ -11,8 +11,8 @@
     let cargando = true;
 
     let actualizacion;
-    let tiempo;
-    let progreso 
+    // let tiempo;
+    // let progreso 
 
 
     $: tocando = !! actualizacion
@@ -22,7 +22,14 @@
     
 
 
-    const calcularProgreso = (tiempo,duracion) => (tiempo / duracion)*100
+    const calcularProgreso = (tiempo_,duracion_) => {
+        
+        const t = new Date(tiempo_)
+        const d = new Date(duracion_)
+        
+        return (t / d)*100
+    }
+    $: !! audioHTML ? console.log(tiempo,duracion,calcularProgreso(audioHTML.currentTime,audioHTML.duration)) : null
 
     const actualizar = ()=>{
         // reasignar para detonar asignacion reactiva con '$'
@@ -86,6 +93,16 @@
     }
 
 
+    const seek = posicion => {
+        
+        const tiempo = Math.floor((posicion/100) * audioHTML.duration);
+        console.log( posicion, audioHTML.duration, tiempo );
+
+        audioHTML.currentTime = tiempo
+        
+    }
+
+
 </script>
 
 <audio bind:this={audioHTML}>
@@ -105,7 +122,8 @@
             audio,
             parar,
             tocar,
-            cargando
+            cargando,
+            seek
         }
     }
 />
