@@ -26,7 +26,7 @@ const Logotipos = ['logo.gobierno.svg','logo.cultura.svg','logo.inali.svg','logo
 @media  (max-width: 1024px) {
   footer {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
     position: fixed;
     width: 100%;

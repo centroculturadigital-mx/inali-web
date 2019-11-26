@@ -2,6 +2,7 @@
   import Lateral from "../componentes/general/Lateral/Lateral.svelte";
   import ContentBlocks from "../componentes/general/ContentBlocks/ContentBlocks.svelte";
   let Mapbox = "logoMapBox.svg";
+  let Logotipos = ['logo.inah.svg','logo.imer.svg','logo.fonoteca.svg','logo.cenidim.svg','logo.cid.svg','logo.chihuahua.svg','logo.pacmyc.svg']
 
   let blocks = [
     {
@@ -97,7 +98,7 @@
   }
 
   .Informacion img {
-    width: 80px;
+    width: 8rem;
   }
 
   .Cerrar {
@@ -114,6 +115,20 @@
   .Cerrar a:hover {
     color: tomato;
   }
+  .Agradecimientos{
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .ContenedorLogos{
+    width: auto;
+  }
+  .Logotipos{
+    /* width: auto; */
+    height: 2rem;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
   @media (max-width: 660px) {
     .Cerrar {
       right: 0.75rem;
@@ -137,6 +152,13 @@
   <section class="Informacion">
 
     <ContentBlocks {blocks} />
+
+    <div class="ContenedorLogos">
+      <h5 class="Agradecimientos">Agradecimientos:</h5>
+        {#each Logotipos as logo}
+          <img class="Logotipos" src="./{logo}" alt="Logo {logo}">
+        {/each}
+    </div>
 
   </section>
 </Lateral>
