@@ -5,6 +5,10 @@
     import AudioReproductorVista from "./AudioReproductorVista.svelte"
 
     export let audio;
+    export let tocar;
+    export let indice;
+    export let pausar;
+    // export let tocando;
 
     let audioHTML
     
@@ -14,13 +18,17 @@
     // let tiempo;
     // let progreso 
 
+    let tocando = false
 
-    $: tocando = !! actualizacion
+
+    // $: tocando = !! actualizacion
     $: tiempo = !! audioHTML ? formatearDuracion(audioHTML.currentTime) : 0
     $: duracion = !! audioHTML ? formatearDuracion(audioHTML.duration) : 0
     $: progreso = !! audioHTML ? calcularProgreso(audioHTML.currentTime,audioHTML.duration) : 0
+    $: tocarSoloUno(pausar)
     
 
+    const tocarSoloUno = pausar_ => pausar_ ? parar() : null
 
     const calcularProgreso = (tiempo_,duracion_) => {
         
@@ -29,7 +37,6 @@
         
         return (t / d)*100
     }
-    $: !! audioHTML ? console.log(tiempo,duracion,calcularProgreso(audioHTML.currentTime,audioHTML.duration)) : null
 
     const actualizar = ()=>{
         // reasignar para detonar asignacion reactiva con '$'
@@ -38,21 +45,26 @@
 
 
 
-    const tocar = () => {
+    const reproducir = () => {
 
         if( ! actualizacion ) {
             actualizacion = setInterval(actualizar,1000) 
         }
     
         audioHTML.play()
+        tocando = true
+        tocar(indice)
     }
     
     const parar = () => {
-    
-        audioHTML.pause()
-        clearInterval(actualizacion)
-        actualizacion = false
+        if( !! audioHTML ) {
+            
+            audioHTML.pause()
+            clearInterval(actualizacion)
+            actualizacion = null
+            tocando = false
         
+        }
     }
 
     
@@ -99,7 +111,7 @@
         console.log( posicion, audioHTML.duration, tiempo );
 
         audioHTML.currentTime = tiempo
-        
+
     }
 
 
@@ -121,7 +133,7 @@
             progreso,
             audio,
             parar,
-            tocar,
+            reproducir,
             cargando,
             seek
         }

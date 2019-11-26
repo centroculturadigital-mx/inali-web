@@ -4,7 +4,7 @@
   export let audio;
   export let tocando;
   export let parar;
-  export let tocar;
+  export let reproducir;
   export let tiempo;
   export let duracion;
   export let progreso;
@@ -170,7 +170,7 @@
               <img src={imagenPausa} alt="Pausa" />
             </button>
           {:else}
-            <button class="BotonPlay" on:click={tocar}>
+            <button class="BotonPlay" on:click={reproducir}>
               <img src={imagenPlay} alt="Play" />
             </button>
           {/if}
