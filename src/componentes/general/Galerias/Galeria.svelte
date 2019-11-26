@@ -23,7 +23,6 @@
     /* max-width: 10rem; */
     cursor: pointer;
     position: relative;
-    display: grid;
     justify-items: center;
     align-items: center;
   }
@@ -31,6 +30,7 @@
     max-width: 10rem;
     object-fit: cover;
     border-radius: 3px;
+    width: 100%;
   }
   .Contenido {
     color: #fff;
