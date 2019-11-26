@@ -47,6 +47,11 @@
   .Creditos {
     font-size: 0.7em;
   }
+  @media (max-width: 1098px) {
+     .Galeria ul {
+    grid-template-columns: 1fr 1fr;
+  } 
+  }
 </style>
 
 <section class="Galeria">
