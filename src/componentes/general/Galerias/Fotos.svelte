@@ -23,6 +23,7 @@
     lightboxContexto.imagenesStore.set(imagenes);
 
     lightboxAbrir = lightboxContexto.abrir;
+    
   });
 
 
@@ -93,12 +94,9 @@
 <ContenedorGaleria on:click>
   <header class="Fotos">
 
-    <h1 class="Titulo">Fotos</h1>
-    <!-- <div class="Sub">
-      <p class="Agrupacion">Agrupación:</p>
-      <p class="Fonetica">{imagenes[0].metadatos.agrupacionFonetica}</p>
-      <p class="Original">{imagenes[0].metadatos.agrupacionOriginal}</p>
-    </div> -->
+    <h1 class="Titulo">
+      Fotos
+    </h1>
 
   </header>
 

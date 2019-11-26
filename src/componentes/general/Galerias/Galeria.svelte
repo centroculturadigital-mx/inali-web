@@ -28,9 +28,11 @@
   }
   img {
     max-width: 10rem;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 3px;
     width: 100%;
+    height: 100%;
+    max-height: 10rem;
   }
   .Contenido {
     color: #fff;
@@ -40,12 +42,12 @@
     padding: 0.5rem 0;
     left: 0;
     text-align: center;
-    font-size: 0.5rem;
+    font-size: 0.7rem;
     width: 100%;
     height: auto;
   }
   .Creditos {
-    font-size: 0.7em;
+    font-size: 0.6rem;
   }
   @media (max-width: 1098px) {
      .Galeria ul {
@@ -73,16 +75,7 @@
               <div class="Creditos">
                 © {imagen.creditos}
               </div>
-              <!-- {#if imagen.tipo == "imagen"}
-
-                <span>
-                  {imagen.metadatos.titulo}
-                </span>
-              {:else if imagen.tipo == "textil"}
-                <span>
-                  {imagen.metadatos.nombreDelProducto}
-                </span>
-              {/if} -->
+              
             </div>
         </article>
       {/if}

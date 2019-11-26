@@ -33,9 +33,13 @@
   });
 
   const open = goIndex => {
+    
+    console.log("goIndex",goIndex, contents[goIndex]);
+    
     if ((goIndex === 0 || goIndex > 0) && shouldOpen) {
       classList = classBase;
     }
+
   };
 
   const close = () => {
@@ -87,7 +91,7 @@
     height: 100vh;
   }
   .LightBox :global(.slides > * > *) {
-    width: 100vw !important;
+    width: 99.3vw !important;
     /* height: 70vh !important; */
     height: 100vh;
     display: flex;
@@ -125,20 +129,36 @@
     border: 1px solid red;
   }
 
+  
+
   :global(.slide) {
     min-width: 90vw;
     min-height: 90vh;
-    max-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  :global(img),
   :global(.carousel img) {
     max-width: 90vw;
-    max-height: 90vh;
+    max-height: 70vh;
   }
+
+  
+
+  @media screen and (min-width:768px) {
+    
+    :global(.carousel img) {
+      max-height: 90vh;
+    }
+
+    .LightBox :global(.slides > * > *) {
+      width: 99.7vw !important;
+    }
+
+
+  }
+
 </style>
 
 <div class={classList}>
@@ -151,16 +171,16 @@
   {#if contents.length > 0}
     <Carousel perPage={{ perParge: 1 }} {go}>
 
-      {#each contents as content, i ('content_' + content.tipo + i+ Math.random() )}
+      {#each contents as content, i ('content_' + content.tipo + '_' + i )}
         <div class="slide">
           {#if content.tipo == 'imagen' || !content.tipo}
-            <img src={escalarImagenCloudinary(content.url,w)} />
+            <img src={escalarImagenCloudinary(content.url,w)} alt={content.titulo}/>
             <!-- <img src={content.url} alt={content.metadatos.nombre} /> -->
             <!-- <img src={content.full} alt={content.metadatos.nombre} /> -->
             <!-- <FotosMetadatos metadatos={content.metadatos}/> -->
           {/if}
           {#if content.tipo == 'textil'}
-            <img src={escalarImagenCloudinary(content.url,w)} />
+            <img src={escalarImagenCloudinary(content.url,w)} alt={content.titulo}/>
             <!-- <img src={content.url} alt={content.metadatos.nombreDelProducto} /> -->
             <!-- <Metadatos metadatos={content.metadatos} tipo={content.tipo}/> -->
           {/if}

@@ -23,8 +23,8 @@
 	
 	const abrir = i => {
 		goToLightbox = null;
-		console.log("abrirg/;;;;;",i);
-		
+		console.log("abrir imagen",i);
+		goToLightbox = i
 		setTimeout(() => (goToLightbox = i));
 	};
 
