@@ -8,7 +8,7 @@
   let buscador = false;
   const abreInputBusqueda = e => {
     !buscador ? (buscador = true) : (buscador = false);
-    console.log("Cabecera", e);
+    // console.log("Cabecera", e);
   };
 </script>
 

@@ -39,7 +39,7 @@
     dispatch("seleccionar", { id: varid, tipo: "variante" });
   };
 
-  $: console.log("seleccion", seleccion);
+  // $: console.log("seleccion", seleccion);
 
   $: arbolFiltrado = calculaArbolFiltrado(arbol, seleccion);
 

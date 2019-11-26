@@ -56,7 +56,7 @@
 
   // Lengua
   $: lenguaDetalle = calculaLenguaDetalle(seleccion);
-  $: console.log(lenguaDetalle);
+  // $: console.log(lenguaDetalle);
 
   // $: lenguaResumen = calculaLenguaResumen(seleccion)
 

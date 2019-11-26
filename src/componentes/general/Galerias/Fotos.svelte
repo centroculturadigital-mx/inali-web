@@ -23,11 +23,11 @@
     lightboxContexto.imagenesStore.set(imagenes);
 
     lightboxAbrir = lightboxContexto.abrir;
-    
+
   });
 
 
-  $: console.log("imagenes", imagenes);
+  // $: console.log("imagenes", imagenes);
   
 </script>
 

@@ -14,9 +14,9 @@
     // dispatch("cerrar");
   };
 
-  onMount(() => {
-    console.log("cargar familia", lengua);
-  });
+  // onMount(() => {
+  //   // console.log("cargar familia", lengua);
+  // });
   $: mostrarFotos = Array.isArray(lengua.fotografias)
     ? lengua.fotografias.length > 0
     : false;
@@ -44,7 +44,7 @@
   //   ventanaGaleria = event.detail.cierra;
   // };
 
-  $: console.log("lenguaDetalle", lengua);
+  // $: console.log("lenguaDetalle", lengua);
 
   const IconoTextiles = "icono.textiles.svg";
   const IconoFotos = "icono.fotos.svg";

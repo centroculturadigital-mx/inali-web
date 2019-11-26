@@ -26,7 +26,7 @@
     ventanaGaleria = null;
   };
 
-  $: console.log("lenguaDetalle", lengua);
+  // $: console.log("lenguaDetalle", lengua);
 
   const contenidoFake = {
     descripcion:

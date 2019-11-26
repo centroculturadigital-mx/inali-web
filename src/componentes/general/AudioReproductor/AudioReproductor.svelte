@@ -108,7 +108,7 @@
     const seek = posicion => {
         
         const tiempo = Math.floor((posicion/100) * audioHTML.duration);
-        console.log( posicion, audioHTML.duration, tiempo );
+        // console.log( posicion, audioHTML.duration, tiempo );
 
         audioHTML.currentTime = tiempo
 

@@ -15,7 +15,7 @@
   export let lengua;
   export let muestraMapa;
 
-  $: console.log("lengua", lengua);
+  // $: console.log("lengua", lengua);
 
   let iconoCierra = "icono.cierra.circulo.svg";
   let iconoMinimiza = "minimiza.circulo.svg";

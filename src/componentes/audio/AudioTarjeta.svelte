@@ -27,7 +27,7 @@
 
     date.setSeconds(duracion);
 
-    console.log(date.toISOString().substr(14, 5));
+    // console.log(date.toISOString().substr(14, 5));
     return date.toISOString().substr(14, 5);
   };
 

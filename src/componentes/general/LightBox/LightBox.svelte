@@ -34,7 +34,7 @@
 
   const open = goIndex => {
     
-    console.log("goIndex",goIndex, contents[goIndex]);
+    // console.log("goIndex",goIndex, contents[goIndex]);
     
     if ((goIndex === 0 || goIndex > 0) && shouldOpen) {
       classList = classBase;

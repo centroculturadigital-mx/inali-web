@@ -5,7 +5,7 @@
 	const dispatch = createEventDispatcher();
 
 	const comparteMapa = (mapa) => {
-    console.log('comparteMapa')
+    // console.log('comparteMapa')
     dispatch('cargado', mapa)
 
   }

@@ -1,7 +1,7 @@
 <script context="module">
   // TODO: parar audios que esten tocando al dar play
   export function pararTodo() {
-    console.log("//TODO: parar audios que esten tocando al dar play");
+    // console.log("//TODO: parar audios que esten tocando al dar play");
   }
 </script>
 
@@ -75,12 +75,12 @@
     var porcentaje = e.offsetX / barraProgreso.clientWidth;
 
     audioElemento.currentTime = porcentaje * audioElemento.duration; //aplica tiempo seleccionado
-    console.log(e.offsetX,barraProgreso.width,porcentaje,audioElemento.currentTime);
+    // console.log(e.offsetX,barraProgreso.width,porcentaje,audioElemento.currentTime);
     barraProgreso.value = porcentaje;
   };
 
   const cargando = () => {
-    console.log("Loading ...");
+    // console.log("Loading ...");
   };
 
   onMount(() => {
@@ -105,7 +105,7 @@
     audioElemento.onended = e => {
       botonPlay.dataset.playing = "false";
       barraProgreso.value = 0;
-      console.log("Fin del audio");
+      // console.log("Fin del audio");
     };
     barraProgreso.onclick = clickSeek;
     audioElemento.onpause = e => {

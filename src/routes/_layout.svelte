@@ -23,7 +23,7 @@
 	
 	const abrir = i => {
 		goToLightbox = null;
-		console.log("abrir imagen",i);
+		// console.log("abrir imagen",i);
 		goToLightbox = i
 		setTimeout(() => (goToLightbox = i));
 	};
@@ -45,7 +45,7 @@
 
 	imagenesStore.subscribe(imagenes=>{
 		siguientesImagenes=imagenes
-		console.log("siguientesImagenes",siguientesImagenes);
+		// console.log("siguientesImagenes",siguientesImagenes);
 		
 	})
 	// onMount(()=>{
@@ -66,8 +66,8 @@
 
 	$: actualizarImagenes(siguientesImagenes);
 	$: goLightbox = goToLightbox;
-	$: console.log(goToLightbox);
-	$: console.log(goLightbox);
+	// $: console.log(goToLightbox);
+	// $: console.log(goLightbox);
 		
 
 

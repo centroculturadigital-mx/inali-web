@@ -37,7 +37,7 @@
     ventanaGaleria = event.detail.cierra;
   };
 
-  $: console.log("lenguaDetalle", lengua);
+  // $: console.log("lenguaDetalle", lengua);
 
   const abreGaleria = e => {
     if (e.target.classList.contains("Audio")) {

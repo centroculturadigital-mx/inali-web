@@ -17,7 +17,7 @@ const manejarTocar = indice => {
     
     tocando=indice;
 
-    console.log('maneejar tocar', indice);
+    // console.log('maneejar tocar', indice);
 
 }
 
