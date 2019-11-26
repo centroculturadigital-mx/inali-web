@@ -72,7 +72,28 @@
         src: `${Mapbox}`,
         alt: "Mapbox"
       }
-    }
+    },
+    {
+      type: "h5",
+      data: {
+        text:
+        "El equipo del CCD de Diseño y Desarrollo del Mapa está integrado por:"
+      }
+    },
+    {
+      type: "p",
+      data: {
+        text:
+        "María Luisa González, Mitzi OIvera, Vanessa Velázquez, Yotzin Viacobo, Sirena González, José Carlos Hasbun, Raúl Rodríguez, y Rodrigo Treviño Frenk."
+      }
+    },
+    {
+      type: "h5",
+      data: {
+        text:
+        "Agradecimientos:"
+      }
+    },
   ];
 </script>
 
@@ -115,12 +136,9 @@
   .Cerrar a:hover {
     color: tomato;
   }
-  .Agradecimientos{
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-  }
   .ContenedorLogos{
     width: auto;
+    margin-top: 1rem;
   }
   .Logotipos{
     /* width: auto; */
@@ -154,10 +172,9 @@
     <ContentBlocks {blocks} />
 
     <div class="ContenedorLogos">
-      <h5 class="Agradecimientos">Agradecimientos:</h5>
-        {#each Logotipos as logo}
-          <img class="Logotipos" src="./{logo}" alt="Logo {logo}">
-        {/each}
+      {#each Logotipos as logo}
+        <img class="Logotipos" src="./{logo}" alt="Logo {logo}">
+      {/each}
     </div>
 
   </section>

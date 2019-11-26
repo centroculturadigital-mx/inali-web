@@ -18,6 +18,7 @@ export let blocks
     
 	img{
     width: 8rem;
+    margin-bottom: 1.5rem;
     }
     
 </style>
