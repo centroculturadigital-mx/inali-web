@@ -44,7 +44,6 @@
   let breakpoint = 660;
   let colorRiesgo = calculaColorRiesgo(lengua.agrupacionInfo.riesgo);
   // console.log("EEEEEEEEEEEEE::::", lengua.agrupacionInfo.riesgo);
-  
 </script>
 
 <style>
@@ -212,7 +211,8 @@
     height: auto;
     width: 70%;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: left;
     align-content: center;
   }
   .DetalleOrigenTexto div {
@@ -306,7 +306,7 @@
   .DetalleTextoDescripcion {
     padding: 0 1rem;
   }
-    .RiesgoBajo {
+  .RiesgoBajo {
     fill: green;
     color: green;
   }
@@ -322,6 +322,10 @@
     fill: red;
     color: red;
   }
+  .SubtituloCastellano {
+    width: 100%;
+    color: rgba(100, 100, 100, 0.75);
+  }
   /*  */
   @media (max-width: 660px) {
     .BotonGaleria {
@@ -330,6 +334,9 @@
     }
     header {
       padding-left: 0;
+    }
+    .DetalleOrigenVariantes {
+      border-left: none;
     }
   }
 </style>
@@ -402,6 +409,9 @@
       <div class="DetalleOrigenTexto">
         {#if !!lengua.agrupacionId}
           <p>Agrupación {lengua.agrupacionId}</p>
+          <p class="SubtituloCastellano">
+            ({lengua.nombreOriginario || lengua.nombreCastellanizado})
+          </p>
         {/if}
       </div>
     </div>

@@ -192,7 +192,8 @@
     height: auto;
     width: 70%;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: left;
     align-content: center;
   }
   .DetalleOrigenTexto div {
@@ -293,7 +294,7 @@
   }
   .SubtituloCastellano {
     width: 100%;
-    color: rgba(100,100,100,0.75);
+    color: rgba(100, 100, 100, 0.75);
   }
   .RiesgoBajo {
     fill: green;
@@ -322,6 +323,9 @@
     }
     header {
       padding-left: 0;
+    }
+    .DetalleOrigenVariantes {
+      border-left: none;
     }
   }
 </style>
@@ -361,8 +365,7 @@
 
   <div class="DetalleOrigen">
     <div class="DetalleOrigenRiesgo">
-      <div
-        class="DetalleOrigenIcono {colorRiesgo}">
+      <div class="DetalleOrigenIcono {colorRiesgo}">
         {@html RiesgoIcono}
       </div>
       <div class="DetalleOrigenTexto">
@@ -381,7 +384,9 @@
       <div class="DetalleOrigenTexto">
         {#if !!lengua.familiaId}
           <p>Familia {lengua.familiaId}</p>
-          <p class="SubtituloCastellano">({lengua.nombreOriginario || lengua.nombreCastellanizado}) </p>
+          <p class="SubtituloCastellano">
+            ({lengua.nombreOriginario || lengua.nombreCastellanizado})
+          </p>
         {/if}
       </div>
     </div>
