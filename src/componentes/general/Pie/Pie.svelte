@@ -1,5 +1,5 @@
 <script>
-const Logotipos = ['gobierno.cultura.inah.svg','logo.imer.svg','logo.inali.svg','logo.ccd.svg','logo.fonoteca.svg', 'logo.cenidim.svg','logo.cid.svg','logo.chihuahua.svg','logo.pacmyc.svg']
+const Logotipos = ['logo.gobierno.svg','logo.cultura.svg','logo.inali.svg','logo.ccd.svg']
 // const Logotipos = ['logoGobierno.svg','logoCultura.svg','logoInah.svg','logoImer.svg','logoInali.png','logoCcd.svg','logoFonoteca.svg', 'logoInpi.svg','logoCenidim.png','logoCulturaUnam.png','logoCid.svg','logoPacmyc.svg']
 
 </script>
