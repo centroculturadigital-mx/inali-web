@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import Carousel from "../../../../node_modules/@centroculturadigital-mx/svelte-carousel/src/Carousel.svelte";
+  import escalarImagenCloudinary from "../../../funciones/escalarImagenCloudinary";
 
   import Metadatos from "../Metadatos/Metadatos.svelte";
   import FotosMetadatos from "../Galerias/TextilesMetadatos.svelte";
@@ -17,6 +18,7 @@
   $: contents = Array.isArray(content) ? content : [content];
 
   $: open(go);
+  $: w = parseInt(window.innerWidth / 1.25 );
 
   onMount(() => {
     shouldOpen = true;
@@ -123,10 +125,19 @@
     border: 1px solid red;
   }
 
+  :global(.slide) {
+    min-width: 90vw;
+    min-height: 90vh;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   :global(img),
   :global(.carousel img) {
-    max-width: 40rem;
-    max-height: 60rem;
+    max-width: 90vw;
+    max-height: 90vh;
   }
 </style>
 
@@ -141,15 +152,15 @@
     <Carousel perPage={{ perParge: 1 }} {go}>
 
       {#each contents as content, i ('content_' + content.tipo + i+ Math.random() )}
-        <div>
+        <div class="slide">
           {#if content.tipo == 'imagen' || !content.tipo}
-            <img src={content.url}/>
+            <img src={escalarImagenCloudinary(content.url,w)} />
             <!-- <img src={content.url} alt={content.metadatos.nombre} /> -->
             <!-- <img src={content.full} alt={content.metadatos.nombre} /> -->
             <!-- <FotosMetadatos metadatos={content.metadatos}/> -->
           {/if}
           {#if content.tipo == 'textil'}
-            <img src={content.url} />
+            <img src={escalarImagenCloudinary(content.url,w)} />
             <!-- <img src={content.url} alt={content.metadatos.nombreDelProducto} /> -->
             <!-- <Metadatos metadatos={content.metadatos} tipo={content.tipo}/> -->
           {/if}

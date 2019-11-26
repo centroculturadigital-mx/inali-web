@@ -1,4 +1,4 @@
-export default src => {
+export default (src,w=192) => {
   const partes = src.split("upload/")
-  return partes[0] + "upload/w_192/" + partes[1]
+  return partes[0] + "upload/w_"+w+"/" + partes[1]
 }
