@@ -205,8 +205,7 @@
         let agr = variantes.find(agr => agr.id == a);
         let agrupacionInfo = {
           id: agr.id,
-          nombre: agr.nombreOriginario || agr.nombreCastellanizado,
-          riesgo: agr.riesgo
+          nombre: agr.nombreOriginario || agr.nombreCastellanizado
         };
         return agrupacionInfo;
       });
@@ -227,7 +226,9 @@
       };
       l.agrupacionInfo = {
         id: agr.id,
-        nombre: agr.nombreOriginario || agr.nombreCastellanizado
+        nombre: agr.nombreOriginario || agr.nombreCastellanizado,
+        riesgo: agr.riesgo
+
       };
 
       return l;

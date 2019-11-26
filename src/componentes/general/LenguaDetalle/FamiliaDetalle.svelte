@@ -100,14 +100,14 @@
     /* width: 100%; */
     /* display: flex; */
     /* align-items: center; */
-    width: calc(100% - 1rem);
+    width: calc(100% - 0.95rem);
     height: auto;
     min-height: 3rem;
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 1px 2px 18px rgba(0, 0, 0, 0.15);
     position: absolute;
     top: 3.25rem;
-    left: 1rem;
+    left: 0.95rem;
   }
 
   #DetalleCerrar {
@@ -151,106 +151,22 @@
   }
 
   .Nombre {
-    font-weight: Bold;
-    /* color: #fbb634; */
+    font-weight: bold;
     font-size: 2.5rem;
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.25rem;
   }
   .Nombre2 {
-    font-weight: Bold;
+    font-weight: bold;
     /* color: #fbb634; */
     font-size: 2rem;
     margin-bottom: 0.5rem;
   }
   .Nombre3 {
-    font-weight: Bold;
+    font-weight: bold;
     /* color: #fbb634; */
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-  }
-  .NombreCastellano {
-    font-weight: lighter;
-    /* color: #fcc745; */
-    font-size: 2.5rem;
-    /* letter-spacing: 0.25rem; */
-  }
-  .DetalleNumeroHablantes {
-    padding: 0.75rem;
-    display: inline-block;
-    background-color: rgba(230, 170, 48, 0.1);
-    height: auto;
-    width: auto;
-  }
-  .DetalleNumeroHablantes p {
-    font-weight: lighter;
-    margin: 0;
-  }
-  .DetalleOrigen {
-    display: flex;
-    justify-content: space-evenly;
-    height: 4.25rem;
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-  .DetalleOrigenRiesgo {
-    background-color: rgba(255, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* max-width: 33%; */
-  }
-  .DetalleOrigenFamilia {
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* max-width: 33%; */
-  }
-  .DetalleOrigenVariantes {
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* max-width: 33%; */
-    border-left: 1px solid #000;
-  }
-  .DetalleOrigenIcono {
-    height: 100%;
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #f4d13b;
-  }
-  .DetalleOrigenTexto {
-    color: #3d3d3d;
-    margin: 0;
-    height: auto;
-    width: 70%;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-  }
-  .DetalleOrigenTexto div {
-    height: auto !important;
-  }
-  .DetalleOrigenTexto p {
-    margin: 0;
-    font-size: 0.75rem;
-    height: auto;
-  }
-  .DetalleOrigenTexto small {
-    margin: 0;
-    font-size: 0.65rem;
-  }
-  .DatosEstadisticos {
-    height: 22rem;
-    width: 100%;
-    border: 1px solid #000;
-  }
-  .ReferenciasFeograficas {
-    min-height: 10rem;
   }
   .DetalleLista li {
     padding: 1.25rem;
@@ -291,7 +207,7 @@
   .DetalleBotonesGaleria {
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     color: #fff;
     width: 100%;
   }

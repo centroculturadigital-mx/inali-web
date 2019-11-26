@@ -43,7 +43,6 @@
   export let movil;
   let breakpoint = 660;
   let colorRiesgo = calculaColorRiesgo(lengua.agrupacionInfo.riesgo);
-  // console.log("EEEEEEEEEEEEE::::", lengua.agrupacionInfo.riesgo);
 </script>
 
 <style>
@@ -88,12 +87,12 @@
     margin-top: 0;
     /* position: relative; */
     /* width: 100%; */
-    width: calc(100% - 1rem);
+    width: calc(100% - 0.95rem);
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 1px 2px 18px rgba(0, 0, 0, 0.15);
     position: absolute;
     top: 3.25rem;
-    left: 1rem;
+    left: 0.95rem;
   }
   .DetalleContenidosNavegacion span {
     cursor: pointer;
@@ -270,11 +269,10 @@
     text-align: center;
     width: 85%;
   }
-
   .DetalleBotonesGaleria {
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     color: #fff;
     width: 100%;
   }
@@ -338,6 +336,9 @@
     .DetalleOrigenVariantes {
       border-left: none;
     }
+    .DetalleOrigenTexto {
+      font-size: 0.6rem;
+    }
   }
 </style>
 
@@ -388,20 +389,19 @@
 
   <!-- riesgo variante  -->
   <div class="DetalleOrigen">
-    <!-- <div class="DetalleOrigenRiesgo">
-      <div
-        class="DetalleOrigenIcono {colorRiesgo}">
+    <div class="DetalleOrigenRiesgo">
+      <div class="DetalleOrigenIcono {colorRiesgo}">
         {@html RiesgoIcono}
       </div>
       <div class="DetalleOrigenTexto">
         <div>
-          <p>{lengua.riesgo < 2 ? 'Bajo' : 'Alto'} riesgo de desaparición</p>
-          <small>
+          <p>{colorRiesgo < 2 ? 'Bajo' : 'Alto'} riesgo de desaparición</p>
+          <!-- <small>
                 <b>25,620 hablantes</b>
-            </small>
+            </small> -->
         </div>
       </div>
-    </div> -->
+    </div>
     <div class="DetalleOrigenFamilia">
       <div class="DetalleOrigenIcono">
         <i class="fa fa-object-ungroup" />

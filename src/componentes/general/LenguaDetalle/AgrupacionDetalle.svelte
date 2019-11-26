@@ -93,12 +93,12 @@
     margin-top: 0;
     position: relative;
     /* width: 100%; */
-    width: calc(100% - 1rem);
+    width: calc(100% - 0.95rem);
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 1px 2px 18px rgba(0, 0, 0, 0.15);
     position: absolute;
     top: 3.25rem;
-    left: 1rem;
+    left: 0.95rem;
   }
   .DetalleContenidosNavegacion span {
     cursor: pointer;
@@ -326,6 +326,9 @@
     }
     .DetalleOrigenVariantes {
       border-left: none;
+    }
+    .DetalleOrigenTexto {
+      font-size: 0.6rem;
     }
   }
 </style>
