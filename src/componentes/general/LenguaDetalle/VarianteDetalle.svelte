@@ -1,5 +1,6 @@
 <script>
   import { onMount, createEventDispatcher } from "svelte";
+  import calculaColorRiesgo from "../LenguaResumen/calculaColorRiesgo.js";
 
   //   const dispatch = createEventDispatcher();
 
@@ -41,6 +42,9 @@
 
   export let movil;
   let breakpoint = 660;
+  let colorRiesgo = calculaColorRiesgo(lengua.agrupacionInfo.riesgo);
+  // console.log("EEEEEEEEEEEEE::::", lengua.agrupacionInfo.riesgo);
+  
 </script>
 
 <style>
@@ -202,14 +206,6 @@
     align-items: center;
     color: #f4d13b;
   }
-  .RiesgoAlto {
-    fill: red;
-    color: red;
-  }
-  .RiesgoBajo {
-    fill: green;
-    color: green;
-  }
   .DetalleOrigenTexto {
     color: #3d3d3d;
     margin: 0;
@@ -310,10 +306,27 @@
   .DetalleTextoDescripcion {
     padding: 0 1rem;
   }
+    .RiesgoBajo {
+    fill: green;
+    color: green;
+  }
+  .RiesgoMedioBajo {
+    fill: rgb(223, 223, 0);
+    color: rgb(223, 223, 0);
+  }
+  .RiesgoMedioAlto {
+    fill: orangered;
+    color: orangered;
+  }
+  .RiesgoAlto {
+    fill: red;
+    color: red;
+  }
   /*  */
   @media (max-width: 660px) {
     .BotonGaleria {
       padding: 0.75rem;
+      margin: 0.5rem;
     }
     header {
       padding-left: 0;
@@ -368,20 +381,20 @@
 
   <!-- riesgo variante  -->
   <div class="DetalleOrigen">
-    <div class="DetalleOrigenRiesgo">
+    <!-- <div class="DetalleOrigenRiesgo">
       <div
-        class="DetalleOrigenIcono {lengua.riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+        class="DetalleOrigenIcono {colorRiesgo}">
         {@html RiesgoIcono}
       </div>
       <div class="DetalleOrigenTexto">
         <div>
-          <p>{lengua.riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desaparición</p>
-          <!-- <small>
+          <p>{lengua.riesgo < 2 ? 'Bajo' : 'Alto'} riesgo de desaparición</p>
+          <small>
                 <b>25,620 hablantes</b>
-            </small> -->
+            </small>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="DetalleOrigenFamilia">
       <div class="DetalleOrigenIcono">
         <i class="fa fa-object-ungroup" />

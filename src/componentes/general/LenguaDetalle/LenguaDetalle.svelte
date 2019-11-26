@@ -151,6 +151,10 @@
       margin-bottom: 1rem;
       flex-direction: column;
     }
+    .BotonGaleria {
+      padding: 0.75rem;
+      margin: 0.5rem;
+    }
   }
 </style>
 

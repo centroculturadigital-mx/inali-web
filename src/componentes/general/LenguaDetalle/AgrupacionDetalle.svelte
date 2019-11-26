@@ -1,5 +1,6 @@
 <script>
   import { onMount, createEventDispatcher } from "svelte";
+  import calculaColorRiesgo from "../LenguaResumen/calculaColorRiesgo.js";
 
   import Audios from "../Galerias/Audios.svelte";
   import Fotos from "../Galerias/Fotos.svelte";
@@ -47,6 +48,7 @@
 
   export let movil;
   let breakpoint = 660;
+  let colorRiesgo = calculaColorRiesgo(lengua.riesgo);
 </script>
 
 <style>
@@ -184,14 +186,6 @@
     align-items: center;
     color: #f4d13b;
   }
-  .RiesgoAlto {
-    fill: red;
-    color: red;
-  }
-  .RiesgoBajo {
-    fill: green;
-    color: green;
-  }
   .DetalleOrigenTexto {
     color: #3d3d3d;
     margin: 0;
@@ -297,10 +291,31 @@
   .Nombre {
     font-weight: Bold;
   }
+  .SubtituloCastellano {
+    width: 100%;
+    color: rgba(100,100,100,0.75);
+  }
+  .RiesgoBajo {
+    fill: green;
+    color: green;
+  }
+  .RiesgoMedioBajo {
+    fill: rgb(223, 223, 0);
+    color: rgb(223, 223, 0);
+  }
+  .RiesgoMedioAlto {
+    fill: orangered;
+    color: orangered;
+  }
+  .RiesgoAlto {
+    fill: red;
+    color: red;
+  }
   /*  */
   @media (max-width: 660px) {
     .BotonGaleria {
       padding: 0.75rem;
+      margin: 0.5rem;
     }
     .DetalleTextoDescripcion {
       padding: 0;
@@ -347,12 +362,12 @@
   <div class="DetalleOrigen">
     <div class="DetalleOrigenRiesgo">
       <div
-        class="DetalleOrigenIcono {lengua.riesgo >= 0.5 ? 'RiesgoAlto' : 'RiesgoBajo'}">
+        class="DetalleOrigenIcono {colorRiesgo}">
         {@html RiesgoIcono}
       </div>
       <div class="DetalleOrigenTexto">
         <div>
-          <p>{lengua.riesgo >= 0.5 ? 'Alto' : 'Bajo'} riesgo de desparición</p>
+          <p>{lengua.riesgo < 2 ? 'Bajo' : 'Alto'} riesgo de desparición</p>
           <!-- <small>
               <b>1,725,620 hablantes</b>
           </small> -->
@@ -366,6 +381,7 @@
       <div class="DetalleOrigenTexto">
         {#if !!lengua.familiaId}
           <p>Familia {lengua.familiaId}</p>
+          <p class="SubtituloCastellano">({lengua.nombreOriginario || lengua.nombreCastellanizado}) </p>
         {/if}
       </div>
     </div>

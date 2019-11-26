@@ -223,14 +223,6 @@
     align-items: center;
     color: #f4d13b;
   }
-  .RiesgoAlto {
-    fill: red;
-    color: red;
-  }
-  .RiesgoBajo {
-    fill: green;
-    color: green;
-  }
   .DetalleOrigenTexto {
     color: #3d3d3d;
     margin: 0;
@@ -338,6 +330,7 @@
   @media (max-width: 660px) {
     .BotonGaleria {
       padding: 0.75rem;
+      margin: 0.5rem;
     }
     header {
       padding-left: 0;

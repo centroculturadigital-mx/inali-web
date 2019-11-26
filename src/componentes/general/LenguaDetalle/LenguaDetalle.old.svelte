@@ -290,6 +290,12 @@ const verHijoDetalle = () => {
   .DetalleTextoDescripcion {
     padding: 0 1rem;
   }
+    @media (max-width: 660px) {
+    .BotonGaleria {
+      padding: 0.75rem;
+      margin: 0.5rem;
+    }
+  }
 </style>
 
 <section class="DetalleContenedor" transition:fade={{ x: 500, duration: 750 }}>

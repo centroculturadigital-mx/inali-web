@@ -92,8 +92,8 @@
     color: green;
   }
   .RiesgoMedioBajo {
-    fill: yellowgreen;
-    color: yellowgreen;
+    fill: rgb(223, 223, 0);
+    color: rgb(223, 223, 0);
   }
   .RiesgoMedioAlto {
     fill: orangered;

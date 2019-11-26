@@ -72,3 +72,20 @@ code {
 .descripcion {
 	font-size: 1rem;
 }
+
+.RiesgoBajo {
+    fill: green;
+    color: green;
+  }
+  .RiesgoMedioBajo {
+    fill: yellow;
+    color: yellow;
+  }
+  .RiesgoMedioAlto {
+    fill: orangered;
+    color: orangered;
+  }
+  .RiesgoAlto {
+    fill: red;
+    color: red;
+  }
