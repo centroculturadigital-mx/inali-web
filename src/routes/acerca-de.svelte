@@ -139,6 +139,7 @@
   .ContenedorLogos{
     width: auto;
     margin-top: 1rem;
+    text-align: center;
   }
   .Logotipos{
     /* width: auto; */
@@ -151,6 +152,9 @@
     .Cerrar {
       right: 0.75rem;
       top: 0.5rem;
+    }
+    .ContenedorLogos {
+      text-align: inherit;
     }
   }
 </style>
