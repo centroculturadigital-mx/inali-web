@@ -103,12 +103,12 @@
   }
   @media (max-width: 660px) {
     .RiesgoDesaparicion {
-      justify-content: center;
+      justify-content: left;
     }
   }
 </style>
 
-{#if movil > breakpoint}
+{#if movil < breakpoint}
   <p class="NombreFamilia">Variante</p>
   <h2 class="TituloTarjetaResumen">
     {lengua.nombreOriginario || lengua.nombre || lengua.nombreCastellanizado}

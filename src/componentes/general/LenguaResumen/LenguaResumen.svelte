@@ -23,7 +23,8 @@
   let iconoAudios = "boton.play.solid.svg";
   let iconoTextiles = "boton.textiles.solid.svg";
   let iconoFotos = "boton.fotos.solid.svg";
-  let iconoMapa = "boton.mapa.solid.svg";
+  let iconoMapa = "icono.posicion.svg";
+  let iconoVerMas = "icono.vermas.svg";
 
   const dispatch = createEventDispatcher();
 
@@ -53,13 +54,13 @@
 
     switch (tipo) {
       case "audios":
-        numElementos = numAudios
+        numElementos = numAudios;
         break;
       case "fotos":
-        numElementos = numFotografias
+        numElementos = numFotografias;
         break;
       case "textiles":
-        numElementos = numTextiles
+        numElementos = numTextiles;
         break;
       case null:
         numElementos = null;
@@ -69,8 +70,7 @@
     if (numElementos > 0) {
       ventanaGaleria = tipo;
     }
-
-};
+  };
 
   const cerrarGaleria = event => {
     ventanaGaleria = null;
@@ -106,7 +106,7 @@
   .ResumenInformacion {
     font-size: 1rem;
     height: auto;
-    padding: 0rem 1rem 1rem 1.5rem;
+    padding: 0rem 1rem 0rem 1.5rem;
     overflow-y: auto;
   }
   .ResumenInformacionAgrupacion {
@@ -131,7 +131,7 @@
   .Cerrar {
     display: flex;
     justify-content: flex-end;
-    padding: 0.5rem;
+    padding: 0.25rem;
     height: auto;
   }
   .Cerrar span {
@@ -189,16 +189,16 @@
     /* position: absolute; */
     bottom: 0;
     left: 0;
-    height: 5rem;
+    height: auto;
     width: 100%;
   }
   .BotonesMedia ul {
     display: flex;
     justify-content: space-evenly;
     margin: 0;
-    height: 100%;
+    height: auto;
     width: 100%;
-    /* border-top: 1px solid #c5c5c5; */
+    border-top: 0px;
   }
   .BotonesMedia ul li {
     transition: 0.35s;
@@ -206,16 +206,25 @@
     justify-content: center;
     align-items: center;
     width: 33.33%;
-    border: 1px solid #c5c5c5;
+    border-left: 1px solid #c5c5c5;
+    border-right: 1px solid #c5c5c5;
+    border-top: 1px solid #c5c5c5;
     cursor: pointer;
+    height: 4rem;
   }
   .BotonesMedia ul li:hover {
     background-color: rgba(0, 0, 0, 0.1);
   }
-  .BotonesMedia ul li:nth-child(2) {
-    border-left: 1px solid #c5c5c5;
-    border-right: 1px solid #c5c5c5;
+  .BotonesMedia ul li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
   }
+  /* .BotonesMedia ul li:nth-child(2) {
+    border-left: 0px solid #c5c5c5;
+    border-right: 0px solid #c5c5c5;
+  /* .BotonesMedia ul li:nth-child(2) {
+    border-left: 0px solid #c5c5c5;
+    border-right: 0px solid #c5c5c5;
+  } */
   .BotonesMedia .BotonAudios img {
     width: 1.5rem;
     stroke: rgba(0, 0, 0, 0.75);
@@ -239,6 +248,7 @@
     margin: 0;
     padding: 0;
     margin-top: 0.25rem;
+    text-align: center;
   }
   .Contenido {
     /* height: calc(100% - 3rem); */
@@ -246,6 +256,17 @@
   }
   .HeaderMinimizado {
     border-radius: 0.5rem;
+  }
+  .BotonVerMas,
+  .BotonVerMapa {
+    border-left: 0px !important;
+    border-right: 0px !important;
+  }
+  .BotonVerMas img {
+    opacity: 0.8;
+  }
+  .BotonVerMapa img {
+    opacity: 0.45;
   }
   @media (max-width: 660px) {
     .card {
@@ -269,16 +290,25 @@
       width: 100%;
     }
     .ResumenInformacion {
-      text-align: center;
+      text-align: left;
+      padding-top: 0.5rem;
     }
     .RiesgoDesaparicion {
       justify-content: center;
     }
-      footer {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-
-  }
+    footer {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    .CardMinimizada {
+      display: none;
+    }
+    .BotonesMedia ul {
+      border-top: 1px solid #c5c5c5;
+    }
+    .BotonesMedia ul li {
+      border-top: 0px;
+    }
   }
 </style>
 
@@ -335,18 +365,20 @@
     <section class="card" transition:slide={{ duration: 500 }}>
       <!--  -->
       <section class="Contenido">
-        <header>
-          <span class="Cerrar">
-            <span on:click={minimiza}>
-              <img src={iconoMinimiza} alt="Minimiza" />
+        {#if movil > breakpoint}
+          <header>
+            <span class="Cerrar">
+              <span on:click={minimiza}>
+                <img src={iconoMinimiza} alt="Minimiza" />
+              </span>
+              {#if movil > breakpoint}
+                <a href="/" on:click={cerrar}>
+                  <img src={iconoCierra} alt="Cierra" />
+                </a>
+              {/if}
             </span>
-            {#if movil > breakpoint}
-              <a href="/" on:click={cerrar}>
-                <img src={iconoCierra} alt="Cierra" />
-              </a>
-            {/if}
-          </span>
-        </header>
+          </header>
+        {/if}
         <section
           class="ResumenInformacion {lengua.NOM_AGRUP ? 'ResumenInformacionAgrupacion' : ''}">
 
@@ -354,72 +386,82 @@
             <FamiliaResumen {lengua} color={lengua.color} {movil} />
           {/if}
           {#if !!lengua.NOM_AGRUP}
-            <AgrupacionResumen {lengua} color={lengua.color} riesgo={lengua.riesgo} movil />
+            <AgrupacionResumen
+              {lengua}
+              color={lengua.color}
+              riesgo={lengua.riesgo}
+              movil />
           {/if}
           {#if !!lengua.NOM_VAR}
-            <VarianteResumen {lengua} color={lengua.color} riesgo={lengua.riesgo} movil />
+            <VarianteResumen
+              {lengua}
+              color={lengua.color}
+              riesgo={lengua.riesgo}
+              movil />
           {/if}
 
         </section>
         <!-- Botones Media -->
         <section class="BotonesMedia">
           <ul>
-            {#if numAudios > 0 }
-            <li
-              on:click={() => {
-                abreGaleria('audios');
-              }}>
-              <span class="BotonAudios">
-                <div>
-                  <img src={iconoAudios} alt="Audio" />
-                </div>
-                <p>
-                  {numAudios} {numAudios > 1 ? "Audios" : "Audio"}
-                </p>
-              </span>
-            </li>
+            {#if numAudios > 0}
+              <li
+                on:click={() => {
+                  abreGaleria('audios');
+                }}>
+                <span class="BotonAudios">
+                  <div>
+                    <img src={iconoAudios} alt="Audio" />
+                  </div>
+                  <p>{numAudios} {numAudios > 1 ? 'Audios' : 'Audio'}</p>
+                </span>
+              </li>
             {/if}
-            {#if numTextiles > 0 }
-            <li
-              on:click={() => {
-                abreGaleria('textiles');
-              }}>
-              <span class="BotonTextiles">
-                <div>
-                  <img src={iconoTextiles} alt="Textiles" />
-                </div>
-                <p>
-                  {numTextiles} {numTextiles > 1 ? "Textiles" : "Textil"}
-                </p>
-              </span>
-            </li>
+            {#if numTextiles > 0}
+              <li
+                on:click={() => {
+                  abreGaleria('textiles');
+                }}>
+                <span class="BotonTextiles">
+                  <div>
+                    <img src={iconoTextiles} alt="Textiles" />
+                  </div>
+                  <p>{numTextiles} {numTextiles > 1 ? 'Textiles' : 'Textil'}</p>
+                </span>
+              </li>
             {/if}
-            {#if numFotografias > 0 }
-            <li
-              on:click={() => {
-                abreGaleria('fotos');
-              }}>
-              <span class="BotonFotos">
-                <div>
-                  <img src={iconoFotos} alt="Fotos" />
-                </div>
-                <p>
-                  {numFotografias} {numFotografias > 1 ? "Fotografías" : "Fotografía"}
-                </p>
-              </span>
-            </li>
+            {#if numFotografias > 0}
+              <li
+                on:click={() => {
+                  abreGaleria('fotos');
+                }}>
+                <span class="BotonFotos">
+                  <div>
+                    <img src={iconoFotos} alt="Fotos" />
+                  </div>
+                  <p>
+                    {numFotografias} {numFotografias > 1 ? 'Fotos' : 'Foto'}
+                  </p>
+                </span>
+              </li>
             {/if}
             <!--  -->
             {#if movil < breakpoint}
               <!-- Cierra filtro -->
-              <li on:click={muestraMapa} class="">
+              <li on:click={muestraMapa} class="BotonVerMapa">
                 <span class="BotonFotos">
                   <div>
                     <img src={iconoMapa} alt="Fotos" />
                   </div>
-                  <p>
-                    Ver Mapa
-                  </p>
+                  <p>Mapa</p>
+                </span>
+              </li>
+              <li on:click={verMas} class="BotonVerMas">
+                <span class="BotonFotos">
+                  <div>
+                    <img src={iconoVerMas} alt="Fotos" />
+                  </div>
+                  <p>Más</p>
                 </span>
               </li>
             {/if}
@@ -429,7 +471,7 @@
         <!--  -->
       </section>
 
-      <!-- {#if movil > breakpoint} -->
+      {#if movil > breakpoint}
         <footer on:click={verMas} style={`background-color: #${color}`}>
           <div class="SaberMas">
             <a href="/">
@@ -437,7 +479,7 @@
             </a>
           </div>
         </footer>
-      <!-- {/if} -->
+      {/if}
 
     </section>
   {/if}

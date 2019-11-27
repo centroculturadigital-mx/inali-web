@@ -154,7 +154,7 @@
     color: rgb(255, 255, 255);
   }
   #MostrarTodas {
-    padding: 0.75rem;
+    padding: 0.5rem;
     background-color: rgba(70, 93, 114, 0.1);
   }
   #MostrarTodas button {
@@ -204,6 +204,9 @@
   }
   .Resumen {
     display: none;
+  }
+  .ListaLenguas {
+    border-top: 1px solid rgba(150,150,150,0.5);  
   }
   @media (max-width: 660px) {
     aside {
@@ -280,7 +283,7 @@
   {/if}
   <!--  -->
   {/if}
-  <ul>
+  <ul class="ListaLenguas">
     <!--  -->
     {#each arbolFiltrado as fam ('fam' + fam.id)}
       <li class="familia" style={`border-color: ${fam.color}`}>
