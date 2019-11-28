@@ -129,12 +129,12 @@
       <p>{lengua.transcripcionFonetica}</p>
     {/if}
   </div>
-  <p class="RiesgoDesaparicion {riesgoColor}">
+  <!-- <p class="RiesgoDesaparicion {riesgoColor}">
     <span>
       {@html RiesgoIcono}
     </span>
     {lengua.agrupacionInfo.riesgo < 2 ? 'Bajo' : 'Alto'} riesgo de desaparición
-  </p>
+  </p> -->
   <p class="FamiliaPertenece">
     <span style={`fill:#${color}`}>
       {@html IconoFamilia}
@@ -146,6 +146,11 @@
       {@html IconoVariantes}
     </span>
     {#if !!lengua.familiaId}Familia {lengua.familiaId}{/if}
+  </p>
+  <p>
+    <span class="Hablantes">
+      <b>{lengua.hablantes} hablantes </b>
+    </span>
   </p>
 
 </section>
