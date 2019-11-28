@@ -4,7 +4,7 @@
 
 <style>
   .Lateral {
-    padding: 0 2rem;
+    padding: 0 1rem;
     position: fixed;
     top: 3.25rem;
     left: 0;

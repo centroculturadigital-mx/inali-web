@@ -2,7 +2,7 @@
   import Lateral from "../componentes/general/Lateral/Lateral.svelte";
   import ContentBlocks from "../componentes/general/ContentBlocks/ContentBlocks.svelte";
 
-  let iconoCierra = 'cerrar.ventana.svg'
+  let iconoCierra = "cerrar.ventana.svg";
   let glosario = [
     {
       type: "dl",
@@ -109,13 +109,18 @@
   .Cerrar {
     display: flex;
     justify-content: flex-end;
-    position: absolute;
-    right: 2rem;
-    top: 1.25rem;
+    position: relative;
+    right: 0rem;
+    top: 1rem;
   }
-
+  .Cerrar small {
+    padding-right: 0.25rem;
+  }
   .Cerrar a {
+    position: fixed;
     color: rgba(255, 255, 255, 1);
+    display: flex;
+    align-items: center;
   }
   .Cerrar img {
     width: 1.75rem;
@@ -139,7 +144,8 @@
 <Lateral backgroundColor="rgba(70,93,114,0.95)">
   <span class="Cerrar">
     <a href="/">
-    <img src={iconoCierra} alt="Cerrar">
+      <small>Cerrar</small>
+      <img src={iconoCierra} alt="Cerrar" />
     </a>
   </span>
   <h3 class="titulo">Glosario</h3>

@@ -74,8 +74,7 @@
     }
   ];
 
-  let iconoCierra = 'cerrar.ventana.svg';
-
+  let iconoCierra = "cerrar.ventana.svg";
 </script>
 
 <style>
@@ -106,23 +105,29 @@
   .Cerrar {
     display: flex;
     justify-content: flex-end;
-    position: absolute;
-    right: 2rem;
-    top: 1.25rem;
+    position: relative;
+    right: 0rem;
+    top: 1rem;
   }
   .Cerrar a {
+    position: fixed;
     color: rgba(255, 255, 255, 1);
+    display: flex;
+    align-items: center;
   }
   .Cerrar img {
     width: 1.75rem;
     filter: invert();
+  }
+  .Cerrar small {
+    padding-right: 0.25rem;
   }
   .Cerrar a img:hover {
     opacity: 0.55;
   }
   @media (max-width: 660px) {
     .Cerrar {
-      right: 0.75rem;
+      right: 0rem;
       top: 0.5rem;
     }
   }
@@ -135,7 +140,8 @@
 <Lateral backgroundColor="rgba(70,93,114,0.95)">
   <span class="Cerrar">
     <a href="/">
-    <img src={iconoCierra} alt="Cerrar">
+      <small>Cerrar</small>
+      <img src={iconoCierra} alt="Cerrar" />
     </a>
   </span>
   <h3 class="titulo">Acerca de</h3>

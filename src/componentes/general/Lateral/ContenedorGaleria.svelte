@@ -43,6 +43,11 @@
     height: 2rem;
     width: 2rem;
   }
+  .Regresa small {
+    padding: 0 0.25rem;
+    display: flex;
+    align-items: center;
+  }
   .Regresa img:hover {
     opacity: 0.85;
   }
@@ -60,6 +65,7 @@
 
     <div>
       <button class="Regresa" on:click>
+        <small>Regresar</small>
         <img src={IconoCierraGaleria} alt="Cierra Galería INALI" />
 
       </button>
