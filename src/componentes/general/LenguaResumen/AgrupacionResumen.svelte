@@ -129,7 +129,7 @@
     <span>
       {@html RiesgoIcono}
     </span>
-    {lengua.riesgo > 2 ? 'Alto' : 'Bajo'} riesgo de desaparición
+    {lengua.riesgo < 2 ? 'Bajo' : 'Alto'} riesgo de desaparición
   </p>
   <p class="FamiliaPertenece">
     <span style={`fill:#${color}`}>
