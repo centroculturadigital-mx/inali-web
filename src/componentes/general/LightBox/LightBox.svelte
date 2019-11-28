@@ -9,6 +9,8 @@
   export let content;
   export let go;
 
+  let iconoCierra = "cerrar.ventana.svg";
+
   let classBase = "LightBox";
 
   let classList = `${classBase} ${classBase}--hidden`;
@@ -18,7 +20,7 @@
   $: contents = Array.isArray(content) ? content : [content];
 
   $: open(go);
-  $: w = parseInt(window.innerWidth / 1.25 );
+  $: w = parseInt(window.innerWidth / 1.25);
 
   onMount(() => {
     shouldOpen = true;
@@ -33,13 +35,11 @@
   });
 
   const open = goIndex => {
-    
     // console.log("goIndex",goIndex, contents[goIndex]);
-    
+
     if ((goIndex === 0 || goIndex > 0) && shouldOpen) {
       classList = classBase;
     }
-
   };
 
   const close = () => {
@@ -76,11 +76,20 @@
     border: none;
     cursor: pointer;
     color: #fff;
-    font-size: 1.5rem;
-    font-weight: bolder;
+    font-weight: lighter;
+    /* font-size: 0.75rem; */
+    display: flex;
+    align-items: center;
+  }
+  .LightBox header button small {
+    padding: 0 0.25rem;
+  }
+  .LightBox header button img {
+    width: 1.75rem;
+    filter: invert();
   }
   .LightBox header button:hover {
-    color: tomato;
+      opacity: 0.75;
   }
 
   .LightBox :global(.carousel)
@@ -129,8 +138,6 @@
     border: 1px solid red;
   }
 
-  
-
   :global(.slide) {
     min-width: 90vw;
     min-height: 90vh;
@@ -143,11 +150,7 @@
     max-width: 90vw;
     max-height: 70vh;
   }
-
-  
-
-  @media screen and (min-width:768px) {
-    
+  @media screen and (min-width: 768px) {
     :global(.carousel img) {
       max-height: 90vh;
     }
@@ -155,15 +158,15 @@
     .LightBox :global(.slides > * > *) {
       width: 99.7vw !important;
     }
-
-
   }
-
 </style>
 
 <div class={classList}>
   <header>
-    <button on:click={close}>X</button>
+    <button on:click={close}>
+      <small>Cerrar</small>
+      <img src={iconoCierra} alt="Cierra" />
+    </button>
   </header>
 
   <div class="Lightbox__Overlay" on:click={close} />
@@ -171,16 +174,20 @@
   {#if contents.length > 0}
     <Carousel perPage={{ perParge: 1 }} {go}>
 
-      {#each contents as content, i ('content_' + content.tipo + '_' + i )}
+      {#each contents as content, i ('content_' + content.tipo + '_' + i)}
         <div class="slide">
           {#if content.tipo == 'imagen' || !content.tipo}
-            <img src={escalarImagenCloudinary(content.url,w)} alt={content.titulo}/>
+            <img
+              src={escalarImagenCloudinary(content.url, w)}
+              alt={content.titulo} />
             <!-- <img src={content.url} alt={content.metadatos.nombre} /> -->
             <!-- <img src={content.full} alt={content.metadatos.nombre} /> -->
             <!-- <FotosMetadatos metadatos={content.metadatos}/> -->
           {/if}
           {#if content.tipo == 'textil'}
-            <img src={escalarImagenCloudinary(content.url,w)} alt={content.titulo}/>
+            <img
+              src={escalarImagenCloudinary(content.url, w)}
+              alt={content.titulo} />
             <!-- <img src={content.url} alt={content.metadatos.nombreDelProducto} /> -->
             <!-- <Metadatos metadatos={content.metadatos} tipo={content.tipo}/> -->
           {/if}

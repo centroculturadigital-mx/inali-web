@@ -131,7 +131,7 @@
   .Cerrar {
     display: flex;
     justify-content: flex-end;
-    padding: 0.25rem;
+    padding: 0.55rem;
     height: auto;
   }
   .Cerrar span {

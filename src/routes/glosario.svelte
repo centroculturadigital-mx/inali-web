@@ -117,7 +117,7 @@
     padding-right: 0.25rem;
   }
   .Cerrar a {
-    position: fixed;
+    /* position: fixed; */
     color: rgba(255, 255, 255, 1);
     display: flex;
     align-items: center;
