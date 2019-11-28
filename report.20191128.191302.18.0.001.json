@@ -3,9 +3,9 @@
   "header": {
     "event": "Allocation failed - JavaScript heap out of memory",
     "trigger": "FatalError",
-    "filename": "report.20191126.201628.18.0.001.json",
-    "dumpEventTime": "2019-11-26T20:16:28Z",
-    "dumpEventTimeStamp": "1574799388918",
+    "filename": "report.20191128.191302.18.0.001.json",
+    "dumpEventTime": "2019-11-28T19:13:02Z",
+    "dumpEventTimeStamp": "1574968382305",
     "processId": 18,
     "cwd": "/src/inali-web",
     "commandLine": [
@@ -46,7 +46,7 @@
     "osRelease": "4.15.0-70-generic",
     "osVersion": "#79-Ubuntu SMP Tue Nov 12 10:36:11 UTC 2019",
     "osMachine": "x86_64",
-    "host": "710c32ce0cb7"
+    "host": "bdd554d733ae"
   },
   "javascriptStack": {
     "message": "No stack.",
@@ -88,43 +88,27 @@
       "symbol": "v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [node]"
     },
     {
-      "pc": "0x0000000000f4b68a",
-      "symbol": "v8::internal::Heap::CollectAllAvailableGarbage(v8::internal::GarbageCollectionReason) [node]"
-    },
-    {
-      "pc": "0x0000000000f4cf2e",
+      "pc": "0x0000000000f4cec1",
       "symbol": "v8::internal::Heap::AllocateRawWithRetryOrFail(int, v8::internal::AllocationSpace, v8::internal::AllocationAlignment) [node]"
     },
     {
-      "pc": "0x0000000000f16df6",
-      "symbol": "v8::internal::Factory::AllocateRawArray(int, v8::internal::PretenureFlag) [node]"
+      "pc": "0x0000000000f170f4",
+      "symbol": "v8::internal::Factory::NewFillerObject(int, bool, v8::internal::AllocationSpace) [node]"
     },
     {
-      "pc": "0x0000000000f177ba",
-      "symbol": "v8::internal::Factory::NewFixedArrayWithFiller(v8::internal::Heap::RootListIndex, int, v8::internal::Object*, v8::internal::PretenureFlag) [node]"
+      "pc": "0x00000000011cd54b",
+      "symbol": "v8::internal::Runtime_AllocateInTargetSpace(int, v8::internal::Object**, v8::internal::Isolate*) [node]"
     },
     {
-      "pc": "0x0000000000f17e87",
-      "symbol": "v8::internal::Factory::NewUninitializedFixedArray(int, v8::internal::PretenureFlag) [node]"
-    },
-    {
-      "pc": "0x0000000000ec530f",
-      "symbol": " [node]"
-    },
-    {
-      "pc": "0x0000000001195b4d",
-      "symbol": "v8::internal::Runtime_GrowArrayElements(int, v8::internal::Object**, v8::internal::Isolate*) [node]"
-    },
-    {
-      "pc": "0x0000049ba704fc5d",
+      "pc": "0x0000327e34fcfc5d",
       "symbol": ""
     }
   ],
   "javascriptHeap": {
-    "totalMemory": 1440575488,
-    "totalCommittedMemory": 1436272992,
-    "usedMemory": 1408043480,
-    "availableMemory": 89207624,
+    "totalMemory": 1399459840,
+    "totalCommittedMemory": 1395290072,
+    "usedMemory": 1367669360,
+    "availableMemory": 129692536,
     "memoryLimit": 1526909922,
     "heapSpaces": {
       "read_only_space": {
@@ -135,39 +119,39 @@
         "available": 482064
       },
       "new_space": {
-        "memorySize": 2097152,
-        "committedMemory": 34816,
-        "capacity": 1031168,
-        "used": 0,
-        "available": 1031168
+        "memorySize": 4194304,
+        "committedMemory": 966016,
+        "capacity": 2062336,
+        "used": 271792,
+        "available": 1790544
       },
       "old_space": {
-        "memorySize": 1069748224,
-        "committedMemory": 1068291504,
-        "capacity": 1044225624,
-        "used": 1042673696,
-        "available": 1551928
+        "memorySize": 1071845376,
+        "committedMemory": 1071778680,
+        "capacity": 1047410648,
+        "used": 1047248832,
+        "available": 161816
       },
       "code_space": {
         "memorySize": 3145728,
-        "committedMemory": 2844544,
-        "capacity": 2399232,
-        "used": 2399232,
+        "committedMemory": 2867680,
+        "capacity": 2532064,
+        "used": 2532064,
         "available": 0
       },
       "map_space": {
         "memorySize": 1060864,
-        "committedMemory": 1060672,
-        "capacity": 706960,
-        "used": 706960,
+        "committedMemory": 946192,
+        "capacity": 684320,
+        "used": 684320,
         "available": 0
       },
       "large_object_space": {
-        "memorySize": 363999232,
-        "committedMemory": 363999232,
-        "capacity": 448372536,
-        "used": 362230072,
-        "available": 86142464
+        "memorySize": 318689280,
+        "committedMemory": 318689280,
+        "capacity": 444156944,
+        "used": 316898832,
+        "available": 127258112
       },
       "new_large_object_space": {
         "memorySize": 0,
@@ -179,26 +163,26 @@
     }
   },
   "resourceUsage": {
-    "userCpuSeconds": 316.764,
-    "kernelCpuSeconds": 14.1503,
-    "cpuConsumptionPercent": 8.55075,
-    "maxRss": 1547980800,
+    "userCpuSeconds": 65.3638,
+    "kernelCpuSeconds": 1.57953,
+    "cpuConsumptionPercent": 223.145,
+    "maxRss": 1548054528,
     "pageFaults": {
-      "IORequired": 394,
-      "IONotRequired": 5357186
+      "IORequired": 0,
+      "IONotRequired": 802143
     },
     "fsActivity": {
-      "reads": 184432,
-      "writes": 312200
+      "reads": 1176,
+      "writes": 2320
     }
   },
   "uvthreadResourceUsage": {
-    "userCpuSeconds": 132.456,
-    "kernelCpuSeconds": 8.09107,
-    "cpuConsumptionPercent": 3.6317,
+    "userCpuSeconds": 28.6694,
+    "kernelCpuSeconds": 0.951912,
+    "cpuConsumptionPercent": 98.7375,
     "fsActivity": {
-      "reads": 102504,
-      "writes": 188304
+      "reads": 1168,
+      "writes": 296
     }
   },
   "libuv": [
@@ -218,7 +202,7 @@
     "NODE_VERSION": "11.15.0",
     "npm_config_bin_links": "true",
     "npm_config_key": "",
-    "HOSTNAME": "710c32ce0cb7",
+    "HOSTNAME": "bdd554d733ae",
     "YARN_VERSION": "1.15.2",
     "npm_config_allow_same_version": "",
     "npm_config_description": "true",
@@ -319,7 +303,7 @@
     "npm_package_devDependencies_rollup_plugin_terser": "^4.0.4",
     "npm_config_umask": "0022",
     "npm_package_dependencies_lightbox_fs": "^1.0.3",
-    "npm_package_gitHead": "5fa13b227a25730355be96e43a4b3b4eba8a863c",
+    "npm_package_gitHead": "99ab260ca1c8935dd7d1c607f22a38bd7f927067",
     "npm_config_fetch_retry_maxtimeout": "60000",
     "npm_config_loglevel": "notice",
     "npm_config_logs_max": "10",
@@ -433,7 +417,6 @@
     "/lib/x86_64-linux-gnu/libgcc_s.so.1",
     "/lib/x86_64-linux-gnu/libpthread.so.0",
     "/lib/x86_64-linux-gnu/libc.so.6",
-    "/lib64/ld-linux-x86-64.so.2",
-    "/lib/x86_64-linux-gnu/libnss_files.so.2"
+    "/lib64/ld-linux-x86-64.so.2"
   ]
 }

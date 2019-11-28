@@ -73,6 +73,9 @@
       }
     }
   ];
+
+  let iconoCierra = 'cerrar.ventana.svg';
+
 </script>
 
 <style>
@@ -107,12 +110,15 @@
     right: 2rem;
     top: 1.25rem;
   }
-
   .Cerrar a {
     color: rgba(255, 255, 255, 1);
   }
-  .Cerrar a:hover {
-    color: tomato;
+  .Cerrar img {
+    width: 1.75rem;
+    filter: invert();
+  }
+  .Cerrar a img:hover {
+    opacity: 0.55;
   }
   @media (max-width: 660px) {
     .Cerrar {
@@ -129,7 +135,7 @@
 <Lateral backgroundColor="rgba(70,93,114,0.95)">
   <span class="Cerrar">
     <a href="/">
-      <i class="fa fa-close" />
+    <img src={iconoCierra} alt="Cerrar">
     </a>
   </span>
   <h3 class="titulo">Acerca de</h3>

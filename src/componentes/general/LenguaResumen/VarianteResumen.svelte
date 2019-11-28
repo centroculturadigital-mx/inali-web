@@ -81,6 +81,7 @@
     font-weight: 600;
     font-size: 0.9rem;
     margin: 0.25rem 0 0 0;
+    text-transform: capitalize;
   }
   .FamiliaPertenece span {
     margin: 0.1rem 0.25rem 0 0;

@@ -3,9 +3,9 @@
   "header": {
     "event": "Allocation failed - JavaScript heap out of memory",
     "trigger": "FatalError",
-    "filename": "report.20191126.031252.18.0.001.json",
-    "dumpEventTime": "2019-11-26T03:12:52Z",
-    "dumpEventTimeStamp": "1574737972314",
+    "filename": "report.20191128.190157.18.0.001.json",
+    "dumpEventTime": "2019-11-28T19:01:57Z",
+    "dumpEventTimeStamp": "1574967717514",
     "processId": 18,
     "cwd": "/src/inali-web",
     "commandLine": [
@@ -46,7 +46,7 @@
     "osRelease": "4.15.0-70-generic",
     "osVersion": "#79-Ubuntu SMP Tue Nov 12 10:36:11 UTC 2019",
     "osMachine": "x86_64",
-    "host": "710c32ce0cb7"
+    "host": "bdd554d733ae"
   },
   "javascriptStack": {
     "message": "No stack.",
@@ -88,7 +88,11 @@
       "symbol": "v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [node]"
     },
     {
-      "pc": "0x0000000000f4cec1",
+      "pc": "0x0000000000f4b68a",
+      "symbol": "v8::internal::Heap::CollectAllAvailableGarbage(v8::internal::GarbageCollectionReason) [node]"
+    },
+    {
+      "pc": "0x0000000000f4cf2e",
       "symbol": "v8::internal::Heap::AllocateRawWithRetryOrFail(int, v8::internal::AllocationSpace, v8::internal::AllocationAlignment) [node]"
     },
     {
@@ -112,15 +116,15 @@
       "symbol": "v8::internal::Runtime_GrowArrayElements(int, v8::internal::Object**, v8::internal::Isolate*) [node]"
     },
     {
-      "pc": "0x000028e46a6cfc5d",
+      "pc": "0x00000b0c106cfc5d",
       "symbol": ""
     }
   ],
   "javascriptHeap": {
-    "totalMemory": 1440407552,
-    "totalCommittedMemory": 1435917352,
-    "usedMemory": 1406677744,
-    "availableMemory": 89632376,
+    "totalMemory": 1438498816,
+    "totalCommittedMemory": 1435169032,
+    "usedMemory": 1406861400,
+    "availableMemory": 89732368,
     "memoryLimit": 1526909922,
     "heapSpaces": {
       "read_only_space": {
@@ -138,32 +142,32 @@
         "available": 1031168
       },
       "old_space": {
-        "memorySize": 1070272512,
-        "committedMemory": 1068732232,
-        "capacity": 1043540856,
-        "used": 1041732112,
-        "available": 1808744
+        "memorySize": 1068175360,
+        "committedMemory": 1067578120,
+        "capacity": 1041768128,
+        "used": 1041768128,
+        "available": 0
       },
       "code_space": {
         "memorySize": 2621440,
-        "committedMemory": 2294592,
-        "capacity": 2145856,
-        "used": 2145856,
+        "committedMemory": 2518048,
+        "capacity": 2108992,
+        "used": 2108992,
         "available": 0
       },
       "map_space": {
         "memorySize": 1060864,
-        "committedMemory": 982192,
-        "capacity": 704720,
-        "used": 704720,
+        "committedMemory": 976112,
+        "capacity": 703600,
+        "used": 703600,
         "available": 0
       },
       "large_object_space": {
-        "memorySize": 363831296,
-        "committedMemory": 363831296,
-        "capacity": 448371936,
-        "used": 362061536,
-        "available": 86310400
+        "memorySize": 364019712,
+        "committedMemory": 364019712,
+        "capacity": 450466296,
+        "used": 362247160,
+        "available": 88219136
       },
       "new_large_object_space": {
         "memorySize": 0,
@@ -175,26 +179,26 @@
     }
   },
   "resourceUsage": {
-    "userCpuSeconds": 112.434,
-    "kernelCpuSeconds": 3.94853,
-    "cpuConsumptionPercent": 95.3958,
-    "maxRss": 1556656128,
+    "userCpuSeconds": 117.039,
+    "kernelCpuSeconds": 4.21401,
+    "cpuConsumptionPercent": 12.1863,
+    "maxRss": 1549795328,
     "pageFaults": {
-      "IORequired": 24,
-      "IONotRequired": 1825827
+      "IORequired": 115,
+      "IONotRequired": 1925207
     },
     "fsActivity": {
-      "reads": 36552,
-      "writes": 49824
+      "reads": 54928,
+      "writes": 49960
     }
   },
   "uvthreadResourceUsage": {
-    "userCpuSeconds": 48.29,
-    "kernelCpuSeconds": 2.24065,
-    "cpuConsumptionPercent": 41.4186,
+    "userCpuSeconds": 50.0905,
+    "kernelCpuSeconds": 2.49912,
+    "cpuConsumptionPercent": 5.28539,
     "fsActivity": {
-      "reads": 15584,
-      "writes": 25064
+      "reads": 31760,
+      "writes": 25152
     }
   },
   "libuv": [
@@ -214,7 +218,7 @@
     "NODE_VERSION": "11.15.0",
     "npm_config_bin_links": "true",
     "npm_config_key": "",
-    "HOSTNAME": "710c32ce0cb7",
+    "HOSTNAME": "bdd554d733ae",
     "YARN_VERSION": "1.15.2",
     "npm_config_allow_same_version": "",
     "npm_config_description": "true",
@@ -315,7 +319,7 @@
     "npm_package_devDependencies_rollup_plugin_terser": "^4.0.4",
     "npm_config_umask": "0022",
     "npm_package_dependencies_lightbox_fs": "^1.0.3",
-    "npm_package_gitHead": "5fa13b227a25730355be96e43a4b3b4eba8a863c",
+    "npm_package_gitHead": "99ab260ca1c8935dd7d1c607f22a38bd7f927067",
     "npm_config_fetch_retry_maxtimeout": "60000",
     "npm_config_loglevel": "notice",
     "npm_config_logs_max": "10",

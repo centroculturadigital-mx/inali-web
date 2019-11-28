@@ -3,10 +3,10 @@
   "header": {
     "event": "Allocation failed - JavaScript heap out of memory",
     "trigger": "FatalError",
-    "filename": "report.20191126.040452.19.0.001.json",
-    "dumpEventTime": "2019-11-26T04:04:52Z",
-    "dumpEventTimeStamp": "1574741092910",
-    "processId": 19,
+    "filename": "report.20191128.191137.18.0.001.json",
+    "dumpEventTime": "2019-11-28T19:11:37Z",
+    "dumpEventTimeStamp": "1574968297911",
+    "processId": 18,
     "cwd": "/src/inali-web",
     "commandLine": [
       "node",
@@ -46,7 +46,7 @@
     "osRelease": "4.15.0-70-generic",
     "osVersion": "#79-Ubuntu SMP Tue Nov 12 10:36:11 UTC 2019",
     "osMachine": "x86_64",
-    "host": "710c32ce0cb7"
+    "host": "bdd554d733ae"
   },
   "javascriptStack": {
     "message": "No stack.",
@@ -116,15 +116,15 @@
       "symbol": "v8::internal::Runtime_GrowArrayElements(int, v8::internal::Object**, v8::internal::Isolate*) [node]"
     },
     {
-      "pc": "0x00003df7cb94fc5d",
+      "pc": "0x000018216804fc5d",
       "symbol": ""
     }
   ],
   "javascriptHeap": {
-    "totalMemory": 1440280576,
-    "totalCommittedMemory": 1436291568,
-    "usedMemory": 1408410392,
-    "availableMemory": 89124824,
+    "totalMemory": 1439547392,
+    "totalCommittedMemory": 1435162480,
+    "usedMemory": 1407096088,
+    "availableMemory": 90344768,
     "memoryLimit": 1526909922,
     "heapSpaces": {
       "read_only_space": {
@@ -142,32 +142,32 @@
         "available": 1031168
       },
       "old_space": {
-        "memorySize": 1068175360,
-        "committedMemory": 1066981200,
-        "capacity": 1043015296,
-        "used": 1041841080,
-        "available": 1174216
+        "memorySize": 1069223936,
+        "committedMemory": 1067644944,
+        "capacity": 1043631320,
+        "used": 1041970344,
+        "available": 1660976
       },
       "code_space": {
-        "memorySize": 3145728,
-        "committedMemory": 2975392,
-        "capacity": 2325664,
-        "used": 2325664,
+        "memorySize": 2621440,
+        "committedMemory": 2436032,
+        "capacity": 2139680,
+        "used": 2139680,
         "available": 0
       },
       "map_space": {
         "memorySize": 1060864,
-        "committedMemory": 980752,
-        "capacity": 705840,
-        "used": 705840,
+        "committedMemory": 984752,
+        "capacity": 704880,
+        "used": 704880,
         "available": 0
       },
       "large_object_space": {
-        "memorySize": 365277184,
-        "committedMemory": 365277184,
-        "capacity": 449941664,
-        "used": 363504288,
-        "available": 86437376
+        "memorySize": 364019712,
+        "committedMemory": 364019712,
+        "capacity": 449418224,
+        "used": 362247664,
+        "available": 87170560
       },
       "new_large_object_space": {
         "memorySize": 0,
@@ -179,26 +179,26 @@
     }
   },
   "resourceUsage": {
-    "userCpuSeconds": 342.157,
-    "kernelCpuSeconds": 14.4157,
-    "cpuConsumptionPercent": 44.9651,
-    "maxRss": 1567813632,
+    "userCpuSeconds": 160.327,
+    "kernelCpuSeconds": 5.75441,
+    "cpuConsumptionPercent": 51.4183,
+    "maxRss": 1559470080,
     "pageFaults": {
-      "IORequired": 19,
-      "IONotRequired": 6113908
+      "IORequired": 3,
+      "IONotRequired": 2536625
     },
     "fsActivity": {
-      "reads": 41568,
-      "writes": 380960
+      "reads": 15672,
+      "writes": 110072
     }
   },
   "uvthreadResourceUsage": {
-    "userCpuSeconds": 142.862,
-    "kernelCpuSeconds": 8.61377,
-    "cpuConsumptionPercent": 19.1016,
+    "userCpuSeconds": 66.4177,
+    "kernelCpuSeconds": 3.38592,
+    "cpuConsumptionPercent": 21.611,
     "fsActivity": {
-      "reads": 23752,
-      "writes": 230336
+      "reads": 840,
+      "writes": 60456
     }
   },
   "libuv": [
@@ -218,7 +218,7 @@
     "NODE_VERSION": "11.15.0",
     "npm_config_bin_links": "true",
     "npm_config_key": "",
-    "HOSTNAME": "710c32ce0cb7",
+    "HOSTNAME": "bdd554d733ae",
     "YARN_VERSION": "1.15.2",
     "npm_config_allow_same_version": "",
     "npm_config_description": "true",
@@ -319,7 +319,7 @@
     "npm_package_devDependencies_rollup_plugin_terser": "^4.0.4",
     "npm_config_umask": "0022",
     "npm_package_dependencies_lightbox_fs": "^1.0.3",
-    "npm_package_gitHead": "5fa13b227a25730355be96e43a4b3b4eba8a863c",
+    "npm_package_gitHead": "99ab260ca1c8935dd7d1c607f22a38bd7f927067",
     "npm_config_fetch_retry_maxtimeout": "60000",
     "npm_config_loglevel": "notice",
     "npm_config_logs_max": "10",
