@@ -396,9 +396,9 @@
       <div class="DetalleOrigenTexto">
         <div>
           <p>{colorRiesgo < 2 ? 'Bajo' : 'Alto'} riesgo de desaparición</p>
-          <!-- <small>
-                <b>25,620 hablantes</b>
-            </small> -->
+          <small>
+                <b>{lengua.hablantes} hablantes</b>
+            </small>
         </div>
       </div>
     </div>
