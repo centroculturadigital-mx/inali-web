@@ -155,7 +155,7 @@
   .Logotipos{
     /* width: auto; */
     height: 2rem;
-    margin-left: 1rem;
+    margin-left: 0.5rem;
     margin-bottom: 0.5rem;
   }
   
