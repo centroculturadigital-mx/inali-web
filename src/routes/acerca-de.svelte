@@ -122,7 +122,7 @@
   .Cerrar small {
     padding-right: 0.25rem;
   }
-  .Cerrar a img:hover {
+  .Cerrar:hover {
     opacity: 0.55;
   }
   @media (max-width: 660px) {

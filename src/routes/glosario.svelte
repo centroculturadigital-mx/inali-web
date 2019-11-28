@@ -126,7 +126,7 @@
     width: 1.75rem;
     filter: invert();
   }
-  .Cerrar a img:hover {
+  .Cerrar a:hover {
     opacity: 0.55;
   }
   @media (max-width: 660px) {

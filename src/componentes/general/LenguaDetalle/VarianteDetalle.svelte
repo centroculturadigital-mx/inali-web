@@ -119,7 +119,7 @@
     align-items: center;
   }
   #DetalleCerrar:hover {
-    color: rgb(114, 166, 170);
+      opacity: 0.75
   }
   #DetalleCerrar img {
     width: 1.75rem;

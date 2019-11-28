@@ -48,7 +48,7 @@
     display: flex;
     align-items: center;
   }
-  .Regresa img:hover {
+  .Regresa:hover {
     opacity: 0.85;
   }
 
