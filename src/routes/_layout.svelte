@@ -10,13 +10,14 @@
   import { writable } from "svelte/store";
 
   const { page } = stores();
-
-//   $: {
-    console.log("PAGINA::: ", $page.path);
-    // ga("send", {
-    //   page: $page.path
-    // });
-//   }
+  $: {
+    if (typeof gtag !== "undefined") {
+      console.log("PAGINA::: ", $page.path);
+      gtag("config", "UA-153508820-1", {
+        page_path: $page.path
+      });
+    }
+  }
 
   export let segment;
 
