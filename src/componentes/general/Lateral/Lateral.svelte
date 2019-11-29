@@ -10,7 +10,7 @@
     left: 0;
     width: 50%;
     max-width: 45rem;
-    height: 100vh;
+    height: calc(100vh - 5rem);
     background-color: #fff;
     overflow-y: auto;
   }

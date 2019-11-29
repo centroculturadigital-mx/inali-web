@@ -140,6 +140,7 @@
   .Cerrar img {
     width: 1.75rem;
     filter: invert();
+    -webkit-filter: invert();
   }
   .Cerrar small {
     padding-right: 0.25rem;

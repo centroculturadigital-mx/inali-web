@@ -87,6 +87,7 @@
   .LightBox header button img {
     width: 1.75rem;
     filter: invert();
+    -webkit-filter: invert();
   }
   .LightBox header button:hover {
       opacity: 0.75;
