@@ -47,6 +47,7 @@
   }
   .BotonPlay img {
     filter: invert();
+    -webkit-filter: invert();
   }
   .Controles {
     /* display: flex; */

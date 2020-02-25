@@ -14,7 +14,7 @@
   .GaleriaMedia {
     position: fixed;
     padding-top: 3.25rem;
-    padding-bottom: 2.25rem;
+    padding-bottom: 2rem;
     top: 0;
     right: 0;
     height: 100vh;
@@ -32,6 +32,7 @@
   .Regresa {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     padding-top: 0.5rem;
     color: rgb(255, 255, 255);
     background-color: transparent;
@@ -48,7 +49,7 @@
     display: flex;
     align-items: center;
   }
-  .Regresa img:hover {
+  .Regresa:hover {
     opacity: 0.85;
   }
 
