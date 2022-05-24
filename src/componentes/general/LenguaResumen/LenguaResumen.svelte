@@ -390,6 +390,7 @@
               {lengua}
               color={lengua.color}
               riesgo={lengua.riesgo}
+              hablantes={50}
               movil />
           {/if}
           {#if !!lengua.NOM_VAR}

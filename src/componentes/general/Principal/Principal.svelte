@@ -194,6 +194,8 @@
     } else if (selec.agrId) {
       let l = agrupaciones.find(a => a.id === selec.agrId);
 
+      console.log('agru',Object.keys(l))
+
       let fam = familias.find(f => f.id === l.familiaId);
 
       l.familiaInfo = {
@@ -214,8 +216,10 @@
       // console.log("Detalle para", selec.agrId);
     } else if (selec.varId) {
       // console.log("Detalle para", selec.varId);
-
+      console.log('selec',selec.varId)
+      console.log('variantes', variantes)
       let l = variantes.find(v => v.id === selec.varId);
+      console.log('l',l)
 
       let fam = familias.find(f => f.id === l.familiaId);
       let agr = agrupaciones.find(a => a.id === l.agrupacionId);
@@ -298,9 +302,9 @@
   };
 
   onMount(async () => {
-    familiasModule = await import("../../../data/familias.json");
-    agrupacionesModule = await import("../../../data/agrupaciones.json");
-    variantesModule = await import("../../../data/variantes.json");
+    familiasModule = await import("../../../data/familias.js");
+    agrupacionesModule = await import("../../../data/agrupaciones.js");
+    variantesModule = await import("../../../data/variantes.js");
   });
 
   let movil;

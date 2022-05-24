@@ -6,7 +6,7 @@
 
   let go;
 
-  // $: console.log(imagenes);
+  $: console.log(imagenes.map(i => i.creditos));
   
 </script>
 

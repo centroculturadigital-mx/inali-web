@@ -10,6 +10,8 @@
 
   export let imagenes;
 
+  // $: console.log('imagenes', imagenes)
+
   // import imagenes from "../../../data/imagenesFake";
 
   import { getContext } from "svelte";

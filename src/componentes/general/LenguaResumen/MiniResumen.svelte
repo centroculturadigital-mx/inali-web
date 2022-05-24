@@ -4,7 +4,6 @@
   export let lenguaDatos;
   export let muestraMapa;
   export let muestraDetalle;
-
 </script>
 
 <style>
